@@ -216,3 +216,35 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ── Project-specific ──────────────────────────────────────────────────────────
+
+# Data files (large, rebuilt from Kaggle — don't commit)
+*.csv
+*.parquet
+*.json
+*.xlsx
+
+# Jupyter / Kaggle notebooks (source of truth is Kaggle, not GitHub)
+*.ipynb
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Output files from Kaggle runs (HTML files are committed intentionally,
+# but any other outputs should stay out)
+*.pkl
+*.feather
+*.h5
+
+# Local dev if you ever work on this outside Kaggle
+.env
+.env.local
