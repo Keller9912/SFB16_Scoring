@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SFB16 Analytics Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div style="font-size:2.8rem;margin-bottom:12px">🐟</div>
+  <h1>#SFB16 Analytics Hub</h1>
+  <p>Scott Fish Bowl 16 · Data & Analysis</p>
+  <p class="last-updated" id="last-updated"></p>
+</header>
+
+<div style="max-width:1100px;margin:0 auto">
+  <div class="section-title">Tools &amp; Dashboards</div>
+  <div class="card-grid">
+
+    <a class="card" href="sfb16_player_scoring.html">
+      <span class="badge badge-new">Live</span>
+      <div class="card-icon">📊</div>
+      <div class="card-title">Player Scoring Dashboard</div>
+      <div class="card-desc">
+        Full SFB16 point totals for every player from 2021–2025.
+        Filter by position, season, or search by name. Sortable by any scoring category.
+      </div>
+      <div class="card-tags">
+        <span class="tag">All Positions</span>
+        <span class="tag">2021–2025</span>
+        <span class="tag">Sortable</span>
+      </div>
+      <div class="card-arrow">Open Dashboard →</div>
+    </a>
+
+    <a class="card" href="sfb16_analysis.html">
+      <span class="badge badge-new">Live</span>
+      <div class="card-icon">🎮</div>
+      <div class="card-title">Video Game Bonus Analysis</div>
+      <div class="card-desc">
+        Historical frequency of every SFB16 video game bonus by player and season.
+        Includes RB vs WR comparisons for all scrimmage bonuses.
+      </div>
+      <div class="card-tags">
+        <span class="tag">Bonus Plays</span>
+        <span class="tag">Game Thresholds</span>
+        <span class="tag">RB vs WR</span>
+      </div>
+      <div class="card-arrow">Open Analysis →</div>
+    </a>
+
+    <a class="card coming-soon" href="#">
+      <span class="badge badge-soon">Soon</span>
+      <div class="card-icon">🏆</div>
+      <div class="card-title">Weekly Scoring Tracker</div>
+      <div class="card-desc">
+        Live week-by-week SFB16 scoring as the 2026 season unfolds,
+        updated after each game using nflverse weekly roster pulls.
+      </div>
+      <div class="card-tags">
+        <span class="tag">2026 Season</span>
+        <span class="tag">Weekly</span>
+        <span class="tag">Live</span>
+      </div>
+      <div class="card-arrow">Coming Soon</div>
+    </a>
+
+    <a class="card coming-soon" href="#">
+      <span class="badge badge-soon">Soon</span>
+      <div class="card-icon">📈</div>
+      <div class="card-title">Draft Value Tool</div>
+      <div class="card-desc">
+        Projected SFB16 points based on historical bonus frequency
+        and expected usage. Tiered by position for draft strategy.
+      </div>
+      <div class="card-tags">
+        <span class="tag">Projections</span>
+        <span class="tag">Draft</span>
+        <span class="tag">Tiers</span>
+      </div>
+      <div class="card-arrow">Coming Soon</div>
+    </a>
+
+  </div>
+
+  <div class="scoring-rules">
+    <h2>SFB16 Scoring Reference</h2>
+    <div class="rules-grid">
+      <div class="rule-item"><div class="rule-pts">6 pts</div><div class="rule-lbl">Per Touchdown</div></div>
+      <div class="rule-item"><div class="rule-pts">2 pts</div><div class="rule-lbl">Per 2PT Conversion</div></div>
+      <div class="rule-item"><div class="rule-pts">0.04 pts</div><div class="rule-lbl">Per Passing Yard (1/25)</div></div>
+      <div class="rule-item"><div class="rule-pts">0.1 pts</div><div class="rule-lbl">Per Rush or Rec Yard (1/10)</div></div>
+      <div class="rule-item"><div class="rule-pts">0.5 pts</div><div class="rule-lbl">Per Reception</div></div>
+      <div class="rule-item"><div class="rule-pts">0.5 pts</div><div class="rule-lbl">Per First Down (Rush/Rec)</div></div>
+      <div class="rule-item"><div class="rule-pts">+1 pt</div><div class="rule-lbl">TE Bonus — Per Reception</div></div>
+      <div class="rule-item"><div class="rule-pts">+1 pt</div><div class="rule-lbl">TE Bonus — Per First Down</div></div>
+      <div class="rule-item"><div class="rule-pts">+10 pts</div><div class="rule-lbl">300+ Yard Passing Game</div></div>
+      <div class="rule-item"><div class="rule-pts">+10 pts</div><div class="rule-lbl">400+ Yard Passing Game</div></div>
+      <div class="rule-item"><div class="rule-pts">+10 pts</div><div class="rule-lbl">100+ Yard Scrimmage Game</div></div>
+      <div class="rule-item"><div class="rule-pts">+10 pts</div><div class="rule-lbl">200+ Yard Scrimmage Game</div></div>
+      <div class="rule-item"><div class="rule-pts">+10 pts</div><div class="rule-lbl">40+ Yard Passing Play</div></div>
+      <div class="rule-item"><div class="rule-pts">+10 pts</div><div class="rule-lbl">40+ Yard Rushing Play</div></div>
+      <div class="rule-item"><div class="rule-pts">+10 pts</div><div class="rule-lbl">20+ Yard Receiving Play</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Data: <a href="https://nflverse.com" target="_blank">nflverse</a> ·
+  Scoring: SFB16 rules by
+  <a href="https://twitter.com/scottfishbowl" target="_blank">@scottfishbowl</a> ·
+  Built with Python + pandas
+</footer>
+
+<script>
+  fetch('data/meta.json')
+    .then(r => r.json())
+    .then(m => {
+      document.getElementById('last-updated').textContent =
+        'Last updated: ' + m.last_updated + ' · ' + m.total_records.toLocaleString() + ' player-season records';
+    })
+    .catch(() => {});
+</script>
+</body>
+</html>

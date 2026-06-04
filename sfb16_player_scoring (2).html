@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SFB16 Player Scoring Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="home-btn" href="index.html">🐟 Home</a>
+
+<header>
+  <h1>📊 SFB16 Player Scoring Dashboard</h1>
+  <p>Scott Fish Bowl 16 · 2021–2025 Regular Season · Weeks 1–17</p>
+  <p class="last-updated" id="last-updated"></p>
+</header>
+
+<div class="scoring-summary">
+  <div class="score-card"><div class="pts">6 pts</div><div class="lbl">Per Touchdown</div></div>
+  <div class="score-card"><div class="pts">2 pts</div><div class="lbl">Per 2PT Conv</div></div>
+  <div class="score-card"><div class="pts">0.04 pts</div><div class="lbl">Per Pass Yard</div></div>
+  <div class="score-card"><div class="pts">0.1 pts</div><div class="lbl">Per Rush/Rec Yard</div></div>
+  <div class="score-card"><div class="pts">0.5 pts</div><div class="lbl">Per Reception</div></div>
+  <div class="score-card"><div class="pts">0.5 pts</div><div class="lbl">Per First Down</div></div>
+  <div class="score-card"><div class="pts">+1 pt</div><div class="lbl">TE Bonus (Rec+1D)</div></div>
+  <div class="score-card"><div class="pts">+10 pts</div><div class="lbl">300/400 Pass Game</div></div>
+  <div class="score-card"><div class="pts">+10 pts</div><div class="lbl">100/200 Scrim Game</div></div>
+  <div class="score-card"><div class="pts">+10 pts</div><div class="lbl">40+ Yd Pass/Rush</div></div>
+  <div class="score-card"><div class="pts">+10 pts</div><div class="lbl">20+ Yd Reception</div></div>
+</div>
+
+<div class="controls">
+  <div class="filter-group">
+    <span class="filter-label">Position:</span>
+    <button class="filter-btn active" onclick="setFilter('pos','ALL')">All</button>
+    <button class="filter-btn" onclick="setFilter('pos','QB')">QB</button>
+    <button class="filter-btn" onclick="setFilter('pos','RB')">RB</button>
+    <button class="filter-btn" onclick="setFilter('pos','WR')">WR</button>
+    <button class="filter-btn" onclick="setFilter('pos','TE')">TE</button>
+  </div>
+  <div class="filter-group">
+    <span class="filter-label">Season:</span>
+    <button class="filter-btn active" onclick="setFilter('season','ALL')">All</button>
+    <button class="filter-btn" onclick="setFilter('season',2021)">2021</button>
+    <button class="filter-btn" onclick="setFilter('season',2022)">2022</button>
+    <button class="filter-btn" onclick="setFilter('season',2023)">2023</button>
+    <button class="filter-btn" onclick="setFilter('season',2024)">2024</button>
+    <button class="filter-btn" onclick="setFilter('season',2025)">2025</button>
+  </div>
+  <div class="filter-group">
+    <input id="search" type="text" class="search-box"
+           placeholder="&#128269; Search player..." oninput="onSearch()">
+  </div>
+</div>
+<div id="stats-bar" class="stats-bar"></div>
+
+<div class="table-wrap">
+  <table id="main-table">
+    <thead>
+      <tr>
+        <th onclick="sortBy('player')">Player ▲▼</th>
+        <th onclick="sortBy('pos')">Pos ▲▼</th>
+        <th onclick="sortBy('team')">Team ▲▼</th>
+        <th onclick="sortBy('season')">Season ▲▼</th>
+        <th onclick="sortBy('gp')">GP ▲▼</th>
+        <th onclick="sortBy('pass_yds')">Pass Yds ▲▼</th>
+        <th onclick="sortBy('rush_yds')">Rush Yds ▲▼</th>
+        <th onclick="sortBy('rec_yds')">Rec Yds ▲▼</th>
+        <th onclick="sortBy('receptions')">Rec ▲▼</th>
+        <th onclick="sortBy('tds')">TDs ▲▼</th>
+        <th onclick="sortBy('two_pt')">2PT ▲▼</th>
+        <th onclick="sortBy('first_downs')">1st Dns ▲▼</th>
+        <th onclick="sortBy('pass_40')">40+ Pass ▲▼</th>
+        <th onclick="sortBy('rush_40')">40+ Rush ▲▼</th>
+        <th onclick="sortBy('rec_20')">20+ Rec ▲▼</th>
+        <th onclick="sortBy('pass_300')">300+ Gms ▲▼</th>
+        <th onclick="sortBy('pass_400')">400+ Gms ▲▼</th>
+        <th onclick="sortBy('scrim_100')">100+ Gms ▲▼</th>
+        <th onclick="sortBy('scrim_200')">200+ Gms ▲▼</th>
+        <th onclick="sortBy('td_pts')" class="pts-col">TD Pts ▲▼</th>
+        <th onclick="sortBy('two_pt_pts')" class="pts-col">2PT Pts ▲▼</th>
+        <th onclick="sortBy('pass_pts')" class="pts-col">Pass Pts ▲▼</th>
+        <th onclick="sortBy('rush_rec_pts')" class="pts-col">Rsh/Rec Pts ▲▼</th>
+        <th onclick="sortBy('fd_pts')" class="pts-col">1D Pts ▲▼</th>
+        <th onclick="sortBy('rec_pts')" class="pts-col">Rec Pts ▲▼</th>
+        <th onclick="sortBy('te_pts')" class="pts-col">TE Bonus ▲▼</th>
+        <th onclick="sortBy('bonus_pts')" class="pts-col">Bonus Pts ▲▼</th>
+        <th onclick="sortBy('total_pts')" class="total-col">Total Pts ▲▼</th>
+        <th onclick="sortBy('ppg')" class="total-col">Pts/Gm ▲▼</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+</div>
+
+<div id="loading" class="loading">
+  <div class="loading-spinner"></div>
+  <div>Loading player data...</div>
+</div>
+
+<footer>Data: nflverse · Scoring: SFB16 rules · Built with Python + pandas</footer>
+
+<script>
+  const COLS = ['player','pos','team','season','gp','pass_yds','rush_yds','rec_yds',
+                'receptions','tds','two_pt','first_downs','pass_40','rush_40','rec_20',
+                'pass_300','pass_400','scrim_100','scrim_200','td_pts','two_pt_pts',
+                'pass_pts','rush_rec_pts','fd_pts','rec_pts','te_pts','bonus_pts',
+                'total_pts','ppg'];
+
+  let ALL_DATA = [];
+  let filtered  = [];
+  let sortKey   = 'total_pts';
+  let sortAsc   = false;
+  let filters   = { pos: 'ALL', season: 'ALL' };
+  let searchVal = '';
+  let debounceTimer;
+
+  // ── Load data from JSON file ────────────────────────────────────────────────
+  Promise.all([
+    fetch('data/player_scoring.json').then(r => r.json()),
+    fetch('data/meta.json').then(r => r.json()).catch(() => null)
+  ]).then(([data, meta]) => {
+    ALL_DATA = data;
+    document.getElementById('loading').style.display = 'none';
+    if (meta) {
+      document.getElementById('last-updated').textContent =
+        'Last updated: ' + meta.last_updated + ' · ' + meta.total_records.toLocaleString() + ' records';
+    }
+    applyAll();
+  }).catch(err => {
+    document.getElementById('loading').innerHTML =
+      '<div style="color:#ef4444">Failed to load data. If running locally, use a local server: python -m http.server 8000</div>';
+  });
+
+  function applyAll() {
+    filtered = ALL_DATA.filter(r => {
+      if (filters.pos    !== 'ALL' && r.pos    !== filters.pos)    return false;
+      if (filters.season !== 'ALL' && r.season !== filters.season) return false;
+      if (searchVal && !r.player.toLowerCase().includes(searchVal)) return false;
+      return true;
+    });
+    filtered.sort((a, b) => {
+      let A = a[sortKey], B = b[sortKey];
+      if (typeof A === 'string') return sortAsc ? A.localeCompare(B) : B.localeCompare(A);
+      return sortAsc ? A - B : B - A;
+    });
+    render();
+  }
+
+  function render() {
+    const tbody = document.getElementById('table-body');
+    const bar   = document.getElementById('stats-bar');
+    bar.textContent = filtered.length.toLocaleString() + ' players';
+    if (filtered.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="29" class="no-results">No results found</td></tr>';
+      return;
+    }
+    tbody.innerHTML = filtered.map(r =>
+      '<tr>' + COLS.map((c, i) => {
+        const cls = i >= 19 && i <= 26 ? ' class="pts-col"'
+                  : i >= 27            ? ' class="total-col"' : '';
+        return `<td${cls}>${r[c]}</td>`;
+      }).join('') + '</tr>'
+    ).join('');
+  }
+
+  function setFilter(key, val) {
+    filters[key] = val;
+    document.querySelectorAll(`[onclick*="setFilter('${key}'"]`).forEach(b => {
+      b.classList.toggle('active',
+        b.getAttribute('onclick').includes(`'${val}'`) ||
+        b.getAttribute('onclick').includes(`,${val})`));
+    });
+    applyAll();
+  }
+
+  function onSearch() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      searchVal = document.getElementById('search').value.toLowerCase();
+      applyAll();
+    }, 200);
+  }
+
+  function sortBy(key) {
+    sortAsc = (sortKey === key) ? !sortAsc : false;
+    sortKey = key;
+    applyAll();
+  }
+</script>
+</body>
+</html>
