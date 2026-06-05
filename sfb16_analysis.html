@@ -164,6 +164,9 @@
 <footer>Data: nflverse · Scoring: SFB16 rules · Built with Python + pandas</footer>
 
 <script>
+  // ── Hardcoded base path for GitHub Pages ──────────────────────────────────
+  const DATA_BASE = 'https://keller9912.github.io/SFB16_Scoring/data/';
+
   const SECTIONS = [
     { id:'pass40',   file:'bonus_pass40.json',   icon:'🧡', title:'40+ Yard Passing Plays — by Player' },
     { id:'rush40',   file:'bonus_rush40.json',   icon:'❤️',  title:'40+ Yard Rushing Plays — by Player' },
@@ -175,21 +178,43 @@
   ];
 
   const state = {};
-  SECTIONS.forEach(s => { state[s.id] = { pos:'ALL', search:'', sortKey:'Total', sortAsc:false, data:[] }; });
+  SECTIONS.forEach(s => {
+    state[s.id] = { pos:'ALL', search:'', sortKey:'Total', sortAsc:false, data:[] };
+  });
 
-  // ── Fetch all data in parallel ──────────────────────────────────────────────
+  function showError(msg) {
+    document.getElementById('loading').innerHTML = `
+      <div style="color:#ef4444;max-width:600px;margin:0 auto;text-align:left;padding:20px;
+                  background:#1a1a2e;border:1px solid #ef444433;border-radius:8px">
+        <div style="font-weight:700;margin-bottom:8px">⚠️ Failed to load data</div>
+        <div style="font-size:0.85rem;color:#fca5a5;margin-bottom:12px">${msg}</div>
+        <div style="font-size:0.78rem;color:#666">
+          Attempted to load from: <code style="color:#a78bfa">${DATA_BASE}</code><br>
+          Check the browser console (F12) for the exact error.
+        </div>
+      </div>`;
+  }
+
+  function safeFetch(filename) {
+    return fetch(DATA_BASE + filename).then(r => {
+      if (!r.ok) throw new Error(filename + ' returned HTTP ' + r.status);
+      return r.json();
+    });
+  }
+
+  // ── Fetch all data in parallel ────────────────────────────────────────────
   const fetches = [
-    fetch('data/totals_pass.json').then(r=>r.json()),
-    fetch('data/totals_scrim.json').then(r=>r.json()),
-    fetch('data/totals_pass40.json').then(r=>r.json()),
-    fetch('data/totals_rush40.json').then(r=>r.json()),
-    fetch('data/totals_rec20.json').then(r=>r.json()),
-    fetch('data/compare_rush40.json').then(r=>r.json()),
-    fetch('data/compare_rec20.json').then(r=>r.json()),
-    fetch('data/compare_scrim100.json').then(r=>r.json()),
-    fetch('data/compare_scrim200.json').then(r=>r.json()),
-    fetch('data/meta.json').then(r=>r.json()).catch(()=>null),
-    ...SECTIONS.map(s => fetch('data/' + s.file).then(r=>r.json()))
+    safeFetch('totals_pass.json'),
+    safeFetch('totals_scrim.json'),
+    safeFetch('totals_pass40.json'),
+    safeFetch('totals_rush40.json'),
+    safeFetch('totals_rec20.json'),
+    safeFetch('compare_rush40.json'),
+    safeFetch('compare_rec20.json'),
+    safeFetch('compare_scrim100.json'),
+    safeFetch('compare_scrim200.json'),
+    fetch(DATA_BASE + 'meta.json').then(r => r.json()).catch(() => null),
+    ...SECTIONS.map(s => safeFetch(s.file))
   ];
 
   Promise.all(fetches).then(results => {
@@ -205,7 +230,6 @@
         'Last updated: ' + meta.last_updated;
     }
 
-    // Assign section data
     SECTIONS.forEach((s, i) => { state[s.id].data = sectionData[i]; });
 
     // ── Render bonus cards ──────────────────────────────────────────────────
@@ -219,24 +243,23 @@
     rb('rush40-body',   rush40Tot.map(d => `<tr><td>${d.season}</td><td>${d.total_rush}</td><td>${d.rush_40_total}</td><td>${d.pct}%</td></tr>`));
     rb('rec20-body',    rec20Tot.map(d  => `<tr><td>${d.season}</td><td>${d.total_rec}</td><td>${d.rec_20_total}</td><td>${d.pct}%</td></tr>`));
 
-    // ── Render RB vs WR ─────────────────────────────────────────────────────
+    // ── Render RB vs WR comparisons ────────────────────────────────────────
     function share(a, b, ofA) {
       const t = a + b;
-      return t > 0 ? ((ofA ? a : b)/t*100).toFixed(1)+'%' : '0.0%';
+      return t > 0 ? ((ofA ? a : b) / t * 100).toFixed(1) + '%' : '0.0%';
     }
-    rb('cmp-rush40',  cmpRush40.map(d  => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,true)}</td></tr>`));
-    rb('cmp-rec20',   cmpRec20.map(d   => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,false)}</td></tr>`));
-    rb('cmp-scrim100',cmpScrim100.map(d => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,true)}</td></tr>`));
-    rb('cmp-scrim200',cmpScrim200.map(d => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,true)}</td></tr>`));
+    rb('cmp-rush40',   cmpRush40.map(d  => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,true)}</td></tr>`));
+    rb('cmp-rec20',    cmpRec20.map(d   => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,false)}</td></tr>`));
+    rb('cmp-scrim100', cmpScrim100.map(d => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,true)}</td></tr>`));
+    rb('cmp-scrim200', cmpScrim200.map(d => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,true)}</td></tr>`));
 
-    // ── Build player sections ───────────────────────────────────────────────
     buildSections();
 
   }).catch(err => {
-    document.getElementById('loading').innerHTML =
-      '<div style="color:#ef4444">Failed to load data. If running locally use: python -m http.server 8000</div>';
+    showError(err.message);
   });
 
+  // ── Build player sections ───────────────────────────────────────────────────
   function buildSections() {
     document.getElementById('player-sections').innerHTML = SECTIONS.map(s => {
       const keys = Object.keys(state[s.id].data[0] || {});
@@ -282,35 +305,40 @@
       if (s.search && !r.Player.toLowerCase().includes(s.search)) return false;
       return true;
     });
-    rows.sort((a,b) => {
-      let A=a[s.sortKey], B=b[s.sortKey];
-      if (typeof A==='string') return s.sortAsc?A.localeCompare(B):B.localeCompare(A);
-      return s.sortAsc?A-B:B-A;
+    rows.sort((a, b) => {
+      let A = a[s.sortKey], B = b[s.sortKey];
+      if (typeof A === 'string') return s.sortAsc ? A.localeCompare(B) : B.localeCompare(A);
+      return s.sortAsc ? A - B : B - A;
     });
-    const tbody = document.getElementById(id+'-body');
-    const stats = document.getElementById(id+'-stats');
+    const tbody = document.getElementById(id + '-body');
+    const stats = document.getElementById(id + '-stats');
     if (stats) stats.textContent = rows.length.toLocaleString() + ' players';
-    tbody.innerHTML = rows.length===0
+    tbody.innerHTML = rows.length === 0
       ? `<tr><td colspan="${keys.length}" style="text-align:center;padding:24px;color:#555">No results</td></tr>`
       : rows.map(row =>
-          '<tr>' + keys.map((k,i) => {
-            const isLast = i >= keys.length-2;
-            return `<td${isLast?' style="color:#f5c542;font-weight:600"':''}>${row[k]}</td>`;
+          '<tr>' + keys.map((k, i) => {
+            const isLast = i >= keys.length - 2;
+            return `<td${isLast ? ' style="color:#f5c542;font-weight:600"' : ''}>${row[k]}</td>`;
           }).join('') + '</tr>'
         ).join('');
   }
 
   function filterPos(id, pos) {
     state[id].pos = pos;
-    const section = document.getElementById(id+'-body').closest('.player-section');
+    const section = document.getElementById(id + '-body').closest('.player-section');
     section.querySelectorAll('.filter-btn').forEach(b => {
-      b.classList.toggle('active', b.textContent.trim() === (pos==='ALL'?'All':pos));
+      b.classList.toggle('active', b.textContent.trim() === (pos === 'ALL' ? 'All' : pos));
     });
     renderPlayer(id);
   }
-  function searchPlayer(id, val) { state[id].search=val.toLowerCase(); renderPlayer(id); }
+
+  function searchPlayer(id, val) {
+    state[id].search = val.toLowerCase();
+    renderPlayer(id);
+  }
+
   function sortPlayer(id, key) {
-    state[id].sortAsc = state[id].sortKey===key ? !state[id].sortAsc : false;
+    state[id].sortAsc = (state[id].sortKey === key) ? !state[id].sortAsc : false;
     state[id].sortKey = key;
     renderPlayer(id);
   }
