@@ -222,7 +222,7 @@ __marimo__/
 # Data files (large, rebuilt from Kaggle — don't commit)
 *.csv
 *.parquet
-*.json
+#*.json
 *.xlsx
 
 # Jupyter / Kaggle notebooks (source of truth is Kaggle, not GitHub)
