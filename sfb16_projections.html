@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SFB16 2026 Projections</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="home-btn" href="index.html">🐟 Home</a>
+
+<header>
+  <h1>🔮 SFB16 2026 Projections</h1>
+  <p>FantasyPros Consensus Projections converted to Scott Fish Bowl 16 scoring</p>
+  <p class="last-updated" id="last-updated"></p>
+</header>
+
+<div class="scoring-summary">
+  <div class="score-card">
+    <div class="pts">2026</div>
+    <div class="lbl">Season Projections</div>
+  </div>
+
+  <div class="score-card">
+    <div class="pts" id="player-count">0</div>
+    <div class="lbl">Players</div>
+  </div>
+
+  <div class="score-card">
+    <div class="pts">SFB16</div>
+    <div class="lbl">Scoring Rules</div>
+  </div>
+
+  <div class="score-card">
+    <div class="pts">FP</div>
+    <div class="lbl">Consensus Data</div>
+  </div>
+</div>
+
+<div class="controls">
+
+  <div class="filter-group">
+    <span class="filter-label">Position:</span>
+
+    <button class="filter-btn active"
+            onclick="setFilter('pos','ALL')">All</button>
+
+    <button class="filter-btn"
+            onclick="setFilter('pos','QB')">QB</button>
+
+    <button class="filter-btn"
+            onclick="setFilter('pos','RB')">RB</button>
+
+    <button class="filter-btn"
+            onclick="setFilter('pos','WR')">WR</button>
+
+    <button class="filter-btn"
+            onclick="setFilter('pos','TE')">TE</button>
+  </div>
+
+  <div class="filter-group">
+    <input id="search"
+           type="text"
+           class="search-box"
+           placeholder="🔍 Search player..."
+           oninput="onSearch()">
+  </div>
+
+</div>
+
+<div id="stats-bar" class="stats-bar"></div>
+
+<div class="table-wrap">
+
+<table id="main-table">
+
+<thead>
+<tr>
+
+<th onclick="sortBy('rank')">Rank ▲▼</th>
+<th onclick="sortBy('player')">Player ▲▼</th>
+<th onclick="sortBy('pos')">Pos ▲▼</th>
+<th onclick="sortBy('team')">Team ▲▼</th>
+
+<th onclick="sortBy('pass_yds')">Pass Yds ▲▼</th>
+<th onclick="sortBy('pass_tds')">Pass TD ▲▼</th>
+
+<th onclick="sortBy('rush_yds')">Rush Yds ▲▼</th>
+<th onclick="sortBy('rush_tds')">Rush TD ▲▼</th>
+
+<th onclick="sortBy('receptions')">Rec ▲▼</th>
+<th onclick="sortBy('rec_yds')">Rec Yds ▲▼</th>
+<th onclick="sortBy('rec_tds')">Rec TD ▲▼</th>
+
+<th onclick="sortBy('base_pts')" class="pts-col">
+Base Pts ▲▼
+</th>
+
+<th onclick="sortBy('total_bonus_pts')" class="pts-col">
+Bonus Pts ▲▼
+</th>
+
+<th onclick="sortBy('bonus_pct')" class="pts-col">
+Bonus % ▲▼
+</th>
+
+<th onclick="sortBy('bonus_rush_40')" class="pts-col">
+40+ Rush ▲▼
+</th>
+
+<th onclick="sortBy('bonus_rec_20')" class="pts-col">
+20+ Rec ▲▼
+</th>
+
+<th onclick="sortBy('bonus_scrim_100')" class="pts-col">
+100+ Scrim ▲▼
+</th>
+
+<th onclick="sortBy('bonus_scrim_200')" class="pts-col">
+200+ Scrim ▲▼
+</th>
+
+<th onclick="sortBy('rank_change')" class="pts-col">
+Δ Rank ▲▼
+</th>
+
+<th onclick="sortBy('total_proj_pts')" class="total-col">
+Total Proj ▲▼
+</th>
+
+<th onclick="sortBy('pts_per_game')" class="total-col">
+PPG ▲▼
+</th>
+
+</tr>
+</thead>
+
+<tbody id="table-body"></tbody>
+
+</table>
+</div>
+
+<div id="loading" class="loading">
+  <div class="loading-spinner"></div>
+  <div>Loading projections...</div>
+</div>
+
+<footer>
+FantasyPros Consensus Projections · Converted to SFB16 scoring
+</footer>
+
+<script>
+
+const COLS = [
+'rank',
+'player',
+'pos',
+'team',
+'pass_yds',
+'pass_tds',
+'rush_yds',
+'rush_tds',
+'receptions',
+'rec_yds',
+'rec_tds',
+'base_pts',
+'total_bonus_pts',
+'bonus_pct',
+'bonus_rush_40',
+'bonus_rec_20',
+'bonus_scrim_100',
+'bonus_scrim_200',
+'rank_change',
+'total_proj_pts',
+'pts_per_game'
+];
+
+let ALL_DATA = [];
+let filtered = [];
+
+let sortKey = 'total_proj_pts';
+let sortAsc = false;
+
+let filters = {
+  pos:'ALL'
+};
+
+let searchVal = '';
+let debounceTimer;
+
+const DATA_BASE =
+'https://keller9912.github.io/SFB16_Scoring/data/';
+
+Promise.all([
+  fetch(DATA_BASE + 'projections_2026.json')
+    .then(r => {
+      if(!r.ok) throw new Error(
+        'projections_2026.json returned HTTP ' + r.status
+      );
+      return r.json();
+    }),
+  fetch(DATA_BASE + 'meta.json')
+    .then(r => r.ok ? r.json() : null)
+    .catch(() => null)
+])
+
+.then(([data, meta]) => {
+
+  ALL_DATA = data;
+
+  document.getElementById('loading').style.display='none';
+
+  document.getElementById('player-count').textContent =
+    data.length.toLocaleString();
+
+  if(meta){
+    document.getElementById('last-updated').textContent =
+      'Last updated: ' + meta.last_updated;
+  }
+
+  applyAll();
+
+})
+
+.catch(err => {
+
+  document.getElementById('loading').innerHTML =
+  `<div style="color:#ef4444">
+      Failed to load projections:
+      ${err.message}
+   </div>`;
+});
+
+function applyAll(){
+
+  filtered = ALL_DATA.filter(r => {
+
+    if(filters.pos !== 'ALL' &&
+       r.pos !== filters.pos)
+       return false;
+
+    if(searchVal &&
+       !r.player.toLowerCase().includes(searchVal))
+       return false;
+
+    return true;
+  });
+
+  filtered.sort((a,b)=>{
+
+    let A = a[sortKey];
+    let B = b[sortKey];
+
+    if(typeof A === 'string'){
+      return sortAsc
+        ? A.localeCompare(B)
+        : B.localeCompare(A);
+    }
+
+    return sortAsc
+      ? A-B
+      : B-A;
+  });
+
+  render();
+}
+
+function render(){
+
+  const tbody =
+    document.getElementById('table-body');
+
+  const bar =
+    document.getElementById('stats-bar');
+
+  bar.textContent =
+    filtered.length.toLocaleString() +
+    ' projected players';
+
+  tbody.innerHTML = filtered.map(r => {
+
+    return `<tr>
+
+      <td>${r.rank}</td>
+      <td>${r.player}</td>
+      <td>${r.pos}</td>
+      <td>${r.team}</td>
+
+      <td>${Number(r.pass_yds).toFixed(0)}</td>
+      <td>${Number(r.pass_tds).toFixed(1)}</td>
+
+      <td>${Number(r.rush_yds).toFixed(0)}</td>
+      <td>${Number(r.rush_tds).toFixed(1)}</td>
+
+      <td>${Number(r.receptions).toFixed(1)}</td>
+      <td>${Number(r.rec_yds).toFixed(0)}</td>
+      <td>${Number(r.rec_tds).toFixed(1)}</td>
+
+      <td class="pts-col">
+        ${Number(r.base_pts).toFixed(1)}
+      </td>
+
+      <td class="pts-col">
+        ${Number(r.total_bonus_pts).toFixed(1)}
+      </td>
+
+      <td class="pts-col">
+        ${Number(r.bonus_pct).toFixed(1)}%
+      </td>
+
+      <td class="pts-col">
+        ${Number(r.bonus_rush_40).toFixed(1)}
+      </td>
+
+      <td class="pts-col">
+        ${Number(r.bonus_rec_20).toFixed(1)}
+      </td>
+
+      <td class="pts-col">
+        ${Number(r.bonus_scrim_100).toFixed(1)}
+      </td>
+
+      <td class="pts-col">
+        ${Number(r.bonus_scrim_200).toFixed(1)}
+      </td>
+
+      <td class="pts-col">
+        ${r.rank_change ?? '-'}
+      </td>
+
+      <td class="total-col">
+        ${Number(r.total_proj_pts).toFixed(1)}
+      </td>
+
+      <td class="total-col">
+        ${Number(r.pts_per_game).toFixed(1)}
+      </td>
+
+    </tr>`;
+
+  }).join('');
+}
+
+function setFilter(key,val){
+
+  filters[key]=val;
+
+  document.querySelectorAll(
+    `[onclick*="setFilter('${key}'"]`
+  ).forEach(btn=>{
+
+    btn.classList.toggle(
+      'active',
+      btn.getAttribute('onclick')
+      .includes(`'${val}'`)
+    );
+
+  });
+
+  applyAll();
+}
+
+function onSearch(){
+
+  clearTimeout(debounceTimer);
+
+  debounceTimer = setTimeout(()=>{
+
+    searchVal =
+      document.getElementById('search')
+      .value
+      .toLowerCase();
+
+    applyAll();
+
+  },200);
+}
+
+function sortBy(key){
+
+  sortAsc =
+    sortKey === key
+      ? !sortAsc
+      : false;
+
+  sortKey = key;
+
+  applyAll();
+}
+
+</script>
+
+</body>
+</html>
