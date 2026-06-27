@@ -33,6 +33,7 @@
     .bonus-stat-table td:first-child { text-align: left; color: #e8e8f0; font-weight: 500; }
     .bonus-stat-table td:last-child { color: #f5c542; font-weight: 600; }
     .bonus-stat-table tbody tr:hover { background: #7c3aed11; }
+    .bonus-card .card-error { padding: 16px; }
 
     .compare-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -64,7 +65,7 @@
     .player-section-header .title { font-size: 0.88rem; font-weight: 700; color: #f5c542; margin-right: auto; }
     .player-section-body { padding: 12px 16px 16px; }
     .player-table-wrap {
-      overflow-x: auto; max-height: 360px; overflow-y: auto;
+      overflow-x: auto; max-height: 380px; overflow-y: auto;
       border: 1px solid #7c3aed22; border-radius: 6px; margin-top: 10px;
     }
     .player-table { border-collapse: collapse; font-size: 0.78rem; width: 100%; white-space: nowrap; }
@@ -77,6 +78,8 @@
     }
     .player-table th:first-child { text-align: left; }
     .player-table th:hover { color: #f5c542; }
+    .player-table th.sorted-asc::after  { content: ' \25B2'; color: #f5c542; }
+    .player-table th.sorted-desc::after { content: ' \25BC'; color: #f5c542; }
     .player-table td { padding: 6px 12px; border-bottom: 1px solid #ffffff06; text-align: right; color: #c4b5fd; }
     .player-table td:first-child { text-align: left; color: #e8e8f0; font-weight: 500; }
     .player-table td:nth-child(2) { text-align: center; color: #666; font-size: 0.72rem; }
@@ -85,6 +88,9 @@
     .player-table tbody tr:hover { background: #7c3aed15 !important; }
     .player-table tbody tr:nth-child(even) { background: #ffffff03; }
     .tbl-stats { font-size: 0.7rem; color: #444; margin-top: 6px; }
+    .section-placeholder {
+      text-align: center; padding: 24px; color: #555; font-size: 0.85rem;
+    }
   </style>
 </head>
 <body>
@@ -97,76 +103,141 @@
   <p class="last-updated" id="last-updated"></p>
 </header>
 
-<div id="loading" class="loading">
-  <div class="loading-spinner"></div>
-  <div>Loading bonus data...</div>
-</div>
-
-<div id="content" style="display:none">
+<div id="content">
 
   <div class="section-title">Game Threshold Bonuses — +10 pts each</div>
-  <div class="bonus-grid">
-    <div class="bonus-card">
+  <div class="bonus-grid" id="bonus-grid">
+    <div class="bonus-card" data-card="pass300">
       <div class="bonus-card-header"><span class="icon">💜</span><span class="title">300+ Yard Passing Games</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>QB Games</th><th>300+ Games</th><th>% of Games</th></tr></thead><tbody id="pass300-body"></tbody></table>
+      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>QB Games</th><th>300+ Games</th><th>% of Games</th></tr></thead><tbody id="pass300-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
     </div>
-    <div class="bonus-card">
+    <div class="bonus-card" data-card="pass400">
       <div class="bonus-card-header"><span class="icon">💙</span><span class="title">400+ Yard Passing Games</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>QB Games</th><th>400+ Games</th><th>% of Games</th></tr></thead><tbody id="pass400-body"></tbody></table>
+      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>QB Games</th><th>400+ Games</th><th>% of Games</th></tr></thead><tbody id="pass400-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
     </div>
-    <div class="bonus-card">
+    <div class="bonus-card" data-card="scrim100">
       <div class="bonus-card-header"><span class="icon">💚</span><span class="title">100+ Yard Rush+Rec Games</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Player Games</th><th>100+ Games</th><th>% of Games</th></tr></thead><tbody id="scrim100-body"></tbody></table>
+      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Player Games</th><th>100+ Games</th><th>% of Games</th></tr></thead><tbody id="scrim100-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
     </div>
-    <div class="bonus-card">
+    <div class="bonus-card" data-card="scrim200">
       <div class="bonus-card-header"><span class="icon">💛</span><span class="title">200+ Yard Rush+Rec Games</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Player Games</th><th>200+ Games</th><th>% of Games</th></tr></thead><tbody id="scrim200-body"></tbody></table>
+      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Player Games</th><th>200+ Games</th><th>% of Games</th></tr></thead><tbody id="scrim200-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
     </div>
-    <div class="bonus-card">
+    <div class="bonus-card" data-card="pass40">
       <div class="bonus-card-header"><span class="icon">🧡</span><span class="title">40+ Yard Passing Plays</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Pass Attempts</th><th>40+ Plays</th><th>% of Att</th></tr></thead><tbody id="pass40-body"></tbody></table>
+      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Pass Attempts</th><th>40+ Plays</th><th>% of Att</th></tr></thead><tbody id="pass40-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
     </div>
-    <div class="bonus-card">
+    <div class="bonus-card" data-card="rush40">
       <div class="bonus-card-header"><span class="icon">❤️</span><span class="title">40+ Yard Rushing Plays</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Rush Attempts</th><th>40+ Plays</th><th>% of Att</th></tr></thead><tbody id="rush40-body"></tbody></table>
+      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Rush Attempts</th><th>40+ Plays</th><th>% of Att</th></tr></thead><tbody id="rush40-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
     </div>
-    <div class="bonus-card">
+    <div class="bonus-card" data-card="rec20">
       <div class="bonus-card-header"><span class="icon">💜</span><span class="title">20+ Yard Receiving Plays</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Receptions</th><th>20+ Plays</th><th>% of Rec</th></tr></thead><tbody id="rec20-body"></tbody></table>
+      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Receptions</th><th>20+ Plays</th><th>% of Rec</th></tr></thead><tbody id="rec20-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
     </div>
   </div>
 
   <div class="section-title">RB vs WR Bonus Comparison</div>
   <div class="compare-grid">
-    <div class="compare-card">
+    <div class="compare-card" data-card="cmp-rush40">
       <div class="compare-header"><div class="title">40+ Yard Rush Plays</div><div class="sub">RB vs WR carries of 40+ yards per season</div></div>
-      <table class="compare-table"><thead><tr><th>Season</th><th class="rb">RB</th><th class="wr">WR</th><th>RB Share</th></tr></thead><tbody id="cmp-rush40"></tbody></table>
+      <table class="compare-table"><thead><tr><th>Season</th><th class="rb">RB</th><th class="wr">WR</th><th>RB Share</th></tr></thead><tbody id="cmp-rush40"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
     </div>
-    <div class="compare-card">
+    <div class="compare-card" data-card="cmp-rec20">
       <div class="compare-header"><div class="title">20+ Yard Receptions</div><div class="sub">RB vs WR receptions of 20+ yards per season</div></div>
-      <table class="compare-table"><thead><tr><th>Season</th><th class="rb">RB</th><th class="wr">WR</th><th>WR Share</th></tr></thead><tbody id="cmp-rec20"></tbody></table>
+      <table class="compare-table"><thead><tr><th>Season</th><th class="rb">RB</th><th class="wr">WR</th><th>WR Share</th></tr></thead><tbody id="cmp-rec20"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
     </div>
-    <div class="compare-card">
+    <div class="compare-card" data-card="cmp-scrim100">
       <div class="compare-header"><div class="title">100+ Yard Scrimmage Games</div><div class="sub">RB vs WR 100+ scrimmage yard games per season</div></div>
-      <table class="compare-table"><thead><tr><th>Season</th><th class="rb">RB</th><th class="wr">WR</th><th>RB Share</th></tr></thead><tbody id="cmp-scrim100"></tbody></table>
+      <table class="compare-table"><thead><tr><th>Season</th><th class="rb">RB</th><th class="wr">WR</th><th>RB Share</th></tr></thead><tbody id="cmp-scrim100"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
     </div>
-    <div class="compare-card">
+    <div class="compare-card" data-card="cmp-scrim200">
       <div class="compare-header"><div class="title">200+ Yard Scrimmage Games</div><div class="sub">RB vs WR 200+ scrimmage yard games per season</div></div>
-      <table class="compare-table"><thead><tr><th>Season</th><th class="rb">RB</th><th class="wr">WR</th><th>RB Share</th></tr></thead><tbody id="cmp-scrim200"></tbody></table>
+      <table class="compare-table"><thead><tr><th>Season</th><th class="rb">RB</th><th class="wr">WR</th><th>RB Share</th></tr></thead><tbody id="cmp-scrim200"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
     </div>
   </div>
 
   <div class="section-title">Player Breakdowns — by Year</div>
-  <div id="player-sections"></div>
+  <div id="player-sections">
+    <div class="section-placeholder">Loading player breakdowns…</div>
+  </div>
 
 </div>
 
 <footer>Data: nflverse · Scoring: SFB16 rules · Built with Python + pandas</footer>
 
 <script>
-  // ── Hardcoded base path for GitHub Pages ──────────────────────────────────
+  // ── Base path for GitHub Pages ──────────────────────────────────────────────
   const DATA_BASE = 'https://keller9912.github.io/SFB16_Scoring/data/';
 
+  // Position pill order used everywhere on this page
+  const POSITIONS = ['QB','RB','WR','TE'];
+
+  // ── Each fetch is isolated: a failure only blanks its own card/table,
+  //    never the whole page. ──────────────────────────────────────────────────
+  function safeFetch(filename) {
+    return fetch(DATA_BASE + filename)
+      .then(r => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .catch(err => ({ __error: filename + ' — ' + err.message }));
+  }
+
+  function isError(d) { return d && typeof d === 'object' && d.__error; }
+
+  function cardError(tbodyId, colspan) {
+    const el = document.getElementById(tbodyId);
+    if (el) el.innerHTML = `<tr><td colspan="${colspan}" class="section-error">Failed to load this data file. Check that the file exists in /data/.</td></tr>`;
+  }
+
+  // ── Render helpers for the bonus + comparison cards ─────────────────────────
+  function rb(id, dataOrError, rowFn, colspan) {
+    if (isError(dataOrError)) { cardError(id, colspan); return; }
+    const rows = dataOrError.map(rowFn).join('');
+    document.getElementById(id).innerHTML = rows || `<tr><td colspan="${colspan}" class="section-placeholder">No data</td></tr>`;
+  }
+
+  function share(a, b, ofA) {
+    const t = (a || 0) + (b || 0);
+    return t > 0 ? (((ofA ? a : b) / t) * 100).toFixed(1) + '%' : '0.0%';
+  }
+
+  // ── Fetch the season-total / bonus-card data ────────────────────────────────
+  Promise.all([
+    safeFetch('totals_pass.json'),
+    safeFetch('totals_scrim.json'),
+    safeFetch('totals_pass40.json'),
+    safeFetch('totals_rush40.json'),
+    safeFetch('totals_rec20.json'),
+    safeFetch('compare_rush40.json'),
+    safeFetch('compare_rec20.json'),
+    safeFetch('compare_scrim100.json'),
+    safeFetch('compare_scrim200.json'),
+    safeFetch('meta.json'),
+  ]).then(results => {
+    const [passTot, scrimTot, pass40Tot, rush40Tot, rec20Tot,
+           cmpRush40, cmpRec20, cmpScrim100, cmpScrim200, meta] = results;
+
+    if (!isError(meta)) {
+      document.getElementById('last-updated').textContent = 'Last updated: ' + meta.last_updated;
+    }
+
+    rb('pass300-body',  passTot,  d => `<tr><td>${d.season}</td><td>${d.total_games}</td><td>${d.g300}</td><td>${d.pct_300}%</td></tr>`, 4);
+    rb('pass400-body',  passTot,  d => `<tr><td>${d.season}</td><td>${d.total_games}</td><td>${d.g400}</td><td>${d.pct_400}%</td></tr>`, 4);
+    rb('scrim100-body', scrimTot, d => `<tr><td>${d.season}</td><td>${d.total_games}</td><td>${d.g100}</td><td>${d.pct_100}%</td></tr>`, 4);
+    rb('scrim200-body', scrimTot, d => `<tr><td>${d.season}</td><td>${d.total_games}</td><td>${d.g200}</td><td>${d.pct_200}%</td></tr>`, 4);
+    rb('pass40-body',   pass40Tot,d => `<tr><td>${d.season}</td><td>${d.total_pass}</td><td>${d.pass_40_total}</td><td>${d.pct}%</td></tr>`, 4);
+    rb('rush40-body',   rush40Tot,d => `<tr><td>${d.season}</td><td>${d.total_rush}</td><td>${d.rush_40_total}</td><td>${d.pct}%</td></tr>`, 4);
+    rb('rec20-body',    rec20Tot, d => `<tr><td>${d.season}</td><td>${d.total_rec}</td><td>${d.rec_20_total}</td><td>${d.pct}%</td></tr>`, 4);
+
+    rb('cmp-rush40',   cmpRush40,   d => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,true)}</td></tr>`, 4);
+    rb('cmp-rec20',    cmpRec20,    d => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,false)}</td></tr>`, 4);
+    rb('cmp-scrim100', cmpScrim100, d => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,true)}</td></tr>`, 4);
+    rb('cmp-scrim200', cmpScrim200, d => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,true)}</td></tr>`, 4);
+  });
+
+  // ── Player breakdown sections — fetched and built independently ───────────
   const SECTIONS = [
     { id:'pass40',   file:'bonus_pass40.json',   icon:'🧡', title:'40+ Yard Passing Plays — by Player' },
     { id:'rush40',   file:'bonus_rush40.json',   icon:'❤️',  title:'40+ Yard Rushing Plays — by Player' },
@@ -177,107 +248,60 @@
     { id:'scrim200', file:'bonus_scrim200.json', icon:'💛', title:'200+ Yard Rush+Rec Games — by Player' },
   ];
 
+  // state.pos is a Set of selected positions; empty Set == "ALL"
   const state = {};
   SECTIONS.forEach(s => {
-    state[s.id] = { pos:'ALL', search:'', sortKey:'Total', sortAsc:false, data:[] };
+    state[s.id] = { pos: new Set(), search: '', sortKey: 'Total', sortAsc: false, data: [], error: null };
   });
 
-  function showError(msg) {
-    document.getElementById('loading').innerHTML = `
-      <div style="color:#ef4444;max-width:600px;margin:0 auto;text-align:left;padding:20px;
-                  background:#1a1a2e;border:1px solid #ef444433;border-radius:8px">
-        <div style="font-weight:700;margin-bottom:8px">⚠️ Failed to load data</div>
-        <div style="font-size:0.85rem;color:#fca5a5;margin-bottom:12px">${msg}</div>
-        <div style="font-size:0.78rem;color:#666">
-          Attempted to load from: <code style="color:#a78bfa">${DATA_BASE}</code><br>
-          Check the browser console (F12) for the exact error.
-        </div>
-      </div>`;
-  }
-
-  function safeFetch(filename) {
-    return fetch(DATA_BASE + filename).then(r => {
-      if (!r.ok) throw new Error(filename + ' returned HTTP ' + r.status);
-      return r.json();
+  Promise.all(SECTIONS.map(s => safeFetch(s.file))).then(results => {
+    SECTIONS.forEach((s, i) => {
+      if (isError(results[i])) {
+        state[s.id].error = results[i].__error;
+        state[s.id].data  = [];
+      } else {
+        state[s.id].data = results[i];
+      }
     });
-  }
-
-  // ── Fetch all data in parallel ────────────────────────────────────────────
-  const fetches = [
-    safeFetch('totals_pass.json'),
-    safeFetch('totals_scrim.json'),
-    safeFetch('totals_pass40.json'),
-    safeFetch('totals_rush40.json'),
-    safeFetch('totals_rec20.json'),
-    safeFetch('compare_rush40.json'),
-    safeFetch('compare_rec20.json'),
-    safeFetch('compare_scrim100.json'),
-    safeFetch('compare_scrim200.json'),
-    fetch(DATA_BASE + 'meta.json').then(r => r.json()).catch(() => null),
-    ...SECTIONS.map(s => safeFetch(s.file))
-  ];
-
-  Promise.all(fetches).then(results => {
-    const [passTot, scrimTot, pass40Tot, rush40Tot, rec20Tot,
-           cmpRush40, cmpRec20, cmpScrim100, cmpScrim200,
-           meta, ...sectionData] = results;
-
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('content').style.display = 'block';
-
-    if (meta) {
-      document.getElementById('last-updated').textContent =
-        'Last updated: ' + meta.last_updated;
-    }
-
-    SECTIONS.forEach((s, i) => { state[s.id].data = sectionData[i]; });
-
-    // ── Render bonus cards ──────────────────────────────────────────────────
-    function rb(id, rows) { document.getElementById(id).innerHTML = rows.join(''); }
-
-    rb('pass300-body',  passTot.map(d  => `<tr><td>${d.season}</td><td>${d.total_games}</td><td>${d.g300}</td><td>${d.pct_300}%</td></tr>`));
-    rb('pass400-body',  passTot.map(d  => `<tr><td>${d.season}</td><td>${d.total_games}</td><td>${d.g400}</td><td>${d.pct_400}%</td></tr>`));
-    rb('scrim100-body', scrimTot.map(d => `<tr><td>${d.season}</td><td>${d.total_games}</td><td>${d.g100}</td><td>${d.pct_100}%</td></tr>`));
-    rb('scrim200-body', scrimTot.map(d => `<tr><td>${d.season}</td><td>${d.total_games}</td><td>${d.g200}</td><td>${d.pct_200}%</td></tr>`));
-    rb('pass40-body',   pass40Tot.map(d => `<tr><td>${d.season}</td><td>${d.total_pass}</td><td>${d.pass_40_total}</td><td>${d.pct}%</td></tr>`));
-    rb('rush40-body',   rush40Tot.map(d => `<tr><td>${d.season}</td><td>${d.total_rush}</td><td>${d.rush_40_total}</td><td>${d.pct}%</td></tr>`));
-    rb('rec20-body',    rec20Tot.map(d  => `<tr><td>${d.season}</td><td>${d.total_rec}</td><td>${d.rec_20_total}</td><td>${d.pct}%</td></tr>`));
-
-    // ── Render RB vs WR comparisons ────────────────────────────────────────
-    function share(a, b, ofA) {
-      const t = a + b;
-      return t > 0 ? ((ofA ? a : b) / t * 100).toFixed(1) + '%' : '0.0%';
-    }
-    rb('cmp-rush40',   cmpRush40.map(d  => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,true)}</td></tr>`));
-    rb('cmp-rec20',    cmpRec20.map(d   => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,false)}</td></tr>`));
-    rb('cmp-scrim100', cmpScrim100.map(d => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,true)}</td></tr>`));
-    rb('cmp-scrim200', cmpScrim200.map(d => `<tr><td>${d.season}</td><td class="rb">${d.RB}</td><td class="wr">${d.WR}</td><td>${share(d.RB,d.WR,true)}</td></tr>`));
-
     buildSections();
-
-  }).catch(err => {
-    showError(err.message);
   });
 
-  // ── Build player sections ───────────────────────────────────────────────────
+  function pillGroupHtml(sectionId) {
+    const allBtn = `<button class="pill pill-all selected" data-section="${sectionId}" data-pos="ALL" onclick="togglePos('${sectionId}','ALL')">All</button>`;
+    const posBtns = POSITIONS.map(p =>
+      `<button class="pill" data-section="${sectionId}" data-pos="${p}" onclick="togglePos('${sectionId}','${p}')">${p}</button>`
+    ).join('');
+    return `<div class="pill-group">${allBtn}${posBtns}</div>`;
+  }
+
   function buildSections() {
     document.getElementById('player-sections').innerHTML = SECTIONS.map(s => {
-      const keys = Object.keys(state[s.id].data[0] || {});
-      const posBtns = ['ALL','QB','RB','WR','TE'].map(p =>
-        `<button class="filter-btn${p==='ALL'?' active':''}"
-                 onclick="filterPos('${s.id}','${p}')">${p==='ALL'?'All':p}</button>`
-      ).join('');
+      if (state[s.id].error) {
+        return `
+        <div class="player-section">
+          <div class="player-section-header">
+            <span style="font-size:1.1rem">${s.icon}</span>
+            <span class="title">${s.title}</span>
+          </div>
+          <div class="player-section-body">
+            <div class="section-error">Failed to load ${s.file}: ${state[s.id].error}</div>
+          </div>
+        </div>`;
+      }
+
+      const sample  = state[s.id].data[0] || {};
+      const keys    = Object.keys(sample);
       const headers = keys.map(k =>
-        `<th onclick="sortPlayer('${s.id}','${k}')">${k} ▲▼</th>`
+        `<th data-section="${s.id}" data-key="${k}" onclick="sortPlayer('${s.id}','${k}')">${k}</th>`
       ).join('');
+
       return `
       <div class="player-section">
         <div class="player-section-header">
           <span style="font-size:1.1rem">${s.icon}</span>
           <span class="title">${s.title}</span>
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-            <span style="font-size:0.7rem;color:#555">Pos:</span>
-            ${posBtns}
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            ${pillGroupHtml(s.id)}
             <input type="text" class="search-box" style="width:150px"
                    placeholder="&#128269; Search..."
                    oninput="searchPlayer('${s.id}',this.value)">
@@ -294,42 +318,67 @@
         </div>
       </div>`;
     }).join('');
-    SECTIONS.forEach(s => renderPlayer(s.id));
+
+    SECTIONS.forEach(s => { if (!state[s.id].error) renderPlayer(s.id); });
   }
 
   function renderPlayer(id) {
     const s    = state[id];
     const keys = Object.keys(s.data[0] || {});
+
     let rows = s.data.filter(r => {
-      if (s.pos !== 'ALL' && r.Position !== s.pos) return false;
-      if (s.search && !r.Player.toLowerCase().includes(s.search)) return false;
+      if (s.pos.size > 0 && !s.pos.has(r.Position)) return false;
+      if (s.search && !String(r.Player || '').toLowerCase().includes(s.search)) return false;
       return true;
     });
+
     rows.sort((a, b) => {
       let A = a[s.sortKey], B = b[s.sortKey];
-      if (typeof A === 'string') return s.sortAsc ? A.localeCompare(B) : B.localeCompare(A);
+      if (A === undefined || B === undefined) return 0;
+      if (typeof A === 'string') {
+        return s.sortAsc ? A.localeCompare(B) : B.localeCompare(A);
+      }
       return s.sortAsc ? A - B : B - A;
     });
+
     const tbody = document.getElementById(id + '-body');
     const stats = document.getElementById(id + '-stats');
     if (stats) stats.textContent = rows.length.toLocaleString() + ' players';
+
     tbody.innerHTML = rows.length === 0
-      ? `<tr><td colspan="${keys.length}" style="text-align:center;padding:24px;color:#555">No results</td></tr>`
+      ? `<tr><td colspan="${keys.length}" class="no-results">No results</td></tr>`
       : rows.map(row =>
           '<tr>' + keys.map((k, i) => {
             const isLast = i >= keys.length - 2;
             return `<td${isLast ? ' style="color:#f5c542;font-weight:600"' : ''}>${row[k]}</td>`;
           }).join('') + '</tr>'
         ).join('');
+
+    // Update header sort-arrow classes
+    document.querySelectorAll(`th[data-section="${id}"]`).forEach(th => {
+      th.classList.remove('sorted-asc', 'sorted-desc');
+      if (th.dataset.key === s.sortKey) {
+        th.classList.add(s.sortAsc ? 'sorted-asc' : 'sorted-desc');
+      }
+    });
   }
 
-  function filterPos(id, pos) {
-    state[id].pos = pos;
-    const section = document.getElementById(id + '-body').closest('.player-section');
-    section.querySelectorAll('.filter-btn').forEach(b => {
-      b.classList.toggle('active', b.textContent.trim() === (pos === 'ALL' ? 'All' : pos));
+  // ── Multi-select position toggle: All / individual / combine multiple ──────
+  function togglePos(sectionId, pos) {
+    const s = state[sectionId];
+    if (pos === 'ALL') {
+      s.pos.clear();
+    } else {
+      if (s.pos.has(pos)) s.pos.delete(pos);
+      else s.pos.add(pos);
+    }
+    // Reflect selection state on the pills
+    document.querySelectorAll(`.pill[data-section="${sectionId}"]`).forEach(btn => {
+      const p = btn.dataset.pos;
+      const isSelected = (p === 'ALL') ? (s.pos.size === 0) : s.pos.has(p);
+      btn.classList.toggle('selected', isSelected);
     });
-    renderPlayer(id);
+    renderPlayer(sectionId);
   }
 
   function searchPlayer(id, val) {
@@ -338,8 +387,9 @@
   }
 
   function sortPlayer(id, key) {
-    state[id].sortAsc = (state[id].sortKey === key) ? !state[id].sortAsc : false;
-    state[id].sortKey = key;
+    const s = state[id];
+    s.sortAsc = (s.sortKey === key) ? !s.sortAsc : false;
+    s.sortKey = key;
     renderPlayer(id);
   }
 </script>

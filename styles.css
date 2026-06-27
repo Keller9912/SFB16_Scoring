@@ -42,6 +42,28 @@ header .last-updated { color: #444; font-size: 0.75rem; margin-top: 4px; }
 }
 .filter-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .filter-label { font-size: 0.78rem; color: #888; white-space: nowrap; }
+
+/* ── Multi-select filter pills ────────────────────────────────────────────────
+   Standard pattern used across every page for position/season filtering.
+   Click "All" to clear selections back to everything. Click individual pills
+   to toggle them on/off independently — multiple can be active at once
+   (e.g. RB + WR together). Selecting any individual pill turns "All" off;
+   deselecting the last individual pill returns to "All". ──────────────────── */
+.pill-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.pill {
+  padding: 4px 13px; font-size: 0.75rem; font-weight: 600; border-radius: 20px;
+  border: 1px solid #7c3aed55; background: #1a1a2e; color: #8b8b9e;
+  cursor: pointer; transition: all 0.15s; user-select: none;
+}
+.pill:hover { border-color: #7c3aed99; color: #c4b5fd; }
+.pill.selected {
+  background: #7c3aed; color: #fff; border-color: #7c3aed;
+  box-shadow: 0 0 0 1px #7c3aed, 0 2px 8px #7c3aed44;
+}
+.pill.pill-all { border-style: dashed; }
+.pill.pill-all.selected { border-style: solid; }
+
+/* Legacy single-select buttons (kept for anything not yet migrated) */
 .filter-btn {
   padding: 4px 12px; font-size: 0.75rem; border: 1px solid #7c3aed66;
   border-radius: 20px; background: transparent; color: #c4b5fd;
@@ -49,6 +71,7 @@ header .last-updated { color: #444; font-size: 0.75rem; margin-top: 4px; }
 }
 .filter-btn:hover,
 .filter-btn.active { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+
 .search-box {
   padding: 6px 12px; font-size: 0.83rem; border: 1px solid #7c3aed66;
   border-radius: 20px; background: #1a1a2e; color: #e8e8f0; width: 200px; outline: none;
@@ -72,6 +95,8 @@ th {
 }
 th:first-child { text-align: left; min-width: 130px; }
 th:hover { color: #f5c542; }
+th.sorted-asc::after  { content: ' \25B2'; color: #f5c542; }
+th.sorted-desc::after { content: ' \25BC'; color: #f5c542; }
 td { padding: 6px 11px; border-bottom: 1px solid #ffffff0d; text-align: right; }
 td:first-child { text-align: left; font-weight: 500; }
 tbody tr:hover { background: #7c3aed22 !important; }
@@ -142,6 +167,12 @@ tbody tr:nth-child(even) { background: #ffffff05; }
   animation: spin 0.8s linear infinite; margin: 0 auto 12px;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Inline section error (used when one data file fails but page continues) ── */
+.section-error {
+  color: #fca5a5; font-size: 0.78rem; padding: 14px 16px;
+  background: #ef444411; border: 1px solid #ef444433; border-radius: 8px;
+}
 
 /* ── Footer ─────────────────────────────────────────────────────────────────── */
 footer {

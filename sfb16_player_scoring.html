@@ -33,20 +33,24 @@
 <div class="controls">
   <div class="filter-group">
     <span class="filter-label">Position:</span>
-    <button class="filter-btn active" onclick="setFilter('pos','ALL')">All</button>
-    <button class="filter-btn" onclick="setFilter('pos','QB')">QB</button>
-    <button class="filter-btn" onclick="setFilter('pos','RB')">RB</button>
-    <button class="filter-btn" onclick="setFilter('pos','WR')">WR</button>
-    <button class="filter-btn" onclick="setFilter('pos','TE')">TE</button>
+    <div class="pill-group" id="pos-pills">
+      <button class="pill pill-all selected" data-pos="ALL" onclick="togglePos('ALL')">All</button>
+      <button class="pill" data-pos="QB" onclick="togglePos('QB')">QB</button>
+      <button class="pill" data-pos="RB" onclick="togglePos('RB')">RB</button>
+      <button class="pill" data-pos="WR" onclick="togglePos('WR')">WR</button>
+      <button class="pill" data-pos="TE" onclick="togglePos('TE')">TE</button>
+    </div>
   </div>
   <div class="filter-group">
     <span class="filter-label">Season:</span>
-    <button class="filter-btn active" onclick="setFilter('season','ALL')">All</button>
-    <button class="filter-btn" onclick="setFilter('season',2021)">2021</button>
-    <button class="filter-btn" onclick="setFilter('season',2022)">2022</button>
-    <button class="filter-btn" onclick="setFilter('season',2023)">2023</button>
-    <button class="filter-btn" onclick="setFilter('season',2024)">2024</button>
-    <button class="filter-btn" onclick="setFilter('season',2025)">2025</button>
+    <div class="pill-group" id="season-pills">
+      <button class="pill pill-all selected" data-season="ALL" onclick="toggleSeason('ALL')">All</button>
+      <button class="pill" data-season="2021" onclick="toggleSeason(2021)">2021</button>
+      <button class="pill" data-season="2022" onclick="toggleSeason(2022)">2022</button>
+      <button class="pill" data-season="2023" onclick="toggleSeason(2023)">2023</button>
+      <button class="pill" data-season="2024" onclick="toggleSeason(2024)">2024</button>
+      <button class="pill" data-season="2025" onclick="toggleSeason(2025)">2025</button>
+    </div>
   </div>
   <div class="filter-group">
     <input id="search" type="text" class="search-box"
@@ -59,35 +63,35 @@
   <table id="main-table">
     <thead>
       <tr>
-        <th onclick="sortBy('player')">Player ▲▼</th>
-        <th onclick="sortBy('pos')">Pos ▲▼</th>
-        <th onclick="sortBy('team')">Team ▲▼</th>
-        <th onclick="sortBy('season')">Season ▲▼</th>
-        <th onclick="sortBy('gp')">GP ▲▼</th>
-        <th onclick="sortBy('pass_yds')">Pass Yds ▲▼</th>
-        <th onclick="sortBy('rush_yds')">Rush Yds ▲▼</th>
-        <th onclick="sortBy('rec_yds')">Rec Yds ▲▼</th>
-        <th onclick="sortBy('receptions')">Rec ▲▼</th>
-        <th onclick="sortBy('tds')">TDs ▲▼</th>
-        <th onclick="sortBy('two_pt')">2PT ▲▼</th>
-        <th onclick="sortBy('first_downs')">1st Dns ▲▼</th>
-        <th onclick="sortBy('pass_40')">40+ Pass ▲▼</th>
-        <th onclick="sortBy('rush_40')">40+ Rush ▲▼</th>
-        <th onclick="sortBy('rec_20')">20+ Rec ▲▼</th>
-        <th onclick="sortBy('pass_300')">300+ Gms ▲▼</th>
-        <th onclick="sortBy('pass_400')">400+ Gms ▲▼</th>
-        <th onclick="sortBy('scrim_100')">100+ Gms ▲▼</th>
-        <th onclick="sortBy('scrim_200')">200+ Gms ▲▼</th>
-        <th onclick="sortBy('td_pts')" class="pts-col">TD Pts ▲▼</th>
-        <th onclick="sortBy('two_pt_pts')" class="pts-col">2PT Pts ▲▼</th>
-        <th onclick="sortBy('pass_pts')" class="pts-col">Pass Pts ▲▼</th>
-        <th onclick="sortBy('rush_rec_pts')" class="pts-col">Rsh/Rec Pts ▲▼</th>
-        <th onclick="sortBy('fd_pts')" class="pts-col">1D Pts ▲▼</th>
-        <th onclick="sortBy('rec_pts')" class="pts-col">Rec Pts ▲▼</th>
-        <th onclick="sortBy('te_pts')" class="pts-col">TE Bonus ▲▼</th>
-        <th onclick="sortBy('bonus_pts')" class="pts-col">Bonus Pts ▲▼</th>
-        <th onclick="sortBy('total_pts')" class="total-col">Total Pts ▲▼</th>
-        <th onclick="sortBy('ppg')" class="total-col">Pts/Gm ▲▼</th>
+        <th data-key="player" onclick="sortBy('player')">Player</th>
+        <th data-key="pos" onclick="sortBy('pos')">Pos</th>
+        <th data-key="team" onclick="sortBy('team')">Team</th>
+        <th data-key="season" onclick="sortBy('season')">Season</th>
+        <th data-key="gp" onclick="sortBy('gp')">GP</th>
+        <th data-key="pass_yds" onclick="sortBy('pass_yds')">Pass Yds</th>
+        <th data-key="rush_yds" onclick="sortBy('rush_yds')">Rush Yds</th>
+        <th data-key="rec_yds" onclick="sortBy('rec_yds')">Rec Yds</th>
+        <th data-key="receptions" onclick="sortBy('receptions')">Rec</th>
+        <th data-key="tds" onclick="sortBy('tds')">TDs</th>
+        <th data-key="two_pt" onclick="sortBy('two_pt')">2PT</th>
+        <th data-key="first_downs" onclick="sortBy('first_downs')">1st Dns</th>
+        <th data-key="pass_40" onclick="sortBy('pass_40')">40+ Pass</th>
+        <th data-key="rush_40" onclick="sortBy('rush_40')">40+ Rush</th>
+        <th data-key="rec_20" onclick="sortBy('rec_20')">20+ Rec</th>
+        <th data-key="pass_300" onclick="sortBy('pass_300')">300+ Gms</th>
+        <th data-key="pass_400" onclick="sortBy('pass_400')">400+ Gms</th>
+        <th data-key="scrim_100" onclick="sortBy('scrim_100')">100+ Gms</th>
+        <th data-key="scrim_200" onclick="sortBy('scrim_200')">200+ Gms</th>
+        <th data-key="td_pts" onclick="sortBy('td_pts')" class="pts-col">TD Pts</th>
+        <th data-key="two_pt_pts" onclick="sortBy('two_pt_pts')" class="pts-col">2PT Pts</th>
+        <th data-key="pass_pts" onclick="sortBy('pass_pts')" class="pts-col">Pass Pts</th>
+        <th data-key="rush_rec_pts" onclick="sortBy('rush_rec_pts')" class="pts-col">Rsh/Rec Pts</th>
+        <th data-key="fd_pts" onclick="sortBy('fd_pts')" class="pts-col">1D Pts</th>
+        <th data-key="rec_pts" onclick="sortBy('rec_pts')" class="pts-col">Rec Pts</th>
+        <th data-key="te_pts" onclick="sortBy('te_pts')" class="pts-col">TE Bonus</th>
+        <th data-key="bonus_pts" onclick="sortBy('bonus_pts')" class="pts-col">Bonus Pts</th>
+        <th data-key="total_pts" onclick="sortBy('total_pts')" class="total-col">Total Pts</th>
+        <th data-key="ppg" onclick="sortBy('ppg')" class="total-col">Pts/Gm</th>
       </tr>
     </thead>
     <tbody id="table-body"></tbody>
@@ -102,6 +106,8 @@
 <footer>Data: nflverse · Scoring: SFB16 rules · Built with Python + pandas</footer>
 
 <script>
+  const DATA_BASE = 'https://keller9912.github.io/SFB16_Scoring/data/';
+
   const COLS = ['player','pos','team','season','gp','pass_yds','rush_yds','rec_yds',
                 'receptions','tds','two_pt','first_downs','pass_40','rush_40','rec_20',
                 'pass_300','pass_400','scrim_100','scrim_200','td_pts','two_pt_pts',
@@ -112,12 +118,10 @@
   let filtered  = [];
   let sortKey   = 'total_pts';
   let sortAsc   = false;
-  let filters   = { pos: 'ALL', season: 'ALL' };
+  let posSet    = new Set();    // empty = ALL
+  let seasonSet = new Set();    // empty = ALL
   let searchVal = '';
   let debounceTimer;
-
-  // ── Hardcoded base path for GitHub Pages ────────────────────────────────────
-  const DATA_BASE = 'https://keller9912.github.io/SFB16_Scoring/data/';
 
   function showError(msg) {
     document.getElementById('loading').innerHTML = `
@@ -137,10 +141,7 @@
       if (!r.ok) throw new Error('player_scoring.json returned HTTP ' + r.status);
       return r.json();
     }),
-    fetch(DATA_BASE + 'meta.json').then(r => {
-      if (!r.ok) return null;
-      return r.json();
-    }).catch(() => null)
+    fetch(DATA_BASE + 'meta.json').then(r => r.ok ? r.json() : null).catch(() => null)
   ]).then(([data, meta]) => {
     ALL_DATA = data;
     document.getElementById('loading').style.display = 'none';
@@ -150,14 +151,12 @@
         ' · ' + meta.total_records.toLocaleString() + ' records';
     }
     applyAll();
-  }).catch(err => {
-    showError(err.message);
-  });
+  }).catch(err => showError(err.message));
 
   function applyAll() {
     filtered = ALL_DATA.filter(r => {
-      if (filters.pos    !== 'ALL' && r.pos    !== filters.pos)    return false;
-      if (filters.season !== 'ALL' && r.season !== filters.season) return false;
+      if (posSet.size    > 0 && !posSet.has(r.pos))         return false;
+      if (seasonSet.size > 0 && !seasonSet.has(r.season))   return false;
       if (searchVal && !r.player.toLowerCase().includes(searchVal)) return false;
       return true;
     });
@@ -184,14 +183,32 @@
         return `<td${cls}>${r[c]}</td>`;
       }).join('') + '</tr>'
     ).join('');
+
+    document.querySelectorAll('#main-table th').forEach(th => {
+      th.classList.remove('sorted-asc', 'sorted-desc');
+      if (th.dataset.key === sortKey) {
+        th.classList.add(sortAsc ? 'sorted-asc' : 'sorted-desc');
+      }
+    });
   }
 
-  function setFilter(key, val) {
-    filters[key] = val;
-    document.querySelectorAll(`[onclick*="setFilter('${key}'"]`).forEach(b => {
-      b.classList.toggle('active',
-        b.getAttribute('onclick').includes(`'${val}'`) ||
-        b.getAttribute('onclick').includes(`,${val})`));
+  function togglePos(pos) {
+    if (pos === 'ALL') posSet.clear();
+    else { if (posSet.has(pos)) posSet.delete(pos); else posSet.add(pos); }
+    document.querySelectorAll('#pos-pills .pill').forEach(btn => {
+      const p = btn.dataset.pos;
+      btn.classList.toggle('selected', p === 'ALL' ? posSet.size === 0 : posSet.has(p));
+    });
+    applyAll();
+  }
+
+  function toggleSeason(season) {
+    if (season === 'ALL') seasonSet.clear();
+    else { if (seasonSet.has(season)) seasonSet.delete(season); else seasonSet.add(season); }
+    document.querySelectorAll('#season-pills .pill').forEach(btn => {
+      const s = btn.dataset.season;
+      const isAll = s === 'ALL';
+      btn.classList.toggle('selected', isAll ? seasonSet.size === 0 : seasonSet.has(Number(s)));
     });
     applyAll();
   }
