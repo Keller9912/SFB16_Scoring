@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     .bonus-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
       gap: 18px; margin-bottom: 20px;
     }
     .bonus-card { background: #1a1a2e; border: 1px solid #7c3aed33; border-radius: 10px; overflow: hidden; }
@@ -21,15 +21,16 @@
       margin-left: auto; font-size: 0.65rem; font-weight: 700;
       padding: 3px 9px; border-radius: 20px; background: #7c3aed; color: #fff;
     }
-    .bonus-stat-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+    .bonus-stat-table-wrap { overflow-x: auto; }
+    .bonus-stat-table { width: 100%; border-collapse: collapse; font-size: 0.76rem; table-layout: auto; }
     .bonus-stat-table thead tr { background: #0d0d1a; }
     .bonus-stat-table th {
-      padding: 7px 12px; color: #555; font-weight: 600; text-align: right;
-      font-size: 0.68rem; letter-spacing: 0.5px; text-transform: uppercase;
-      border-bottom: 1px solid #ffffff08;
+      padding: 7px 8px; color: #555; font-weight: 600; text-align: right;
+      font-size: 0.64rem; letter-spacing: 0.3px; text-transform: uppercase;
+      border-bottom: 1px solid #ffffff08; white-space: nowrap;
     }
     .bonus-stat-table th:first-child { text-align: left; }
-    .bonus-stat-table td { padding: 7px 12px; border-bottom: 1px solid #ffffff06; text-align: right; color: #c4b5fd; }
+    .bonus-stat-table td { padding: 7px 8px; border-bottom: 1px solid #ffffff06; text-align: right; color: #c4b5fd; white-space: nowrap; }
     .bonus-stat-table td:first-child { text-align: left; color: #e8e8f0; font-weight: 500; }
     .bonus-stat-table td:last-child { color: #f5c542; font-weight: 600; }
     .bonus-stat-table tbody tr:hover { background: #7c3aed11; }
@@ -68,25 +69,40 @@
       overflow-x: auto; max-height: 380px; overflow-y: auto;
       border: 1px solid #7c3aed22; border-radius: 6px; margin-top: 10px;
     }
-    .player-table { border-collapse: collapse; font-size: 0.78rem; width: 100%; white-space: nowrap; }
+    .player-table { border-collapse: collapse; font-size: 0.78rem; width: 100%; white-space: nowrap; table-layout: auto; }
     .player-table thead { position: sticky; top: 0; z-index: 2; }
     .player-table thead tr { background: #0d0d1a; }
     .player-table th {
-      padding: 8px 12px; color: #666; font-weight: 600; text-align: right;
+      padding: 8px 10px; color: #666; font-weight: 600; text-align: center;
       cursor: pointer; user-select: none; border-bottom: 1px solid #7c3aed33;
-      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.4px;
+      font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.4px;
     }
-    .player-table th:first-child { text-align: left; }
     .player-table th:hover { color: #f5c542; }
     .player-table th.sorted-asc::after  { content: ' \25B2'; color: #f5c542; }
     .player-table th.sorted-desc::after { content: ' \25BC'; color: #f5c542; }
-    .player-table td { padding: 6px 12px; border-bottom: 1px solid #ffffff06; text-align: right; color: #c4b5fd; }
-    .player-table td:first-child { text-align: left; color: #e8e8f0; font-weight: 500; }
-    .player-table td:nth-child(2) { text-align: center; color: #666; font-size: 0.72rem; }
-    .player-table td:last-child,
-    .player-table td:nth-last-child(2) { color: #f5c542; font-weight: 600; }
+    .player-table td { padding: 6px 10px; border-bottom: 1px solid #ffffff06; text-align: center; color: #888; }
+
+    /* Player name — wide, left-aligned, sticky to the left on scroll */
+    .player-table th[data-key="Player"],
+    .player-table td.col-player {
+      text-align: left; min-width: 160px; position: sticky; left: 0;
+      background: #1a1a2e; z-index: 1; color: #e8e8f0; font-weight: 600;
+    }
+    .player-table thead th[data-key="Player"] { background: #0d0d1a; z-index: 3; }
+
+    /* Position — narrow, centered */
+    .player-table td.col-position { color: #a78bfa; font-size: 0.72rem; min-width: 50px; }
+
+    /* Year columns — compact, muted, centered */
+    .player-table td.col-year { color: #6b6b85; min-width: 56px; }
+
+    /* Total / Avg per year — highlighted */
+    .player-table td.col-total { color: #f5c542; font-weight: 700; min-width: 64px; }
+
     .player-table tbody tr:hover { background: #7c3aed15 !important; }
+    .player-table tbody tr:hover td.col-player { background: #2a1f4d; }
     .player-table tbody tr:nth-child(even) { background: #ffffff03; }
+    .player-table tbody tr:nth-child(even) td.col-player { background: #1f1f33; }
     .tbl-stats { font-size: 0.7rem; color: #444; margin-top: 6px; }
     .section-placeholder {
       text-align: center; padding: 24px; color: #555; font-size: 0.85rem;
@@ -109,31 +125,31 @@
   <div class="bonus-grid" id="bonus-grid">
     <div class="bonus-card" data-card="pass300">
       <div class="bonus-card-header"><span class="icon">💜</span><span class="title">300+ Yard Passing Games</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>QB Games</th><th>300+ Games</th><th>% of Games</th></tr></thead><tbody id="pass300-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
+      <div class="bonus-stat-table-wrap"><table class="bonus-stat-table"><thead><tr><th>Season</th><th>QB Games</th><th>300+ Games</th><th>% of Games</th></tr></thead><tbody id="pass300-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table></div>
     </div>
     <div class="bonus-card" data-card="pass400">
       <div class="bonus-card-header"><span class="icon">💙</span><span class="title">400+ Yard Passing Games</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>QB Games</th><th>400+ Games</th><th>% of Games</th></tr></thead><tbody id="pass400-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
+      <div class="bonus-stat-table-wrap"><table class="bonus-stat-table"><thead><tr><th>Season</th><th>QB Games</th><th>400+ Games</th><th>% of Games</th></tr></thead><tbody id="pass400-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table></div>
     </div>
     <div class="bonus-card" data-card="scrim100">
       <div class="bonus-card-header"><span class="icon">💚</span><span class="title">100+ Yard Rush+Rec Games</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Player Games</th><th>100+ Games</th><th>% of Games</th></tr></thead><tbody id="scrim100-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
+      <div class="bonus-stat-table-wrap"><table class="bonus-stat-table"><thead><tr><th>Season</th><th>Player Games</th><th>100+ Games</th><th>% of Games</th></tr></thead><tbody id="scrim100-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table></div>
     </div>
     <div class="bonus-card" data-card="scrim200">
       <div class="bonus-card-header"><span class="icon">💛</span><span class="title">200+ Yard Rush+Rec Games</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Player Games</th><th>200+ Games</th><th>% of Games</th></tr></thead><tbody id="scrim200-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
+      <div class="bonus-stat-table-wrap"><table class="bonus-stat-table"><thead><tr><th>Season</th><th>Player Games</th><th>200+ Games</th><th>% of Games</th></tr></thead><tbody id="scrim200-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table></div>
     </div>
     <div class="bonus-card" data-card="pass40">
       <div class="bonus-card-header"><span class="icon">🧡</span><span class="title">40+ Yard Passing Plays</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Pass Attempts</th><th>40+ Plays</th><th>% of Att</th></tr></thead><tbody id="pass40-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
+      <div class="bonus-stat-table-wrap"><table class="bonus-stat-table"><thead><tr><th>Season</th><th>Pass Attempts</th><th>40+ Plays</th><th>% of Att</th></tr></thead><tbody id="pass40-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table></div>
     </div>
     <div class="bonus-card" data-card="rush40">
       <div class="bonus-card-header"><span class="icon">❤️</span><span class="title">40+ Yard Rushing Plays</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Rush Attempts</th><th>40+ Plays</th><th>% of Att</th></tr></thead><tbody id="rush40-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
+      <div class="bonus-stat-table-wrap"><table class="bonus-stat-table"><thead><tr><th>Season</th><th>Rush Attempts</th><th>40+ Plays</th><th>% of Att</th></tr></thead><tbody id="rush40-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table></div>
     </div>
     <div class="bonus-card" data-card="rec20">
       <div class="bonus-card-header"><span class="icon">💜</span><span class="title">20+ Yard Receiving Plays</span><span class="badge">+10 pts</span></div>
-      <table class="bonus-stat-table"><thead><tr><th>Season</th><th>Receptions</th><th>20+ Plays</th><th>% of Rec</th></tr></thead><tbody id="rec20-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table>
+      <div class="bonus-stat-table-wrap"><table class="bonus-stat-table"><thead><tr><th>Season</th><th>Receptions</th><th>20+ Plays</th><th>% of Rec</th></tr></thead><tbody id="rec20-body"><tr><td colspan="4" class="section-placeholder">Loading…</td></tr></tbody></table></div>
     </div>
   </div>
 
@@ -289,9 +305,11 @@
         </div>`;
       }
 
-      const sample  = state[s.id].data[0] || {};
-      const keys    = Object.keys(sample);
-      const headers = keys.map(k =>
+      const sample = state[s.id].data[0] || {};
+      const orderedKeys = orderColumns(Object.keys(sample));
+      state[s.id].cols = orderedKeys;
+
+      const headers = orderedKeys.map(k =>
         `<th data-section="${s.id}" data-key="${k}" onclick="sortPlayer('${s.id}','${k}')">${k}</th>`
       ).join('');
 
@@ -322,9 +340,24 @@
     SECTIONS.forEach(s => { if (!state[s.id].error) renderPlayer(s.id); });
   }
 
+  // ── Force a sensible column order regardless of JSON key order ──────────────
+  // Player → Position → year columns (ascending) → Total → Avg/Yr
+  function orderColumns(keys) {
+    const front = ['Player', 'Position'];
+    const back  = ['Total', 'Avg/Yr'];
+    const years = keys
+      .filter(k => !front.includes(k) && !back.includes(k))
+      .sort((a, b) => a.localeCompare(b)); // year strings sort correctly ascending
+    return [
+      ...front.filter(k => keys.includes(k)),
+      ...years,
+      ...back.filter(k => keys.includes(k)),
+    ];
+  }
+
   function renderPlayer(id) {
     const s    = state[id];
-    const keys = Object.keys(s.data[0] || {});
+    const keys = s.cols || Object.keys(s.data[0] || {});
 
     let rows = s.data.filter(r => {
       if (s.pos.size > 0 && !s.pos.has(r.Position)) return false;
@@ -349,8 +382,12 @@
       ? `<tr><td colspan="${keys.length}" class="no-results">No results</td></tr>`
       : rows.map(row =>
           '<tr>' + keys.map((k, i) => {
-            const isLast = i >= keys.length - 2;
-            return `<td${isLast ? ' style="color:#f5c542;font-weight:600"' : ''}>${row[k]}</td>`;
+            const isTotalCol = (k === 'Total' || k === 'Avg/Yr');
+            const cls = k === 'Player'   ? ' class="col-player"'
+                      : k === 'Position' ? ' class="col-position"'
+                      : isTotalCol       ? ' class="col-total"'
+                      : ' class="col-year"';
+            return `<td${cls}>${row[k]}</td>`;
           }).join('') + '</tr>'
         ).join('');
 
