@@ -311,10 +311,10 @@
           <div class="player-table-wrap">
             <table class="player-table">
               <thead><tr>${headers}</tr></thead>
-              <tbody id="${s.id}-body"></tbody>
+              <tbody id="player-${s.id}-body"></tbody>
             </table>
           </div>
-          <div class="tbl-stats" id="${s.id}-stats"></div>
+          <div class="tbl-stats" id="player-${s.id}-stats"></div>
         </div>
       </div>`;
     }).join('');
@@ -341,8 +341,8 @@
       return s.sortAsc ? A - B : B - A;
     });
 
-    const tbody = document.getElementById(id + '-body');
-    const stats = document.getElementById(id + '-stats');
+    const tbody = document.getElementById('player-' + id + '-body');
+    const stats = document.getElementById('player-' + id + '-stats');
     if (stats) stats.textContent = rows.length.toLocaleString() + ' players';
 
     tbody.innerHTML = rows.length === 0
