@@ -2,11 +2,11 @@
 
 Fantasy football analytics built for Scott Fish Bowl 16 scoring.
 
-**Live site:** https://yourusername.github.io/sfb16-analytics/
+**Live site:** https://keller9912.github.io/SFB16_Scoring/
 
 ## Pages
-- [Player Scoring Dashboard](https://yourusername.github.io/sfb16-analytics/sfb16_player_scoring.html)
-- [Video Game Bonus Analysis](https://yourusername.github.io/sfb16-analytics/sfb16_analysis.html)
+- [Player Scoring Dashboard](https://keller9912.github.io/SFB16_Scoring/sfb16_player_scoring.html)
+- [Video Game Bonus Analysis](https://keller9912.github.io/SFB16_Scoring/sfb16_analysis.html)
 
 ## Data
 - Play-by-play: [nflverse](https://nflverse.com) · 2021–2025 regular season · Weeks 1–17
