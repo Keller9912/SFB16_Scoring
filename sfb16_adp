@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SFB16 Average Draft Position</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── ADP-specific styles ────────────────────────────────────────────────── */
+    .status-bar {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      background: #1a1a2e; border: 1px solid #7c3aed33; border-radius: 8px;
+      padding: 10px 16px; margin-bottom: 20px; font-size: 0.78rem;
+    }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #555;
+      flex-shrink: 0; transition: background 0.3s;
+    }
+    .status-dot.loading { background: #f5c542; animation: pulse 1s infinite; }
+    .status-dot.live    { background: #34d399; }
+    .status-dot.error   { background: #ef4444; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .status-text  { color: #a78bfa; }
+    .status-count { color: #666; margin-left: auto; }
+    .refresh-btn  {
+      padding: 4px 12px; font-size: 0.72rem; border: 1px solid #7c3aed66;
+      border-radius: 20px; background: transparent; color: #c4b5fd;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .refresh-btn:hover { background: #7c3aed; color: #fff; }
+    .refresh-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* ── Compare panel ──────────────────────────────────────────────────────── */
+    .compare-panel {
+      background: #1a1a2e; border: 1px solid #7c3aed33; border-radius: 10px;
+      overflow: hidden; margin-bottom: 28px; display: none;
+    }
+    .compare-panel.visible { display: block; }
+    .compare-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 18px; background: #12102a; border-bottom: 1px solid #7c3aed22;
+    }
+    .compare-header h2 { font-size: 0.92rem; font-weight: 700; color: #f5c542; margin: 0; }
+    .compare-clear {
+      margin-left: auto; padding: 4px 12px; font-size: 0.72rem;
+      border: 1px solid #ef444466; border-radius: 20px;
+      background: transparent; color: #fca5a5; cursor: pointer;
+    }
+    .compare-clear:hover { background: #ef4444; color: #fff; border-color: #ef4444; }
+    .compare-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .compare-violin { padding: 16px; border-right: 1px solid #7c3aed22; }
+    .compare-violin h3 { font-size: 0.78rem; color: #a78bfa; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; }
+    .violin-canvas { width: 100%; height: 220px; }
+    .compare-stats { padding: 16px; overflow-x: auto; }
+    .compare-stats h3 { font-size: 0.78rem; color: #a78bfa; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+    .compare-table th {
+      padding: 7px 10px; color: #555; font-weight: 600; text-align: right;
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.4px;
+      border-bottom: 1px solid #ffffff11;
+    }
+    .compare-table th:first-child { text-align: left; }
+    .compare-table td { padding: 7px 10px; border-bottom: 1px solid #ffffff06; text-align: right; color: #c4b5fd; }
+    .compare-table td:first-child { text-align: left; color: #888; font-size: 0.72rem; }
+    .compare-table .p1 { color: #60a5fa; font-weight: 600; }
+    .compare-table .p2 { color: #f472b6; font-weight: 600; }
+    .compare-table .highlight { color: #34d399 !important; }
+    .compare-placeholder {
+      grid-column: 1/-1; text-align: center; padding: 40px;
+      color: #555; font-size: 0.85rem;
+    }
+
+    /* ── ADP table ──────────────────────────────────────────────────────────── */
+    .adp-table { border-collapse: collapse; font-size: 0.8rem; width: 100%; white-space: nowrap; }
+    .adp-table thead { position: sticky; top: 0; z-index: 2; }
+    .adp-table thead tr { background: #1a0a3e; }
+    .adp-table th {
+      padding: 10px 11px; color: #c4b5fd; font-weight: 600; text-align: right;
+      cursor: pointer; user-select: none; border-bottom: 2px solid #7c3aed44;
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.3px;
+    }
+    .adp-table th:first-child  { text-align: center; min-width: 44px; }
+    .adp-table th:nth-child(2) { text-align: left; min-width: 160px; }
+    .adp-table th:nth-child(3) { text-align: center; }
+    .adp-table th:nth-child(4) { text-align: center; }
+    .adp-table th:hover { color: #f5c542; }
+    .adp-table th.sorted-asc::after  { content: ' ▲'; color: #f5c542; }
+    .adp-table th.sorted-desc::after { content: ' ▼'; color: #f5c542; }
+    .adp-table td { padding: 7px 11px; border-bottom: 1px solid #ffffff0d; text-align: right; }
+    .adp-table td:first-child  { text-align: center; color: #555; font-size: 0.72rem; font-weight: 700; }
+    .adp-table td:nth-child(2) { text-align: left; color: #e8e8f0; font-weight: 600; }
+    .adp-table td:nth-child(3) { text-align: center; }
+    .adp-table td:nth-child(4) { text-align: center; font-size: 0.72rem; color: #888; }
+    .adp-table td.adp-val  { color: #f5c542; font-weight: 700; }
+    .adp-table td.adp-min  { color: #34d399; }
+    .adp-table td.adp-max  { color: #ef4444; }
+    .adp-table td.adp-drafts { color: #666; font-size: 0.72rem; }
+    .adp-table tbody tr:hover { background: #7c3aed22 !important; cursor: pointer; }
+    .adp-table tbody tr:nth-child(even) { background: #ffffff05; }
+    .adp-table tbody tr.selected-p1 { background: #60a5fa22 !important; }
+    .adp-table tbody tr.selected-p2 { background: #f472b622 !important; }
+
+    .pos-QB { color: #60a5fa; font-weight: 700; font-size: 0.72rem; }
+    .pos-RB { color: #34d399; font-weight: 700; font-size: 0.72rem; }
+    .pos-WR { color: #f472b6; font-weight: 700; font-size: 0.72rem; }
+    .pos-TE { color: #fb923c; font-weight: 700; font-size: 0.72rem; }
+    .pos-K  { color: #a78bfa; font-weight: 700; font-size: 0.72rem; }
+
+    .select-hint {
+      font-size: 0.72rem; color: #555; margin-bottom: 8px; font-style: italic;
+    }
+    .no-drafts-yet {
+      text-align: center; padding: 60px 20px; color: #555;
+    }
+    .no-drafts-yet .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .no-drafts-yet p { font-size: 0.85rem; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<a class="home-btn" href="index.html">🐟 Home</a>
+
+<header>
+  <h1>🎯 SFB16 Average Draft Position</h1>
+  <p>Live ADP aggregated across all #SFB16 leagues · Updates every 15 minutes</p>
+  <p class="last-updated" id="last-updated"></p>
+</header>
+
+<!-- ── Status bar ──────────────────────────────────────────────────────────── -->
+<div class="status-bar">
+  <div class="status-dot" id="status-dot"></div>
+  <span class="status-text" id="status-text">Initializing…</span>
+  <button class="refresh-btn" id="refresh-btn" onclick="startRefresh()" disabled>↻ Refresh</button>
+  <span class="status-count" id="status-count"></span>
+</div>
+
+<!-- ── Compare panel ───────────────────────────────────────────────────────── -->
+<div class="compare-panel" id="compare-panel">
+  <div class="compare-header">
+    <span style="font-size:1.1rem">⚡</span>
+    <h2 id="compare-title">Player Comparison</h2>
+    <button class="compare-clear" onclick="clearCompare()">✕ Clear</button>
+  </div>
+  <div class="compare-body" id="compare-body">
+    <div class="compare-placeholder">
+      Click two players in the table below to compare them.
+    </div>
+  </div>
+</div>
+
+<!-- ── Filters + ADP table ────────────────────────────────────────────────── -->
+<div class="controls">
+  <div class="filter-group">
+    <span class="filter-label">Position:</span>
+    <div class="pill-group" id="pos-pills">
+      <button class="pill pill-all selected" data-pos="ALL" onclick="togglePos('ALL')">All</button>
+      <button class="pill" data-pos="QB"  onclick="togglePos('QB')">QB</button>
+      <button class="pill" data-pos="RB"  onclick="togglePos('RB')">RB</button>
+      <button class="pill" data-pos="WR"  onclick="togglePos('WR')">WR</button>
+      <button class="pill" data-pos="TE"  onclick="togglePos('TE')">TE</button>
+    </div>
+  </div>
+  <div class="filter-group">
+    <input id="search" type="text" class="search-box"
+           placeholder="&#128269; Search player…" oninput="onSearch()">
+  </div>
+</div>
+
+<div class="select-hint" id="select-hint">Click any player row to select for comparison (up to 2)</div>
+<div id="adp-stats" class="stats-bar"></div>
+
+<div class="table-wrap" style="max-height:600px">
+  <table class="adp-table" id="adp-table">
+    <thead>
+      <tr>
+        <th data-key="rank"      onclick="sortBy('rank')">Rank</th>
+        <th data-key="name"      onclick="sortBy('name')">Player</th>
+        <th data-key="pos"       onclick="sortBy('pos')">Pos</th>
+        <th data-key="team"      onclick="sortBy('team')">Team</th>
+        <th data-key="adp"       onclick="sortBy('adp')">ADP</th>
+        <th data-key="min_pick"  onclick="sortBy('min_pick')">Min</th>
+        <th data-key="max_pick"  onclick="sortBy('max_pick')">Max</th>
+        <th data-key="std_dev"   onclick="sortBy('std_dev')">Std Dev</th>
+        <th data-key="num_drafts"onclick="sortBy('num_drafts')">Drafts</th>
+      </tr>
+    </thead>
+    <tbody id="adp-body">
+      <tr><td colspan="9" class="no-results">Loading draft data…</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  Data: Sleeper API · SFB16 leagues only · Refreshes every 15 min ·
+  Player stats from <a href="sfb16_analysis.html">Historical Analysis</a>
+</footer>
+
+<script>
+  // ── Config ─────────────────────────────────────────────────────────────────
+  const USER_ID       = '819245060922130432';
+  const LEAGUES_URL   = `https://api.sleeper.app/v1/user/${USER_ID}/leagues/nfl/2026`;
+  const PLAYERS_URL   = 'https://api.sleeper.app/v1/players/nfl';
+  const PROJ_URL      = 'https://keller9912.github.io/SFB16_Scoring/data/projections_2026.json';
+  const REFRESH_MS    = 15 * 60 * 1000;   // 15 minutes
+  const API_THROTTLE  = 120;              // ms between draft fetch calls
+
+  // ── State ──────────────────────────────────────────────────────────────────
+  let allPlayers   = {};   // sleeper player id → { full_name, position, team, ... }
+  let projData     = [];   // projections_2026.json records
+  let adpData      = [];   // processed ADP records
+  let filteredData = [];
+  let sortKey      = 'adp';
+  let sortAsc      = true;
+  let posSet       = new Set();
+  let searchVal    = '';
+  let selected     = [];   // up to 2 player ids
+  let refreshTimer = null;
+  let isLoading    = false;
+
+  // ── Utility ────────────────────────────────────────────────────────────────
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  function setStatus(state, text, count) {
+    const dot  = document.getElementById('status-dot');
+    const msg  = document.getElementById('status-text');
+    const cnt  = document.getElementById('status-count');
+    const btn  = document.getElementById('refresh-btn');
+    dot.className = 'status-dot ' + state;
+    msg.textContent = text;
+    if (count !== undefined) cnt.textContent = count;
+    btn.disabled = (state === 'loading');
+  }
+
+  // ── Load static data ───────────────────────────────────────────────────────
+  async function loadStaticData() {
+    const [pRes, prRes] = await Promise.all([
+      fetch(PLAYERS_URL),
+      fetch(PROJ_URL).catch(() => null),
+    ]);
+    allPlayers = await pRes.json();
+    if (prRes && prRes.ok) projData = await prRes.json();
+  }
+
+  // ── Fetch draft picks with throttle ───────────────────────────────────────
+  async function fetchAllDraftPicks(leagues) {
+    // Only drafts that have started (status: drafting or complete)
+    const activeDrafts = leagues.filter(l =>
+      l.name && l.name.includes('#SFB16') &&
+      (l.status === 'drafting' || l.status === 'complete' || l.status === 'in_season')
+    );
+
+    setStatus('loading', `Fetching picks from ${activeDrafts.length} drafts…`, '');
+
+    const allPicks = [];
+    let done = 0;
+
+    for (const league of activeDrafts) {
+      try {
+        const url = `https://api.sleeper.app/v1/draft/${league.draft_id}/picks`;
+        const res = await fetch(url);
+        if (res.ok) {
+          const picks = await res.json();
+          if (Array.isArray(picks)) allPicks.push(...picks);
+        }
+      } catch (e) { /* skip failed drafts silently */ }
+
+      done++;
+      if (done % 10 === 0) {
+        setStatus('loading',
+          `Fetching picks… ${done}/${activeDrafts.length} drafts`,
+          `${allPicks.length.toLocaleString()} picks so far`
+        );
+      }
+      await sleep(API_THROTTLE);
+    }
+
+    return allPicks;
+  }
+
+  // ── Process picks into ADP ────────────────────────────────────────────────
+  function processPicks(picks) {
+    const byPlayer = {};
+
+    picks.forEach(pick => {
+      if (!pick.player_id || !pick.pick_no) return;
+      const pid = String(pick.player_id);
+      if (!byPlayer[pid]) byPlayer[pid] = [];
+      byPlayer[pid].push(pick.pick_no);
+    });
+
+    const records = [];
+    for (const [pid, pickNos] of Object.entries(byPlayer)) {
+      if (pickNos.length < 1) continue;
+      const player = allPlayers[pid];
+      if (!player || !player.full_name) continue;
+
+      const pos  = player.position || '';
+      if (!['QB','RB','WR','TE','K'].includes(pos)) continue;
+
+      const sorted = [...pickNos].sort((a,b) => a-b);
+      const avg    = pickNos.reduce((s,v) => s+v, 0) / pickNos.length;
+      const mean   = avg;
+      const variance = pickNos.reduce((s,v) => s + (v-mean)**2, 0) / pickNos.length;
+      const stdDev = Math.sqrt(variance);
+
+      records.push({
+        player_id:  pid,
+        name:       player.full_name,
+        pos,
+        team:       player.team || '—',
+        adp:        Math.round(avg * 10) / 10,
+        min_pick:   sorted[0],
+        max_pick:   sorted[sorted.length - 1],
+        std_dev:    Math.round(stdDev * 10) / 10,
+        num_drafts: pickNos.length,
+        pick_nos:   sorted,
+      });
+    }
+
+    records.sort((a,b) => a.adp - b.adp);
+    records.forEach((r, i) => r.rank = i + 1);
+    return records;
+  }
+
+  // ── Main refresh ──────────────────────────────────────────────────────────
+  async function startRefresh() {
+    if (isLoading) return;
+    isLoading = true;
+    clearTimeout(refreshTimer);
+
+    try {
+      setStatus('loading', 'Loading leagues…', '');
+
+      if (Object.keys(allPlayers).length === 0) await loadStaticData();
+
+      const leagueRes = await fetch(LEAGUES_URL);
+      const leagues   = await leagueRes.json();
+      const sfb16     = leagues.filter(l => l.name && l.name.includes('#SFB16'));
+
+      const picks  = await fetchAllDraftPicks(sfb16);
+      adpData      = processPicks(picks);
+
+      if (adpData.length === 0) {
+        setStatus('error', 'No draft picks found yet — drafts may not have started', '');
+        document.getElementById('adp-body').innerHTML = `
+          <tr><td colspan="9">
+            <div class="no-drafts-yet">
+              <div class="icon">🎮</div>
+              <p>No picks found across ${sfb16.length} SFB16 leagues.<br>
+                 This usually means drafts haven't started yet, or are in pre-draft status.<br>
+                 Check back once leagues begin drafting!</p>
+            </div>
+          </td></tr>`;
+        return;
+      }
+
+      const now = new Date().toLocaleTimeString();
+      setStatus('live',
+        `Live · Last refreshed ${now}`,
+        `${adpData.length} players · ${picks.length.toLocaleString()} total picks`
+      );
+      document.getElementById('last-updated').textContent =
+        `${sfb16.length} SFB16 leagues · ${adpData.length} drafted players · refreshed ${now}`;
+
+      applyAll();
+
+    } catch (err) {
+      setStatus('error', 'Failed to load data: ' + err.message, '');
+    } finally {
+      isLoading = false;
+      refreshTimer = setTimeout(startRefresh, REFRESH_MS);
+    }
+  }
+
+  // ── Filter + sort ─────────────────────────────────────────────────────────
+  function applyAll() {
+    filteredData = adpData.filter(r => {
+      if (posSet.size > 0 && !posSet.has(r.pos)) return false;
+      if (searchVal && !r.name.toLowerCase().includes(searchVal)) return false;
+      return true;
+    });
+    filteredData.sort((a, b) => {
+      let A = a[sortKey], B = b[sortKey];
+      if (typeof A === 'string') return sortAsc ? A.localeCompare(B) : B.localeCompare(A);
+      return sortAsc ? A - B : B - A;
+    });
+    render();
+  }
+
+  function render() {
+    const tbody = document.getElementById('adp-body');
+    const bar   = document.getElementById('adp-stats');
+    bar.textContent = filteredData.length.toLocaleString() + ' players';
+
+    if (filteredData.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="9" class="no-results">No results</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = filteredData.map(r => {
+      const isSel1 = selected[0] === r.player_id;
+      const isSel2 = selected[1] === r.player_id;
+      const rowCls = isSel1 ? 'selected-p1' : isSel2 ? 'selected-p2' : '';
+      return `
+      <tr class="${rowCls}" onclick="selectPlayer('${r.player_id}')">
+        <td>${r.rank}</td>
+        <td>${r.name}</td>
+        <td><span class="pos-${r.pos}">${r.pos}</span></td>
+        <td style="text-align:center;color:#888;font-size:0.72rem">${r.team}</td>
+        <td class="adp-val">${r.adp}</td>
+        <td class="adp-min">${r.min_pick}</td>
+        <td class="adp-max">${r.max_pick}</td>
+        <td style="color:#888">${r.std_dev}</td>
+        <td class="adp-drafts">${r.num_drafts}</td>
+      </tr>`;
+    }).join('');
+
+    // Update sort arrows
+    document.querySelectorAll('.adp-table th').forEach(th => {
+      th.classList.remove('sorted-asc', 'sorted-desc');
+      if (th.dataset.key === sortKey) {
+        th.classList.add(sortAsc ? 'sorted-asc' : 'sorted-desc');
+      }
+    });
+  }
+
+  // ── Filters ────────────────────────────────────────────────────────────────
+  function togglePos(pos) {
+    if (pos === 'ALL') posSet.clear();
+    else { posSet.has(pos) ? posSet.delete(pos) : posSet.add(pos); }
+    document.querySelectorAll('#pos-pills .pill').forEach(btn => {
+      const p = btn.dataset.pos;
+      btn.classList.toggle('selected', p === 'ALL' ? posSet.size === 0 : posSet.has(p));
+    });
+    applyAll();
+  }
+
+  let debounce;
+  function onSearch() {
+    clearTimeout(debounce);
+    debounce = setTimeout(() => {
+      searchVal = document.getElementById('search').value.toLowerCase();
+      applyAll();
+    }, 200);
+  }
+
+  function sortBy(key) {
+    sortAsc = (sortKey === key) ? !sortAsc : (key === 'name' || key === 'pos' || key === 'team');
+    sortKey = key;
+    applyAll();
+  }
+
+  // ── Player comparison ──────────────────────────────────────────────────────
+  function selectPlayer(pid) {
+    if (selected.includes(pid)) {
+      selected = selected.filter(s => s !== pid);
+    } else if (selected.length < 2) {
+      selected.push(pid);
+    } else {
+      selected = [selected[1], pid]; // replace oldest selection
+    }
+
+    render();
+
+    if (selected.length === 0) {
+      clearCompare();
+    } else {
+      updateComparePanel();
+    }
+  }
+
+  function clearCompare() {
+    selected = [];
+    render();
+    document.getElementById('compare-panel').classList.remove('visible');
+  }
+
+  function updateComparePanel() {
+    const panel = document.getElementById('compare-panel');
+    panel.classList.add('visible');
+
+    const p1 = adpData.find(r => r.player_id === selected[0]);
+    const p2 = selected.length > 1 ? adpData.find(r => r.player_id === selected[1]) : null;
+
+    const title = p2
+      ? `${p1.name} vs ${p2.name}`
+      : `${p1.name} — pick distribution`;
+    document.getElementById('compare-title').textContent = title;
+
+    const body = document.getElementById('compare-body');
+
+    if (!p2) {
+      // Single player — show distribution only
+      body.innerHTML = `
+        <div style="grid-column:1/-1;padding:20px">
+          <h3 style="font-size:0.78rem;color:#a78bfa;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">
+            Pick Distribution — ${p1.name}
+          </h3>
+          <canvas id="violin-canvas" class="violin-canvas" width="800" height="200"></canvas>
+          <p style="font-size:0.72rem;color:#555;margin-top:8px">
+            Select a second player in the table to compare
+          </p>
+        </div>`;
+      drawViolin([p1], ['#60a5fa']);
+    } else {
+      // Two players — violin + stats table
+      const proj1 = projData.find(p => p.player.toLowerCase() === p1.name.toLowerCase());
+      const proj2 = projData.find(p => p.player.toLowerCase() === p2.name.toLowerCase());
+
+      body.innerHTML = `
+        <div class="compare-violin">
+          <h3>Pick Distribution</h3>
+          <canvas id="violin-canvas" class="violin-canvas" width="400" height="200"></canvas>
+        </div>
+        <div class="compare-stats">
+          <h3>SFB16 Historical Stats (2021-2025)</h3>
+          ${buildCompareTable(p1, p2, proj1, proj2)}
+        </div>`;
+      drawViolin([p1, p2], ['#60a5fa', '#f472b6']);
+    }
+  }
+
+  function buildCompareTable(p1, p2, proj1, proj2) {
+    const rows = [
+      ['ADP',           p1.adp,            p2.adp,            true],
+      ['Min Pick',      p1.min_pick,       p2.min_pick,       true],
+      ['Max Pick',      p1.max_pick,       p2.max_pick,       false],
+      ['Std Dev',       p1.std_dev,        p2.std_dev,        true],
+      ['Drafts',        p1.num_drafts,     p2.num_drafts,     false],
+      ['—',             '—',               '—',               false],
+      ['Proj Total Pts',proj1?.total_proj_pts ?? '—', proj2?.total_proj_pts ?? '—', false],
+      ['Proj Bonus Pts',proj1?.total_bonus_pts ?? '—', proj2?.total_bonus_pts ?? '—', false],
+      ['Proj Pts/Gm',   proj1?.pts_per_game ?? '—',   proj2?.pts_per_game ?? '—',   false],
+      ['—',             '—',               '—',               false],
+      ['Pass Yds (proj)',proj1?.pass_yds ?? '—', proj2?.pass_yds ?? '—',false],
+      ['Rush Yds (proj)',proj1?.rush_yds ?? '—', proj2?.rush_yds ?? '—',false],
+      ['Rec Yds (proj)', proj1?.rec_yds  ?? '—', proj2?.rec_yds  ?? '—',false],
+      ['TDs (proj)',     proj1?.pass_tds !== undefined ? (proj1.pass_tds||0)+(proj1.rush_tds||0)+(proj1.rec_tds||0) : '—',
+                        proj2?.pass_tds !== undefined ? (proj2.pass_tds||0)+(proj2.rush_tds||0)+(proj2.rec_tds||0) : '—', false],
+      ['—',             '—',               '—',               false],
+      ['Proj 300+ Gms', proj1?.bonus_pass_300 ? (proj1.bonus_pass_300/10).toFixed(1) : '—',
+                        proj2?.bonus_pass_300 ? (proj2.bonus_pass_300/10).toFixed(1) : '—', false],
+      ['Proj 400+ Gms', proj1?.bonus_pass_400 ? (proj1.bonus_pass_400/10).toFixed(1) : '—',
+                        proj2?.bonus_pass_400 ? (proj2.bonus_pass_400/10).toFixed(1) : '—', false],
+      ['Proj 100+ Gms', proj1?.bonus_scrim_100 ? (proj1.bonus_scrim_100/10).toFixed(1) : '—',
+                        proj2?.bonus_scrim_100 ? (proj2.bonus_scrim_100/10).toFixed(1) : '—', false],
+      ['Proj 200+ Gms', proj1?.bonus_scrim_200 ? (proj1.bonus_scrim_200/10).toFixed(1) : '—',
+                        proj2?.bonus_scrim_200 ? (proj2.bonus_scrim_200/10).toFixed(1) : '—', false],
+      ['Proj 40+ Pass Plays', proj1?.bonus_pass_40 ? (proj1.bonus_pass_40/10).toFixed(1) : '—',
+                              proj2?.bonus_pass_40 ? (proj2.bonus_pass_40/10).toFixed(1) : '—', false],
+      ['Proj 40+ Rush Plays', proj1?.bonus_rush_40 ? (proj1.bonus_rush_40/10).toFixed(1) : '—',
+                              proj2?.bonus_rush_40 ? (proj2.bonus_rush_40/10).toFixed(1) : '—', false],
+      ['Proj 20+ Rec Plays',  proj1?.bonus_rec_20  ? (proj1.bonus_rec_20/10).toFixed(1)  : '—',
+                              proj2?.bonus_rec_20  ? (proj2.bonus_rec_20/10).toFixed(1)  : '—', false],
+    ];
+
+    const headerRow = `
+      <tr>
+        <th style="text-align:left">Stat</th>
+        <th style="color:#60a5fa">${p1.name}</th>
+        <th style="color:#f472b6">${p2.name}</th>
+      </tr>`;
+
+    const dataRows = rows.map(([label, v1, v2, lowerIsBetter]) => {
+      if (label === '—') {
+        return `<tr><td colspan="3" style="border-bottom:1px solid #ffffff11;padding:4px 0"></td></tr>`;
+      }
+      const n1 = parseFloat(v1), n2 = parseFloat(v2);
+      let cls1 = 'p1', cls2 = 'p2';
+      if (!isNaN(n1) && !isNaN(n2) && n1 !== n2) {
+        const p1better = lowerIsBetter ? n1 < n2 : n1 > n2;
+        if (p1better) cls1 = 'p1 highlight';
+        else          cls2 = 'p2 highlight';
+      }
+      return `<tr>
+        <td>${label}</td>
+        <td class="${cls1}">${v1}</td>
+        <td class="${cls2}">${v2}</td>
+      </tr>`;
+    }).join('');
+
+    return `<table class="compare-table"><thead>${headerRow}</thead><tbody>${dataRows}</tbody></table>`;
+  }
+
+  // ── Violin chart (SVG-based, no library needed) ───────────────────────────
+  function drawViolin(players, colors) {
+    // Use requestAnimationFrame to ensure canvas exists in DOM
+    requestAnimationFrame(() => {
+      const canvas = document.getElementById('violin-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.offsetWidth || 400;
+      const H = canvas.offsetHeight || 200;
+      canvas.width  = W;
+      canvas.height = H;
+      ctx.clearRect(0, 0, W, H);
+
+      // Find global range across all players
+      const allPicks = players.flatMap(p => p.pick_nos);
+      const minP = Math.min(...allPicks);
+      const maxP = Math.max(...allPicks);
+      const range = maxP - minP || 1;
+
+      const PAD_L = 36, PAD_R = 16, PAD_T = 20, PAD_B = 30;
+      const drawW = W - PAD_L - PAD_R;
+      const drawH = H - PAD_T - PAD_B;
+
+      // Draw x-axis grid
+      ctx.strokeStyle = '#ffffff0d';
+      ctx.lineWidth = 1;
+      const ticks = 5;
+      for (let i = 0; i <= ticks; i++) {
+        const v   = minP + (range / ticks) * i;
+        const x   = PAD_L + (drawW * (v - minP) / range);
+        ctx.beginPath();
+        ctx.moveTo(x, PAD_T);
+        ctx.lineTo(x, PAD_T + drawH);
+        ctx.stroke();
+        ctx.fillStyle = '#444';
+        ctx.font = '10px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(Math.round(v), x, H - 6);
+      }
+
+      // Draw label
+      ctx.fillStyle = '#666';
+      ctx.font = '10px sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText('Overall Pick', PAD_L, H - 6);
+
+      const bandwidth   = range / 15;
+      const slotH       = (drawH - 8) / players.length;
+
+      players.forEach((player, pi) => {
+        const color   = colors[pi];
+        const picks   = player.pick_nos;
+        const centerY = PAD_T + slotH * pi + slotH / 2;
+        const maxHalfH = slotH * 0.42;
+
+        // KDE — Gaussian kernel density estimation
+        const BINS = 120;
+        const density = new Array(BINS).fill(0);
+        picks.forEach(pk => {
+          for (let b = 0; b < BINS; b++) {
+            const bv   = minP + (b / BINS) * range;
+            const diff = (pk - bv) / bandwidth;
+            density[b] += Math.exp(-0.5 * diff * diff);
+          }
+        });
+        const maxD = Math.max(...density);
+
+        // Draw filled violin
+        ctx.beginPath();
+        for (let b = 0; b < BINS; b++) {
+          const x  = PAD_L + (b / BINS) * drawW;
+          const hy = maxD > 0 ? (density[b] / maxD) * maxHalfH : 0;
+          if (b === 0) ctx.moveTo(x, centerY - hy);
+          else         ctx.lineTo(x, centerY - hy);
+        }
+        for (let b = BINS - 1; b >= 0; b--) {
+          const x  = PAD_L + (b / BINS) * drawW;
+          const hy = maxD > 0 ? (density[b] / maxD) * maxHalfH : 0;
+          ctx.lineTo(x, centerY + hy);
+        }
+        ctx.closePath();
+        ctx.fillStyle = color + '33';
+        ctx.fill();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Draw median line
+        const med = picks[Math.floor(picks.length / 2)];
+        const mx  = PAD_L + ((med - minP) / range) * drawW;
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(mx, centerY - maxHalfH * 0.9);
+        ctx.lineTo(mx, centerY + maxHalfH * 0.9);
+        ctx.stroke();
+
+        // Player label
+        ctx.fillStyle = color;
+        ctx.font = 'bold 11px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(player.name, PAD_L + 4, centerY - maxHalfH - 4);
+      });
+    });
+  }
+
+  // ── Init ───────────────────────────────────────────────────────────────────
+  startRefresh();
+</script>
+</body>
+</html>
