@@ -182,7 +182,7 @@
 </div>
 
 <footer>
-  Data: Sleeper API · SFB16 leagues only · Refreshes every 15 min ·
+  Data: Sleeper API (live) · MFL (refreshed via GitHub Action) · SFB16 leagues only ·
   Player stats from <a href="sfb16_analysis.html">Historical Analysis</a>
 </footer>
 
@@ -195,14 +195,15 @@
   const THROTTLE_MS = 120;
 
   // ── MFL config ──────────────────────────────────────────────────────────
-  const MFL_YEAR         = 2026;
-  const MFL_API_BASE     = `https://api.myfantasyleague.com/${MFL_YEAR}/export`;
-  const MFL_SEARCH_URL   = `${MFL_API_BASE}?TYPE=leagueSearch&SEARCH=SFB16&JSON=1`;
-  const MFL_PLAYERS_URL  = `${MFL_API_BASE}?TYPE=players&JSON=1`;
-  const VALID_POS        = ['QB','RB','WR','TE','K'];
+  // MFL's API blocks cross-origin browser requests (it only allows requests
+  // originating from myfantasyleague.com), so we can't call it directly from
+  // here. Instead, a GitHub Action (scripts/fetch_mfl.js, on a ~15 min cron)
+  // fetches MFL server-side and commits data/mfl_picks.json, which this page
+  // reads the same way it reads any other file in /data/.
+  const MFL_DATA_URL = 'https://keller9912.github.io/SFB16_Scoring/data/mfl_picks.json';
+  const VALID_POS    = ['QB','RB','WR','TE','K'];
 
   let allPlayers   = {};
-  let mflPlayers   = {};
   let projData     = [];
   let adpData      = [];
   let filteredData = [];
@@ -215,7 +216,6 @@
   let isLoading    = false;
 
   function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
-  function toArray(x) { return x == null ? [] : (Array.isArray(x) ? x : [x]); }
 
   function setStatus(state, text, count) {
     document.getElementById('status-dot').className  = 'status-dot ' + state;
@@ -256,88 +256,18 @@
     return allPicks;
   }
 
-  // ── MFL: find #SFB16 leagues via leagueSearch ────────────────────────────
-  async function loadMflLeagues() {
+  // ── MFL: read the pre-fetched static data file (already name/pos/team
+  // resolved and overall-pick-numbered by scripts/fetch_mfl.js) ───────────
+  async function loadMflPicks() {
     try {
-      const res = await fetch(MFL_SEARCH_URL);
-      if (!res.ok) return [];
-      const data = await res.json();
-      const leagues = toArray(data?.leagues?.league);
-      // leagueSearch matches substrings anywhere in the name/description, so
-      // re-filter to be sure it's actually an #SFB16 league for this year
-      return leagues.filter(lg =>
-        lg && lg.id && lg.name && /sfb16/i.test(lg.name) &&
-        (lg.year === undefined || String(lg.year) === String(MFL_YEAR))
-      );
+      const res = await fetch(MFL_DATA_URL);
+      if (!res.ok) return null;
+      return await res.json();
     } catch(e) {
-      // Most likely CORS or network — fail soft, Sleeper data still renders
-      return [];
+      // Missing file, stale cache, network hiccup, etc. — fail soft so
+      // Sleeper-only ADP still renders.
+      return null;
     }
-  }
-
-  // ── MFL: player directory (id -> name/pos/team), fetched once ───────────
-  function mflNameToFull(mflName) {
-    // MFL player names are stored "Last, First" — convert to "First Last"
-    const parts = (mflName || '').split(',');
-    if (parts.length === 2) return `${parts[1].trim()} ${parts[0].trim()}`;
-    return (mflName || '').trim();
-  }
-
-  async function loadMflPlayers() {
-    try {
-      const res = await fetch(MFL_PLAYERS_URL);
-      if (!res.ok) return;
-      const data = await res.json();
-      const players = toArray(data?.players?.player);
-      players.forEach(p => {
-        mflPlayers[p.id] = {
-          name: mflNameToFull(p.name),
-          pos:  p.position || '',
-          team: p.team || '—',
-        };
-      });
-    } catch(e) {}
-  }
-
-  // ── MFL: draft picks for each found league, throttled like Sleeper ──────
-  async function fetchMflDraftPicks(leagues) {
-    if (!leagues.length) return [];
-    setStatus('loading', `Fetching picks from ${leagues.length} MFL drafts…`, '');
-    const allPicks = [];
-    let done = 0;
-    for (const lg of leagues) {
-      try {
-        const url = `${MFL_API_BASE}?TYPE=draftResults&L=${lg.id}&JSON=1`;
-        const res = await fetch(url);
-        if (res.ok) {
-          const data  = await res.json();
-          const units = toArray(data?.draftResults?.draftUnit);
-          units.forEach(u => {
-            const picks = toArray(u.draftPick);
-            // MFL gives round + pick-within-round, not an overall pick number.
-            // Every fantasy draft round has exactly one pick per team, so the
-            // round-1 pick count (or distinct franchise count as a fallback)
-            // gives us the team count needed to compute the overall pick.
-            const teamsCount =
-              picks.filter(p => parseInt(p.round, 10) === 1).length ||
-              new Set(picks.map(p => p.franchise)).size || 1;
-            picks.forEach(p => {
-              const round = parseInt(p.round, 10);
-              const pickInRound = parseInt(p.pick, 10);
-              if (!p.player || isNaN(round) || isNaN(pickInRound)) return;
-              allPicks.push({
-                player_id: String(p.player),
-                pick_no:   (round - 1) * teamsCount + pickInRound,
-              });
-            });
-          });
-        }
-      } catch(e) {}
-      done++;
-      if (done % 5 === 0) setStatus('loading', `Fetching MFL… ${done}/${leagues.length}`, `${allPicks.length.toLocaleString()} picks`);
-      await sleep(THROTTLE_MS);
-    }
-    return allPicks;
   }
 
   // ── Convert raw picks from each platform into a common entry shape ──────
@@ -354,16 +284,13 @@
     return entries;
   }
 
-  function mflPickEntries(picks) {
-    const entries = [];
-    picks.forEach(pick => {
-      const player = mflPlayers[pick.player_id];
-      if (!player || !player.name) return;
-      const pos = player.pos || '';
-      if (!VALID_POS.includes(pos)) return;
-      entries.push({ name: player.name, pos, team: player.team || '—', pick_no: pick.pick_no, platform: 'MFL' });
-    });
-    return entries;
+  // mflData is the parsed data/mfl_picks.json — picks are already resolved
+  // to name/pos/team and overall-pick-numbered by scripts/fetch_mfl.js
+  function mflPickEntries(mflData) {
+    if (!mflData || !Array.isArray(mflData.picks)) return [];
+    return mflData.picks
+      .filter(p => p.name && VALID_POS.includes(p.pos) && p.pick_no)
+      .map(p => ({ name: p.name, pos: p.pos, team: p.team || '—', pick_no: p.pick_no, platform: 'MFL' }));
   }
 
   // ── Merge entries from every platform into one ADP table, by player ─────
@@ -415,16 +342,17 @@
     try {
       setStatus('loading', 'Loading leagues…', '');
       if (!Object.keys(allPlayers).length) await loadStaticData();
-      if (!Object.keys(mflPlayers).length) await loadMflPlayers();
 
       const leagues = await (await fetch(LEAGUES_URL)).json();
       const sfb16   = leagues.filter(l => l.name && l.name.includes('#SFB16'));
       const sleeperPicks = await fetchAllDraftPicks(sfb16);
 
-      const mflLeagues = await loadMflLeagues();
-      const mflPicks    = await fetchMflDraftPicks(mflLeagues);
+      setStatus('loading', 'Loading MFL data…', '');
+      const mflData = await loadMflPicks();
+      const mflLeagueCount = mflData?.leagues?.length || 0;
+      const mflPickCount   = mflData?.picks?.length || 0;
 
-      const entries = [...sleeperPickEntries(sleeperPicks), ...mflPickEntries(mflPicks)];
+      const entries = [...sleeperPickEntries(sleeperPicks), ...mflPickEntries(mflData)];
       adpData = buildAdpRecords(entries);
 
       if (!adpData.length) {
@@ -432,16 +360,19 @@
         document.getElementById('adp-body').innerHTML = `
           <tr><td colspan="10"><div class="no-drafts-yet">
             <div class="icon">🎮</div>
-            <p>No picks found across ${sfb16.length} Sleeper + ${mflLeagues.length} MFL SFB16 leagues.<br>Check back once drafts begin!</p>
+            <p>No picks found across ${sfb16.length} Sleeper + ${mflLeagueCount} MFL SFB16 leagues.<br>Check back once drafts begin!</p>
           </div></td></tr>`;
         return;
       }
       const now = new Date().toLocaleTimeString();
-      const totalPicks = sleeperPicks.length + mflPicks.length;
-      setStatus('live', `Live · Last refreshed ${now}`,
-        `${adpData.length} players · ${totalPicks.toLocaleString()} picks (${sleeperPicks.length.toLocaleString()} Sleeper + ${mflPicks.length.toLocaleString()} MFL)`);
+      const totalPicks = sleeperPicks.length + mflPickCount;
+      const mflAge = mflData?.generated_at
+        ? ` · MFL data as of ${new Date(mflData.generated_at).toLocaleTimeString()}`
+        : mflData ? '' : ' · MFL data unavailable';
+      setStatus('live', `Live · Last refreshed ${now}${mflAge}`,
+        `${adpData.length} players · ${totalPicks.toLocaleString()} picks (${sleeperPicks.length.toLocaleString()} Sleeper + ${mflPickCount.toLocaleString()} MFL)`);
       document.getElementById('last-updated').textContent =
-        `${sfb16.length} Sleeper + ${mflLeagues.length} MFL SFB16 leagues · ${adpData.length} drafted players · refreshed ${now}`;
+        `${sfb16.length} Sleeper + ${mflLeagueCount} MFL SFB16 leagues · ${adpData.length} drafted players · refreshed ${now}`;
       applyAll();
     } catch(err) {
       setStatus('error', 'Failed: ' + err.message, '');
