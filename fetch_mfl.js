@@ -93,7 +93,7 @@ async function main() {
 
   const fs = require('fs');
   const path = require('path');
-  const outPath = path.join(__dirname, '..', 'data', 'mfl_picks.json');
+  const outPath = path.join(__dirname, 'data', 'mfl_picks.json');
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, JSON.stringify(output, null, 2));
   console.log(`Wrote ${picks.length} picks from ${leagues.length} leagues to ${outPath}`);
