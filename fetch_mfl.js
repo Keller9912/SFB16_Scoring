@@ -7,6 +7,7 @@
 const YEAR = 2026;
 const BASE = `https://api.myfantasyleague.com/${YEAR}/export`;
 const VALID_POS = ['QB', 'RB', 'WR', 'TE', 'K'];
+const LEAGUE_NAME_RE = /^#SFB16(?:\s|\-|$)/i;
 const THROTTLE_MS = 250;
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
@@ -31,7 +32,7 @@ async function main() {
   console.log('Searching MFL for #SFB16 leagues...');
   const searchData = await fetchJson(`${BASE}?TYPE=leagueSearch&SEARCH=SFB16&JSON=1`);
   const leagues = toArray(searchData?.leagues?.league).filter(lg =>
-    lg && lg.id && lg.name && /sfb16/i.test(lg.name) &&
+    lg && lg.id && lg.name && LEAGUE_NAME_RE.test(lg.name) &&
     (lg.year === undefined || String(lg.year) === String(YEAR))
   );
   console.log(`Found ${leagues.length} MFL #SFB16 leagues`);
