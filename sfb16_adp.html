@@ -91,6 +91,11 @@
     .adp-table td.adp-min    { color:#34d399; }
     .adp-table td.adp-max    { color:#ef4444; }
     .adp-table td.adp-drafts { color:#666;font-size:0.72rem; }
+    .adp-table td.platform-cell { text-align:center; }
+    .plat-badge { font-size:0.62rem;padding:2px 7px;border-radius:10px;font-weight:700;letter-spacing:0.3px; }
+    .plat-Sleeper { background:#34d39922;color:#34d399; }
+    .plat-MFL     { background:#60a5fa22;color:#60a5fa; }
+    .plat-Both    { background:#f5c54222;color:#f5c542; }
     .adp-table tbody tr:hover { background:#7c3aed22 !important;cursor:pointer; }
     .adp-table tbody tr:nth-child(even) { background:#ffffff05; }
     .adp-table tbody tr.selected-p1 { background:#60a5fa22 !important; }
@@ -167,10 +172,11 @@
         <th data-key="max_pick"   onclick="sortBy('max_pick')">Max</th>
         <th data-key="std_dev"    onclick="sortBy('std_dev')">Std Dev</th>
         <th data-key="num_drafts" onclick="sortBy('num_drafts')">Drafts</th>
+        <th data-key="platformLabel" onclick="sortBy('platformLabel')">Platform</th>
       </tr>
     </thead>
     <tbody id="adp-body">
-      <tr><td colspan="9" class="no-results">Loading draft data…</td></tr>
+      <tr><td colspan="10" class="no-results">Loading draft data…</td></tr>
     </tbody>
   </table>
 </div>
@@ -188,7 +194,15 @@
   const REFRESH_MS  = 15 * 60 * 1000;
   const THROTTLE_MS = 120;
 
+  // ── MFL config ──────────────────────────────────────────────────────────
+  const MFL_YEAR         = 2026;
+  const MFL_API_BASE     = `https://api.myfantasyleague.com/${MFL_YEAR}/export`;
+  const MFL_SEARCH_URL   = `${MFL_API_BASE}?TYPE=leagueSearch&SEARCH=SFB16&JSON=1`;
+  const MFL_PLAYERS_URL  = `${MFL_API_BASE}?TYPE=players&JSON=1`;
+  const VALID_POS        = ['QB','RB','WR','TE','K'];
+
   let allPlayers   = {};
+  let mflPlayers   = {};
   let projData     = [];
   let adpData      = [];
   let filteredData = [];
@@ -201,6 +215,7 @@
   let isLoading    = false;
 
   function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+  function toArray(x) { return x == null ? [] : (Array.isArray(x) ? x : [x]); }
 
   function setStatus(state, text, count) {
     document.getElementById('status-dot').className  = 'status-dot ' + state;
@@ -223,7 +238,7 @@
       l.name && l.name.includes('#SFB16') &&
       (l.status === 'drafting' || l.status === 'complete' || l.status === 'in_season')
     );
-    setStatus('loading', `Fetching picks from ${active.length} drafts…`, '');
+    setStatus('loading', `Fetching picks from ${active.length} Sleeper drafts…`, '');
     const allPicks = [];
     let done = 0;
     for (const league of active) {
@@ -235,39 +250,157 @@
         }
       } catch(e) {}
       done++;
-      if (done % 10 === 0) setStatus('loading', `Fetching… ${done}/${active.length}`, `${allPicks.length.toLocaleString()} picks`);
+      if (done % 10 === 0) setStatus('loading', `Fetching Sleeper… ${done}/${active.length}`, `${allPicks.length.toLocaleString()} picks`);
       await sleep(THROTTLE_MS);
     }
     return allPicks;
   }
 
-  function processPicks(picks) {
-    const byPlayer = {};
+  // ── MFL: find #SFB16 leagues via leagueSearch ────────────────────────────
+  async function loadMflLeagues() {
+    try {
+      const res = await fetch(MFL_SEARCH_URL);
+      if (!res.ok) return [];
+      const data = await res.json();
+      const leagues = toArray(data?.leagues?.league);
+      // leagueSearch matches substrings anywhere in the name/description, so
+      // re-filter to be sure it's actually an #SFB16 league for this year
+      return leagues.filter(lg =>
+        lg && lg.id && lg.name && /sfb16/i.test(lg.name) &&
+        (lg.year === undefined || String(lg.year) === String(MFL_YEAR))
+      );
+    } catch(e) {
+      // Most likely CORS or network — fail soft, Sleeper data still renders
+      return [];
+    }
+  }
+
+  // ── MFL: player directory (id -> name/pos/team), fetched once ───────────
+  function mflNameToFull(mflName) {
+    // MFL player names are stored "Last, First" — convert to "First Last"
+    const parts = (mflName || '').split(',');
+    if (parts.length === 2) return `${parts[1].trim()} ${parts[0].trim()}`;
+    return (mflName || '').trim();
+  }
+
+  async function loadMflPlayers() {
+    try {
+      const res = await fetch(MFL_PLAYERS_URL);
+      if (!res.ok) return;
+      const data = await res.json();
+      const players = toArray(data?.players?.player);
+      players.forEach(p => {
+        mflPlayers[p.id] = {
+          name: mflNameToFull(p.name),
+          pos:  p.position || '',
+          team: p.team || '—',
+        };
+      });
+    } catch(e) {}
+  }
+
+  // ── MFL: draft picks for each found league, throttled like Sleeper ──────
+  async function fetchMflDraftPicks(leagues) {
+    if (!leagues.length) return [];
+    setStatus('loading', `Fetching picks from ${leagues.length} MFL drafts…`, '');
+    const allPicks = [];
+    let done = 0;
+    for (const lg of leagues) {
+      try {
+        const url = `${MFL_API_BASE}?TYPE=draftResults&L=${lg.id}&JSON=1`;
+        const res = await fetch(url);
+        if (res.ok) {
+          const data  = await res.json();
+          const units = toArray(data?.draftResults?.draftUnit);
+          units.forEach(u => {
+            const picks = toArray(u.draftPick);
+            // MFL gives round + pick-within-round, not an overall pick number.
+            // Every fantasy draft round has exactly one pick per team, so the
+            // round-1 pick count (or distinct franchise count as a fallback)
+            // gives us the team count needed to compute the overall pick.
+            const teamsCount =
+              picks.filter(p => parseInt(p.round, 10) === 1).length ||
+              new Set(picks.map(p => p.franchise)).size || 1;
+            picks.forEach(p => {
+              const round = parseInt(p.round, 10);
+              const pickInRound = parseInt(p.pick, 10);
+              if (!p.player || isNaN(round) || isNaN(pickInRound)) return;
+              allPicks.push({
+                player_id: String(p.player),
+                pick_no:   (round - 1) * teamsCount + pickInRound,
+              });
+            });
+          });
+        }
+      } catch(e) {}
+      done++;
+      if (done % 5 === 0) setStatus('loading', `Fetching MFL… ${done}/${leagues.length}`, `${allPicks.length.toLocaleString()} picks`);
+      await sleep(THROTTLE_MS);
+    }
+    return allPicks;
+  }
+
+  // ── Convert raw picks from each platform into a common entry shape ──────
+  function sleeperPickEntries(picks) {
+    const entries = [];
     picks.forEach(pick => {
       if (!pick.player_id || !pick.pick_no) return;
-      const pid = String(pick.player_id);
-      if (!byPlayer[pid]) byPlayer[pid] = [];
-      byPlayer[pid].push(pick.pick_no);
+      const player = allPlayers[String(pick.player_id)];
+      if (!player || !player.full_name) return;
+      const pos = player.position || '';
+      if (!VALID_POS.includes(pos)) return;
+      entries.push({ name: player.full_name, pos, team: player.team || '—', pick_no: pick.pick_no, platform: 'Sleeper' });
+    });
+    return entries;
+  }
+
+  function mflPickEntries(picks) {
+    const entries = [];
+    picks.forEach(pick => {
+      const player = mflPlayers[pick.player_id];
+      if (!player || !player.name) return;
+      const pos = player.pos || '';
+      if (!VALID_POS.includes(pos)) return;
+      entries.push({ name: player.name, pos, team: player.team || '—', pick_no: pick.pick_no, platform: 'MFL' });
+    });
+    return entries;
+  }
+
+  // ── Merge entries from every platform into one ADP table, by player ─────
+  // Players are grouped by normalized-name + position (not by platform-native
+  // ID, since Sleeper and MFL use different ID schemes for the same player).
+  // Each record keeps a `platforms` breakdown (e.g. {Sleeper: 9, MFL: 3}) for
+  // further analysis, plus a `platformLabel` for display/sorting.
+  function buildAdpRecords(entries) {
+    const byKey = {};
+    entries.forEach(e => {
+      const key = normName(e.name) + '|' + e.pos;
+      if (!byKey[key]) byKey[key] = { name: e.name, pos: e.pos, team: e.team, pick_nos: [], platforms: {} };
+      const rec = byKey[key];
+      rec.pick_nos.push(e.pick_no);
+      rec.platforms[e.platform] = (rec.platforms[e.platform] || 0) + 1;
+      if (e.team && e.team !== '—') rec.team = e.team;
     });
     const records = [];
-    for (const [pid, pickNos] of Object.entries(byPlayer)) {
+    for (const rec of Object.values(byKey)) {
+      const pickNos = rec.pick_nos;
       if (!pickNos.length) continue;
-      const player = allPlayers[pid];
-      if (!player || !player.full_name) continue;
-      const pos = player.position || '';
-      if (!['QB','RB','WR','TE','K'].includes(pos)) continue;
       const sorted = [...pickNos].sort((a,b) => a-b);
       const avg    = pickNos.reduce((s,v) => s+v, 0) / pickNos.length;
       const std    = Math.sqrt(pickNos.reduce((s,v) => s+(v-avg)**2, 0) / pickNos.length);
+      const platformKeys = Object.keys(rec.platforms).sort();
       records.push({
-        player_id: pid, name: player.full_name, pos,
-        team:      player.team || '—',
-        adp:       Math.round(avg * 10) / 10,
-        min_pick:  sorted[0],
-        max_pick:  sorted[sorted.length - 1],
-        std_dev:   Math.round(std * 10) / 10,
-        num_drafts:pickNos.length,
-        pick_nos:  sorted,
+        player_id:     normName(rec.name) + '|' + rec.pos,
+        name:          rec.name, pos: rec.pos,
+        team:          rec.team || '—',
+        adp:           Math.round(avg * 10) / 10,
+        min_pick:      sorted[0],
+        max_pick:      sorted[sorted.length - 1],
+        std_dev:       Math.round(std * 10) / 10,
+        num_drafts:    pickNos.length,
+        pick_nos:      sorted,
+        platforms:     rec.platforms,
+        platformLabel: platformKeys.length > 1 ? 'Both' : platformKeys[0],
       });
     }
     records.sort((a,b) => a.adp - b.adp);
@@ -282,25 +415,33 @@
     try {
       setStatus('loading', 'Loading leagues…', '');
       if (!Object.keys(allPlayers).length) await loadStaticData();
+      if (!Object.keys(mflPlayers).length) await loadMflPlayers();
+
       const leagues = await (await fetch(LEAGUES_URL)).json();
       const sfb16   = leagues.filter(l => l.name && l.name.includes('#SFB16'));
-      const picks   = await fetchAllDraftPicks(sfb16);
-      adpData       = processPicks(picks);
+      const sleeperPicks = await fetchAllDraftPicks(sfb16);
+
+      const mflLeagues = await loadMflLeagues();
+      const mflPicks    = await fetchMflDraftPicks(mflLeagues);
+
+      const entries = [...sleeperPickEntries(sleeperPicks), ...mflPickEntries(mflPicks)];
+      adpData = buildAdpRecords(entries);
 
       if (!adpData.length) {
         setStatus('error', 'No picks found — drafts may not have started yet', '');
         document.getElementById('adp-body').innerHTML = `
-          <tr><td colspan="9"><div class="no-drafts-yet">
+          <tr><td colspan="10"><div class="no-drafts-yet">
             <div class="icon">🎮</div>
-            <p>No picks found across ${sfb16.length} SFB16 leagues.<br>Check back once drafts begin!</p>
+            <p>No picks found across ${sfb16.length} Sleeper + ${mflLeagues.length} MFL SFB16 leagues.<br>Check back once drafts begin!</p>
           </div></td></tr>`;
         return;
       }
       const now = new Date().toLocaleTimeString();
+      const totalPicks = sleeperPicks.length + mflPicks.length;
       setStatus('live', `Live · Last refreshed ${now}`,
-        `${adpData.length} players · ${picks.length.toLocaleString()} picks`);
+        `${adpData.length} players · ${totalPicks.toLocaleString()} picks (${sleeperPicks.length.toLocaleString()} Sleeper + ${mflPicks.length.toLocaleString()} MFL)`);
       document.getElementById('last-updated').textContent =
-        `${sfb16.length} SFB16 leagues · ${adpData.length} drafted players · refreshed ${now}`;
+        `${sfb16.length} Sleeper + ${mflLeagues.length} MFL SFB16 leagues · ${adpData.length} drafted players · refreshed ${now}`;
       applyAll();
     } catch(err) {
       setStatus('error', 'Failed: ' + err.message, '');
@@ -328,11 +469,12 @@
     const bar = document.getElementById('adp-stats');
     bar.textContent = filteredData.length.toLocaleString() + ' players';
     if (!filteredData.length) {
-      document.getElementById('adp-body').innerHTML = '<tr><td colspan="9" class="no-results">No results</td></tr>';
+      document.getElementById('adp-body').innerHTML = '<tr><td colspan="10" class="no-results">No results</td></tr>';
       return;
     }
     document.getElementById('adp-body').innerHTML = filteredData.map(r => {
       const cls = selected[0]===r.player_id ? 'selected-p1' : selected[1]===r.player_id ? 'selected-p2' : '';
+      const platTitle = Object.entries(r.platforms || {}).map(([k,v]) => `${k}: ${v}`).join(', ');
       return `<tr class="${cls}" onclick="selectPlayer('${r.player_id}')">
         <td>${r.rank}</td>
         <td>${r.name}</td>
@@ -343,6 +485,7 @@
         <td class="adp-max">${r.max_pick}</td>
         <td style="color:#888">${r.std_dev}</td>
         <td class="adp-drafts">${r.num_drafts}</td>
+        <td class="platform-cell"><span class="plat-badge plat-${r.platformLabel}" title="${platTitle}">${r.platformLabel}</span></td>
       </tr>`;
     }).join('');
     document.querySelectorAll('.adp-table th').forEach(th => {
@@ -368,7 +511,7 @@
   }
 
   function sortBy(key) {
-    sortAsc = sortKey===key ? !sortAsc : (key==='name'||key==='pos'||key==='team');
+    sortAsc = sortKey===key ? !sortAsc : (key==='name'||key==='pos'||key==='team'||key==='platformLabel');
     sortKey = key; applyAll();
   }
 
@@ -480,6 +623,10 @@
       ['Max Pick',           p1.max_pick,    p2.max_pick,    false],
       ['Std Dev',            p1.std_dev,     p2.std_dev,     true],
       ['Drafts',             p1.num_drafts,  p2.num_drafts,  false],
+      ['Platform',
+        Object.entries(p1.platforms||{}).map(([k,v])=>`${k} ${v}`).join(' / ') || p1.platformLabel,
+        Object.entries(p2.platforms||{}).map(([k,v])=>`${k} ${v}`).join(' / ') || p2.platformLabel,
+        false],
       ['—','—','—',false],
       ['Proj Total Pts',     proj1?.total_proj_pts  ?? '—', proj2?.total_proj_pts  ?? '—', false],
       ['Proj Bonus Pts',     proj1?.total_bonus_pts ?? '—', proj2?.total_bonus_pts ?? '—', false],
