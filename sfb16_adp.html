@@ -11,7 +11,7 @@
       background:#1a1a2e;border:1px solid #7c3aed33;border-radius:8px;
       padding:10px 16px;margin-bottom:20px;font-size:0.78rem;
     }
-    .status-dot { width:8px;height:8px;border-radius:50%;background:#555;flex-shrink:0;transition:background 0.3s; }
+    .status-dot { width:8px;height:8px;border-radius:50%;background:#555;flex-shrink:0;transition:background-color 0.3s; }
     .status-dot.loading { background:#f5c542;animation:pulse 1s infinite; }
     .status-dot.live    { background:#34d399; }
     .status-dot.error   { background:#ef4444; }
@@ -385,6 +385,44 @@
     document.getElementById('compare-panel').classList.remove('visible');
   }
 
+  // Normalize a player name for matching: lowercase, strip accents,
+  // drop periods/apostrophes, and strip Jr/Sr/II/III/IV suffixes.
+  function normName(s) {
+    return (s || '')
+      .toString()
+      .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[.''`]/g, '')
+      .replace(/\s+(jr|sr|ii|iii|iv|v)\.?$/, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  // Look up a player's projection row. Falls back past an exact normalized
+  // match to an abbreviated-name match (e.g. "J.Cook") and finally to a
+  // unique last-name match, since projections_2026.json occasionally stores
+  // abbreviated nflverse-style names instead of the full FantasyPros name —
+  // this is what was causing players like James Cook to show no projections.
+  function findProj(name) {
+    const norm = normName(name);
+    if (!norm) return null;
+    let hit = projData.find(p => normName(p.player) === norm);
+    if (hit) return hit;
+
+    const parts = name.trim().split(/\s+/);
+    if (parts.length >= 2) {
+      const abbrev = normName(parts[0][0] + '.' + parts[parts.length - 1]);
+      hit = projData.find(p => normName(p.player) === abbrev);
+      if (hit) return hit;
+    }
+
+    const last = normName(parts[parts.length - 1]);
+    const lastMatches = projData.filter(p => normName(p.player).endsWith(last));
+    if (lastMatches.length === 1) return lastMatches[0];
+
+    return null;
+  }
+
   function updateComparePanel() {
     document.getElementById('compare-panel').classList.add('visible');
     const p1 = adpData.find(r => r.player_id === selected[0]);
@@ -403,8 +441,8 @@
         </div>`;
       requestAnimationFrame(() => drawViolin([p1], ['#60a5fa']));
     } else {
-      const proj1 = projData.find(p => p.player.toLowerCase() === p1.name.toLowerCase());
-      const proj2 = projData.find(p => p.player.toLowerCase() === p2.name.toLowerCase());
+      const proj1 = findProj(p1.name);
+      const proj2 = findProj(p2.name);
       body.innerHTML = `
         <div class="compare-charts">
           <div>
@@ -529,26 +567,30 @@
       const std  = Math.sqrt(picks.reduce((s,v)=>s+(v-mean)**2,0)/n) || 1;
       const bw   = 1.06 * std * Math.pow(n, -0.2);
 
-      // KDE — clamped hard to [pMin, pMax]
+      // KDE — only computed (and only drawn) between pMin and pMax, so the
+      // violin's horizontal extent stops exactly at the player's actual
+      // min/max pick instead of trailing off as a flat line to the axis edges
       const BINS = 200;
+      const binMinIdx = Math.max(0, Math.round(((pMin-axisMin)/axisRange)*(BINS-1)));
+      const binMaxIdx = Math.min(BINS-1, Math.round(((pMax-axisMin)/axisRange)*(BINS-1)));
       const density = new Array(BINS).fill(0);
-      for (let b = 0; b < BINS; b++) {
+      for (let b = binMinIdx; b <= binMaxIdx; b++) {
         const bv = axisMin + (b/(BINS-1))*axisRange;
-        if (bv < pMin || bv > pMax) continue;
         picks.forEach(pk => { const z=(bv-pk)/bw; density[b] += Math.exp(-0.5*z*z); });
       }
-      const maxD = Math.max(...density) || 1;
+      const maxD = Math.max(...density.slice(binMinIdx, binMaxIdx+1)) || 1;
 
-      // Draw shape
+      // Draw shape — path only spans [binMinIdx, binMaxIdx], so it terminates
+      // right at pMin/pMax rather than continuing across the full axis
       ctx.beginPath();
       let started = false;
-      for (let b = 0; b < BINS; b++) {
+      for (let b = binMinIdx; b <= binMaxIdx; b++) {
         const x  = PL + (b/(BINS-1))*dW;
         const hy = (density[b]/maxD)*halfH;
         if (!started) { ctx.moveTo(x, centerY-hy); started=true; }
         else ctx.lineTo(x, centerY-hy);
       }
-      for (let b = BINS-1; b >= 0; b--) {
+      for (let b = binMaxIdx; b >= binMinIdx; b--) {
         ctx.lineTo(PL+(b/(BINS-1))*dW, centerY+(density[b]/maxD)*halfH);
       }
       ctx.closePath();
@@ -639,6 +681,11 @@
       if (bonH > 16) {
         ctx.fillStyle='#fff'; ctx.font='9px sans-serif';
         ctx.fillText(`+${Math.round(p.bonus)}`, bx+BW/2, bonY+bonH/2+3);
+      }
+
+      if (baseH > 16) {
+        ctx.fillStyle='#fff'; ctx.font='9px sans-serif';
+        ctx.fillText(`${Math.round(p.base)}`, bx+BW/2, baseY+baseH/2+3);
       }
 
       ctx.fillStyle='#888'; ctx.font='10px sans-serif';
