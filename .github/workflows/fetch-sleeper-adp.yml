@@ -1,0 +1,32 @@
+name: Fetch Sleeper ADP
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Sleeper ADP crawl
+        env:
+          SLEEPER_USERNAME: ${{ vars.SLEEPER_USERNAME }}
+          SEASON: '2026'
+        run: node fetch_sleeper_adp.js
+
+      - name: Commit updated ADP data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/adp_summary.json
+          git diff --quiet --cached || git commit -m "Update ADP data [automated]"
+          git push
