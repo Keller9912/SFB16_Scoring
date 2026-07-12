@@ -1,0 +1,183 @@
+/* ── Reset ─────────────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Base ──────────────────────────────────────────────────────────────────── */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0d0d1a;
+  color: #e8e8f0;
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Navigation ─────────────────────────────────────────────────────────────── */
+.home-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600;
+  background: #1a1a2e; border: 1px solid #7c3aed66; color: #c4b5fd;
+  text-decoration: none; transition: all 0.2s; margin-bottom: 24px;
+}
+.home-btn:hover { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+header {
+  text-align: center; padding: 32px 0 24px;
+  border-bottom: 2px solid #7c3aed; margin-bottom: 32px;
+}
+header h1 { font-size: 1.9rem; color: #f5c542; letter-spacing: 1px; }
+header p  { color: #a78bfa; margin-top: 6px; font-size: 0.9rem; }
+header .last-updated { color: #444; font-size: 0.75rem; margin-top: 4px; }
+
+/* ── Section label ──────────────────────────────────────────────────────────── */
+.section-title {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #7c3aed; margin: 40px 0 16px;
+}
+
+/* ── Controls ───────────────────────────────────────────────────────────────── */
+.controls {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  align-items: center; margin-bottom: 12px;
+}
+.filter-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.filter-label { font-size: 0.78rem; color: #888; white-space: nowrap; }
+
+/* ── Multi-select filter pills ────────────────────────────────────────────────
+   Standard pattern used across every page for position/season filtering.
+   Click "All" to clear selections back to everything. Click individual pills
+   to toggle them on/off independently — multiple can be active at once
+   (e.g. RB + WR together). Selecting any individual pill turns "All" off;
+   deselecting the last individual pill returns to "All". ──────────────────── */
+.pill-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.pill {
+  padding: 4px 13px; font-size: 0.75rem; font-weight: 600; border-radius: 20px;
+  border: 1px solid #7c3aed55; background: #1a1a2e; color: #8b8b9e;
+  cursor: pointer; transition: all 0.15s; user-select: none;
+}
+.pill:hover { border-color: #7c3aed99; color: #c4b5fd; }
+.pill.selected {
+  background: #7c3aed; color: #fff; border-color: #7c3aed;
+  box-shadow: 0 0 0 1px #7c3aed, 0 2px 8px #7c3aed44;
+}
+.pill.pill-all { border-style: dashed; }
+.pill.pill-all.selected { border-style: solid; }
+
+/* Legacy single-select buttons (kept for anything not yet migrated) */
+.filter-btn {
+  padding: 4px 12px; font-size: 0.75rem; border: 1px solid #7c3aed66;
+  border-radius: 20px; background: transparent; color: #c4b5fd;
+  cursor: pointer; transition: all 0.15s;
+}
+.filter-btn:hover,
+.filter-btn.active { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+
+.search-box {
+  padding: 6px 12px; font-size: 0.83rem; border: 1px solid #7c3aed66;
+  border-radius: 20px; background: #1a1a2e; color: #e8e8f0; width: 200px; outline: none;
+}
+.search-box:focus { border-color: #7c3aed; }
+
+/* ── Stats bar ──────────────────────────────────────────────────────────────── */
+.stats-bar { font-size: 0.75rem; color: #555; margin-bottom: 6px; min-height: 16px; }
+
+/* ── Table wrap ─────────────────────────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto; max-height: 520px; overflow-y: auto;
+  border: 1px solid #7c3aed33; border-radius: 8px;
+}
+table { border-collapse: collapse; font-size: 0.8rem; width: 100%; white-space: nowrap; }
+thead { position: sticky; top: 0; z-index: 2; }
+thead tr { background: #1a0a3e; }
+th {
+  padding: 10px 11px; color: #c4b5fd; font-weight: 600; text-align: right;
+  cursor: pointer; user-select: none; border-bottom: 2px solid #7c3aed44;
+}
+th:first-child { text-align: left; min-width: 130px; }
+th:hover { color: #f5c542; }
+th.sorted-asc::after  { content: ' \25B2'; color: #f5c542; }
+th.sorted-desc::after { content: ' \25BC'; color: #f5c542; }
+td { padding: 6px 11px; border-bottom: 1px solid #ffffff0d; text-align: right; }
+td:first-child { text-align: left; font-weight: 500; }
+tbody tr:hover { background: #7c3aed22 !important; }
+tbody tr:nth-child(even) { background: #ffffff05; }
+.pts-col   { color: #f5c542; font-weight: 600; }
+.total-col { color: #f5c542; font-weight: 700; font-size: 0.88rem; }
+.no-results { text-align: center; padding: 40px; color: #666; font-size: 0.9rem; }
+
+/* ── Scoring summary cards (player scoring page) ────────────────────────────── */
+.scoring-summary {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  justify-content: center; margin-bottom: 28px;
+}
+.score-card {
+  background: #1a1a2e; border: 1px solid #7c3aed44;
+  border-radius: 10px; padding: 10px 16px; text-align: center; min-width: 130px;
+}
+.score-card .pts { font-size: 1.2rem; font-weight: 700; color: #f5c542; }
+.score-card .lbl { font-size: 0.7rem; color: #a78bfa; margin-top: 2px; }
+
+/* ── Index page ─────────────────────────────────────────────────────────────── */
+.card-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px; max-width: 1100px; margin: 0 auto 56px;
+}
+.card {
+  background: #1a1a2e; border: 1px solid #7c3aed33; border-radius: 12px;
+  padding: 24px; text-decoration: none; color: inherit;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: all 0.2s; position: relative; overflow: hidden;
+}
+.card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #a78bfa); opacity: 0; transition: opacity 0.2s;
+}
+.card:hover { border-color: #7c3aed99; transform: translateY(-3px); box-shadow: 0 8px 32px #7c3aed22; }
+.card:hover::before { opacity: 1; }
+.card-icon  { font-size: 2rem; }
+.card-title { font-size: 1.05rem; font-weight: 700; color: #f5c542; }
+.card-desc  { font-size: 0.82rem; color: #a0a0c0; line-height: 1.5; }
+.card-tags  { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.tag        { font-size: 0.68rem; padding: 2px 8px; border-radius: 20px; border: 1px solid #7c3aed55; color: #c4b5fd; background: #7c3aed11; }
+.card-arrow { margin-top: auto; font-size: 0.78rem; color: #7c3aed; }
+.card.coming-soon { opacity: 0.45; pointer-events: none; }
+.badge      { position: absolute; top: 14px; right: 14px; font-size: 0.62rem; font-weight: 700; letter-spacing: 1px; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; }
+.badge-new  { background: #7c3aed; color: #fff; }
+.badge-soon { background: #333; color: #777; }
+.scoring-rules {
+  max-width: 1100px; margin: 0 auto 48px; background: #1a1a2e;
+  border: 1px solid #7c3aed33; border-radius: 12px; padding: 28px 32px;
+}
+.scoring-rules h2 {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #7c3aed; margin-bottom: 20px;
+}
+.rules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.rule-item  { display: flex; align-items: center; gap: 10px; }
+.rule-pts   { font-size: 1rem; font-weight: 700; color: #f5c542; min-width: 64px; text-align: right; }
+.rule-lbl   { font-size: 0.78rem; color: #a0a0c0; line-height: 1.4; }
+
+/* ── Loading state ──────────────────────────────────────────────────────────── */
+.loading {
+  text-align: center; padding: 60px 0; color: #555;
+}
+.loading-spinner {
+  width: 32px; height: 32px; border: 3px solid #7c3aed33;
+  border-top-color: #7c3aed; border-radius: 50%;
+  animation: spin 0.8s linear infinite; margin: 0 auto 12px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Inline section error (used when one data file fails but page continues) ── */
+.section-error {
+  color: #fca5a5; font-size: 0.78rem; padding: 14px 16px;
+  background: #ef444411; border: 1px solid #ef444433; border-radius: 8px;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────────── */
+footer {
+  text-align: center; color: #333; font-size: 0.72rem;
+  margin-top: 40px; padding-top: 16px; border-top: 1px solid #ffffff08;
+}
+footer a { color: #7c3aed; text-decoration: none; }
+footer a:hover { color: #a78bfa; }
