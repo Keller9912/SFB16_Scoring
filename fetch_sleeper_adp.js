@@ -30,7 +30,7 @@ const SLEEPER_API = 'https://api.sleeper.app/v1';
 const SEASON = process.env.SEASON || '2026';
 const SEED_USERNAME = process.env.SLEEPER_USERNAME;
 
-const DATA_DIR = path.join(__dirname, '..', 'data');
+const DATA_DIR = path.join(__dirname, 'data');
 const MFL_PICKS_PATH = path.join(DATA_DIR, 'mfl_picks.json');
 const OUTPUT_PATH = path.join(DATA_DIR, 'adp_summary.json');
 
