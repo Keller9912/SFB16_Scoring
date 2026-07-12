@@ -1,686 +1,699 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SFB16 Draft War Room</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<!--
-  Standalone page. Not linked to styles.css - this tool has its own dense,
-  data-forward look (a live draft board). Wire in the shared site nav/footer
-  from styles.css / index.html if you want the chrome to match exactly.
--->
-<style>
-  :root{
-    --bg: #14161C;
-    --panel: #1D2029;
-    --panel-2: #23273233;
-    --line: #2A2E3A;
-    --text: #EDEEF2;
-    --muted: #8A8FA3;
-    --amber: #F2A93B;
-    --green: #4FD1A5;
-    --qb: #6C8EF5;
-    --rb: #4FD1A5;
-    --wr: #F2A93B;
-    --te: #E36BAE;
-    --k:  #8A8FA3;
-    --def:#B08AF0;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Inter',system-ui,sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
-  .mono{font-family:'IBM Plex Mono',monospace;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SFB16 Draft War Room</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── page-local styles (same convention as sfb16_adp.html) ──────────── */
+    .status-bar {
+      display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+      background:#1a1a2e;border:1px solid #7c3aed33;border-radius:8px;
+      padding:10px 16px;margin-bottom:20px;font-size:0.78rem;
+    }
+    .status-dot { width:8px;height:8px;border-radius:50%;background:#555;flex-shrink:0;transition:background-color 0.3s; }
+    .status-dot.loading { background:#f5c542;animation:pulse 1s infinite; }
+    .status-dot.live    { background:#34d399; }
+    .status-dot.error   { background:#ef4444; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
+    .status-text  { color:#a78bfa; }
+    .status-count { color:#666;margin-left:auto; }
 
-  header.bar{
-    position:sticky; top:0; z-index:20;
-    background:linear-gradient(180deg, #14161C 80%, transparent);
-    border-bottom:1px solid var(--line);
-    padding:14px 20px;
-    display:flex; align-items:center; gap:16px; flex-wrap:wrap;
-  }
-  header.bar h1{
-    font-family:'Archivo Black',sans-serif;
-    font-size:18px; letter-spacing:0.5px; margin:0;
-    display:flex; align-items:center; gap:8px;
-  }
-  header.bar h1 .dot{
-    width:9px;height:9px;border-radius:50%;background:var(--amber);
-    box-shadow:0 0 8px var(--amber);
-    animation:pulse 1.6s infinite;
-  }
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
-  @media (prefers-reduced-motion: reduce){
-    header.bar h1 .dot{animation:none;}
-  }
+    .setup-card {
+      max-width:640px;margin:0 auto 8px;background:#1a1a2e;
+      border:1px solid #7c3aed33;border-radius:12px;padding:24px 28px;
+    }
+    .setup-hint { font-size:0.76rem;color:#666;margin-top:10px;line-height:1.6; }
+    .setup-error { font-size:0.8rem;color:#fca5a5;margin-top:10px; }
 
-  .setup{
-    max-width:920px; margin:40px auto; padding:0 20px;
-  }
-  .card{
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:10px;
-    padding:20px;
-  }
-  .setup h2{font-size:15px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin:0 0 14px;}
-  .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
-  input[type=text]{
-    background:#10121A; border:1px solid var(--line); color:var(--text);
-    padding:10px 12px; border-radius:8px; font-size:14px; flex:1; min-width:220px;
-  }
-  input[type=text]:focus{outline:2px solid var(--amber); outline-offset:1px;}
-  select{
-    background:#10121A; border:1px solid var(--line); color:var(--text);
-    padding:10px 12px; border-radius:8px; font-size:14px;
-  }
-  button{
-    background:var(--amber); color:#1a1300; border:none; font-weight:700;
-    padding:10px 18px; border-radius:8px; cursor:pointer; font-size:14px;
-  }
-  button:hover{filter:brightness(1.08);}
-  button:disabled{background:#3a3d47; color:var(--muted); cursor:not-allowed;}
-  button:focus-visible, input:focus-visible, select:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
-  .hint{color:var(--muted); font-size:12.5px; margin-top:8px; line-height:1.5;}
-  .error{color:#F26B6B; font-size:13px; margin-top:10px;}
+    .draft-choice {
+      display:flex;align-items:center;gap:10px;background:#12102a;
+      border:1px solid #7c3aed33;border-radius:8px;padding:10px 14px;
+      margin-top:8px;cursor:pointer;font-size:0.82rem;
+    }
+    .draft-choice:hover { border-color:#7c3aed99; }
+    .draft-choice input { accent-color:#7c3aed; }
+    .draft-choice .lg-name { font-weight:600;color:#e8e8f0; }
+    .draft-choice .lg-status { color:#666;font-size:0.72rem;margin-left:auto; }
 
-  .draft-options label{
-    display:flex; align-items:center; gap:10px;
-    background:#10121A; border:1px solid var(--line); border-radius:8px;
-    padding:10px 12px; margin-bottom:8px; cursor:pointer; font-size:13.5px;
-  }
-  .draft-options label:hover{border-color:var(--amber);}
-  .draft-options input{accent-color:var(--amber);}
+    .not-found {
+      text-align:center;padding:40px 20px;color:#555;
+    }
+    .not-found .icon { font-size:2.2rem;margin-bottom:10px; }
 
-  #app{display:none;}
-  .layout{
-    display:grid;
-    grid-template-columns: 260px 1fr;
-    gap:18px;
-    max-width:1400px; margin:0 auto; padding:20px;
-  }
-  @media (max-width: 980px){ .layout{grid-template-columns: 1fr;} }
+    /* my team */
+    .team-groups {
+      display:grid;grid-template-columns:repeat(auto-fill, minmax(160px,1fr));
+      gap:12px;margin-bottom:8px;
+    }
+    .team-group {
+      background:#1a1a2e;border:1px solid #7c3aed33;border-radius:10px;padding:12px 14px;
+    }
+    .team-group .pos-hdr {
+      display:flex;justify-content:space-between;align-items:center;
+      font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+      color:#a78bfa;margin-bottom:8px;
+    }
+    .team-group .pick-line {
+      display:flex;justify-content:space-between;gap:8px;font-size:0.78rem;
+      padding:3px 0;border-bottom:1px solid #ffffff0a;
+    }
+    .team-group .pick-line:last-child { border-bottom:none; }
+    .team-group .pick-no { color:#555;font-size:0.68rem;font-variant-numeric:tabular-nums; }
+    .no-picks-note { text-align:center;color:#555;font-size:0.82rem;padding:20px; }
 
-  .panel-title{
-    font-family:'Archivo Black',sans-serif;
-    font-size:13px; letter-spacing:0.06em; text-transform:uppercase;
-    color:var(--muted); margin:0 0 12px;
-  }
+    /* roster construction */
+    .roster-row { display:flex;align-items:center;gap:10px;margin-bottom:8px; }
+    .roster-row .team-label {
+      width:150px;flex-shrink:0;text-align:right;font-size:0.74rem;color:#888;
+      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    }
+    .roster-row .team-label.is-you { color:#f5c542;font-weight:700; }
+    .roster-stack {
+      flex:1;height:18px;border-radius:4px;overflow:hidden;display:flex;background:#12102a;
+    }
+    .roster-seg {
+      height:100%;display:flex;align-items:center;justify-content:center;
+      font-size:0.62rem;font-weight:700;color:#0d0d1a;
+    }
+    .roster-legend { display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:0.72rem;color:#888; }
+    .roster-legend .sw { width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:5px;vertical-align:middle; }
 
-  /* My team */
-  #my-team .pos-group{margin-bottom:14px;}
-  #my-team .pos-label{
-    font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase;
-    letter-spacing:0.05em; margin-bottom:6px; display:flex; justify-content:space-between;
-  }
-  #my-team .pick-row{
-    font-size:13px; padding:6px 8px; border-radius:6px; margin-bottom:4px;
-    background:#10121A; display:flex; justify-content:space-between; gap:8px;
-  }
-  #my-team .pick-row .pnum{color:var(--muted); font-size:11px;}
-  .empty-slot{
-    font-size:12px; color:#4b4f5c; padding:6px 8px; border:1px dashed var(--line);
-    border-radius:6px; margin-bottom:4px;
-  }
+    .seg-QB  { background:#60a5fa; }
+    .seg-RB  { background:#34d399; }
+    .seg-WR  { background:#f472b6; }
+    .seg-TE  { background:#fb923c; }
+    .seg-K   { background:#a78bfa; }
+    .seg-DEF { background:#c4b5fd; }
+    .seg-OTH { background:#4a4a6a; color:#e8e8f0; }
 
-  /* Available players */
-  .toolbar{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:14px;}
-  .pills{display:flex; gap:6px; flex-wrap:wrap;}
-  .pill{
-    border:1px solid var(--line); background:#10121A; color:var(--muted);
-    padding:6px 12px; border-radius:999px; font-size:12px; cursor:pointer; font-weight:600;
-  }
-  .pill.active{background:var(--amber); color:#1a1300; border-color:var(--amber);}
-  .search{flex:1; min-width:160px;}
+    .plat-badge { font-size:0.62rem;padding:2px 7px;border-radius:10px;font-weight:700;letter-spacing:0.3px; }
+    .plat-Sleeper { background:#34d39922;color:#34d399; }
+    .plat-MFL     { background:#60a5fa22;color:#60a5fa; }
+    .plat-Both    { background:#f5c54222;color:#f5c542; }
+    .plat-none    { background:#ffffff11;color:#666; }
 
-  table{width:100%; border-collapse:collapse; font-size:13.5px;}
-  thead th{
-    text-align:left; color:var(--muted); font-size:11px; text-transform:uppercase;
-    letter-spacing:0.05em; padding:8px 10px; border-bottom:1px solid var(--line);
-    cursor:pointer; user-select:none; white-space:nowrap;
-  }
-  thead th.active{color:var(--amber);}
-  tbody td{padding:8px 10px; border-bottom:1px solid #23262f;}
-  tbody tr:hover{background:#1a1d26;}
-  .name-cell{display:flex; align-items:center; gap:10px;}
-  .pos-bar{width:4px; height:18px; border-radius:2px; flex-shrink:0;}
-  .pos-chip{
-    font-size:10.5px; font-weight:700; padding:2px 6px; border-radius:4px;
-    color:#0d0d0f;
-  }
-  .platform-chip{
-    font-size:10px; color:var(--muted); border:1px solid var(--line);
-    padding:1px 6px; border-radius:999px;
-  }
-  .num{font-family:'IBM Plex Mono',monospace; text-align:right;}
+    .pos-QB { color:#60a5fa;font-weight:700;font-size:0.72rem; }
+    .pos-RB { color:#34d399;font-weight:700;font-size:0.72rem; }
+    .pos-WR { color:#f472b6;font-weight:700;font-size:0.72rem; }
+    .pos-TE { color:#fb923c;font-weight:700;font-size:0.72rem; }
+    .pos-K  { color:#a78bfa;font-weight:700;font-size:0.72rem; }
 
-  .players-scroll{max-height:70vh; overflow-y:auto; border:1px solid var(--line); border-radius:10px;}
-  .players-scroll thead{position:sticky; top:0; background:var(--panel); z-index:2;}
-
-  /* Position chart */
-  #pos-chart{margin-top:20px;}
-  .team-row{display:flex; align-items:center; gap:10px; margin-bottom:8px;}
-  .team-name{width:150px; font-size:12px; color:var(--muted); flex-shrink:0; text-align:right;}
-  .stack{flex:1; height:20px; border-radius:4px; overflow:hidden; display:flex; background:#10121A;}
-  .seg{height:100%; display:flex; align-items:center; justify-content:center; font-size:9.5px; font-weight:700; color:#0d0d0f;}
-  .legend{display:flex; gap:14px; flex-wrap:wrap; margin-top:14px; font-size:11.5px; color:var(--muted);}
-  .legend span.sw{width:10px; height:10px; border-radius:2px; display:inline-block; margin-right:5px; vertical-align:middle;}
-
-  .status-msg{color:var(--muted); font-size:13px; padding:20px; text-align:center;}
-</style>
+    .wr-table th:nth-child(1) { text-align:left;min-width:170px; }
+    .wr-table th:nth-child(2),
+    .wr-table th:nth-child(3) { text-align:center; }
+    .wr-table td:nth-child(1) { text-align:left; }
+    .wr-table td:nth-child(2),
+    .wr-table td:nth-child(3) { text-align:center; }
+  </style>
 </head>
 <body>
 
-<header class="bar">
-  <h1><span class="dot"></span> SFB16 Draft War Room</h1>
+<a class="home-btn" href="index.html">🐟 Home</a>
+
+<header>
+  <h1>🧠 SFB16 Draft War Room</h1>
+  <p>Load your live #SFB16 draft · best available by ADP or projection · roster tracker</p>
+  <p class="last-updated" id="last-updated"></p>
 </header>
 
-<div class="setup" id="setup">
-  <div class="card">
-    <h2>Load your draft</h2>
-    <div class="row">
-      <input type="text" id="sleeper-username" placeholder="Sleeper username" />
-      <button id="find-btn">Find my #SFB16 drafts</button>
+<!-- ── Setup: find & pick a draft ─────────────────────────────────────────── -->
+<div id="setup-section">
+  <div class="setup-card">
+    <div class="section-title" style="margin-top:0">Load Your Draft</div>
+    <div class="controls">
+      <div class="filter-group" style="flex:1">
+        <span class="filter-label">Sleeper username:</span>
+        <input id="username-input" type="text" class="search-box" style="width:100%;max-width:280px" placeholder="your sleeper username">
+      </div>
+      <button class="filter-btn" id="find-btn" onclick="findMyDrafts()">Find My Drafts</button>
     </div>
-    <div class="hint">MFL isn't supported in the War Room yet — MFL's API blocks browser requests, so it can't load a live draft this way. Sleeper only for now.</div>
-    <div id="setup-error" class="error" style="display:none;"></div>
-    <div id="draft-options" class="draft-options" style="margin-top:16px; display:none;"></div>
+    <div class="setup-hint">
+      MFL isn't supported here — MFL's API blocks browser-side requests, so a live MFL draft can't be loaded this way (Sleeper only, same limitation as the ADP tool's live feed).
+    </div>
+    <div id="setup-error" class="setup-error" style="display:none"></div>
+    <div id="draft-choices"></div>
   </div>
 </div>
 
-<div id="app">
-  <div class="layout">
-    <div>
-      <div class="card" id="my-team">
-        <div class="panel-title">My Team</div>
-        <div id="my-team-body" class="status-msg">Loading picks…</div>
+<!-- ── War room, shown once a draft is loaded ─────────────────────────────── -->
+<div id="war-room" style="display:none">
+
+  <div class="status-bar">
+    <div class="status-dot" id="wr-status-dot"></div>
+    <span class="status-text" id="wr-status-text">Loading…</span>
+    <span class="status-count" id="wr-status-count"></span>
+  </div>
+
+  <div class="section-title" style="margin-top:0">My Team</div>
+  <div id="my-team-body">
+    <div class="no-picks-note">Loading your picks…</div>
+  </div>
+
+  <div class="section-title">League Roster Construction</div>
+  <div id="roster-chart">
+    <div class="no-picks-note">Loading league picks…</div>
+  </div>
+
+  <div class="section-title">Available Players</div>
+  <div class="controls">
+    <div class="filter-group">
+      <span class="filter-label">Position:</span>
+      <div class="pill-group" id="pos-pills">
+        <button class="pill pill-all selected" data-pos="ALL" onclick="togglePos('ALL')">All</button>
+        <button class="pill" data-pos="QB" onclick="togglePos('QB')">QB</button>
+        <button class="pill" data-pos="RB" onclick="togglePos('RB')">RB</button>
+        <button class="pill" data-pos="WR" onclick="togglePos('WR')">WR</button>
+        <button class="pill" data-pos="TE" onclick="togglePos('TE')">TE</button>
+        <button class="pill" data-pos="K" onclick="togglePos('K')">K</button>
       </div>
     </div>
-
-    <div>
-      <div class="card" style="margin-bottom:18px;">
-        <div class="panel-title">Available Players</div>
-        <div class="toolbar">
-          <div class="pills" id="pos-pills"></div>
-          <input type="text" id="player-search" class="search" placeholder="Search players…" />
-        </div>
-        <div class="players-scroll">
-          <table>
-            <thead>
-              <tr>
-                <th data-sort="name">Player</th>
-                <th data-sort="pos">Pos</th>
-                <th data-sort="team">Team</th>
-                <th data-sort="adp" class="num active">ADP</th>
-                <th data-sort="proj" class="num">Proj Pts</th>
-                <th>Source</th>
-              </tr>
-            </thead>
-            <tbody id="players-body">
-              <tr><td colspan="6" class="status-msg">Load a draft above to see who's available.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="panel-title">League Roster Construction</div>
-        <div id="pos-chart"><div class="status-msg">Positions drafted per team will show up here once a draft is loaded.</div></div>
-      </div>
+    <div class="filter-group">
+      <input id="player-search" type="text" class="search-box" placeholder="&#128269; Search player…" oninput="onSearch()">
     </div>
   </div>
+  <div id="avail-stats" class="stats-bar"></div>
+  <div class="table-wrap">
+    <table class="wr-table" id="avail-table">
+      <thead>
+        <tr>
+          <th data-key="name" onclick="sortBy('name')">Player</th>
+          <th data-key="pos"  onclick="sortBy('pos')">Pos</th>
+          <th data-key="team" onclick="sortBy('team')">Team</th>
+          <th data-key="adp"  onclick="sortBy('adp')" class="sorted-asc">ADP</th>
+          <th data-key="proj" onclick="sortBy('proj')">Proj Pts</th>
+          <th data-key="platformLabel" onclick="sortBy('platformLabel')">Source</th>
+        </tr>
+      </thead>
+      <tbody id="avail-body">
+        <tr><td colspan="6" class="no-results">Load a draft above to see who's available.</td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+<footer>
+  Data: Sleeper API (live, your draft) · Sitewide ADP from
+  <a href="sfb16_adp.html">the ADP Tool</a>'s Sleeper + MFL feed ·
+  Projections from <a href="sfb16_projections.html">Draft Value Tool</a>
+</footer>
 
 <script>
-const SLEEPER_API = 'https://api.sleeper.app/v1';
-const DATA_BASE = 'https://keller9912.github.io/SFB16_Scoring/data/';
-const SEASON = '2026';
+  // ── Sitewide config — same values sfb16_adp.html uses, kept identical
+  // so ADP numbers match between the two tools ──────────────────────────
+  const SITE_USER_ID = '819245060922130432'; // seed account whose #SFB16 leagues feed the sitewide ADP
+  const SEASON       = '2026';
+  const PLAYERS_URL  = 'https://api.sleeper.app/v1/players/nfl';
+  const PROJ_URL     = 'https://keller9912.github.io/SFB16_Scoring/data/projections_2026.json';
+  const MFL_DATA_URL = 'https://keller9912.github.io/SFB16_Scoring/data/mfl_picks.json';
+  const THROTTLE_MS  = 120;
+  const VALID_POS    = ['QB','RB','WR','TE','K'];
+  const POS_ORDER    = ['QB','RB','WR','TE','FLEX','K','DEF'];
 
-const POS_COLORS = { QB:'var(--qb)', RB:'var(--rb)', WR:'var(--wr)', TE:'var(--te)', K:'var(--k)', DEF:'var(--def)' };
-const POS_ORDER = ['QB','RB','WR','TE','FLEX','K','DEF'];
+  let allPlayers = {};   // Sleeper player_id -> player object
+  let projData   = [];   // projections_2026.json rows
+  let adpData    = [];   // sitewide ADP records (see buildAdpRecords)
+  let adpReady   = false;
 
-let state = {
-  myUserId: null,
-  myUsername: null,
-  leagueId: null,
-  draftId: null,
-  draftMeta: null,
-  leagueMeta: null,
-  picks: [],
-  users: [],
-  rosters: [],
-  myRosterId: null,
-  projections: [],
-  adpIndex: { byFull: new Map(), byAbbrev: new Map(), byLast: new Map() },
-  draftedKeys: new Set(),
-  selectedPositions: new Set(),
-  sortKey: 'adp',
-  sortDir: 'asc',
-  search: ''
-};
+  // My-draft state
+  let myUserId    = null;
+  let myUsername  = null;
+  let leagueId    = null;
+  let draftId     = null;
+  let draftPicks  = [];
+  let leagueUsers = [];
+  let leagueRosters = [];
+  let myRosterId  = null;
 
-// ---------------------------------------------------------------- helpers
+  // Available-table state
+  let sortKey   = 'adp';
+  let sortAsc   = true;
+  let posSet    = new Set();
+  let searchVal = '';
 
-function normName(raw){
-  if(!raw) return '';
-  return raw.toLowerCase()
-    .replace(/\./g,'')
-    .replace(/'/g,'')
-    .replace(/-/g,' ')
-    .replace(/\b(jr|sr|ii|iii|iv|v)\b/g,'')
-    .replace(/[^a-z0-9 ]/g,'')
-    .replace(/\s+/g,' ')
-    .trim();
-}
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-function keysForName(raw){
-  const cleaned = (raw||'').trim();
-  const full = normName(cleaned);
-  const parts = full.split(' ').filter(Boolean);
-  const last = parts[parts.length-1] || '';
-  const firstInitial = parts[0] ? parts[0][0] : '';
-  const abbrev = `${firstInitial}${last}`;
-  return { full, abbrev, last };
-}
-
-function getField(obj, candidates){
-  for(const c of candidates){
-    if(obj[c] !== undefined && obj[c] !== null && obj[c] !== '') return obj[c];
+  // ──────────────────────────────────────────────────────────────────────
+  // Normalize a player name for matching: lowercase, strip accents,
+  // drop periods/apostrophes, and strip Jr/Sr/II/III/IV suffixes.
+  // (identical to sfb16_adp.html, kept in sync intentionally)
+  // ──────────────────────────────────────────────────────────────────────
+  function normName(s) {
+    return (s || '')
+      .toString()
+      .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[.''`]/g, '')
+      .replace(/\s+(jr|sr|ii|iii|iv|v)\.?$/, '')
+      .replace(/\s+/g, ' ')
+      .trim();
   }
-  return undefined;
-}
 
-async function getJSON(url){
-  const res = await fetch(url);
-  if(!res.ok) throw new Error(`${url} -> ${res.status}`);
-  return res.json();
-}
+  // Same fallback chain as sfb16_adp.html: exact normalized match, then
+  // abbreviated-name match (e.g. "J.Cook"), then unique-last-name match.
+  function findProj(name) {
+    const norm = normName(name);
+    if (!norm) return null;
+    let hit = projData.find(p => normName(p.player) === norm);
+    if (hit) return hit;
 
-// per-section fetch isolation: a failed fetch never blanks the whole page,
-// it just leaves that section degraded with a note.
-async function safeFetch(url, fallback){
-  try{ return await getJSON(url); }
-  catch(err){ console.warn('fetch failed', url, err); return fallback; }
-}
-
-// ------------------------------------------------------------ step 1: find drafts
-
-document.getElementById('find-btn').addEventListener('click', findDrafts);
-document.getElementById('sleeper-username').addEventListener('keydown', e=>{
-  if(e.key === 'Enter') findDrafts();
-});
-
-async function findDrafts(){
-  const username = document.getElementById('sleeper-username').value.trim();
-  const errEl = document.getElementById('setup-error');
-  const optsEl = document.getElementById('draft-options');
-  errEl.style.display = 'none';
-  optsEl.style.display = 'none';
-  optsEl.innerHTML = '';
-
-  if(!username){ errEl.textContent = 'Enter a Sleeper username.'; errEl.style.display='block'; return; }
-
-  const btn = document.getElementById('find-btn');
-  btn.disabled = true; btn.textContent = 'Searching…';
-
-  try{
-    const user = await getJSON(`${SLEEPER_API}/user/${encodeURIComponent(username)}`);
-    if(!user || !user.user_id) throw new Error('not found');
-    state.myUserId = user.user_id;
-    state.myUsername = username;
-
-    const leagues = await getJSON(`${SLEEPER_API}/user/${user.user_id}/leagues/nfl/${SEASON}`);
-    const sfbLeagues = (leagues||[]).filter(lg => (lg.name||'').toUpperCase().includes('#SFB16'));
-
-    if(sfbLeagues.length === 0){
-      errEl.textContent = `No #SFB16 leagues found for "${username}" in ${SEASON}.`;
-      errEl.style.display='block';
-      return;
+    const parts = name.trim().split(/\s+/);
+    if (parts.length >= 2) {
+      const abbrev = normName(parts[0][0] + '.' + parts[parts.length - 1]);
+      hit = projData.find(p => normName(p.player) === abbrev);
+      if (hit) return hit;
     }
 
-    const candidates = [];
-    for(const league of sfbLeagues){
-      let drafts = [];
-      try{ drafts = await getJSON(`${SLEEPER_API}/league/${league.league_id}/drafts`); }
-      catch(e){ continue; }
-      for(const d of drafts||[]){
-        candidates.push({ draft_id: d.draft_id, league_id: league.league_id, league_name: league.name, status: d.status });
+    const last = normName(parts[parts.length - 1]);
+    const lastMatches = projData.filter(p => normName(p.player).endsWith(last));
+    if (lastMatches.length === 1) return lastMatches[0];
+
+    return null;
+  }
+
+  function findAdp(name, pos) {
+    const key = normName(name) + '|' + pos;
+    return adpData.find(r => r.player_id === key) || null;
+  }
+
+  // ──────────────────────────────────────────────────────────────────────
+  // Step 1: find the user's own #SFB16 drafts on Sleeper
+  // ──────────────────────────────────────────────────────────────────────
+  document.getElementById('username-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') findMyDrafts();
+  });
+
+  async function findMyDrafts() {
+    const username = document.getElementById('username-input').value.trim();
+    const errEl = document.getElementById('setup-error');
+    const choicesEl = document.getElementById('draft-choices');
+    errEl.style.display = 'none';
+    choicesEl.innerHTML = '';
+
+    if (!username) { errEl.textContent = 'Enter a Sleeper username.'; errEl.style.display = 'block'; return; }
+
+    const btn = document.getElementById('find-btn');
+    btn.disabled = true; btn.textContent = 'Searching…';
+
+    try {
+      const userRes = await fetch(`https://api.sleeper.app/v1/user/${encodeURIComponent(username)}`);
+      const user = userRes.ok ? await userRes.json() : null;
+      if (!user || !user.user_id) {
+        errEl.textContent = `Couldn't find Sleeper user "${username}". Check the spelling.`;
+        errEl.style.display = 'block';
+        return;
       }
-    }
+      myUserId = user.user_id;
+      myUsername = username;
 
-    if(candidates.length === 0){
-      errEl.textContent = `Found #SFB16 leagues but no drafts yet for "${username}".`;
-      errEl.style.display='block';
+      const leagues = await (await fetch(`https://api.sleeper.app/v1/user/${myUserId}/leagues/nfl/${SEASON}`)).json();
+      const sfb16 = (leagues || []).filter(l => l.name && l.name.includes('#SFB16'));
+
+      if (!sfb16.length) {
+        errEl.textContent = `No #SFB16 leagues found for "${username}" in ${SEASON}.`;
+        errEl.style.display = 'block';
+        return;
+      }
+
+      const candidates = [];
+      for (const league of sfb16) {
+        let drafts = [];
+        try { drafts = await (await fetch(`https://api.sleeper.app/v1/league/${league.league_id}/drafts`)).json(); }
+        catch (e) { continue; }
+        for (const d of drafts || []) {
+          candidates.push({ draft_id: d.draft_id, league_id: league.league_id, league_name: league.name, status: d.status });
+        }
+      }
+
+      if (!candidates.length) {
+        errEl.textContent = `Found #SFB16 leagues for "${username}" but no drafts yet.`;
+        errEl.style.display = 'block';
+        return;
+      }
+
+      if (candidates.length === 1) {
+        loadDraft(candidates[0]);
+        return;
+      }
+
+      candidates.forEach((c, i) => {
+        const label = document.createElement('label');
+        label.className = 'draft-choice';
+        label.innerHTML = `
+          <input type="radio" name="draft-choice" value="${i}">
+          <span class="lg-name">${c.league_name}</span>
+          <span class="lg-status">${c.status}</span>`;
+        choicesEl.appendChild(label);
+      });
+      const loadBtn = document.createElement('button');
+      loadBtn.className = 'filter-btn';
+      loadBtn.style.marginTop = '10px';
+      loadBtn.textContent = 'Load Selected Draft';
+      loadBtn.onclick = () => {
+        const checked = choicesEl.querySelector('input[name=draft-choice]:checked');
+        if (!checked) { errEl.textContent = 'Pick a draft first.'; errEl.style.display = 'block'; return; }
+        loadDraft(candidates[Number(checked.value)]);
+      };
+      choicesEl.appendChild(loadBtn);
+
+    } catch (err) {
+      errEl.textContent = 'Something went wrong looking that up: ' + err.message;
+      errEl.style.display = 'block';
+    } finally {
+      btn.disabled = false; btn.textContent = 'Find My Drafts';
+    }
+  }
+
+  // ──────────────────────────────────────────────────────────────────────
+  // Step 2: load the chosen draft (one-time snapshot, not polled)
+  // ──────────────────────────────────────────────────────────────────────
+  async function loadDraft(choice) {
+    document.getElementById('setup-section').innerHTML =
+      `<div class="setup-card"><div class="no-picks-note">Loading ${choice.league_name}…</div></div>`;
+
+    leagueId = choice.league_id;
+    draftId  = choice.draft_id;
+
+    const [players, proj, picks, users, rosters] = await Promise.all([
+      fetch(PLAYERS_URL).then(r => r.json()).catch(() => ({})),
+      fetch(PROJ_URL).then(r => r.ok ? r.json() : []).catch(() => []),
+      fetch(`https://api.sleeper.app/v1/draft/${draftId}/picks`).then(r => r.json()).catch(() => []),
+      fetch(`https://api.sleeper.app/v1/league/${leagueId}/users`).then(r => r.json()).catch(() => []),
+      fetch(`https://api.sleeper.app/v1/league/${leagueId}/rosters`).then(r => r.json()).catch(() => []),
+    ]);
+
+    allPlayers    = players || {};
+    projData      = Array.isArray(proj) ? proj : [];
+    draftPicks    = Array.isArray(picks) ? picks : [];
+    leagueUsers   = Array.isArray(users) ? users : [];
+    leagueRosters = Array.isArray(rosters) ? rosters : [];
+
+    const mine = leagueRosters.find(r => r.owner_id === myUserId);
+    myRosterId = mine ? mine.roster_id : null;
+
+    document.getElementById('setup-section').style.display = 'none';
+    document.getElementById('war-room').style.display = 'block';
+    document.getElementById('last-updated').textContent =
+      `${choice.league_name} · loaded ${new Date().toLocaleTimeString()} (snapshot — reload page to refresh)`;
+
+    setStatus('loading', 'Draft loaded — fetching sitewide ADP…', `${draftPicks.length} picks so far`);
+
+    renderMyTeam();
+    renderRosterChart();
+    renderAvailable(); // renders immediately using projections only, ADP column fills in below
+
+    computeSiteAdp(); // background fetch, same mechanism as sfb16_adp.html
+  }
+
+  function setStatus(state, text, count) {
+    document.getElementById('wr-status-dot').className = 'status-dot ' + state;
+    document.getElementById('wr-status-text').textContent = text;
+    if (count !== undefined) document.getElementById('wr-status-count').textContent = count;
+  }
+
+  // ──────────────────────────────────────────────────────────────────────
+  // Sitewide ADP — identical approach to sfb16_adp.html's startRefresh():
+  // crawl every #SFB16 league under SITE_USER_ID on Sleeper, merge with
+  // the MFL picks file the fetch_mfl.js Action already keeps updated.
+  // ──────────────────────────────────────────────────────────────────────
+  function sleeperPickEntries(picks) {
+    const entries = [];
+    picks.forEach(pick => {
+      if (!pick.player_id || !pick.pick_no) return;
+      const player = allPlayers[String(pick.player_id)];
+      if (!player || !player.full_name) return;
+      const pos = player.position || '';
+      if (!VALID_POS.includes(pos)) return;
+      entries.push({ name: player.full_name, pos, team: player.team || '—', pick_no: pick.pick_no, platform: 'Sleeper' });
+    });
+    return entries;
+  }
+
+  function mflPickEntries(mflData) {
+    if (!mflData || !Array.isArray(mflData.picks)) return [];
+    return mflData.picks
+      .filter(p => p.name && VALID_POS.includes(p.pos) && p.pick_no)
+      .map(p => ({ name: p.name, pos: p.pos, team: p.team || '—', pick_no: p.pick_no, platform: 'MFL' }));
+  }
+
+  function buildAdpRecords(entries) {
+    const byKey = {};
+    entries.forEach(e => {
+      const key = normName(e.name) + '|' + e.pos;
+      if (!byKey[key]) byKey[key] = { name: e.name, pos: e.pos, team: e.team, pick_nos: [], platforms: {} };
+      const rec = byKey[key];
+      rec.pick_nos.push(e.pick_no);
+      rec.platforms[e.platform] = (rec.platforms[e.platform] || 0) + 1;
+      if (e.team && e.team !== '—') rec.team = e.team;
+    });
+    const records = [];
+    for (const rec of Object.values(byKey)) {
+      const pickNos = rec.pick_nos;
+      if (!pickNos.length) continue;
+      const avg = pickNos.reduce((s, v) => s + v, 0) / pickNos.length;
+      const platformKeys = Object.keys(rec.platforms).sort();
+      records.push({
+        player_id: normName(rec.name) + '|' + rec.pos,
+        name: rec.name, pos: rec.pos, team: rec.team || '—',
+        adp: Math.round(avg * 10) / 10,
+        num_drafts: pickNos.length,
+        platforms: rec.platforms,
+        platformLabel: platformKeys.length > 1 ? 'Both' : platformKeys[0],
+      });
+    }
+    return records;
+  }
+
+  async function computeSiteAdp() {
+    try {
+      const leagues = await (await fetch(`https://api.sleeper.app/v1/user/${SITE_USER_ID}/leagues/nfl/${SEASON}`)).json();
+      const sfb16 = (leagues || []).filter(l => l.name && l.name.includes('#SFB16') &&
+        (l.status === 'drafting' || l.status === 'complete' || l.status === 'in_season'));
+
+      const allPicks = [];
+      let done = 0;
+      for (const league of sfb16) {
+        try {
+          const res = await fetch(`https://api.sleeper.app/v1/draft/${league.draft_id}/picks`);
+          if (res.ok) {
+            const picks = await res.json();
+            if (Array.isArray(picks)) allPicks.push(...picks);
+          }
+        } catch (e) {}
+        done++;
+        if (done % 10 === 0) setStatus('loading', `Fetching sitewide ADP… ${done}/${sfb16.length} leagues`, '');
+        await sleep(THROTTLE_MS);
+      }
+
+      const mflData = await fetch(MFL_DATA_URL).then(r => r.ok ? r.json() : null).catch(() => null);
+
+      const entries = [...sleeperPickEntries(allPicks), ...mflPickEntries(mflData)];
+      adpData = buildAdpRecords(entries);
+      adpReady = true;
+
+      setStatus('live', `Live · draft snapshot loaded, sitewide ADP refreshed ${new Date().toLocaleTimeString()}`,
+        `${draftPicks.length} picks in your draft · ADP from ${adpData.length} players across ${sfb16.length} leagues`);
+      renderAvailable();
+    } catch (err) {
+      setStatus('error', 'Sitewide ADP fetch failed — showing projections only', err.message);
+    }
+  }
+
+  // ──────────────────────────────────────────────────────────────────────
+  // My Team
+  // ──────────────────────────────────────────────────────────────────────
+  function renderMyTeam() {
+    const body = document.getElementById('my-team-body');
+
+    if (myRosterId === null) {
+      body.innerHTML = `<div class="no-picks-note">Couldn't automatically match "${myUsername}" to a roster in this league — showing the draft board only.</div>`;
       return;
     }
 
-    if(candidates.length === 1){
-      loadDraft(candidates[0]);
+    const mine = draftPicks.filter(p => p.roster_id === myRosterId).sort((a, b) => a.pick_no - b.pick_no);
+    if (!mine.length) {
+      body.innerHTML = `<div class="no-picks-note">No picks yet — good luck!</div>`;
       return;
     }
 
-    optsEl.style.display = 'block';
-    candidates.forEach((c, i)=>{
-      const label = document.createElement('label');
-      label.innerHTML = `<input type="radio" name="draft-choice" value="${i}"> <span>${c.league_name} <span class="mono" style="color:var(--muted)">— ${c.status}</span></span>`;
-      optsEl.appendChild(label);
+    const groups = {};
+    mine.forEach(pick => {
+      const pos = (pick.metadata && pick.metadata.position) || 'FLEX';
+      (groups[pos] = groups[pos] || []).push(pick);
     });
-    const loadRow = document.createElement('button');
-    loadRow.textContent = 'Load selected draft';
-    loadRow.style.marginTop = '8px';
-    loadRow.addEventListener('click', ()=>{
-      const checked = optsEl.querySelector('input[name=draft-choice]:checked');
-      if(!checked){ errEl.textContent = 'Pick a draft first.'; errEl.style.display='block'; return; }
-      loadDraft(candidates[Number(checked.value)]);
+
+    const ordered = [...POS_ORDER.filter(p => groups[p]), ...Object.keys(groups).filter(p => !POS_ORDER.includes(p))];
+    body.innerHTML = `<div class="team-groups">` + ordered.map(pos => `
+      <div class="team-group">
+        <div class="pos-hdr"><span>${pos}</span><span>${groups[pos].length}</span></div>
+        ${groups[pos].map(p => `
+          <div class="pick-line">
+            <span>${p.metadata.first_name || ''} ${p.metadata.last_name || ''}</span>
+            <span class="pick-no">#${p.pick_no}</span>
+          </div>`).join('')}
+      </div>`).join('') + `</div>`;
+  }
+
+  // ──────────────────────────────────────────────────────────────────────
+  // League Roster Construction
+  // ──────────────────────────────────────────────────────────────────────
+  function teamLabel(rosterId) {
+    const roster = leagueRosters.find(r => r.roster_id === rosterId);
+    if (!roster) return `Team ${rosterId}`;
+    const user = leagueUsers.find(u => u.user_id === roster.owner_id);
+    const name = (user && (user.metadata?.team_name || user.display_name)) || `Team ${rosterId}`;
+    return name;
+  }
+
+  function renderRosterChart() {
+    const container = document.getElementById('roster-chart');
+    if (!leagueRosters.length || !draftPicks.length) {
+      container.innerHTML = `<div class="no-picks-note">No picks yet.</div>`;
+      return;
+    }
+
+    const positions = ['QB', 'RB', 'WR', 'TE', 'K', 'DEF'];
+    const counts = {};
+    leagueRosters.forEach(r => counts[r.roster_id] = {});
+    draftPicks.forEach(pick => {
+      const pos = (pick.metadata && pick.metadata.position) || 'OTH';
+      if (!counts[pick.roster_id]) counts[pick.roster_id] = {};
+      counts[pick.roster_id][pos] = (counts[pick.roster_id][pos] || 0) + 1;
     });
-    optsEl.appendChild(loadRow);
 
-  }catch(err){
-    console.error(err);
-    errEl.textContent = `Couldn't find Sleeper user "${username}". Check the spelling.`;
-    errEl.style.display = 'block';
-  }finally{
-    btn.disabled = false; btn.textContent = 'Find my #SFB16 drafts';
-  }
-}
+    const maxTotal = Math.max(1, ...Object.values(counts).map(c => Object.values(c).reduce((a, b) => a + b, 0)));
+    const rosterIds = Object.keys(counts).map(Number).sort((a, b) => {
+      const totA = Object.values(counts[a]).reduce((x, y) => x + y, 0);
+      const totB = Object.values(counts[b]).reduce((x, y) => x + y, 0);
+      return totB - totA;
+    });
 
-// ------------------------------------------------------------ step 2: load draft
+    let html = '';
+    rosterIds.forEach(rid => {
+      const c = counts[rid];
+      const label = teamLabel(rid) + (rid === myRosterId ? ' (you)' : '');
+      let segs = '';
+      positions.forEach(pos => {
+        const n = c[pos] || 0;
+        if (!n) return;
+        segs += `<div class="roster-seg seg-${pos}" style="width:${(n / maxTotal) * 100}%" title="${pos}: ${n}">${n}</div>`;
+      });
+      const known = positions.reduce((s, p) => s + (c[p] || 0), 0);
+      const total = Object.values(c).reduce((s, v) => s + v, 0);
+      const other = total - known;
+      if (other > 0) segs += `<div class="roster-seg seg-OTH" style="width:${(other / maxTotal) * 100}%" title="Other: ${other}">${other}</div>`;
 
-async function loadDraft(choice){
-  document.getElementById('setup').innerHTML = `<div class="card"><div class="status-msg">Loading ${choice.league_name}…</div></div>`;
-
-  state.leagueId = choice.league_id;
-  state.draftId = choice.draft_id;
-
-  const [draftMeta, leagueMeta, picks, users, rosters, projPayload, adpPayload] = await Promise.all([
-    safeFetch(`${SLEEPER_API}/draft/${choice.draft_id}`, null),
-    safeFetch(`${SLEEPER_API}/league/${choice.league_id}`, null),
-    safeFetch(`${SLEEPER_API}/draft/${choice.draft_id}/picks`, []),
-    safeFetch(`${SLEEPER_API}/league/${choice.league_id}/users`, []),
-    safeFetch(`${SLEEPER_API}/league/${choice.league_id}/rosters`, []),
-    safeFetch(`${DATA_BASE}projections_2026.json`, []),
-    safeFetch(`${DATA_BASE}adp_summary.json`, { players: [] })
-  ]);
-
-  state.draftMeta = draftMeta;
-  state.leagueMeta = leagueMeta;
-  state.picks = picks || [];
-  state.users = users || [];
-  state.rosters = rosters || [];
-  state.projections = Array.isArray(projPayload) ? projPayload : (projPayload.players || projPayload.data || []);
-
-  const adpPlayers = adpPayload.players || (Array.isArray(adpPayload) ? adpPayload : []);
-  buildAdpIndex(adpPlayers);
-
-  const myRoster = state.rosters.find(r => r.owner_id === state.myUserId);
-  state.myRosterId = myRoster ? myRoster.roster_id : null;
-
-  buildDraftedKeys();
-
-  document.getElementById('setup').style.display = 'none';
-  document.getElementById('app').style.display = 'block';
-
-  renderMyTeam();
-  renderPositionPills();
-  renderAvailablePlayers();
-  renderPositionChart();
-}
-
-function buildAdpIndex(adpPlayers){
-  state.adpIndex = { byFull: new Map(), byAbbrev: new Map(), byLast: new Map() };
-  for(const p of adpPlayers){
-    const k = keysForName(p.name);
-    state.adpIndex.byFull.set(k.full, p);
-    state.adpIndex.byAbbrev.set(k.abbrev, p);
-    if(!state.adpIndex.byLast.has(k.last)) state.adpIndex.byLast.set(k.last, []);
-    state.adpIndex.byLast.get(k.last).push(p);
-  }
-}
-
-function lookupAdp(name){
-  const k = keysForName(name);
-  if(state.adpIndex.byFull.has(k.full)) return state.adpIndex.byFull.get(k.full);
-  if(state.adpIndex.byAbbrev.has(k.abbrev)) return state.adpIndex.byAbbrev.get(k.abbrev);
-  const lastMatches = state.adpIndex.byLast.get(k.last);
-  if(lastMatches && lastMatches.length === 1) return lastMatches[0];
-  return null;
-}
-
-function buildDraftedKeys(){
-  state.draftedKeys = new Set();
-  for(const pick of state.picks){
-    const meta = pick.metadata || {};
-    const full = `${meta.first_name||''} ${meta.last_name||''}`.trim();
-    if(!full) continue;
-    const k = keysForName(full);
-    state.draftedKeys.add(k.full);
-    state.draftedKeys.add(k.abbrev);
-  }
-}
-
-function isDrafted(name){
-  const k = keysForName(name);
-  return state.draftedKeys.has(k.full) || state.draftedKeys.has(k.abbrev);
-}
-
-// ------------------------------------------------------------ rendering: my team
-
-function teamDisplayName(rosterId){
-  const roster = state.rosters.find(r => r.roster_id === rosterId);
-  if(!roster) return `Team ${rosterId}`;
-  const user = state.users.find(u => u.user_id === roster.owner_id);
-  return (user && (user.metadata && user.metadata.team_name || user.display_name)) || `Team ${rosterId}`;
-}
-
-function renderMyTeam(){
-  const body = document.getElementById('my-team-body');
-
-  if(state.myRosterId === null){
-    body.innerHTML = `<div class="status-msg">Couldn't match "${state.myUsername}" to a roster in this league automatically. Showing league-wide draft board only.</div>`;
-    return;
-  }
-
-  const myPicks = state.picks
-    .filter(p => p.roster_id === state.myRosterId)
-    .sort((a,b) => a.pick_no - b.pick_no);
-
-  if(myPicks.length === 0){
-    body.innerHTML = `<div class="status-msg">No picks yet — good luck!</div>`;
-    return;
-  }
-
-  const groups = {};
-  for(const pick of myPicks){
-    const pos = (pick.metadata && pick.metadata.position) || 'FLEX';
-    if(!groups[pos]) groups[pos] = [];
-    groups[pos].push(pick);
-  }
-
-  let html = '';
-  const orderedPositions = [...POS_ORDER.filter(p=>groups[p]), ...Object.keys(groups).filter(p=>!POS_ORDER.includes(p))];
-  for(const pos of orderedPositions){
-    html += `<div class="pos-group">
-      <div class="pos-label"><span>${pos}</span><span>${groups[pos].length}</span></div>`;
-    for(const pick of groups[pos]){
-      const meta = pick.metadata || {};
-      html += `<div class="pick-row">
-        <span>${meta.first_name||''} ${meta.last_name||''}</span>
-        <span class="pnum mono">#${pick.pick_no}</span>
+      html += `<div class="roster-row">
+        <div class="team-label${rid === myRosterId ? ' is-you' : ''}">${label}</div>
+        <div class="roster-stack">${segs}</div>
       </div>`;
-    }
-    html += `</div>`;
-  }
-  body.innerHTML = html;
-}
-
-// ------------------------------------------------------------ rendering: available players
-
-function renderPositionPills(){
-  const container = document.getElementById('pos-pills');
-  container.innerHTML = '';
-  ['QB','RB','WR','TE','K','DEF'].forEach(pos=>{
-    const pill = document.createElement('button');
-    pill.className = 'pill';
-    pill.textContent = pos;
-    pill.addEventListener('click', ()=>{
-      if(state.selectedPositions.has(pos)) state.selectedPositions.delete(pos);
-      else state.selectedPositions.add(pos);
-      pill.classList.toggle('active');
-      renderAvailablePlayers();
     });
-    container.appendChild(pill);
-  });
-}
 
-document.getElementById('player-search').addEventListener('input', e=>{
-  state.search = e.target.value.trim().toLowerCase();
-  renderAvailablePlayers();
-});
+    html += `<div class="roster-legend">${positions.map(p => `<span><span class="sw seg-${p}"></span>${p}</span>`).join('')}</div>`;
+    container.innerHTML = html;
+  }
 
-document.querySelectorAll('th[data-sort]').forEach(th=>{
-  th.addEventListener('click', ()=>{
-    const key = th.dataset.sort;
-    if(state.sortKey === key){
-      state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
-    }else{
-      state.sortKey = key;
-      state.sortDir = key === 'proj' ? 'desc' : 'asc';
-    }
-    document.querySelectorAll('th[data-sort]').forEach(t=>t.classList.remove('active'));
-    th.classList.add('active');
-    renderAvailablePlayers();
-  });
-});
+  // ──────────────────────────────────────────────────────────────────────
+  // Available Players
+  // ──────────────────────────────────────────────────────────────────────
+  function buildAvailablePool() {
+    const draftedIds = new Set(draftPicks.map(p => String(p.player_id)));
 
-function buildAvailablePool(){
-  return state.projections
-    .map(raw => {
-      const name = getField(raw, ['name','Name','player','Player','player_name','full_name']);
-      const pos = (getField(raw, ['position','Position','pos','Pos']) || '').toUpperCase();
-      const team = getField(raw, ['team','Team','tm','Tm']) || '';
-      const proj = Number(getField(raw, ['proj_pts','projection','fantasy_points','sfb16_pts','points','total_pts','proj_total']) || 0);
-      return { name, pos, team, proj, raw };
-    })
-    .filter(p => p.name)
-    .filter(p => !isDrafted(p.name))
-    .map(p => {
-      const adp = lookupAdp(p.name);
-      return { ...p, adp: adp ? adp.adp : null, platformLabel: adp ? adp.platformLabel : null, adpCount: adp ? adp.count : 0 };
+    return Object.entries(allPlayers)
+      .filter(([id, p]) => p && p.full_name && VALID_POS.includes(p.position))
+      .filter(([id]) => !draftedIds.has(id))
+      .map(([id, p]) => {
+        const proj = findProj(p.full_name);
+        const adp = adpReady ? findAdp(p.full_name, p.position) : null;
+        return {
+          id,
+          name: p.full_name,
+          pos: p.position,
+          team: p.team || '—',
+          proj: proj ? (proj.total_proj_pts || 0) : null,
+          adp: adp ? adp.adp : null,
+          platformLabel: adp ? adp.platformLabel : null,
+        };
+      });
+  }
+
+  function togglePos(pos) {
+    if (pos === 'ALL') posSet.clear();
+    else posSet.has(pos) ? posSet.delete(pos) : posSet.add(pos);
+    document.querySelectorAll('#pos-pills .pill').forEach(btn => {
+      const p = btn.dataset.pos;
+      btn.classList.toggle('selected', p === 'ALL' ? posSet.size === 0 : posSet.has(p));
     });
-}
-
-function renderAvailablePlayers(){
-  const body = document.getElementById('players-body');
-
-  if(state.projections.length === 0){
-    body.innerHTML = `<tr><td colspan="6" class="status-msg">Couldn't load projections_2026.json — check the data folder path.</td></tr>`;
-    return;
+    renderAvailable();
   }
 
-  let pool = buildAvailablePool();
-
-  if(state.selectedPositions.size > 0){
-    pool = pool.filter(p => state.selectedPositions.has(p.pos));
+  let searchDebounce;
+  function onSearch() {
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(() => {
+      searchVal = document.getElementById('player-search').value.toLowerCase();
+      renderAvailable();
+    }, 200);
   }
-  if(state.search){
-    pool = pool.filter(p => p.name.toLowerCase().includes(state.search));
-  }
 
-  pool.sort((a,b)=>{
-    let av, bv;
-    switch(state.sortKey){
-      case 'name': av=a.name.toLowerCase(); bv=b.name.toLowerCase(); break;
-      case 'pos': av=a.pos; bv=b.pos; break;
-      case 'team': av=a.team; bv=b.team; break;
-      case 'proj': av=a.proj; bv=b.proj; break;
-      case 'adp':
-      default:
-        av = a.adp === null ? Infinity : a.adp;
-        bv = b.adp === null ? Infinity : b.adp;
-    }
-    if(av < bv) return state.sortDir === 'asc' ? -1 : 1;
-    if(av > bv) return state.sortDir === 'asc' ? 1 : -1;
-    return 0;
+  document.querySelectorAll('.wr-table th[data-key]').forEach(th => {
+    th.addEventListener('click', () => sortBy(th.dataset.key));
   });
 
-  if(pool.length === 0){
-    body.innerHTML = `<tr><td colspan="6" class="status-msg">No available players match this filter.</td></tr>`;
-    return;
+  function sortBy(key) {
+    sortAsc = sortKey === key ? !sortAsc : (key === 'name' || key === 'pos' || key === 'team' || key === 'platformLabel');
+    sortKey = key;
+    renderAvailable();
   }
 
-  body.innerHTML = pool.slice(0, 400).map(p=>{
-    const color = POS_COLORS[p.pos] || 'var(--muted)';
-    return `<tr>
-      <td><div class="name-cell"><span class="pos-bar" style="background:${color}"></span>${p.name}</div></td>
-      <td><span class="pos-chip" style="background:${color}">${p.pos}</span></td>
-      <td>${p.team}</td>
-      <td class="num mono">${p.adp !== null ? p.adp.toFixed(1) : '—'}</td>
-      <td class="num mono">${p.proj ? p.proj.toFixed(1) : '—'}</td>
-      <td>${p.platformLabel ? `<span class="platform-chip">${p.platformLabel} · ${p.adpCount}</span>` : `<span class="platform-chip">unranked</span>`}</td>
-    </tr>`;
-  }).join('');
-}
+  function renderAvailable() {
+    const body = document.getElementById('avail-body');
+    const statsBar = document.getElementById('avail-stats');
 
-// ------------------------------------------------------------ rendering: league position chart
+    if (!draftId) return; // nothing loaded yet
 
-function renderPositionChart(){
-  const container = document.getElementById('pos-chart');
+    let pool = buildAvailablePool();
+    if (posSet.size > 0) pool = pool.filter(p => posSet.has(p.pos));
+    if (searchVal) pool = pool.filter(p => p.name.toLowerCase().includes(searchVal));
 
-  if(state.rosters.length === 0 || state.picks.length === 0){
-    container.innerHTML = `<div class="status-msg">No picks yet.</div>`;
-    return;
-  }
+    pool.sort((a, b) => {
+      let A = a[sortKey], B = b[sortKey];
+      if (sortKey === 'adp' || sortKey === 'proj') {
+        A = A === null || A === undefined ? Infinity : A;
+        B = B === null || B === undefined ? Infinity : B;
+        if (sortKey === 'proj') { // unranked/no-projection players should sort last regardless of direction
+          A = a.proj === null || a.proj === undefined ? -Infinity : a.proj;
+          B = b.proj === null || b.proj === undefined ? -Infinity : b.proj;
+        }
+        return sortAsc ? A - B : B - A;
+      }
+      A = (A || '').toString(); B = (B || '').toString();
+      return sortAsc ? A.localeCompare(B) : B.localeCompare(A);
+    });
 
-  const positions = ['QB','RB','WR','TE','K','DEF'];
-  const counts = {}; // roster_id -> {pos: count}
-  for(const roster of state.rosters) counts[roster.roster_id] = {};
+    statsBar.textContent = `${pool.length.toLocaleString()} players available` + (adpReady ? '' : ' · ADP still loading…');
 
-  for(const pick of state.picks){
-    const pos = (pick.metadata && pick.metadata.position) || 'FLEX';
-    if(!counts[pick.roster_id]) counts[pick.roster_id] = {};
-    counts[pick.roster_id][pos] = (counts[pick.roster_id][pos] || 0) + 1;
-  }
+    document.querySelectorAll('.wr-table th').forEach(th => {
+      th.classList.remove('sorted-asc', 'sorted-desc');
+      if (th.dataset.key === sortKey) th.classList.add(sortAsc ? 'sorted-asc' : 'sorted-desc');
+    });
 
-  const maxTotal = Math.max(...Object.values(counts).map(c => Object.values(c).reduce((a,b)=>a+b,0)), 1);
-
-  let html = '';
-  const rosterIds = Object.keys(counts).map(Number).sort((a,b)=>{
-    const totalA = Object.values(counts[a]).reduce((x,y)=>x+y,0);
-    const totalB = Object.values(counts[b]).reduce((x,y)=>x+y,0);
-    return totalB - totalA;
-  });
-
-  for(const rid of rosterIds){
-    const c = counts[rid];
-    const total = Object.values(c).reduce((a,b)=>a+b,0);
-    const name = teamDisplayName(rid) + (rid === state.myRosterId ? ' (you)' : '');
-    let segs = '';
-    for(const pos of positions){
-      const n = c[pos] || 0;
-      if(n === 0) continue;
-      const widthPct = (n / maxTotal) * 100;
-      segs += `<div class="seg" style="width:${widthPct}%; background:${POS_COLORS[pos]}" title="${pos}: ${n}">${n}</div>`;
+    if (!pool.length) {
+      body.innerHTML = `<tr><td colspan="6" class="no-results">No available players match this filter.</td></tr>`;
+      return;
     }
-    const otherCount = total - positions.reduce((sum,p)=>sum+(c[p]||0),0);
-    if(otherCount > 0){
-      const widthPct = (otherCount / maxTotal) * 100;
-      segs += `<div class="seg" style="width:${widthPct}%; background:#3a3d47" title="Other: ${otherCount}">${otherCount}</div>`;
-    }
-    html += `<div class="team-row">
-      <div class="team-name">${name}</div>
-      <div class="stack">${segs}</div>
-    </div>`;
-  }
 
-  html += `<div class="legend">${positions.map(p=>`<span><span class="sw" style="background:${POS_COLORS[p]}"></span>${p}</span>`).join('')}</div>`;
-  container.innerHTML = html;
-}
+    body.innerHTML = pool.slice(0, 500).map(p => `
+      <tr>
+        <td>${p.name}</td>
+        <td><span class="pos-${p.pos}">${p.pos}</span></td>
+        <td style="text-align:center;color:#888;font-size:0.72rem">${p.team}</td>
+        <td>${p.adp !== null ? p.adp.toFixed(1) : (adpReady ? '—' : '…')}</td>
+        <td class="pts-col">${p.proj !== null ? p.proj.toFixed(1) : '—'}</td>
+        <td style="text-align:center"><span class="plat-badge plat-${p.platformLabel || 'none'}">${p.platformLabel || 'unranked'}</span></td>
+      </tr>`).join('');
+  }
 </script>
 </body>
 </html>
