@@ -19,8 +19,13 @@ jobs:
 
       - name: Run Sleeper ADP crawl
         env:
-          SLEEPER_USERNAME: ${{ vars.SLEEPER_USERNAME }}
           SEASON: '2026'
+          # Defaults to the site's existing seed account in the script itself;
+          # override here only if that ever changes.
+          # SLEEPER_USER_ID: '819245060922130432'
+          SLEEPER_USER_ID: ${{ vars.SLEEPER_USER_ID || '819245060922130432' }}
+          # Backward-compatible fallback if a repo variable was set previously.
+          SLEEPER_USERNAME: ${{ vars.SLEEPER_USERNAME }}
         run: node fetch_sleeper_adp.js
 
       - name: Commit updated ADP data

@@ -28,6 +28,7 @@ const path = require('path');
 
 const SLEEPER_API = 'https://api.sleeper.app/v1';
 const SEASON = process.env.SEASON || '2026';
+const SEED_USER_ID = process.env.SLEEPER_USER_ID || '819245060922130432';
 const SEED_USERNAME = process.env.SLEEPER_USERNAME;
 
 const DATA_DIR = path.join(__dirname, 'data');
@@ -71,10 +72,15 @@ function stddev(arr, avg) {
 
 // ---- Sleeper crawl -----------------------------------------------------
 
-async function findSfb16Drafts(username) {
-  const user = await getJSON(`${SLEEPER_API}/user/${encodeURIComponent(username)}`);
+async function findSfb16Drafts(seedUserId, username) {
+  const seed = seedUserId || username;
+  if (!seed) {
+    throw new Error('No Sleeper seed account provided. Set SLEEPER_USER_ID or SLEEPER_USERNAME.');
+  }
+
+  const user = await getJSON(`${SLEEPER_API}/user/${encodeURIComponent(seed)}`);
   if (!user || !user.user_id) {
-    throw new Error(`Sleeper user "${username}" not found`);
+    throw new Error(`Sleeper account "${seed}" not found`);
   }
 
   const leagues = await getJSON(
@@ -214,13 +220,9 @@ function buildSummary(sleeperByPlayer, mflPicks) {
 // ---- main -------------------------------------------------------------
 
 async function main() {
-  if (!SEED_USERNAME) {
-    console.error('SLEEPER_USERNAME env var is required. Set it as a repo secret/variable.');
-    process.exit(1);
-  }
-
-  console.log(`Crawling #SFB16 drafts for Sleeper user "${SEED_USERNAME}", season ${SEASON}...`);
-  const drafts = await findSfb16Drafts(SEED_USERNAME);
+  const seedLabel = SEED_USERNAME || SEED_USER_ID;
+  console.log(`Crawling #SFB16 drafts for Sleeper seed account "${seedLabel}", season ${SEASON}...`);
+  const drafts = await findSfb16Drafts(SEED_USER_ID, SEED_USERNAME);
   console.log(`Found ${drafts.length} #SFB16 draft(s) across Sleeper.`);
 
   const sleeperByPlayer = await collectSleeperPicks(drafts);
