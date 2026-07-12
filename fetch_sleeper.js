@@ -34,7 +34,7 @@ const SEASON = process.env.SEASON || '2026';
 const USER_ID = process.env.SLEEPER_USER_ID || '819245060922130432';
 const VALID_POS = ['QB', 'RB', 'WR', 'TE', 'K'];
 
-const DATA_DIR = path.join(__dirname, '..', 'data');
+const DATA_DIR = path.join(__dirname, 'data');
 const OUTPUT_PATH = path.join(DATA_DIR, 'sleeper_picks.json');
 
 async function getJSON(url) {

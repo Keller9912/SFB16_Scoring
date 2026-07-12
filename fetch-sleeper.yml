@@ -23,7 +23,7 @@ jobs:
           # Defaults to the site's existing seed account in the script itself;
           # override here only if that ever changes.
           # SLEEPER_USER_ID: '819245060922130432'
-        run: node scripts/fetch_sleeper.js
+        run: node fetch_sleeper.js
 
       - name: Commit updated Sleeper data
         run: |
