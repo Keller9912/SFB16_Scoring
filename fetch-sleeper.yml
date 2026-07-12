@@ -1,0 +1,34 @@
+name: Fetch Sleeper Picks
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Sleeper picks crawl
+        env:
+          SEASON: '2026'
+          # Defaults to the site's existing seed account in the script itself;
+          # override here only if that ever changes.
+          # SLEEPER_USER_ID: '819245060922130432'
+        run: node scripts/fetch_sleeper.js
+
+      - name: Commit updated Sleeper data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/sleeper_picks.json
+          git diff --quiet --cached || git commit -m "Update Sleeper picks [automated]"
+          git push
