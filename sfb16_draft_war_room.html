@@ -455,7 +455,11 @@
       fetch(`https://api.sleeper.app/v1/league/${leagueId}/rosters`).then(r => r.json()).catch(() => []),
     ]);
 
-    allPlayers    = players || {};
+    const activePlayers = Object.fromEntries(
+      Object.entries(players || {}).filter(([, player]) => player?.active === true)
+    );
+
+    allPlayers    = activePlayers;
     projData      = Array.isArray(proj) ? proj : [];
     draftMeta     = draftMetaRes || null;
     draftPicks    = Array.isArray(picks) ? picks : [];
