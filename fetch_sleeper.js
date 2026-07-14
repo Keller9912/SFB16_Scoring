@@ -32,7 +32,7 @@ const SLEEPER_API = 'https://api.sleeper.app/v1';
 const SEASON = process.env.SEASON || '2026';
 // Same seed account already hardcoded as USER_ID in sfb16_adp.html.
 const USER_ID = process.env.SLEEPER_USER_ID || '819245060922130432';
-const VALID_POS = ['QB', 'RB', 'WR', 'TE', 'K'];
+const VALID_POS = ['QB', 'RB', 'WR', 'TE'];
 
 const DATA_DIR = path.join(__dirname, 'data');
 const OUTPUT_PATH = path.join(DATA_DIR, 'sleeper_picks.json');
