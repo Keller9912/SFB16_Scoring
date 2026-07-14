@@ -51,6 +51,10 @@ async function main() {
     getJSON(`${SLEEPER_API}/players/nfl`),
   ]);
 
+  const activePlayersById = Object.fromEntries(
+    Object.entries(allPlayers || {}).filter(([, player]) => player?.active === true)
+  );
+
   const sfb16 = (leagues || []).filter((l) => l.name && l.name.includes('#SFB16'));
   console.log(`Found ${sfb16.length} #SFB16 league(s).`);
 
@@ -71,7 +75,7 @@ async function main() {
 
     for (const pick of leaguePicks) {
       if (!pick.player_id || !pick.pick_no) continue;
-      const player = allPlayers[String(pick.player_id)];
+      const player = activePlayersById[String(pick.player_id)];
       if (!player || !player.full_name) continue;
       const pos = player.position || '';
       if (!VALID_POS.includes(pos)) continue;
