@@ -246,7 +246,7 @@
   const PROJ_URL         = 'https://keller9912.github.io/SFB16_Scoring/data/projections_2026.json';
   const SLEEPER_DATA_URL = 'https://keller9912.github.io/SFB16_Scoring/data/sleeper_picks.json';
   const MFL_DATA_URL     = 'https://keller9912.github.io/SFB16_Scoring/data/mfl_picks.json';
-  const VALID_POS        = ['QB','RB','WR','TE','K'];
+  const VALID_POS        = ['QB','RB','WR','TE'];
   const POS_ORDER        = ['QB','RB','WR','TE','FLEX','K','DEF'];
 
   let allPlayers = {};   // Sleeper player_id -> player object
@@ -304,6 +304,13 @@
   // requires the position (and team, when both sides have one) to agree,
   // so two different players sharing initials+surname are never conflated
   // just because only one of them has a projections row.
+  function isActiveSleeperPlayer(player) {
+    if (!player) return false;
+    const active = player.active;
+    if (active === false || active === 0 || active === '0' || active === 'false') return false;
+    return true;
+  }
+
   function findProj(name, pos, team) {
     const norm = normName(name);
     if (!norm) return null;
@@ -326,14 +333,12 @@
         const pLast = pParts[pParts.length - 1];
         if (pLast !== lastName || !pParts[0] || pParts[0][0] !== firstInitial) return false;
 
-        if (posUpper) {
-          const pPos = (projField(p, ['position', 'Position', 'pos', 'Pos']) || '').toUpperCase();
-          if (pPos && pPos !== posUpper) return false;
-        }
-        if (teamUpper) {
-          const pTeam = (projField(p, ['team', 'Team', 'tm', 'Tm']) || '').toUpperCase();
-          if (pTeam && pTeam !== teamUpper) return false;
-        }
+        const pPos = (projField(p, ['position', 'Position', 'pos', 'Pos']) || '').toUpperCase();
+        if (posUpper && pPos && pPos !== posUpper) return false;
+
+        const pTeam = (projField(p, ['team', 'Team', 'tm', 'Tm']) || '').toUpperCase();
+        if (teamUpper && pTeam && pTeam !== teamUpper) return false;
+        if ((teamUpper && !pTeam) || (!teamUpper && pTeam)) return false;
         return true;
       });
       if (lastMatches.length === 1) return lastMatches[0];
@@ -456,7 +461,7 @@
     ]);
 
     const activePlayers = Object.fromEntries(
-      Object.entries(players || {}).filter(([, player]) => player?.active === true)
+      Object.entries(players || {}).filter(([, player]) => isActiveSleeperPlayer(player))
     );
 
     allPlayers    = activePlayers;
