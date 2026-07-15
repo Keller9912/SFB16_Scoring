@@ -1,0 +1,41 @@
+name: Fetch League Info
+
+on:
+  schedule:
+    # Every 15 minutes, same cadence as the other data pulls. GitHub may
+    # delay/coalesce scheduled runs under load, so treat this as "roughly
+    # every 15 min," not a hard guarantee.
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch MFL + Sleeper league info
+        env:
+          SEASON: '2026'
+          # Defaults to the site's existing seed account in the script itself;
+          # override here only if that ever changes.
+          SLEEPER_USER_ID: ${{ vars.SLEEPER_USER_ID || '819245060922130432' }}
+          SLEEPER_USERNAME: ${{ vars.SLEEPER_USERNAME }}
+        run: node fetch_league_info.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/leagues.json
+          git diff --cached --quiet || git commit -m "chore: refresh league info"
+          git push
