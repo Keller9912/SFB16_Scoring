@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T16:49:09.463Z",
+  "generated_at": "2026-07-16T17:59:33.613Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -9269,8 +9269,8 @@
         "league_id": "1367858804263235584",
         "league_name": "#SFB16 - Ghost of Tsushima",
         "draft_id": "1367858805144027136",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "201881651041533952",
@@ -19502,7 +19502,7 @@
           {
             "user_id": "719312548222009344",
             "username": "TMeuz",
-            "team_name": null,
+            "team_name": "Ruin’s Edge",
             "draft_position": 8
           },
           {
@@ -33088,12 +33088,6 @@
             "username": "QuinMyers",
             "team_name": null,
             "draft_position": 4
-          },
-          {
-            "user_id": "846805868241592320",
-            "username": "Viperman84",
-            "team_name": null,
-            "draft_position": null
           },
           {
             "user_id": "868247450182418432",
