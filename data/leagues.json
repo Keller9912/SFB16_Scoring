@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T17:59:33.613Z",
+  "generated_at": "2026-07-16T19:05:21.720Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -16298,8 +16298,8 @@
         "league_id": "1367188416348835840",
         "league_name": "#SFB16 - Resident Evil",
         "draft_id": "1367188417087049728",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "31278032279191552",
@@ -17786,8 +17786,8 @@
         "league_id": "1367151475343495168",
         "league_name": "#SFB16 - Spider-Man",
         "draft_id": "1367151476077506560",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "31530243064217600",
@@ -18530,8 +18530,8 @@
         "league_id": "1367150688869568512",
         "league_name": "#SFB16 - Super Mario Bros.",
         "draft_id": "1367150689574207488",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "442158450105905152",
@@ -22736,8 +22736,8 @@
         "league_id": "1366444437617528832",
         "league_name": "#SFB16 Barcelona - The Legend of Zelda",
         "draft_id": "1366444439190372352",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "236120747163000832",
@@ -35545,12 +35545,6 @@
             "username": "ColinMcT",
             "team_name": null,
             "draft_position": null
-          },
-          {
-            "user_id": "857690978188935168",
-            "username": "jhill7788",
-            "team_name": null,
-            "draft_position": 3
           },
           {
             "user_id": "979212125115613184",
