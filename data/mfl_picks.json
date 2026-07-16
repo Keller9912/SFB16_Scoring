@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T23:16:14.964Z",
+  "generated_at": "2026-07-16T00:57:13.003Z",
   "leagues": [
     {
       "id": "14494",
@@ -2184,6 +2184,33 @@
       "pick_no": 235,
       "round": 20,
       "franchise_id": "0006",
+      "league_id": "14494"
+    },
+    {
+      "name": "Jack Bech",
+      "pos": "WR",
+      "team": "LVR",
+      "pick_no": 236,
+      "round": 20,
+      "franchise_id": "0005",
+      "league_id": "14494"
+    },
+    {
+      "name": "Marcus Mariota",
+      "pos": "QB",
+      "team": "WAS",
+      "pick_no": 237,
+      "round": 20,
+      "franchise_id": "0004",
+      "league_id": "14494"
+    },
+    {
+      "name": "Eli Stowers",
+      "pos": "TE",
+      "team": "PHI",
+      "pick_no": 238,
+      "round": 20,
+      "franchise_id": "0003",
       "league_id": "14494"
     },
     {
@@ -8145,6 +8172,33 @@
       "league_id": "25949"
     },
     {
+      "name": "Cooper Kupp",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 228,
+      "round": 19,
+      "franchise_id": "0012",
+      "league_id": "25949"
+    },
+    {
+      "name": "Darius Slayton",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 229,
+      "round": 20,
+      "franchise_id": "0012",
+      "league_id": "25949"
+    },
+    {
+      "name": "Malachi Fields",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 230,
+      "round": 20,
+      "franchise_id": "0011",
+      "league_id": "25949"
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -12177,6 +12231,24 @@
       "league_id": "39518"
     },
     {
+      "name": "Kayshon Boutte",
+      "pos": "WR",
+      "team": "NEP",
+      "pick_no": 209,
+      "round": 18,
+      "franchise_id": "0008",
+      "league_id": "39518"
+    },
+    {
+      "name": "Devin Singletary",
+      "pos": "RB",
+      "team": "NYG",
+      "pick_no": 210,
+      "round": 18,
+      "franchise_id": "0007",
+      "league_id": "39518"
+    },
+    {
       "name": "Bijan Robinson",
       "pos": "RB",
       "team": "ATL",
@@ -14073,6 +14145,24 @@
       "pick_no": 211,
       "round": 18,
       "franchise_id": "0006",
+      "league_id": "41323"
+    },
+    {
+      "name": "Adonai Mitchell",
+      "pos": "WR",
+      "team": "NYJ",
+      "pick_no": 212,
+      "round": 18,
+      "franchise_id": "0005",
+      "league_id": "41323"
+    },
+    {
+      "name": "Alvin Kamara",
+      "pos": "RB",
+      "team": "NOS",
+      "pick_no": 213,
+      "round": 18,
+      "franchise_id": "0004",
       "league_id": "41323"
     },
     {
@@ -17271,6 +17361,15 @@
       "league_id": "43844"
     },
     {
+      "name": "Tony Pollard",
+      "pos": "RB",
+      "team": "TEN",
+      "pick_no": 143,
+      "round": 12,
+      "franchise_id": "0002",
+      "league_id": "43844"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -18969,6 +19068,33 @@
       "pick_no": 189,
       "round": 16,
       "franchise_id": "0004",
+      "league_id": "44962"
+    },
+    {
+      "name": "Isaac TeSlaa",
+      "pos": "WR",
+      "team": "DET",
+      "pick_no": 190,
+      "round": 16,
+      "franchise_id": "0003",
+      "league_id": "44962"
+    },
+    {
+      "name": "Jonah Coleman",
+      "pos": "RB",
+      "team": "DEN",
+      "pick_no": 191,
+      "round": 16,
+      "franchise_id": "0002",
+      "league_id": "44962"
+    },
+    {
+      "name": "Nicholas Singleton",
+      "pos": "RB",
+      "team": "TEN",
+      "pick_no": 192,
+      "round": 16,
+      "franchise_id": "0001",
       "league_id": "44962"
     },
     {
@@ -20895,6 +21021,15 @@
       "pick_no": 214,
       "round": 18,
       "franchise_id": "0003",
+      "league_id": "46308"
+    },
+    {
+      "name": "Dawson Knox",
+      "pos": "TE",
+      "team": "BUF",
+      "pick_no": 215,
+      "round": 18,
+      "franchise_id": "0002",
       "league_id": "46308"
     },
     {
@@ -26307,6 +26442,15 @@
       "league_id": "65583"
     },
     {
+      "name": "Geno Smith",
+      "pos": "QB",
+      "team": "NYJ",
+      "pick_no": 140,
+      "round": 12,
+      "franchise_id": "0005",
+      "league_id": "65583"
+    },
+    {
       "name": "Puka Nacua",
       "pos": "WR",
       "team": "LAR",
@@ -28995,6 +29139,69 @@
       "pick_no": 135,
       "round": 12,
       "franchise_id": "0010",
+      "league_id": "73136"
+    },
+    {
+      "name": "Michael Pittman",
+      "pos": "WR",
+      "team": "PIT",
+      "pick_no": 136,
+      "round": 12,
+      "franchise_id": "0009",
+      "league_id": "73136"
+    },
+    {
+      "name": "Jalen Coker",
+      "pos": "WR",
+      "team": "CAR",
+      "pick_no": 137,
+      "round": 12,
+      "franchise_id": "0008",
+      "league_id": "73136"
+    },
+    {
+      "name": "Tyler Allgeier",
+      "pos": "RB",
+      "team": "ARI",
+      "pick_no": 138,
+      "round": 12,
+      "franchise_id": "0007",
+      "league_id": "73136"
+    },
+    {
+      "name": "Terrance Ferguson",
+      "pos": "TE",
+      "team": "LAR",
+      "pick_no": 139,
+      "round": 12,
+      "franchise_id": "0006",
+      "league_id": "73136"
+    },
+    {
+      "name": "Cade Otton",
+      "pos": "TE",
+      "team": "TBB",
+      "pick_no": 140,
+      "round": 12,
+      "franchise_id": "0005",
+      "league_id": "73136"
+    },
+    {
+      "name": "Jacory Croskey-Merritt",
+      "pos": "RB",
+      "team": "WAS",
+      "pick_no": 141,
+      "round": 12,
+      "franchise_id": "0004",
+      "league_id": "73136"
+    },
+    {
+      "name": "RJ Harvey",
+      "pos": "RB",
+      "team": "DEN",
+      "pick_no": 142,
+      "round": 12,
+      "franchise_id": "0003",
       "league_id": "73136"
     }
   ]
