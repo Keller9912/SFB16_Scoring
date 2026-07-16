@@ -7,15 +7,12 @@
 const YEAR = 2026;
 const BASE = `https://api.myfantasyleague.com/${YEAR}/export`;
 const VALID_POS = ['QB', 'RB', 'WR', 'TE', 'K'];
-const LEAGUE_NAME_RE = /^#SFB16(?:\s|\-|$)/i;
+const LEAGUE_NAME_RE = /^#SFB16(?:\s|-|$)/i;
 const THROTTLE_MS = 250;
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 function toArray(x) { return x == null ? [] : (Array.isArray(x) ? x : [x]); }
 
-// MFL player names are stored "Last, First" — convert to "First Last" to
-// match the naming convention used everywhere else in this project (Sleeper,
-// nflverse, FantasyPros).
 function mflNameToFull(mflName) {
   const parts = (mflName || '').split(',');
   if (parts.length === 2) return `${parts[1].trim()} ${parts[0].trim()}`;
@@ -57,10 +54,6 @@ async function main() {
       const units = toArray(data?.draftResults?.draftUnit);
       units.forEach(u => {
         const draftPicks = toArray(u.draftPick);
-        // MFL gives round + pick-within-round, not an overall pick number.
-        // Every draft round has exactly one pick per team, so the round-1
-        // pick count (or distinct-franchise count as a fallback) gives us
-        // the team count needed to compute the overall pick.
         const teamsCount =
           draftPicks.filter(p => parseInt(p.round, 10) === 1).length ||
           new Set(draftPicks.map(p => p.franchise)).size || 1;
@@ -75,6 +68,8 @@ async function main() {
             pos: player.pos,
             team: player.team,
             pick_no: (round - 1) * teamsCount + pickInRound,
+            round,                       // NEW — lets the draft war room build a per-round board
+            franchise_id: p.franchise,   // NEW — lets the war room attribute each pick to a team
             league_id: lg.id,
           });
         });

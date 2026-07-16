@@ -27,15 +27,22 @@
     .setup-hint { font-size:0.76rem;color:#666;margin-top:10px;line-height:1.6; }
     .setup-error { font-size:0.8rem;color:#fca5a5;margin-top:10px; }
 
-    .draft-choice {
-      display:flex;align-items:center;gap:10px;background:#12102a;
-      border:1px solid #7c3aed33;border-radius:8px;padding:10px 14px;
-      margin-top:8px;cursor:pointer;font-size:0.82rem;
+    .search-wrap { position:relative;flex:1; }
+    .search-results {
+      position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:30;
+      max-height:340px;overflow-y:auto;background:#12102a;
+      border:1px solid #7c3aed55;border-radius:10px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.45);
     }
-    .draft-choice:hover { border-color:#7c3aed99; }
-    .draft-choice input { accent-color:#7c3aed; }
-    .draft-choice .lg-name { font-weight:600;color:#e8e8f0; }
-    .draft-choice .lg-status { color:#666;font-size:0.72rem;margin-left:auto; }
+    .search-result-row {
+      display:flex;align-items:center;gap:10px;padding:9px 14px;
+      cursor:pointer;border-bottom:1px solid #ffffff0a;
+    }
+    .search-result-row:last-child { border-bottom:none; }
+    .search-result-row:hover { background:#7c3aed22; }
+    .search-result-row .sr-label { font-weight:600;color:#e8e8f0;font-size:0.82rem; }
+    .search-result-row .sr-sub { color:#666;font-size:0.72rem;margin-left:auto;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px; }
+    .search-empty { padding:12px 14px;color:#666;font-size:0.78rem; }
 
     .not-found {
       text-align:center;padding:40px 20px;color:#555;
@@ -147,17 +154,15 @@
   <div class="setup-card">
     <div class="section-title" style="margin-top:0">Load Your Draft</div>
     <div class="controls">
-      <div class="filter-group" style="flex:1">
-        <span class="filter-label">Sleeper username:</span>
-        <input id="username-input" type="text" class="search-box" style="width:100%;max-width:280px" placeholder="your sleeper username">
+      <div class="search-wrap">
+        <span class="filter-label">Search:</span>
+        <input id="league-search" type="text" class="search-box" style="width:100%" autocomplete="off"
+               placeholder="Sleeper username, team name, or MFL league/team…" oninput="onLeagueSearch()">
+        <div id="search-results" class="search-results" style="display:none"></div>
       </div>
-      <button class="filter-btn" id="find-btn" onclick="findMyDrafts()">Find My Drafts</button>
     </div>
-    <div class="setup-hint">
-      MFL isn't supported here — MFL's API blocks browser-side requests, so a live MFL draft can't be loaded this way (Sleeper only, same limitation as the ADP tool's live feed).
-    </div>
+    <div class="setup-hint" id="setup-hint">Loading league directory…</div>
     <div id="setup-error" class="setup-error" style="display:none"></div>
-    <div id="draft-choices"></div>
   </div>
 </div>
 
@@ -228,9 +233,10 @@
 </div>
 
 <footer>
-  Data: Sleeper API (live, your specific draft) · Sitewide ADP from Sleeper + MFL,
-  both refreshed via GitHub Action every ~15 min (same feed as
-  <a href="sfb16_adp.html">the ADP Tool</a>) ·
+  Data: Sleeper drafts load live via the Sleeper API; MFL drafts load from the
+  same ~15-min snapshot (data/mfl_picks.json) the sitewide ADP uses · League
+  search powered by data/leagues.json, also refreshed ~every 15 min ·
+  Sitewide ADP from Sleeper + MFL (same feed as <a href="sfb16_adp.html">the ADP Tool</a>) ·
   Projections from <a href="sfb16_projections.html">Draft Value Tool</a>
 </footer>
 
@@ -259,11 +265,21 @@
   let myUsername  = null;
   let leagueId    = null;
   let draftId     = null;
-  let draftMeta   = null;  // GET /draft/{id} — used for slot_to_roster_id draft-order mapping
+  let draftMeta   = null;  // { slot_to_roster_id } — draft-order mapping, built directly for MFL
   let draftPicks  = [];
   let leagueUsers = [];
   let leagueRosters = [];
   let myRosterId  = null;
+  let currentPlatform    = null; // 'sleeper' | 'mfl' — which loader populated the state above
+  let currentLeagueName  = null;
+
+  // League directory — powers the search box below (data/leagues.json,
+  // refreshed ~every 15 min by the fetch-league-info workflow). Search spans
+  // both platforms: Sleeper usernames/team names and MFL team/league names.
+  const LEAGUES_URL = 'https://keller9912.github.io/SFB16_Scoring/data/leagues.json';
+  let leaguesData        = null; // raw parsed data/leagues.json
+  let searchIndex        = [];   // flattened, searchable rows built from leaguesData
+  let leaguesLoadPromise = null;
 
   // Available-table state
   let sortKey   = 'adp';
@@ -353,92 +369,158 @@
   }
 
   // ──────────────────────────────────────────────────────────────────────
-  // Step 1: find the user's own #SFB16 drafts on Sleeper
+  // League directory search — fetches data/leagues.json once, flattens it
+  // into rows (one per team, plus one per league for "just browse, no
+  // specific team" searches), and filters as you type. Selecting a row
+  // jumps straight into the war room: Sleeper rows load live off Sleeper's
+  // API (loadDraft, unchanged below); MFL rows load off the same static
+  // snapshot the sitewide ADP already uses (loadMflLeague, new).
   // ──────────────────────────────────────────────────────────────────────
-  document.getElementById('username-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') findMyDrafts();
-  });
+  function ensureLeaguesLoaded() {
+    if (!leaguesLoadPromise) {
+      leaguesLoadPromise = fetch(LEAGUES_URL)
+        .then(r => { if (!r.ok) throw new Error(`${r.status} ${r.statusText}`); return r.json(); })
+        .then(data => {
+          leaguesData = data;
+          searchIndex = buildSearchIndex(data);
+          document.getElementById('setup-hint').textContent =
+            `Search across ${data?.sleeper?.league_count || 0} Sleeper leagues and ${data?.mfl?.league_count || 0} MFL leagues (directory refreshes ~every 15 min). Sleeper drafts load live; MFL loads from that same snapshot.`;
+        })
+        .catch(err => {
+          document.getElementById('setup-hint').textContent = '';
+          const errEl = document.getElementById('setup-error');
+          errEl.textContent = `Couldn't load the league directory: ${err.message}`;
+          errEl.style.display = 'block';
+        });
+    }
+    return leaguesLoadPromise;
+  }
+  ensureLeaguesLoaded(); // kick off in the background as soon as the page loads
 
-  async function findMyDrafts() {
-    const username = document.getElementById('username-input').value.trim();
-    const errEl = document.getElementById('setup-error');
-    const choicesEl = document.getElementById('draft-choices');
-    errEl.style.display = 'none';
-    choicesEl.innerHTML = '';
+  function buildSearchIndex(data) {
+    const rows = [];
 
-    if (!username) { errEl.textContent = 'Enter a Sleeper username.'; errEl.style.display = 'block'; return; }
-
-    const btn = document.getElementById('find-btn');
-    btn.disabled = true; btn.textContent = 'Searching…';
-
-    try {
-      const userRes = await fetch(`https://api.sleeper.app/v1/user/${encodeURIComponent(username)}`);
-      const user = userRes.ok ? await userRes.json() : null;
-      if (!user || !user.user_id) {
-        errEl.textContent = `Couldn't find Sleeper user "${username}". Check the spelling.`;
-        errEl.style.display = 'block';
-        return;
-      }
-      myUserId = user.user_id;
-      myUsername = username;
-
-      const leagues = await (await fetch(`https://api.sleeper.app/v1/user/${myUserId}/leagues/nfl/${SEASON}`)).json();
-      const sfb16 = (leagues || []).filter(l => l.name && l.name.includes('#SFB16'));
-
-      if (!sfb16.length) {
-        errEl.textContent = `No #SFB16 leagues found for "${username}" in ${SEASON}.`;
-        errEl.style.display = 'block';
-        return;
-      }
-
-      const candidates = [];
-      for (const league of sfb16) {
-        let drafts = [];
-        try { drafts = await (await fetch(`https://api.sleeper.app/v1/league/${league.league_id}/drafts`)).json(); }
-        catch (e) { continue; }
-        for (const d of drafts || []) {
-          candidates.push({ draft_id: d.draft_id, league_id: league.league_id, league_name: league.name, status: d.status });
-        }
-      }
-
-      if (!candidates.length) {
-        errEl.textContent = `Found #SFB16 leagues for "${username}" but no drafts yet.`;
-        errEl.style.display = 'block';
-        return;
-      }
-
-      if (candidates.length === 1) {
-        loadDraft(candidates[0]);
-        return;
-      }
-
-      candidates.forEach((c, i) => {
-        const label = document.createElement('label');
-        label.className = 'draft-choice';
-        label.innerHTML = `
-          <input type="radio" name="draft-choice" value="${i}">
-          <span class="lg-name">${c.league_name}</span>
-          <span class="lg-status">${c.status}</span>`;
-        choicesEl.appendChild(label);
+    (data?.sleeper?.leagues || []).forEach(lg => {
+      rows.push({
+        kind: 'league', platform: 'sleeper',
+        label: lg.league_name || `League ${lg.league_id}`,
+        sub: `${(lg.teams || []).length} teams · draft ${lg.draft_status || 'unknown'}`,
+        matchFields: [lg.league_name],
+        candidate: { draft_id: lg.draft_id, league_id: lg.league_id, league_name: lg.league_name, status: lg.draft_status, user_id: null, username: null },
       });
-      const loadBtn = document.createElement('button');
-      loadBtn.className = 'filter-btn';
-      loadBtn.style.marginTop = '10px';
-      loadBtn.textContent = 'Load Selected Draft';
-      loadBtn.onclick = () => {
-        const checked = choicesEl.querySelector('input[name=draft-choice]:checked');
-        if (!checked) { errEl.textContent = 'Pick a draft first.'; errEl.style.display = 'block'; return; }
-        loadDraft(candidates[Number(checked.value)]);
-      };
-      choicesEl.appendChild(loadBtn);
+      (lg.teams || []).forEach(t => {
+        rows.push({
+          kind: 'team', platform: 'sleeper',
+          label: t.team_name || t.username || 'Team',
+          sub: `${lg.league_name}` + (t.username ? ` · @${t.username}` : ''),
+          matchFields: [t.username, t.team_name, lg.league_name],
+          candidate: { draft_id: lg.draft_id, league_id: lg.league_id, league_name: lg.league_name, status: lg.draft_status, user_id: t.user_id, username: t.username },
+        });
+      });
+    });
 
-    } catch (err) {
-      errEl.textContent = 'Something went wrong looking that up: ' + err.message;
-      errEl.style.display = 'block';
-    } finally {
-      btn.disabled = false; btn.textContent = 'Find My Drafts';
+    (data?.mfl?.leagues || []).forEach(lg => {
+      rows.push({
+        kind: 'league', platform: 'mfl',
+        label: lg.league_name || `League ${lg.league_id}`,
+        sub: `${(lg.teams || []).length} teams · draft ${lg.draft_complete ? 'complete' : 'in progress'}`,
+        matchFields: [lg.league_name],
+        candidate: { league_id: lg.league_id, league_name: lg.league_name, franchise_id: null, team_name: null },
+      });
+      (lg.teams || []).forEach(t => {
+        rows.push({
+          kind: 'team', platform: 'mfl',
+          label: t.team_name || `Team ${t.franchise_id}`,
+          sub: `${lg.league_name}` + (t.owner_name ? ` · ${t.owner_name}` : ''),
+          matchFields: [t.team_name, t.owner_name, lg.league_name],
+          candidate: { league_id: lg.league_id, league_name: lg.league_name, franchise_id: t.franchise_id, team_name: t.team_name },
+        });
+      });
+    });
+
+    return rows;
+  }
+
+  // Exact match ranks highest, then prefix match, then plain substring —
+  // across whichever of username / team name / league name a row has.
+  function scoreRow(row, q) {
+    let best = -1;
+    for (const raw of row.matchFields) {
+      const f = (raw || '').toLowerCase();
+      if (!f) continue;
+      if (f === q) best = Math.max(best, 100);
+      else if (f.startsWith(q)) best = Math.max(best, 80);
+      else if (f.includes(q)) best = Math.max(best, 50);
+    }
+    return best;
+  }
+
+  let searchDebounce2;
+  function onLeagueSearch() {
+    clearTimeout(searchDebounce2);
+    searchDebounce2 = setTimeout(runLeagueSearch, 150);
+  }
+
+  async function runLeagueSearch() {
+    const input = document.getElementById('league-search');
+    const resultsEl = document.getElementById('search-results');
+    const q = input.value.trim().toLowerCase();
+
+    if (!q) { resultsEl.style.display = 'none'; resultsEl.innerHTML = ''; return; }
+
+    await ensureLeaguesLoaded();
+    if (!searchIndex.length) {
+      resultsEl.style.display = 'block';
+      resultsEl.innerHTML = `<div class="search-empty">League directory unavailable right now.</div>`;
+      return;
+    }
+
+    const scored = searchIndex
+      .map(row => ({ row, score: scoreRow(row, q) }))
+      .filter(x => x.score > -1)
+      .sort((a, b) => b.score - a.score || a.row.label.localeCompare(b.row.label))
+      .slice(0, 20);
+
+    if (!scored.length) {
+      resultsEl.style.display = 'block';
+      resultsEl.innerHTML = `<div class="search-empty">No leagues or teams match "${input.value.trim()}".</div>`;
+      return;
+    }
+
+    resultsEl.innerHTML = scored.map(x => `
+      <div class="search-result-row">
+        <span class="plat-badge plat-${x.row.platform === 'sleeper' ? 'Sleeper' : 'MFL'}">${x.row.platform === 'sleeper' ? 'Sleeper' : 'MFL'}</span>
+        <span class="sr-label">${x.row.label}</span>
+        <span class="sr-sub">${x.row.sub}</span>
+      </div>`).join('');
+    resultsEl.style.display = 'block';
+
+    resultsEl.querySelectorAll('.search-result-row').forEach((el, i) => {
+      el.addEventListener('click', () => selectSearchResult(scored[i].row));
+    });
+  }
+
+  function selectSearchResult(row) {
+    document.getElementById('search-results').style.display = 'none';
+    document.getElementById('setup-error').style.display = 'none';
+
+    if (row.platform === 'sleeper') {
+      myUserId   = row.candidate.user_id;
+      myUsername = row.candidate.username;
+      loadDraft(row.candidate);
+    } else {
+      loadMflLeague(row.candidate);
     }
   }
+
+  // Click anywhere outside the dropdown to close it.
+  document.addEventListener('click', e => {
+    const box = document.getElementById('search-results');
+    const input = document.getElementById('league-search');
+    if (box && box.style.display !== 'none' && e.target !== input && !box.contains(e.target)) {
+      box.style.display = 'none';
+    }
+  });
 
   // ──────────────────────────────────────────────────────────────────────
   // Step 2: load the chosen draft (one-time snapshot, not polled)
@@ -467,12 +549,22 @@
     allPlayers    = activePlayers;
     projData      = Array.isArray(proj) ? proj : [];
     draftMeta     = draftMetaRes || null;
-    draftPicks    = Array.isArray(picks) ? picks : [];
     leagueUsers   = Array.isArray(users) ? users : [];
     leagueRosters = Array.isArray(rosters) ? rosters : [];
 
+    // player_key lets buildAvailablePool exclude drafted players by
+    // normalized name+position instead of Sleeper's player_id — the same
+    // key MFL picks use below, since MFL has no Sleeper player_id at all.
+    draftPicks = (Array.isArray(picks) ? picks : []).map(p => {
+      const meta = p.metadata || {};
+      const fullName = `${meta.first_name || ''} ${meta.last_name || ''}`.trim();
+      return { ...p, player_key: normName(fullName) + '|' + (meta.position || '') };
+    });
+
     const mine = leagueRosters.find(r => r.owner_id === myUserId);
     myRosterId = mine ? mine.roster_id : null;
+    currentPlatform = 'sleeper';
+    currentLeagueName = choice.league_name;
 
     document.getElementById('setup-section').style.display = 'none';
     document.getElementById('war-room').style.display = 'block';
@@ -487,6 +579,86 @@
     renderAvailable(); // renders immediately using projections only, ADP column fills in below
 
     computeSiteAdp(); // background fetch, same mechanism as sfb16_adp.html
+  }
+
+  // ──────────────────────────────────────────────────────────────────────
+  // Load an MFL league instead. There's no live browser-side MFL draft
+  // feed (same CORS limitation noted for years in the ADP tool), so this
+  // reads the same static data/mfl_picks.json snapshot fetch_mfl.js
+  // refreshes ~every 15 min, and normalizes it into the exact same shape
+  // loadDraft() builds above (draftPicks/leagueUsers/leagueRosters/
+  // draftMeta.slot_to_roster_id) so every render function below — My Team,
+  // Roster Construction, Draft Board, Available Players — works unchanged
+  // regardless of which platform loaded the data.
+  // ──────────────────────────────────────────────────────────────────────
+  async function loadMflLeague(candidate) {
+    document.getElementById('setup-section').innerHTML =
+      `<div class="setup-card"><div class="no-picks-note">Loading ${candidate.league_name}…</div></div>`;
+
+    leagueId = candidate.league_id;
+    draftId  = 'mfl-' + candidate.league_id; // no real Sleeper draft id on this path; just a truthy "something's loaded" flag
+    rosterSlotMap = null;
+
+    const [players, proj, mflData] = await Promise.all([
+      fetch(PLAYERS_URL).then(r => r.json()).catch(() => ({})),
+      fetch(PROJ_URL).then(r => r.ok ? r.json() : []).catch(() => []),
+      fetch(MFL_DATA_URL).then(r => r.json()).catch(() => null),
+    ]);
+    await ensureLeaguesLoaded(); // make sure leaguesData (for team/roster info) is populated
+
+    allPlayers = Object.fromEntries(Object.entries(players || {}).filter(([, p]) => isActiveSleeperPlayer(p)));
+    projData   = Array.isArray(proj) ? proj : [];
+    draftMeta  = null;
+
+    const leagueEntry = (leaguesData?.mfl?.leagues || []).find(l => String(l.league_id) === String(leagueId)) || null;
+    const teams = leagueEntry?.teams || [];
+
+    const leaguePicks = (mflData?.picks || []).filter(p => String(p.league_id) === String(leagueId));
+    draftPicks = leaguePicks.map(p => {
+      const parts = (p.name || '').trim().split(/\s+/);
+      const last = parts.length > 1 ? parts.pop() : '';
+      const first = parts.join(' ');
+      return {
+        roster_id: p.franchise_id ?? null,
+        pick_no: p.pick_no,
+        round: p.round || null,
+        metadata: { first_name: first, last_name: last || p.name || '', position: p.pos },
+        player_key: normName(p.name) + '|' + p.pos,
+      };
+    });
+
+    leagueRosters = teams.map(t => ({ roster_id: t.franchise_id, owner_id: t.franchise_id }));
+    leagueUsers   = teams.map(t => ({
+      user_id: t.franchise_id,
+      display_name: t.owner_name || t.team_name || `Team ${t.franchise_id}`,
+      metadata: { team_name: t.team_name },
+    }));
+    draftMeta = {
+      slot_to_roster_id: Object.fromEntries(
+        teams.filter(t => t.draft_position != null).map(t => [t.draft_position, t.franchise_id])
+      ),
+    };
+
+    myRosterId = candidate.franchise_id ?? null;
+    myUserId   = myRosterId;
+    myUsername = candidate.team_name || null;
+    currentPlatform = 'mfl';
+    currentLeagueName = candidate.league_name;
+
+    document.getElementById('setup-section').style.display = 'none';
+    document.getElementById('war-room').style.display = 'block';
+    const asOf = mflData?.generated_at ? new Date(mflData.generated_at).toLocaleTimeString() : 'unknown';
+    document.getElementById('last-updated').textContent =
+      `${candidate.league_name} (MFL) · picks as of ${asOf} snapshot (refreshes ~every 15 min)`;
+
+    setStatus('loading', 'MFL snapshot loaded — fetching sitewide ADP…', `${draftPicks.length} picks so far`);
+
+    renderMyTeam();
+    renderRosterChart();
+    renderDraftBoard();
+    renderAvailable();
+
+    computeSiteAdp();
   }
 
   function setStatus(state, text, count) {
@@ -574,7 +746,10 @@
     const body = document.getElementById('my-team-body');
 
     if (myRosterId === null) {
-      body.innerHTML = `<div class="no-picks-note">Couldn't automatically match "${myUsername}" to a roster in this league — showing the draft board only.</div>`;
+      const msg = myUsername
+        ? `Couldn't automatically match "${myUsername}" to a roster in this league — showing the draft board only.`
+        : `Browsing ${currentLeagueName || 'this league'} — no specific team selected, showing the draft board only.`;
+      body.innerHTML = `<div class="no-picks-note">${msg}</div>`;
       return;
     }
 
@@ -766,11 +941,11 @@
   // Available Players
   // ──────────────────────────────────────────────────────────────────────
   function buildAvailablePool() {
-    const draftedIds = new Set(draftPicks.map(p => String(p.player_id)));
+    const draftedKeys = new Set(draftPicks.map(p => p.player_key));
 
     return Object.entries(allPlayers)
       .filter(([id, p]) => p && p.full_name && VALID_POS.includes(p.position))
-      .filter(([id]) => !draftedIds.has(id))
+      .filter(([, p]) => !draftedKeys.has(normName(p.full_name) + '|' + p.position))
       .map(([id, p]) => {
         const proj = findProj(p.full_name, p.position, p.team);
         const adp = adpReady ? findAdp(p.full_name, p.position) : null;
