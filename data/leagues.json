@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T19:57:20.654Z",
+  "generated_at": "2026-07-17T20:42:23.857Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -13124,8 +13124,8 @@
         "league_id": "1367746728714842112",
         "league_name": "#SFB16 - Mega Man II",
         "draft_id": "1367746730308702208",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "76690483992477696",
@@ -17531,8 +17531,8 @@
         "league_id": "1367187200269127680",
         "league_name": "#SFB16 - Sonic (Sonic the Hedgehog)",
         "draft_id": "1367187200940195840",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79681277082877952",
@@ -21956,7 +21956,7 @@
           {
             "user_id": "408082841784569856",
             "username": "TheBreezeWay",
-            "team_name": null,
+            "team_name": "Avengers 3.0",
             "draft_position": 6
           },
           {
