@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T20:42:23.857Z",
+  "generated_at": "2026-07-17T21:33:28.075Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -808,7 +808,7 @@
         "league_id": "46308",
         "league_name": "#SFB16 - Crazy Taxi",
         "roster_size": 20,
-        "draft_complete": false,
+        "draft_complete": true,
         "teams": [
           {
             "franchise_id": "0001",
@@ -1463,6 +1463,12 @@
           {
             "user_id": "833520972039598080",
             "username": "_MATTO_",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
+            "user_id": "846805868241592320",
+            "username": "Viperman84",
             "team_name": null,
             "draft_position": null
           },
@@ -4712,8 +4718,8 @@
         "league_id": "1367870371977527296",
         "league_name": "#SFB16 - Bowser",
         "draft_id": "1367870372799602688",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "205737128800296960",
@@ -15950,8 +15956,8 @@
         "league_id": "1367261961447821312",
         "league_name": "#SFB16 - Portal 2",
         "draft_id": "1367261962139873280",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "206983891813146624",
@@ -17624,8 +17630,8 @@
         "league_id": "1367187076759437312",
         "league_name": "#SFB16 - Space Invaders 2",
         "draft_id": "1367187077497651200",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "91658731636801536",
