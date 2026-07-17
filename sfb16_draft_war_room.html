@@ -363,9 +363,57 @@
     return null;
   }
 
-  function findAdp(name, pos) {
-    const key = normName(name) + '|' + pos;
-    return adpData.find(r => r.player_id === key) || null;
+  // Use the same fallback chain as projections, but with position/team
+  // guards so names like Jayden Reed and Joe Reed are not conflated.
+  function findAdp(name, pos, team) {
+    const norm = normName(name);
+    if (!norm) return null;
+
+    let hit = adpData.find(r => {
+      const rName = normName(r.name);
+      const rPos = (r.pos || '').toUpperCase();
+      const posUpper = (pos || '').toUpperCase();
+      if (rName !== norm) return false;
+      if (posUpper && rPos && rPos !== posUpper) return false;
+      return true;
+    });
+    if (hit) return hit;
+
+    const parts = (name || '').trim().split(/\s+/);
+    if (parts.length >= 2) {
+      const abbrev = normName(parts[0][0] + '.' + parts[parts.length - 1]);
+      hit = adpData.find(r => {
+        const rName = normName(r.name);
+        const rPos = (r.pos || '').toUpperCase();
+        const posUpper = (pos || '').toUpperCase();
+        if (rName !== abbrev) return false;
+        if (posUpper && rPos && rPos !== posUpper) return false;
+        return true;
+      });
+      if (hit) return hit;
+
+      const firstInitial = parts[0][0].toLowerCase();
+      const lastName = normName(parts[parts.length - 1]);
+      const posUpper = (pos || '').toUpperCase();
+      const teamUpper = (team || '').toUpperCase();
+
+      const lastMatches = adpData.filter(r => {
+        const rParts = normName(r.name).split(' ');
+        const rLast = rParts[rParts.length - 1];
+        if (rLast !== lastName || !rParts[0] || rParts[0][0] !== firstInitial) return false;
+
+        const rPos = (r.pos || '').toUpperCase();
+        if (posUpper && rPos && rPos !== posUpper) return false;
+
+        const rTeam = (r.team || '').toUpperCase();
+        if (teamUpper && rTeam && rTeam !== teamUpper) return false;
+        if ((teamUpper && !rTeam) || (!teamUpper && rTeam && rTeam !== '—')) return false;
+        return true;
+      });
+      if (lastMatches.length === 1) return lastMatches[0];
+    }
+
+    return null;
   }
 
   // ──────────────────────────────────────────────────────────────────────
@@ -948,7 +996,7 @@
       .filter(([, p]) => !draftedKeys.has(normName(p.full_name) + '|' + p.position))
       .map(([id, p]) => {
         const proj = findProj(p.full_name, p.position, p.team);
-        const adp = adpReady ? findAdp(p.full_name, p.position) : null;
+        const adp = adpReady ? findAdp(p.full_name, p.position, p.team) : null;
         return {
           id,
           name: p.full_name,
