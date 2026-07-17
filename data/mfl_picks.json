@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T22:39:34.109Z",
+  "generated_at": "2026-07-17T01:12:56.789Z",
   "leagues": [
     {
       "id": "14494",
@@ -12708,6 +12708,24 @@
       "league_id": "39518"
     },
     {
+      "name": "Trey Benson",
+      "pos": "RB",
+      "team": "ARI",
+      "pick_no": 235,
+      "round": 20,
+      "franchise_id": "0006",
+      "league_id": "39518"
+    },
+    {
+      "name": "Dontayvion Wicks",
+      "pos": "WR",
+      "team": "PHI",
+      "pick_no": 236,
+      "round": 20,
+      "franchise_id": "0005",
+      "league_id": "39518"
+    },
+    {
       "name": "Bijan Robinson",
       "pos": "RB",
       "team": "ATL",
@@ -14775,6 +14793,24 @@
       "pick_no": 230,
       "round": 20,
       "franchise_id": "0011",
+      "league_id": "41323"
+    },
+    {
+      "name": "Mac Jones",
+      "pos": "QB",
+      "team": "SFO",
+      "pick_no": 231,
+      "round": 20,
+      "franchise_id": "0010",
+      "league_id": "41323"
+    },
+    {
+      "name": "Mack Hollins",
+      "pos": "WR",
+      "team": "NEP",
+      "pick_no": 232,
+      "round": 20,
+      "franchise_id": "0009",
       "league_id": "41323"
     },
     {
@@ -18207,6 +18243,33 @@
       "league_id": "43844"
     },
     {
+      "name": "Jakobi Meyers",
+      "pos": "WR",
+      "team": "JAC",
+      "pick_no": 147,
+      "round": 13,
+      "franchise_id": "0003",
+      "league_id": "43844"
+    },
+    {
+      "name": "Isiah Pacheco",
+      "pos": "RB",
+      "team": "DET",
+      "pick_no": 148,
+      "round": 13,
+      "franchise_id": "0004",
+      "league_id": "43844"
+    },
+    {
+      "name": "Kenneth Gainwell",
+      "pos": "RB",
+      "team": "TBB",
+      "pick_no": 149,
+      "round": 13,
+      "franchise_id": "0005",
+      "league_id": "43844"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -20166,6 +20229,15 @@
       "pick_no": 218,
       "round": 19,
       "franchise_id": "0002",
+      "league_id": "44962"
+    },
+    {
+      "name": "Chris Bell",
+      "pos": "WR",
+      "team": "MIA",
+      "pick_no": 219,
+      "round": 19,
+      "franchise_id": "0003",
       "league_id": "44962"
     },
     {
@@ -25200,6 +25272,15 @@
       "league_id": "55743"
     },
     {
+      "name": "Germie Bernard",
+      "pos": "WR",
+      "team": "PIT",
+      "pick_no": 160,
+      "round": 14,
+      "franchise_id": "0009",
+      "league_id": "55743"
+    },
+    {
       "name": "Joe Burrow",
       "pos": "QB",
       "team": "CIN",
@@ -26835,6 +26916,24 @@
       "pick_no": 182,
       "round": 16,
       "franchise_id": "0011",
+      "league_id": "61959"
+    },
+    {
+      "name": "Emmett Johnson",
+      "pos": "RB",
+      "team": "KCC",
+      "pick_no": 183,
+      "round": 16,
+      "franchise_id": "0010",
+      "league_id": "61959"
+    },
+    {
+      "name": "Cooper Kupp",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 184,
+      "round": 16,
+      "franchise_id": "0009",
       "league_id": "61959"
     },
     {
@@ -31434,6 +31533,24 @@
       "pick_no": 167,
       "round": 14,
       "franchise_id": "0002",
+      "league_id": "73136"
+    },
+    {
+      "name": "Tyjae Spears",
+      "pos": "RB",
+      "team": "TEN",
+      "pick_no": 168,
+      "round": 14,
+      "franchise_id": "0001",
+      "league_id": "73136"
+    },
+    {
+      "name": "Jalen McMillan",
+      "pos": "WR",
+      "team": "TBB",
+      "pick_no": 169,
+      "round": 15,
+      "franchise_id": "0001",
       "league_id": "73136"
     }
   ]
