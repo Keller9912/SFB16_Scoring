@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T22:02:33.043Z",
+  "generated_at": "2026-07-17T23:09:57.086Z",
   "leagues": [
     {
       "id": "14494",
@@ -4191,6 +4191,42 @@
       "pick_no": 218,
       "round": 19,
       "franchise_id": "0002",
+      "league_id": "15797"
+    },
+    {
+      "name": "Darnell Mooney",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 219,
+      "round": 19,
+      "franchise_id": "0003",
+      "league_id": "15797"
+    },
+    {
+      "name": "Marvin Mims",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 220,
+      "round": 19,
+      "franchise_id": "0004",
+      "league_id": "15797"
+    },
+    {
+      "name": "Andrei Iosivas",
+      "pos": "WR",
+      "team": "CIN",
+      "pick_no": 221,
+      "round": 19,
+      "franchise_id": "0005",
+      "league_id": "15797"
+    },
+    {
+      "name": "Jameis Winston",
+      "pos": "QB",
+      "team": "NYG",
+      "pick_no": 222,
+      "round": 19,
+      "franchise_id": "0006",
       "league_id": "15797"
     },
     {
@@ -26019,6 +26055,24 @@
       "league_id": "55743"
     },
     {
+      "name": "Antonio Williams",
+      "pos": "WR",
+      "team": "WAS",
+      "pick_no": 170,
+      "round": 15,
+      "franchise_id": "0002",
+      "league_id": "55743"
+    },
+    {
+      "name": "AJ Barner",
+      "pos": "TE",
+      "team": "SEA",
+      "pick_no": 171,
+      "round": 15,
+      "franchise_id": "0003",
+      "league_id": "55743"
+    },
+    {
       "name": "Joe Burrow",
       "pos": "QB",
       "team": "CIN",
@@ -27873,6 +27927,33 @@
       "league_id": "61959"
     },
     {
+      "name": "Justin Fields",
+      "pos": "QB",
+      "team": "KCC",
+      "pick_no": 207,
+      "round": 18,
+      "franchise_id": "0010",
+      "league_id": "61959"
+    },
+    {
+      "name": "Luke McCaffrey",
+      "pos": "WR",
+      "team": "WAS",
+      "pick_no": 208,
+      "round": 18,
+      "franchise_id": "0009",
+      "league_id": "61959"
+    },
+    {
+      "name": "Ray Davis",
+      "pos": "RB",
+      "team": "BUF",
+      "pick_no": 209,
+      "round": 18,
+      "franchise_id": "0008",
+      "league_id": "61959"
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -29292,6 +29373,24 @@
       "pick_no": 158,
       "round": 14,
       "franchise_id": "0011",
+      "league_id": "65583"
+    },
+    {
+      "name": "Tua Tagovailoa",
+      "pos": "QB",
+      "team": "ATL",
+      "pick_no": 159,
+      "round": 14,
+      "franchise_id": "0010",
+      "league_id": "65583"
+    },
+    {
+      "name": "Jalen McMillan",
+      "pos": "WR",
+      "team": "TBB",
+      "pick_no": 160,
+      "round": 14,
+      "franchise_id": "0009",
       "league_id": "65583"
     },
     {
@@ -31311,6 +31410,24 @@
       "league_id": "72117"
     },
     {
+      "name": "Kimani Vidal",
+      "pos": "RB",
+      "team": "LAC",
+      "pick_no": 225,
+      "round": 19,
+      "franchise_id": "0009",
+      "league_id": "72117"
+    },
+    {
+      "name": "Carson Beck",
+      "pos": "QB",
+      "team": "ARI",
+      "pick_no": 226,
+      "round": 19,
+      "franchise_id": "0010",
+      "league_id": "72117"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -32955,6 +33072,42 @@
       "pick_no": 183,
       "round": 16,
       "franchise_id": "0010",
+      "league_id": "73136"
+    },
+    {
+      "name": "Isaac TeSlaa",
+      "pos": "WR",
+      "team": "DET",
+      "pick_no": 184,
+      "round": 16,
+      "franchise_id": "0009",
+      "league_id": "73136"
+    },
+    {
+      "name": "Jake Tonges",
+      "pos": "TE",
+      "team": "SFO",
+      "pick_no": 185,
+      "round": 16,
+      "franchise_id": "0008",
+      "league_id": "73136"
+    },
+    {
+      "name": "Zachariah Branch",
+      "pos": "WR",
+      "team": "ATL",
+      "pick_no": 186,
+      "round": 16,
+      "franchise_id": "0007",
+      "league_id": "73136"
+    },
+    {
+      "name": "Tre Harris",
+      "pos": "WR",
+      "team": "LAC",
+      "pick_no": 187,
+      "round": 16,
+      "franchise_id": "0006",
       "league_id": "73136"
     }
   ]
