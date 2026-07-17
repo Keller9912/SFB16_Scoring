@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T15:57:30.814Z",
+  "generated_at": "2026-07-17T17:19:33.454Z",
   "leagues": [
     {
       "id": "14494",
@@ -4146,6 +4146,15 @@
       "pick_no": 213,
       "round": 18,
       "franchise_id": "0004",
+      "league_id": "15797"
+    },
+    {
+      "name": "Jaylen Wright",
+      "pos": "RB",
+      "team": "MIA",
+      "pick_no": 214,
+      "round": 18,
+      "franchise_id": "0003",
       "league_id": "15797"
     },
     {
@@ -24255,6 +24264,42 @@
       "league_id": "54792"
     },
     {
+      "name": "Calvin Ridley",
+      "pos": "WR",
+      "team": "TEN",
+      "pick_no": 181,
+      "round": 16,
+      "franchise_id": "0012",
+      "league_id": "54792"
+    },
+    {
+      "name": "Jauan Jennings",
+      "pos": "WR",
+      "team": "MIN",
+      "pick_no": 182,
+      "round": 16,
+      "franchise_id": "0011",
+      "league_id": "54792"
+    },
+    {
+      "name": "Kayshon Boutte",
+      "pos": "WR",
+      "team": "NEP",
+      "pick_no": 183,
+      "round": 16,
+      "franchise_id": "0010",
+      "league_id": "54792"
+    },
+    {
+      "name": "Deebo Samuel",
+      "pos": "WR",
+      "team": "FA",
+      "pick_no": 184,
+      "round": 16,
+      "franchise_id": "0009",
+      "league_id": "54792"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -25755,6 +25800,24 @@
       "pick_no": 167,
       "round": 14,
       "franchise_id": "0002",
+      "league_id": "55743"
+    },
+    {
+      "name": "Terrance Ferguson",
+      "pos": "TE",
+      "team": "LAR",
+      "pick_no": 168,
+      "round": 14,
+      "franchise_id": "0001",
+      "league_id": "55743"
+    },
+    {
+      "name": "Michael Penix Jr.",
+      "pos": "QB",
+      "team": "ATL",
+      "pick_no": 169,
+      "round": 15,
+      "franchise_id": "0001",
       "league_id": "55743"
     },
     {
@@ -27495,6 +27558,51 @@
       "league_id": "61959"
     },
     {
+      "name": "Isiah Pacheco",
+      "pos": "RB",
+      "team": "DET",
+      "pick_no": 194,
+      "round": 17,
+      "franchise_id": "0002",
+      "league_id": "61959"
+    },
+    {
+      "name": "De'Zhaun Stribling",
+      "pos": "WR",
+      "team": "SFO",
+      "pick_no": 195,
+      "round": 17,
+      "franchise_id": "0003",
+      "league_id": "61959"
+    },
+    {
+      "name": "Brian Robinson",
+      "pos": "RB",
+      "team": "ATL",
+      "pick_no": 196,
+      "round": 17,
+      "franchise_id": "0004",
+      "league_id": "61959"
+    },
+    {
+      "name": "Ryan Flournoy",
+      "pos": "WR",
+      "team": "DAL",
+      "pick_no": 197,
+      "round": 17,
+      "franchise_id": "0005",
+      "league_id": "61959"
+    },
+    {
+      "name": "Travis Hunter",
+      "pos": "WR",
+      "team": "JAC",
+      "pick_no": 198,
+      "round": 17,
+      "franchise_id": "0006",
+      "league_id": "61959"
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -28860,6 +28968,33 @@
       "pick_no": 152,
       "round": 13,
       "franchise_id": "0008",
+      "league_id": "65583"
+    },
+    {
+      "name": "Taysom Hill",
+      "pos": "TE",
+      "team": "NOS",
+      "pick_no": 153,
+      "round": 13,
+      "franchise_id": "0009",
+      "league_id": "65583"
+    },
+    {
+      "name": "Dalton Schultz",
+      "pos": "TE",
+      "team": "HOU",
+      "pick_no": 154,
+      "round": 13,
+      "franchise_id": "0010",
+      "league_id": "65583"
+    },
+    {
+      "name": "Jauan Jennings",
+      "pos": "WR",
+      "team": "MIN",
+      "pick_no": 155,
+      "round": 13,
+      "franchise_id": "0011",
       "league_id": "65583"
     },
     {
