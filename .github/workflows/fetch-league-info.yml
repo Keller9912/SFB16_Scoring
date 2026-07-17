@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -36,6 +38,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
           git add data/leagues.json
-          git diff --cached --quiet || git commit -m "chore: refresh league info"
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: refresh league info"
+            git push origin HEAD:main
+          fi

@@ -12,6 +12,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -29,6 +31,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
           git add data/sleeper_picks.json
-          git diff --quiet --cached || git commit -m "Update Sleeper picks [automated]"
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Sleeper picks [automated]"
+            git push origin HEAD:main
+          fi
