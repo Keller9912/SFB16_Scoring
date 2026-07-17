@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T00:11:52.901Z",
+  "generated_at": "2026-07-17T03:35:00.621Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -1425,6 +1425,12 @@
             "draft_position": null
           },
           {
+            "user_id": "458831893421355008",
+            "username": "realdealfantasyhq",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
             "user_id": "465304174070853632",
             "username": "SPEEDZ",
             "team_name": null,
@@ -1475,6 +1481,12 @@
           {
             "user_id": "1111719573394464768",
             "username": "Hkhotsskhotb",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
+            "user_id": "1378778467574755328",
+            "username": "00Topher00",
             "team_name": null,
             "draft_position": null
           }
@@ -3206,8 +3218,8 @@
         "league_id": "1367873936896827392",
         "league_name": "#SFB16 - Animal Crossing",
         "draft_id": "1367873937685381120",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "155366813486956544",
@@ -9188,8 +9200,8 @@
         "league_id": "1367858887415308288",
         "league_name": "#SFB16 - Geralt of Rivia (The Witcher)",
         "draft_id": "1367858888308690944",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "218719640036052992",
@@ -10409,8 +10421,8 @@
         "league_id": "1367857875891814400",
         "league_name": "#SFB16 - Jak & Daxter",
         "draft_id": "1367857876780990464",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "452692167064809472",
@@ -19943,8 +19955,8 @@
         "league_id": "1366885981361278976",
         "league_name": "#SFB16 - The Punisher",
         "draft_id": "1366885982258872320",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "84309243473575936",
@@ -31436,7 +31448,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "drafting",
+        "draft_status": "paused",
         "draft_complete": false,
         "teams": [
           {
@@ -35592,7 +35604,7 @@
             "user_id": "1383251338904743936",
             "username": "Gabbie96",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 3
           }
         ]
       },
@@ -37010,7 +37022,7 @@
           {
             "user_id": "410972475317288960",
             "username": "shimii",
-            "team_name": null,
+            "team_name": "Chicago Sunroof Project",
             "draft_position": 1
           },
           {
