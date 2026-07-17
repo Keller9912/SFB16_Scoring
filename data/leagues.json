@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T21:33:28.075Z",
+  "generated_at": "2026-07-17T22:22:57.686Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -1428,31 +1428,37 @@
             "user_id": "458831893421355008",
             "username": "realdealfantasyhq",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 1
           },
           {
             "user_id": "465304174070853632",
             "username": "SPEEDZ",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 7
           },
           {
             "user_id": "571853347977863168",
             "username": "Meanswell11",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 6
           },
           {
             "user_id": "606979573942407168",
             "username": "Paeno",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 9
           },
           {
             "user_id": "640073414542950400",
             "username": "kaylechips",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 5
+          },
+          {
+            "user_id": "714205058178289664",
+            "username": "BigRich20",
+            "team_name": null,
+            "draft_position": 10
           },
           {
             "user_id": "819245060922130432",
@@ -1464,37 +1470,37 @@
             "user_id": "833520972039598080",
             "username": "_MATTO_",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 3
           },
           {
             "user_id": "846805868241592320",
             "username": "Viperman84",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 4
           },
           {
             "user_id": "872704716528906240",
             "username": "LauraluvsTed",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 8
           },
           {
             "user_id": "994769240152461312",
             "username": "PiBK",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 2
           },
           {
             "user_id": "1111719573394464768",
             "username": "Hkhotsskhotb",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 11
           },
           {
             "user_id": "1378778467574755328",
             "username": "00Topher00",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 12
           }
         ]
       },
@@ -8927,8 +8933,8 @@
         "league_id": "1367859096442667008",
         "league_name": "#SFB16 - Garrus Vakarian (Mass Effect)",
         "draft_id": "1367859097302503424",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "88673655177232384",
@@ -13037,8 +13043,8 @@
         "league_id": "1367746884810067968",
         "league_name": "#SFB16 - Mega Man",
         "draft_id": "1367746886408081408",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "192063750348480512",
@@ -18788,7 +18794,7 @@
           {
             "user_id": "462078799450730496",
             "username": "AlwaysSteady",
-            "team_name": "Always Steady",
+            "team_name": "Toad Patrol",
             "draft_position": 7
           },
           {
@@ -18800,7 +18806,7 @@
           {
             "user_id": "735605623357603840",
             "username": "bryonhale30",
-            "team_name": null,
+            "team_name": "Koopa Troopa",
             "draft_position": 9
           },
           {
@@ -35907,7 +35913,7 @@
             "user_id": "996901880435445760",
             "username": "dantheeffinman",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 7
           }
         ]
       },
