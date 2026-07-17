@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T12:47:54.841Z",
+  "generated_at": "2026-07-17T14:23:54.504Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -408,7 +408,7 @@
         "league_id": "39518",
         "league_name": "#SFB16 - Double dribble",
         "roster_size": 20,
-        "draft_complete": false,
+        "draft_complete": true,
         "teams": [
           {
             "franchise_id": "0001",
@@ -22049,7 +22049,7 @@
         "league_id": "1366445934543654912",
         "league_name": "#SFB16 Atlanta - Burger Time",
         "draft_id": "1366445936066199552",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -26950,12 +26950,6 @@
             "username": "DemMijos",
             "team_name": null,
             "draft_position": 2
-          },
-          {
-            "user_id": "1367641338933149696",
-            "username": "luttdogg89",
-            "team_name": null,
-            "draft_position": 10
           }
         ]
       },
@@ -31454,7 +31448,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -36088,12 +36082,6 @@
             "username": "MarkRingo",
             "team_name": null,
             "draft_position": 9
-          },
-          {
-            "user_id": "1262238579057233921",
-            "username": "Hebrewhammer29",
-            "team_name": null,
-            "draft_position": 7
           },
           {
             "user_id": "1265509200109260800",
