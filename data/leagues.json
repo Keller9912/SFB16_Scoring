@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T16:56:48.847Z",
+  "generated_at": "2026-07-17T17:57:16.808Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -9578,7 +9578,7 @@
           {
             "user_id": "301498121869877248",
             "username": "SenraSays",
-            "team_name": null,
+            "team_name": "Senra Says",
             "draft_position": 9
           },
           {
@@ -10328,8 +10328,8 @@
         "league_id": "1367858021765492736",
         "league_name": "#SFB16 - Inside",
         "draft_id": "1367858022541430784",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79277281352499200",
@@ -17579,7 +17579,7 @@
           {
             "user_id": "520966008210558976",
             "username": "allanwithtwols",
-            "team_name": null,
+            "team_name": "Emerald Hall Zone ",
             "draft_position": 5
           },
           {
@@ -35902,6 +35902,12 @@
             "username": "NotSoSlimShadle",
             "team_name": null,
             "draft_position": 10
+          },
+          {
+            "user_id": "996901880435445760",
+            "username": "dantheeffinman",
+            "team_name": null,
+            "draft_position": null
           }
         ]
       },
