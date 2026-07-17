@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T19:48:39.436Z",
+  "generated_at": "2026-07-17T21:00:07.280Z",
   "leagues": [
     {
       "id": "14494",
@@ -18531,6 +18531,42 @@
       "league_id": "43844"
     },
     {
+      "name": "Tua Tagovailoa",
+      "pos": "QB",
+      "team": "ATL",
+      "pick_no": 155,
+      "round": 13,
+      "franchise_id": "0011",
+      "league_id": "43844"
+    },
+    {
+      "name": "Terrance Ferguson",
+      "pos": "TE",
+      "team": "LAR",
+      "pick_no": 156,
+      "round": 13,
+      "franchise_id": "0012",
+      "league_id": "43844"
+    },
+    {
+      "name": "Adonai Mitchell",
+      "pos": "WR",
+      "team": "NYJ",
+      "pick_no": 157,
+      "round": 14,
+      "franchise_id": "0012",
+      "league_id": "43844"
+    },
+    {
+      "name": "Rico Dowdle",
+      "pos": "RB",
+      "team": "PIT",
+      "pick_no": 158,
+      "round": 14,
+      "franchise_id": "0011",
+      "league_id": "43844"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -20570,6 +20606,33 @@
       "team": "NYG",
       "pick_no": 227,
       "round": 19,
+      "franchise_id": "0011",
+      "league_id": "44962"
+    },
+    {
+      "name": "Darius Slayton",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 228,
+      "round": 19,
+      "franchise_id": "0012",
+      "league_id": "44962"
+    },
+    {
+      "name": "Jake Tonges",
+      "pos": "TE",
+      "team": "SFO",
+      "pick_no": 229,
+      "round": 20,
+      "franchise_id": "0012",
+      "league_id": "44962"
+    },
+    {
+      "name": "Tanner Koziol",
+      "pos": "TE",
+      "team": "JAC",
+      "pick_no": 230,
+      "round": 20,
       "franchise_id": "0011",
       "league_id": "44962"
     },
@@ -22686,6 +22749,51 @@
       "pick_no": 235,
       "round": 20,
       "franchise_id": "0006",
+      "league_id": "46308"
+    },
+    {
+      "name": "Theo Johnson",
+      "pos": "TE",
+      "team": "NYG",
+      "pick_no": 236,
+      "round": 20,
+      "franchise_id": "0005",
+      "league_id": "46308"
+    },
+    {
+      "name": "Jaylin Noel",
+      "pos": "WR",
+      "team": "HOU",
+      "pick_no": 237,
+      "round": 20,
+      "franchise_id": "0004",
+      "league_id": "46308"
+    },
+    {
+      "name": "Marcus Mariota",
+      "pos": "QB",
+      "team": "WAS",
+      "pick_no": 238,
+      "round": 20,
+      "franchise_id": "0003",
+      "league_id": "46308"
+    },
+    {
+      "name": "Mack Hollins",
+      "pos": "WR",
+      "team": "NEP",
+      "pick_no": 239,
+      "round": 20,
+      "franchise_id": "0002",
+      "league_id": "46308"
+    },
+    {
+      "name": "Nicholas Singleton",
+      "pos": "RB",
+      "team": "TEN",
+      "pick_no": 240,
+      "round": 20,
+      "franchise_id": "0001",
       "league_id": "46308"
     },
     {
@@ -27666,6 +27774,51 @@
       "league_id": "61959"
     },
     {
+      "name": "Chris Rodriguez",
+      "pos": "RB",
+      "team": "JAC",
+      "pick_no": 199,
+      "round": 17,
+      "franchise_id": "0007",
+      "league_id": "61959"
+    },
+    {
+      "name": "Calvin Ridley",
+      "pos": "WR",
+      "team": "TEN",
+      "pick_no": 200,
+      "round": 17,
+      "franchise_id": "0008",
+      "league_id": "61959"
+    },
+    {
+      "name": "Darius Slayton",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 201,
+      "round": 17,
+      "franchise_id": "0009",
+      "league_id": "61959"
+    },
+    {
+      "name": "Jake Tonges",
+      "pos": "TE",
+      "team": "SFO",
+      "pick_no": 202,
+      "round": 17,
+      "franchise_id": "0010",
+      "league_id": "61959"
+    },
+    {
+      "name": "Theo Johnson",
+      "pos": "TE",
+      "team": "NYG",
+      "pick_no": 203,
+      "round": 17,
+      "franchise_id": "0011",
+      "league_id": "61959"
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -31068,6 +31221,42 @@
       "league_id": "72117"
     },
     {
+      "name": "Deshaun Watson",
+      "pos": "QB",
+      "team": "CLE",
+      "pick_no": 221,
+      "round": 19,
+      "franchise_id": "0005",
+      "league_id": "72117"
+    },
+    {
+      "name": "Jordan James",
+      "pos": "RB",
+      "team": "SFO",
+      "pick_no": 222,
+      "round": 19,
+      "franchise_id": "0006",
+      "league_id": "72117"
+    },
+    {
+      "name": "Malik Davis",
+      "pos": "RB",
+      "team": "DAL",
+      "pick_no": 223,
+      "round": 19,
+      "franchise_id": "0007",
+      "league_id": "72117"
+    },
+    {
+      "name": "Darnell Mooney",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 224,
+      "round": 19,
+      "franchise_id": "0008",
+      "league_id": "72117"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -32703,6 +32892,15 @@
       "pick_no": 182,
       "round": 16,
       "franchise_id": "0011",
+      "league_id": "73136"
+    },
+    {
+      "name": "Darius Slayton",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 183,
+      "round": 16,
+      "franchise_id": "0010",
       "league_id": "73136"
     }
   ]
