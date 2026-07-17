@@ -38,7 +38,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
+          git add data/leagues.json
+          git stash push --include-untracked -m "workflow-temp" || true
+          git pull --rebase origin main || (git stash pop || true && exit 1)
+          git stash pop || true
           git add data/leagues.json
           if ! git diff --cached --quiet; then
             git commit -m "chore: refresh league info"
