@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T17:57:16.808Z",
+  "generated_at": "2026-07-17T18:50:30.942Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -18986,7 +18986,7 @@
           {
             "user_id": "666162745661542400",
             "username": "samwagman",
-            "team_name": null,
+            "team_name": "Roy",
             "draft_position": 10
           },
           {
@@ -19676,8 +19676,8 @@
         "league_id": "1366886199830016000",
         "league_name": "#SFB16 - The Legend of Zelda",
         "draft_id": "1366886200601743361",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "335982715067199488",
@@ -36100,6 +36100,12 @@
             "username": "turboraptor",
             "team_name": null,
             "draft_position": 10
+          },
+          {
+            "user_id": "1374173083308408832",
+            "username": "aperri7",
+            "team_name": null,
+            "draft_position": 7
           }
         ]
       },
