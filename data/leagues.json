@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T18:50:30.942Z",
+  "generated_at": "2026-07-17T19:57:20.654Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -11165,8 +11165,8 @@
         "league_id": "1367759624421249024",
         "league_name": "#SFB16 - Kirby",
         "draft_id": "1367759626359029760",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "326876267926286336",
@@ -22364,8 +22364,8 @@
         "league_id": "1366445249592819712",
         "league_name": "#SFB16 Baltimore - Angry Birds",
         "draft_id": "1366445251153117184",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "307937350212669440",
@@ -27092,7 +27092,7 @@
           {
             "user_id": "444694419224915968",
             "username": "JDTNTC",
-            "team_name": null,
+            "team_name": "The Horadic Hustlers",
             "draft_position": 3
           },
           {
@@ -27152,7 +27152,7 @@
           {
             "user_id": "1070459204286119936",
             "username": "hookemhorns972",
-            "team_name": null,
+            "team_name": "Janus Syndicate",
             "draft_position": 2
           },
           {
@@ -30209,7 +30209,7 @@
           {
             "user_id": "718303231394013184",
             "username": "Ciaran23",
-            "team_name": null,
+            "team_name": "insert_player_pun_here",
             "draft_position": 4
           },
           {
@@ -33480,12 +33480,6 @@
             "draft_position": 8
           },
           {
-            "user_id": "471834660779847680",
-            "username": "CoachEsser",
-            "team_name": null,
-            "draft_position": 7
-          },
-          {
             "user_id": "613447926009806848",
             "username": "RoxieShepherd",
             "team_name": null,
@@ -33520,6 +33514,12 @@
             "username": "ScotttyDubs",
             "team_name": null,
             "draft_position": 12
+          },
+          {
+            "user_id": "1375178544069509120",
+            "username": "prodijae",
+            "team_name": "Knicks in 5",
+            "draft_position": null
           }
         ]
       },
@@ -33582,7 +33582,7 @@
             "user_id": "736533523716046848",
             "username": "JeccDog69420",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 1
           },
           {
             "user_id": "819245060922130432",
@@ -33613,12 +33613,6 @@
             "username": "AgentBuch6",
             "team_name": "AgentBuch",
             "draft_position": 6
-          },
-          {
-            "user_id": "1375178544069509120",
-            "username": "prodijae",
-            "team_name": "Knicks in 5",
-            "draft_position": 7
           }
         ]
       },
