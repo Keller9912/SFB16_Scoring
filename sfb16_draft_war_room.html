@@ -348,6 +348,7 @@
         const pParts = normName(p.player).split(' ');
         const pLast = pParts[pParts.length - 1];
         if (pLast !== lastName || !pParts[0] || pParts[0][0] !== firstInitial) return false;
+        if (pParts.length > 2) return false;
 
         const pPos = (projField(p, ['position', 'Position', 'pos', 'Pos']) || '').toUpperCase();
         if (posUpper && pPos && pPos !== posUpper) return false;
@@ -401,6 +402,7 @@
         const rParts = normName(r.name).split(' ');
         const rLast = rParts[rParts.length - 1];
         if (rLast !== lastName || !rParts[0] || rParts[0][0] !== firstInitial) return false;
+        if (rParts.length > 2) return false;
 
         const rPos = (r.pos || '').toUpperCase();
         if (posUpper && rPos && rPos !== posUpper) return false;
