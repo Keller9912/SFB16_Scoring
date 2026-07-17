@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T21:00:07.280Z",
+  "generated_at": "2026-07-17T22:02:33.043Z",
   "leagues": [
     {
       "id": "14494",
@@ -4182,6 +4182,15 @@
       "pick_no": 217,
       "round": 19,
       "franchise_id": "0001",
+      "league_id": "15797"
+    },
+    {
+      "name": "Ty Johnson",
+      "pos": "RB",
+      "team": "BUF",
+      "pick_no": 218,
+      "round": 19,
+      "franchise_id": "0002",
       "league_id": "15797"
     },
     {
@@ -18567,6 +18576,15 @@
       "league_id": "43844"
     },
     {
+      "name": "Omar Cooper Jr.",
+      "pos": "WR",
+      "team": "NYJ",
+      "pick_no": 159,
+      "round": 14,
+      "franchise_id": "0010",
+      "league_id": "43844"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -20634,6 +20652,15 @@
       "pick_no": 230,
       "round": 20,
       "franchise_id": "0011",
+      "league_id": "44962"
+    },
+    {
+      "name": "Treylon Burks",
+      "pos": "WR",
+      "team": "WAS",
+      "pick_no": 231,
+      "round": 20,
+      "franchise_id": "0010",
       "league_id": "44962"
     },
     {
@@ -27815,6 +27842,33 @@
       "team": "NYG",
       "pick_no": 203,
       "round": 17,
+      "franchise_id": "0011",
+      "league_id": "61959"
+    },
+    {
+      "name": "Isaac TeSlaa",
+      "pos": "WR",
+      "team": "DET",
+      "pick_no": 204,
+      "round": 17,
+      "franchise_id": "0012",
+      "league_id": "61959"
+    },
+    {
+      "name": "Eli Stowers",
+      "pos": "TE",
+      "team": "PHI",
+      "pick_no": 205,
+      "round": 18,
+      "franchise_id": "0012",
+      "league_id": "61959"
+    },
+    {
+      "name": "Kimani Vidal",
+      "pos": "RB",
+      "team": "LAC",
+      "pick_no": 206,
+      "round": 18,
       "franchise_id": "0011",
       "league_id": "61959"
     },
