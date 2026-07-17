@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T04:28:38.617Z",
+  "generated_at": "2026-07-17T06:59:09.178Z",
   "leagues": [
     {
       "id": "14494",
@@ -16983,6 +16983,42 @@
       "league_id": "42801"
     },
     {
+      "name": "Xavier Legette",
+      "pos": "WR",
+      "team": "CAR",
+      "pick_no": 236,
+      "round": 20,
+      "franchise_id": "0005",
+      "league_id": "42801"
+    },
+    {
+      "name": "John Metchie",
+      "pos": "WR",
+      "team": "CAR",
+      "pick_no": 237,
+      "round": 20,
+      "franchise_id": "0004",
+      "league_id": "42801"
+    },
+    {
+      "name": "Justin Joly",
+      "pos": "TE",
+      "team": "DEN",
+      "pick_no": 238,
+      "round": 20,
+      "franchise_id": "0003",
+      "league_id": "42801"
+    },
+    {
+      "name": "Marvin Mims",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 239,
+      "round": 20,
+      "franchise_id": "0002",
+      "league_id": "42801"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -28539,6 +28575,15 @@
       "league_id": "65583"
     },
     {
+      "name": "Rashid Shaheed",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 149,
+      "round": 13,
+      "franchise_id": "0005",
+      "league_id": "65583"
+    },
+    {
       "name": "Puka Nacua",
       "pos": "WR",
       "team": "LAR",
@@ -31866,6 +31911,60 @@
       "pick_no": 170,
       "round": 15,
       "franchise_id": "0002",
+      "league_id": "73136"
+    },
+    {
+      "name": "Adonai Mitchell",
+      "pos": "WR",
+      "team": "NYJ",
+      "pick_no": 171,
+      "round": 15,
+      "franchise_id": "0003",
+      "league_id": "73136"
+    },
+    {
+      "name": "Tua Tagovailoa",
+      "pos": "QB",
+      "team": "ATL",
+      "pick_no": 172,
+      "round": 15,
+      "franchise_id": "0004",
+      "league_id": "73136"
+    },
+    {
+      "name": "Calvin Ridley",
+      "pos": "WR",
+      "team": "TEN",
+      "pick_no": 173,
+      "round": 15,
+      "franchise_id": "0005",
+      "league_id": "73136"
+    },
+    {
+      "name": "Mike Gesicki",
+      "pos": "TE",
+      "team": "CIN",
+      "pick_no": 174,
+      "round": 15,
+      "franchise_id": "0006",
+      "league_id": "73136"
+    },
+    {
+      "name": "Kayshon Boutte",
+      "pos": "WR",
+      "team": "NEP",
+      "pick_no": 175,
+      "round": 15,
+      "franchise_id": "0007",
+      "league_id": "73136"
+    },
+    {
+      "name": "Cooper Kupp",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 176,
+      "round": 15,
+      "franchise_id": "0008",
       "league_id": "73136"
     }
   ]
