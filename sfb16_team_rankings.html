@@ -74,6 +74,27 @@
       display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 16px;
     }
+    .chart-card {
+      background: #1a1a2e; border: 1px solid #7c3aed33; border-radius: 12px;
+      padding: 16px 18px; margin-bottom: 18px;
+    }
+    .chart-row {
+      display: grid; grid-template-columns: minmax(220px, 1.2fr) 2fr 70px;
+      gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid #ffffff0a;
+    }
+    .chart-row:last-child { border-bottom: none; }
+    .chart-row.is-selected { background: #7c3aed22; border-radius: 8px; padding-left: 8px; padding-right: 8px; }
+    .chart-label { font-size: 0.8rem; font-weight: 600; color: #e8e8f0; }
+    .chart-sub { font-size: 0.72rem; color: #777; margin-top: 2px; }
+    .chart-track {
+      position: relative; height: 10px; border-radius: 999px; overflow: hidden;
+      background: #12102a; border: 1px solid #ffffff08;
+    }
+    .chart-bar {
+      height: 100%; border-radius: inherit; background: linear-gradient(90deg, #7c3aed, #a78bfa);
+      box-shadow: 0 0 10px #7c3aed44;
+    }
+    .chart-value { text-align: right; color: #f5c542; font-weight: 700; font-variant-numeric: tabular-nums; }
     .detail-section {
       background: #12102a; border: 1px solid #ffffff0a; border-radius: 10px; padding: 12px;
     }
@@ -117,6 +138,9 @@
 <div id="rankings-panel" style="display:none">
   <div class="summary-grid" id="summary-grid"></div>
 
+  <div class="section-title">League Comparison</div>
+  <div id="league-chart" class="chart-card"></div>
+
   <div class="section-title">Team Ranking</div>
   <div class="table-wrap">
     <table class="rank-table" id="rankings-table">
@@ -153,6 +177,7 @@
   let leaguesLoadPromise = null;
   let projData = [];
   let currentRankings = [];
+  let leagueComparison = [];
   let selectedTeamKey = null;
 
   function normName(s) {
@@ -432,7 +457,6 @@
       const activePlayers = Object.fromEntries(
         Object.entries(players || {}).filter(([, player]) => player?.active !== false)
       );
-      const draftInfo = await fetch(`https://api.sleeper.app/v1/draft/${choice.draft_id}`).then(r => r.json()).catch(() => null);
       const picksRes = await fetch(`https://api.sleeper.app/v1/draft/${choice.draft_id}/picks`).then(r => r.json()).catch(() => []);
       const usersRes = await fetch(`https://api.sleeper.app/v1/league/${choice.league_id}/users`).then(r => r.json()).catch(() => []);
       const rostersRes = await fetch(`https://api.sleeper.app/v1/league/${choice.league_id}/rosters`).then(r => r.json()).catch(() => []);
@@ -469,16 +493,79 @@
     }
 
     rankings.sort((a, b) => b.top10Projection - a.top10Projection || b.wholeTeamProjection - a.wholeTeamProjection || a.teamName.localeCompare(b.teamName));
+
     currentRankings = rankings;
     selectedTeamKey = selectedTeamKey && rankings.some(r => r.key === selectedTeamKey) ? selectedTeamKey : (rankings[0] || null)?.key || null;
+    leagueComparison = await buildLeagueComparison(choice);
     renderRankings();
     document.getElementById('rankings-panel').style.display = 'block';
+  }
+
+  async function buildLeagueComparison(selectedChoice) {
+    const comparison = [];
+
+    if (leaguesData?.mfl?.leagues?.length) {
+      const mflData = await fetch(MFL_DATA_URL).then(r => { if (!r.ok) throw new Error(`${r.status} ${r.statusText}`); return r.json(); }).catch(() => ({ picks: [] }));
+      const pickMap = new Map();
+      (mflData.picks || []).forEach(pick => {
+        const leagueId = String(pick.league_id);
+        if (!pickMap.has(leagueId)) pickMap.set(leagueId, []);
+        pickMap.get(leagueId).push(pick);
+      });
+
+      leaguesData.mfl.leagues.forEach(lg => {
+        const leaguePicks = pickMap.get(String(lg.league_id)) || [];
+        const teams = [];
+        (lg.teams || []).forEach(team => {
+          const teamPicks = leaguePicks.filter(p => String(p.franchise_id) === String(team.franchise_id));
+          const allPlayers = teamPicks.map(p => ({
+            name: p.name,
+            pos: p.pos,
+            team: p.team || '—',
+            projPts: parseProjValue(findProj(p.name, p.pos, p.team)),
+          }));
+          if (allPlayers.length) {
+            const entry = buildEntry(team.team_name || `Team ${team.franchise_id}`, lg.league_name, 'MFL', lg.league_id, team.franchise_id, allPlayers, selectTopPlayers(allPlayers), allPlayers);
+            teams.push(entry);
+          }
+        });
+        teams.sort((a, b) => b.top10Projection - a.top10Projection || b.wholeTeamProjection - a.wholeTeamProjection || a.teamName.localeCompare(b.teamName));
+        if (teams.length) {
+          comparison.push({
+            leagueName: lg.league_name,
+            platform: 'MFL',
+            leagueId: lg.league_id,
+            topTeamName: teams[0].teamName,
+            top10Projection: teams[0].top10Projection,
+            wholeTeamProjection: teams[0].wholeTeamProjection,
+            isSelected: String(selectedChoice?.league_id) === String(lg.league_id) && selectedChoice?.platform === 'mfl',
+          });
+        }
+      });
+    }
+
+    if (selectedChoice?.platform === 'sleeper') {
+      comparison.push({
+        leagueName: selectedChoice.league_name,
+        platform: 'Sleeper',
+        leagueId: selectedChoice.league_id,
+        topTeamName: 'Loaded league snapshot',
+        top10Projection: 0,
+        wholeTeamProjection: 0,
+        isSelected: true,
+        note: 'Live Sleeper draft data is shown in the team ranking table above.',
+      });
+    }
+
+    comparison.sort((a, b) => b.top10Projection - a.top10Projection || a.leagueName.localeCompare(b.leagueName));
+    return comparison;
   }
 
   function renderRankings() {
     const body = document.getElementById('rankings-body');
     const summaryGrid = document.getElementById('summary-grid');
     const detail = document.getElementById('team-detail');
+    const chart = document.getElementById('league-chart');
 
     if (!currentRankings.length) {
       body.innerHTML = '<tr><td colspan="4" class="no-results">No team data available for this league yet.</td></tr>';
@@ -503,6 +590,26 @@
     });
 
     const topTeam = currentRankings[0];
+    if (leagueComparison.length) {
+      const maxValue = Math.max(...leagueComparison.map(item => item.top10Projection || 0), 1);
+      chart.innerHTML = leagueComparison.map(item => {
+        const pct = Math.max(8, (item.top10Projection / maxValue) * 100);
+        return `
+          <div class="chart-row ${item.isSelected ? 'is-selected' : ''}">
+            <div>
+              <div class="chart-label">${item.leagueName}</div>
+              <div class="chart-sub">${item.topTeamName}${item.note ? ` · ${item.note}` : ''}</div>
+            </div>
+            <div class="chart-track">
+              <div class="chart-bar" style="width:${pct}%"></div>
+            </div>
+            <div class="chart-value">${item.top10Projection.toFixed(1)}</div>
+          </div>`;
+      }).join('');
+    } else {
+      chart.innerHTML = '<div class="empty-state">No comparison data is available for the loaded leagues yet.</div>';
+    }
+
     summaryGrid.innerHTML = `
       <div class="summary-card">
         <div class="label">Teams</div>
