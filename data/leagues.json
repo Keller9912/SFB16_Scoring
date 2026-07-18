@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T12:35:51.018Z",
+  "generated_at": "2026-07-18T14:06:43.518Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -1415,7 +1415,7 @@
         "league_id": "1383225688680583168",
         "league_name": "#SFB16 - Forza",
         "draft_id": "1383225689943048192",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -15014,8 +15014,8 @@
         "league_id": "1367263045201457152",
         "league_name": "#SFB16 - Pablo Sanchez",
         "draft_id": "1367263045948014592",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "76061700864229376",
@@ -22061,7 +22061,7 @@
         "league_id": "1366445934543654912",
         "league_name": "#SFB16 Atlanta - Burger Time",
         "draft_id": "1366445936066199552",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -31466,7 +31466,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -33136,6 +33136,12 @@
             "username": "Rusher34",
             "team_name": null,
             "draft_position": 2
+          },
+          {
+            "user_id": "998588212215934976",
+            "username": "fantasymeatball",
+            "team_name": null,
+            "draft_position": null
           }
         ]
       },
@@ -34971,12 +34977,6 @@
             "draft_position": 2
           },
           {
-            "user_id": "580959470180413440",
-            "username": "ImtheRedHerring",
-            "team_name": null,
-            "draft_position": 11
-          },
-          {
             "user_id": "698276496002871296",
             "username": "JCroghan336",
             "team_name": null,
@@ -35023,12 +35023,6 @@
             "username": "MaddenCruiser",
             "team_name": null,
             "draft_position": 7
-          },
-          {
-            "user_id": "1369502126484488192",
-            "username": "WolfePack1",
-            "team_name": null,
-            "draft_position": null
           }
         ]
       },
@@ -36403,12 +36397,6 @@
             "username": "JamesOtto227",
             "team_name": null,
             "draft_position": 6
-          },
-          {
-            "user_id": "1254900148367015936",
-            "username": "MileHighMerc",
-            "team_name": null,
-            "draft_position": 9
           },
           {
             "user_id": "1267563941857341440",
