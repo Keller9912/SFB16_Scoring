@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T10:50:29.860Z",
+  "generated_at": "2026-07-18T11:55:25.299Z",
   "leagues": [
     {
       "id": "14494",
@@ -31730,6 +31730,33 @@
       "team": "NYG",
       "pick_no": 227,
       "round": 19,
+      "franchise_id": "0011",
+      "league_id": "72117"
+    },
+    {
+      "name": "Brandon Aiyuk",
+      "pos": "WR",
+      "team": "SFO",
+      "pick_no": 228,
+      "round": 19,
+      "franchise_id": "0012",
+      "league_id": "72117"
+    },
+    {
+      "name": "Chris Brazzell II",
+      "pos": "WR",
+      "team": "CAR",
+      "pick_no": 229,
+      "round": 20,
+      "franchise_id": "0012",
+      "league_id": "72117"
+    },
+    {
+      "name": "Cole Kmet",
+      "pos": "TE",
+      "team": "CHI",
+      "pick_no": 230,
+      "round": 20,
       "franchise_id": "0011",
       "league_id": "72117"
     },
