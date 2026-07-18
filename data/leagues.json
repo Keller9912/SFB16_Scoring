@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T21:03:45.035Z",
+  "generated_at": "2026-07-18T22:05:02.352Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -4352,8 +4352,8 @@
         "league_id": "1367870601670189056",
         "league_name": "#SFB16 - Birdo",
         "draft_id": "1367870602479669248",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "197114124394569728",
@@ -6416,8 +6416,8 @@
         "league_id": "1367867414854770688",
         "league_name": "#SFB16 - Contra",
         "draft_id": "1367867415672684544",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "67016506604929024",
@@ -34644,12 +34644,6 @@
         "draft_complete": false,
         "teams": [
           {
-            "user_id": "76067712555958272",
-            "username": "FFChalupaBatman",
-            "team_name": null,
-            "draft_position": null
-          },
-          {
             "user_id": "338778680127922176",
             "username": "JNewcott",
             "team_name": null,
@@ -34658,7 +34652,7 @@
           {
             "user_id": "438916361180147712",
             "username": "mataldematt",
-            "team_name": null,
+            "team_name": "Maye the Force Be With U",
             "draft_position": 8
           },
           {
@@ -34748,12 +34742,6 @@
         "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
-          {
-            "user_id": "76067712555958272",
-            "username": "FFChalupaBatman",
-            "team_name": null,
-            "draft_position": null
-          },
           {
             "user_id": "326172850807394304",
             "username": "hashtagMARIO",
@@ -34848,12 +34836,6 @@
         "draft_complete": false,
         "teams": [
           {
-            "user_id": "76067712555958272",
-            "username": "FFChalupaBatman",
-            "team_name": null,
-            "draft_position": null
-          },
-          {
             "user_id": "77139151786754048",
             "username": "Adam1590",
             "team_name": null,
@@ -34946,12 +34928,6 @@
         "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
-          {
-            "user_id": "76067712555958272",
-            "username": "FFChalupaBatman",
-            "team_name": null,
-            "draft_position": null
-          },
           {
             "user_id": "215131888136757248",
             "username": "Monster3",
@@ -35144,12 +35120,6 @@
         "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
-          {
-            "user_id": "76067712555958272",
-            "username": "FFChalupaBatman",
-            "team_name": null,
-            "draft_position": null
-          },
           {
             "user_id": "452223471275995136",
             "username": "data4thewinz",
