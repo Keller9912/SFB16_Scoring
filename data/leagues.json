@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T14:06:43.518Z",
+  "generated_at": "2026-07-18T15:11:43.529Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -21287,8 +21287,8 @@
         "league_id": "1366879089960435712",
         "league_name": "#SFB16 - XCOM 2",
         "draft_id": "1366879090795085824",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "78943528428126208",
@@ -32957,7 +32957,7 @@
           {
             "user_id": "78457237160738816",
             "username": "icecold",
-            "team_name": null,
+            "team_name": "Tight Ends & Tequila",
             "draft_position": 3
           },
           {
@@ -34999,6 +34999,12 @@
             "username": "ScottFishBowl",
             "team_name": null,
             "draft_position": null
+          },
+          {
+            "user_id": "871567934865231872",
+            "username": "kevonecapri",
+            "team_name": null,
+            "draft_position": 11
           },
           {
             "user_id": "891517610494439424",
