@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T15:11:43.529Z",
+  "generated_at": "2026-07-18T16:09:30.094Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -7160,8 +7160,8 @@
         "league_id": "1367866910372294656",
         "league_name": "#SFB16 - Donkey Kong",
         "draft_id": "1367866911156617216",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "31257315160506368",
@@ -12392,8 +12392,8 @@
         "league_id": "1367756941715046400",
         "league_name": "#SFB16 - Mario Kart 64",
         "draft_id": "1367756943631843328",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "76067712555958272",
@@ -15869,8 +15869,8 @@
         "league_id": "1367262229723889664",
         "league_name": "#SFB16 - Pole Position",
         "draft_id": "1367262230512414720",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "3354639471099904",
@@ -23537,7 +23537,7 @@
           {
             "user_id": "851490163187109888",
             "username": "RajinCajin",
-            "team_name": null,
+            "team_name": "RajinCajin",
             "draft_position": 4
           },
           {
@@ -27302,7 +27302,7 @@
           {
             "user_id": "316284501577695232",
             "username": "Pardueski",
-            "team_name": null,
+            "team_name": "Noob Saibot",
             "draft_position": 8
           },
           {
@@ -33041,7 +33041,7 @@
           {
             "user_id": "1353867649653690368",
             "username": "PediatricP",
-            "team_name": null,
+            "team_name": "Baby Piranhas",
             "draft_position": 4
           }
         ]
@@ -33593,6 +33593,12 @@
           {
             "user_id": "452692167064809472",
             "username": "JPeekFF",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
+            "user_id": "471834660779847680",
+            "username": "CoachEsser",
             "team_name": null,
             "draft_position": null
           },
@@ -35720,7 +35726,7 @@
           {
             "user_id": "981656424688177152",
             "username": "Agbulit09",
-            "team_name": null,
+            "team_name": "SilverBullets",
             "draft_position": null
           },
           {
