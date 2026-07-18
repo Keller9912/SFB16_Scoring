@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T17:41:58.597Z",
+  "generated_at": "2026-07-18T18:38:55.555Z",
   "leagues": [
     {
       "id": "14494",
@@ -4271,6 +4271,33 @@
       "team": "NYJ",
       "pick_no": 227,
       "round": 19,
+      "franchise_id": "0011",
+      "league_id": "15797"
+    },
+    {
+      "name": "Skyler Bell",
+      "pos": "WR",
+      "team": "BUF",
+      "pick_no": 228,
+      "round": 19,
+      "franchise_id": "0012",
+      "league_id": "15797"
+    },
+    {
+      "name": "Sean Tucker",
+      "pos": "RB",
+      "team": "TBB",
+      "pick_no": 229,
+      "round": 20,
+      "franchise_id": "0012",
+      "league_id": "15797"
+    },
+    {
+      "name": "Keon Coleman",
+      "pos": "WR",
+      "team": "BUF",
+      "pick_no": 230,
+      "round": 20,
       "franchise_id": "0011",
       "league_id": "15797"
     },
@@ -28404,6 +28431,15 @@
       "league_id": "61959"
     },
     {
+      "name": "MarShawn Lloyd",
+      "pos": "RB",
+      "team": "GBP",
+      "pick_no": 223,
+      "round": 19,
+      "franchise_id": "0007",
+      "league_id": "61959"
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -31977,6 +32013,15 @@
       "league_id": "72117"
     },
     {
+      "name": "Chris Brooks",
+      "pos": "RB",
+      "team": "GBP",
+      "pick_no": 232,
+      "round": 20,
+      "franchise_id": "0009",
+      "league_id": "72117"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -33738,6 +33783,42 @@
       "pick_no": 196,
       "round": 17,
       "franchise_id": "0004",
+      "league_id": "73136"
+    },
+    {
+      "name": "David Moore",
+      "pos": "WR",
+      "team": "CAR",
+      "pick_no": 197,
+      "round": 17,
+      "franchise_id": "0005",
+      "league_id": "73136"
+    },
+    {
+      "name": "Keaton Mitchell",
+      "pos": "RB",
+      "team": "LAC",
+      "pick_no": 198,
+      "round": 17,
+      "franchise_id": "0006",
+      "league_id": "73136"
+    },
+    {
+      "name": "Oscar Delp",
+      "pos": "TE",
+      "team": "NOS",
+      "pick_no": 199,
+      "round": 17,
+      "franchise_id": "0007",
+      "league_id": "73136"
+    },
+    {
+      "name": "Ryan Flournoy",
+      "pos": "WR",
+      "team": "DAL",
+      "pick_no": 200,
+      "round": 17,
+      "franchise_id": "0008",
       "league_id": "73136"
     }
   ]
