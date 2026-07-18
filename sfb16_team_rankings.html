@@ -110,6 +110,14 @@
     .detail-row .pos { font-weight: 700; color: #60a5fa; font-size: 0.69rem; text-transform: uppercase; }
     .detail-row .score { color: #f5c542; font-weight: 700; font-variant-numeric: tabular-nums; }
     .empty-state { color: #666; text-align: center; padding: 20px 8px; font-size: 0.82rem; }
+    .progress-wrap {
+      margin-top: 10px; height: 6px; border-radius: 999px; background: #12102a;
+      border: 1px solid #ffffff08; overflow: hidden; display: none;
+    }
+    .progress-bar {
+      height: 100%; width: 0%; background: linear-gradient(90deg, #7c3aed, #a78bfa);
+      transition: width 0.2s ease;
+    }
   </style>
 </head>
 <body>
@@ -132,6 +140,7 @@
     </div>
   </div>
   <div class="setup-hint" id="setup-hint">Loading league directory…</div>
+  <div class="progress-wrap" id="progress-wrap"><div class="progress-bar" id="progress-bar"></div></div>
   <div id="setup-error" class="setup-error" style="display:none"></div>
 </div>
 
@@ -171,6 +180,12 @@
   const LEAGUES_URL = 'https://keller9912.github.io/SFB16_Scoring/data/leagues.json';
   const MFL_DATA_URL = 'https://keller9912.github.io/SFB16_Scoring/data/mfl_picks.json';
   const PLAYERS_URL = 'https://api.sleeper.app/v1/players/nfl';
+
+  // How many Sleeper leagues to fetch in parallel at once. Sequential (1-at-a-time)
+  // fetching of 400+ leagues was the root cause of only a handful of leagues ever
+  // loading - it was slow enough to time out / get throttled partway through.
+  // A parallel batch size around 15 is fast but polite to Sleeper's API.
+  const SLEEPER_CONCURRENCY = 15;
 
   let leaguesData = null;
   let searchIndex = [];
@@ -418,25 +433,90 @@
     };
   }
 
-  async function loadLeague(choice) {
-    document.getElementById('rankings-panel').style.display = 'none';
-    document.getElementById('setup-hint').textContent = 'Loading rankings across all available leagues…';
-    document.getElementById('team-detail').innerHTML = '<div class="empty-state">Loading roster projections…</div>';
+  // Run `items` through `worker` with at most `limit` in flight at a time.
+  // Replaces the old one-at-a-time `for (... ) { await fetch(...) }` loops,
+  // which for 400+ Sleeper leagues meant 1,200+ sequential round trips - slow
+  // enough to time out or get throttled partway through, silently leaving
+  // only a handful of leagues loaded.
+  async function runWithConcurrency(items, limit, worker, onProgress) {
+    const results = new Array(items.length);
+    let nextIndex = 0;
+    let completed = 0;
 
-    await ensureLeaguesLoaded();
+    async function runNext() {
+      while (nextIndex < items.length) {
+        const i = nextIndex++;
+        try {
+          results[i] = await worker(items[i], i);
+        } catch (err) {
+          results[i] = null;
+        }
+        completed += 1;
+        if (onProgress) onProgress(completed, items.length);
+      }
+    }
 
-    const rankings = [];
-    const selectedLeagueName = choice?.league_name || 'All leagues';
+    const workers = Array.from({ length: Math.min(limit, items.length) }, runNext);
+    await Promise.all(workers);
+    return results;
+  }
 
-    const mflData = await fetch(MFL_DATA_URL).then(r => { if (!r.ok) throw new Error(`${r.status} ${r.statusText}`); return r.json(); }).catch(() => ({ picks: [] }));
-    const mflLeagueMeta = leaguesData?.mfl?.leagues || [];
-    const mflPickMap = new Map();
-    (mflData.picks || []).forEach(pick => {
-      const leagueId = String(pick.league_id);
-      if (!mflPickMap.has(leagueId)) mflPickMap.set(leagueId, []);
-      mflPickMap.get(leagueId).push(pick);
+  function setProgress(pct, label) {
+    const wrap = document.getElementById('progress-wrap');
+    const bar = document.getElementById('progress-bar');
+    if (pct === null) {
+      wrap.style.display = 'none';
+      return;
+    }
+    wrap.style.display = 'block';
+    bar.style.width = `${Math.max(0, Math.min(100, pct))}%`;
+    if (label) document.getElementById('setup-hint').textContent = label;
+  }
+
+  async function fetchSleeperTeamEntries(lg, activePlayers) {
+    const [picksRes, usersRes, rostersRes] = await Promise.all([
+      fetch(`https://api.sleeper.app/v1/draft/${lg.draft_id}/picks`).then(r => r.json()).catch(() => []),
+      fetch(`https://api.sleeper.app/v1/league/${lg.league_id}/users`).then(r => r.json()).catch(() => []),
+      fetch(`https://api.sleeper.app/v1/league/${lg.league_id}/rosters`).then(r => r.json()).catch(() => []),
+    ]);
+
+    const usersById = new Map((Array.isArray(usersRes) ? usersRes : []).map(u => [String(u.user_id), u]));
+    const rosters = Array.isArray(rostersRes) ? rostersRes : [];
+    const picks = Array.isArray(picksRes) ? picksRes : [];
+
+    const entries = [];
+    rosters.forEach(roster => {
+      const owner = usersById.get(String(roster.owner_id));
+      const teamName = owner?.metadata?.team_name || owner?.display_name || `Roster ${roster.roster_id}`;
+      const rosterPicks = picks.filter(p => String(p.roster_id) === String(roster.roster_id));
+      const allPlayers = rosterPicks.map(pick => {
+        const meta = pick.metadata || {};
+        const playerInfo = activePlayers[String(pick.player_id)] || {};
+        const fullName = `${meta.first_name || ''} ${meta.last_name || ''}`.trim();
+        const name = playerInfo.full_name || fullName || pick.player_id;
+        const pos = (playerInfo.position || meta.position || '').toUpperCase();
+        const team = playerInfo.team || meta.team || '—';
+        const projRow = findProj(name, pos, team);
+        return { name, pos, team, projPts: parseProjValue(projRow) };
+      });
+      if (allPlayers.length) {
+        entries.push(buildEntry(
+          teamName,
+          lg.league_name,
+          'Sleeper',
+          lg.league_id,
+          roster.roster_id,
+          allPlayers,
+          selectTopPlayers(allPlayers),
+          allPlayers
+        ));
+      }
     });
+    return entries;
+  }
 
+  function buildMflEntries(mflLeagueMeta, mflPickMap) {
+    const entries = [];
     mflLeagueMeta.forEach(lg => {
       const leaguePicks = mflPickMap.get(String(lg.league_id)) || [];
       (lg.teams || []).forEach(team => {
@@ -448,7 +528,7 @@
           projPts: parseProjValue(findProj(p.name, p.pos, p.team)),
         }));
         if (allPlayers.length) {
-          rankings.push(buildEntry(
+          entries.push(buildEntry(
             team.team_name || `Team ${team.franchise_id}`,
             lg.league_name,
             'MFL',
@@ -461,7 +541,36 @@
         }
       });
     });
+    return entries;
+  }
 
+  // Loads every team across every MFL + Sleeper league once, in parallel batches.
+  // `choice` is currently unused for filtering (the ranking is always computed
+  // across all leagues) but is kept so a future "just this league" view is easy to add.
+  async function loadLeague(choice) {
+    document.getElementById('rankings-panel').style.display = 'none';
+    document.getElementById('setup-error').style.display = 'none';
+    setProgress(0, 'Loading league directory…');
+    document.getElementById('team-detail').innerHTML = '<div class="empty-state">Loading roster projections…</div>';
+
+    await ensureLeaguesLoaded();
+
+    const rankings = [];
+
+    // --- MFL: one JSON file covers every MFL league, so this part is already fast.
+    setProgress(2, 'Loading MFL rosters…');
+    const mflData = await fetch(MFL_DATA_URL).then(r => { if (!r.ok) throw new Error(`${r.status} ${r.statusText}`); return r.json(); }).catch(() => ({ picks: [] }));
+    const mflLeagueMeta = leaguesData?.mfl?.leagues || [];
+    const mflPickMap = new Map();
+    (mflData.picks || []).forEach(pick => {
+      const leagueId = String(pick.league_id);
+      if (!mflPickMap.has(leagueId)) mflPickMap.set(leagueId, []);
+      mflPickMap.get(leagueId).push(pick);
+    });
+    rankings.push(...buildMflEntries(mflLeagueMeta, mflPickMap));
+
+    // --- Sleeper: hundreds of leagues, each needing its own picks/users/rosters calls.
+    // Fetched in parallel batches (see SLEEPER_CONCURRENCY) instead of one at a time.
     const players = await fetch(PLAYERS_URL).then(r => r.json()).catch(() => ({}));
     const activePlayers = Object.fromEntries(
       Object.entries(players || {}).filter(([, player]) => player?.active !== false)
@@ -469,145 +578,48 @@
 
     const sleeperLeagues = (leaguesData?.sleeper?.leagues || [])
       .filter(lg => lg?.draft_id && String(lg.draft_status || '').toLowerCase() !== 'pre_draft');
-    for (const lg of sleeperLeagues) {
-      const picksRes = await fetch(`https://api.sleeper.app/v1/draft/${lg.draft_id}/picks`).then(r => r.json()).catch(() => []);
-      const usersRes = await fetch(`https://api.sleeper.app/v1/league/${lg.league_id}/users`).then(r => r.json()).catch(() => []);
-      const rostersRes = await fetch(`https://api.sleeper.app/v1/league/${lg.league_id}/rosters`).then(r => r.json()).catch(() => []);
 
-      const usersById = new Map((Array.isArray(usersRes) ? usersRes : []).map(u => [String(u.user_id), u]));
-      const rosters = Array.isArray(rostersRes) ? rostersRes : [];
-      const picks = Array.isArray(picksRes) ? picksRes : [];
-
-      rosters.forEach(roster => {
-        const owner = usersById.get(String(roster.owner_id));
-        const teamName = owner?.metadata?.team_name || owner?.display_name || `Roster ${roster.roster_id}`;
-        const rosterPicks = picks.filter(p => String(p.roster_id) === String(roster.roster_id));
-        const allPlayers = rosterPicks.map(pick => {
-          const meta = pick.metadata || {};
-          const playerInfo = activePlayers[String(pick.player_id)] || {};
-          const fullName = `${meta.first_name || ''} ${meta.last_name || ''}`.trim();
-          const name = playerInfo.full_name || fullName || pick.player_id;
-          const pos = (playerInfo.position || meta.position || '').toUpperCase();
-          const team = playerInfo.team || meta.team || '—';
-          const projRow = findProj(name, pos, team);
-          return { name, pos, team, projPts: parseProjValue(projRow) };
-        });
-        if (allPlayers.length) {
-          rankings.push(buildEntry(
-            teamName,
-            lg.league_name,
-            'Sleeper',
-            lg.league_id,
-            roster.roster_id,
-            allPlayers,
-            selectTopPlayers(allPlayers),
-            allPlayers
-          ));
-        }
-      });
-    }
+    const perLeagueResults = await runWithConcurrency(
+      sleeperLeagues,
+      SLEEPER_CONCURRENCY,
+      (lg) => fetchSleeperTeamEntries(lg, activePlayers),
+      (done, total) => setProgress(
+        2 + (done / total) * 96,
+        `Loading Sleeper rosters… ${done.toLocaleString()} / ${total.toLocaleString()} leagues`
+      )
+    );
+    perLeagueResults.forEach(entries => { if (entries) rankings.push(...entries); });
 
     rankings.sort((a, b) => b.top10Projection - a.top10Projection || b.wholeTeamProjection - a.wholeTeamProjection || a.teamName.localeCompare(b.teamName));
 
     currentRankings = rankings;
     selectedTeamKey = selectedTeamKey && rankings.some(r => r.key === selectedTeamKey) ? selectedTeamKey : (rankings[0] || null)?.key || null;
-    leagueComparison = await buildLeagueComparison();
+    leagueComparison = buildLeagueComparison(rankings);
     renderRankings();
+    setProgress(null);
     document.getElementById('rankings-panel').style.display = 'block';
     document.getElementById('setup-hint').textContent = `Loaded ${rankings.length.toLocaleString()} teams across ${new Set(rankings.map(r => r.leagueId)).size.toLocaleString()} leagues.`;
   }
 
-  async function buildLeagueComparison() {
-    const comparison = [];
-
-    if (leaguesData?.mfl?.leagues?.length) {
-      const mflData = await fetch(MFL_DATA_URL).then(r => { if (!r.ok) throw new Error(`${r.status} ${r.statusText}`); return r.json(); }).catch(() => ({ picks: [] }));
-      const pickMap = new Map();
-      (mflData.picks || []).forEach(pick => {
-        const leagueId = String(pick.league_id);
-        if (!pickMap.has(leagueId)) pickMap.set(leagueId, []);
-        pickMap.get(leagueId).push(pick);
-      });
-
-      leaguesData.mfl.leagues.forEach(lg => {
-        const leaguePicks = pickMap.get(String(lg.league_id)) || [];
-        const teams = [];
-        (lg.teams || []).forEach(team => {
-          const teamPicks = leaguePicks.filter(p => String(p.franchise_id) === String(team.franchise_id));
-          const allPlayers = teamPicks.map(p => ({
-            name: p.name,
-            pos: p.pos,
-            team: p.team || '—',
-            projPts: parseProjValue(findProj(p.name, p.pos, p.team)),
-          }));
-          if (allPlayers.length) {
-            const entry = buildEntry(team.team_name || `Team ${team.franchise_id}`, lg.league_name, 'MFL', lg.league_id, team.franchise_id, allPlayers, selectTopPlayers(allPlayers), allPlayers);
-            teams.push(entry);
-          }
-        });
-        teams.sort((a, b) => b.top10Projection - a.top10Projection || b.wholeTeamProjection - a.wholeTeamProjection || a.teamName.localeCompare(b.teamName));
-        if (teams.length) {
-          comparison.push({
-            leagueName: lg.league_name,
-            platform: 'MFL',
-            leagueId: lg.league_id,
-            topTeamName: teams[0].teamName,
-            top10Projection: teams[0].top10Projection,
-            wholeTeamProjection: teams[0].wholeTeamProjection,
-          });
-        }
-      });
-    }
-
-    const sleeperLeagues = (leaguesData?.sleeper?.leagues || [])
-      .filter(lg => lg?.draft_id && String(lg.draft_status || '').toLowerCase() !== 'pre_draft');
-    const players = await fetch(PLAYERS_URL).then(r => r.json()).catch(() => ({}));
-    const activePlayers = Object.fromEntries(
-      Object.entries(players || {}).filter(([, player]) => player?.active !== false)
-    );
-
-    for (const lg of sleeperLeagues) {
-      const picksRes = await fetch(`https://api.sleeper.app/v1/draft/${lg.draft_id}/picks`).then(r => r.json()).catch(() => []);
-      const usersRes = await fetch(`https://api.sleeper.app/v1/league/${lg.league_id}/users`).then(r => r.json()).catch(() => []);
-      const rostersRes = await fetch(`https://api.sleeper.app/v1/league/${lg.league_id}/rosters`).then(r => r.json()).catch(() => []);
-      const usersById = new Map((Array.isArray(usersRes) ? usersRes : []).map(u => [String(u.user_id), u]));
-      const rosters = Array.isArray(rostersRes) ? rostersRes : [];
-      const picks = Array.isArray(picksRes) ? picksRes : [];
-      const teams = [];
-
-      rosters.forEach(roster => {
-        const owner = usersById.get(String(roster.owner_id));
-        const teamName = owner?.metadata?.team_name || owner?.display_name || `Roster ${roster.roster_id}`;
-        const rosterPicks = picks.filter(p => String(p.roster_id) === String(roster.roster_id));
-        const allPlayers = rosterPicks.map(pick => {
-          const meta = pick.metadata || {};
-          const playerInfo = activePlayers[String(pick.player_id)] || {};
-          const fullName = `${meta.first_name || ''} ${meta.last_name || ''}`.trim();
-          const name = playerInfo.full_name || fullName || pick.player_id;
-          const pos = (playerInfo.position || meta.position || '').toUpperCase();
-          const team = playerInfo.team || meta.team || '—';
-          return { name, pos, team, projPts: parseProjValue(findProj(name, pos, team)) };
-        });
-        if (allPlayers.length) {
-          teams.push(buildEntry(teamName, lg.league_name, 'Sleeper', lg.league_id, roster.roster_id, allPlayers, selectTopPlayers(allPlayers), allPlayers));
-        }
-      });
-
-      teams.sort((a, b) => b.top10Projection - a.top10Projection || b.wholeTeamProjection - a.wholeTeamProjection || a.teamName.localeCompare(b.teamName));
-      if (teams.length) {
-        comparison.push({
-          leagueName: lg.league_name,
-          platform: 'Sleeper',
-          leagueId: lg.league_id,
-          topTeamName: teams[0].teamName,
-          top10Projection: teams[0].top10Projection,
-          wholeTeamProjection: teams[0].wholeTeamProjection,
+  // Builds the per-league comparison (top team + score per league) directly from
+  // the already-loaded rankings, instead of re-fetching every league a second time.
+  function buildLeagueComparison(rankings) {
+    const byLeague = new Map();
+    rankings.forEach(team => {
+      const key = `${team.platform}:${team.leagueId}`;
+      const existing = byLeague.get(key);
+      if (!existing || team.top10Projection > existing.top10Projection) {
+        byLeague.set(key, {
+          leagueName: team.leagueName,
+          platform: team.platform,
+          leagueId: team.leagueId,
+          topTeamName: team.teamName,
+          top10Projection: team.top10Projection,
+          wholeTeamProjection: team.wholeTeamProjection,
         });
       }
-    }
-
-    comparison.sort((a, b) => b.top10Projection - a.top10Projection || a.leagueName.localeCompare(b.leagueName));
-    return comparison;
+    });
+    return [...byLeague.values()].sort((a, b) => b.top10Projection - a.top10Projection || a.leagueName.localeCompare(b.leagueName));
   }
 
   function renderRankings() {
