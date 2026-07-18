@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T14:35:25.873Z",
+  "generated_at": "2026-07-18T15:38:41.044Z",
   "leagues": [
     {
       "id": "14494",
@@ -18702,6 +18702,15 @@
       "league_id": "43844"
     },
     {
+      "name": "Rachaad White",
+      "pos": "RB",
+      "team": "WAS",
+      "pick_no": 167,
+      "round": 14,
+      "franchise_id": "0002",
+      "league_id": "43844"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -33576,6 +33585,24 @@
       "pick_no": 194,
       "round": 17,
       "franchise_id": "0002",
+      "league_id": "73136"
+    },
+    {
+      "name": "Deebo Samuel",
+      "pos": "WR",
+      "team": "FA",
+      "pick_no": 195,
+      "round": 17,
+      "franchise_id": "0003",
+      "league_id": "73136"
+    },
+    {
+      "name": "Shedeur Sanders",
+      "pos": "QB",
+      "team": "CLE",
+      "pick_no": 196,
+      "round": 17,
+      "franchise_id": "0004",
       "league_id": "73136"
     }
   ]
