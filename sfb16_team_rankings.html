@@ -117,7 +117,7 @@
 
 <header>
   <h1>🏆 SFB16 Team Rankings</h1>
-  <p>Rank every league team by the projected value of its top 10 players, with no more than two QBs counted.</p>
+  <p>Rank every team across the available SFB16 leagues by the projected value of its top 10 players, with no more than two QBs counted.</p>
   <p class="last-updated" id="last-updated"></p>
 </header>
 
@@ -420,46 +420,59 @@
 
   async function loadLeague(choice) {
     document.getElementById('rankings-panel').style.display = 'none';
-    document.getElementById('setup-hint').textContent = 'Loading rankings…';
+    document.getElementById('setup-hint').textContent = 'Loading rankings across all available leagues…';
     document.getElementById('team-detail').innerHTML = '<div class="empty-state">Loading roster projections…</div>';
 
     await ensureLeaguesLoaded();
 
     const rankings = [];
-    const selectedLeagueName = choice?.league_name || 'Selected league';
+    const selectedLeagueName = choice?.league_name || 'All leagues';
 
-    if (choice?.platform === 'mfl') {
-      const mflData = await fetch(MFL_DATA_URL).then(r => { if (!r.ok) throw new Error(`${r.status} ${r.statusText}`); return r.json(); }).catch(() => ({ leagues: [], picks: [] }));
-      const leagueMeta = (leaguesData?.mfl?.leagues || []).find(l => String(l.league_id) === String(choice.league_id));
-      const leagueTeams = leagueMeta?.teams || [];
-      const leaguePicks = (mflData.picks || []).filter(p => String(p.league_id) === String(choice.league_id));
+    const mflData = await fetch(MFL_DATA_URL).then(r => { if (!r.ok) throw new Error(`${r.status} ${r.statusText}`); return r.json(); }).catch(() => ({ picks: [] }));
+    const mflLeagueMeta = leaguesData?.mfl?.leagues || [];
+    const mflPickMap = new Map();
+    (mflData.picks || []).forEach(pick => {
+      const leagueId = String(pick.league_id);
+      if (!mflPickMap.has(leagueId)) mflPickMap.set(leagueId, []);
+      mflPickMap.get(leagueId).push(pick);
+    });
 
-      leagueTeams.forEach(team => {
+    mflLeagueMeta.forEach(lg => {
+      const leaguePicks = mflPickMap.get(String(lg.league_id)) || [];
+      (lg.teams || []).forEach(team => {
         const teamPicks = leaguePicks.filter(p => String(p.franchise_id) === String(team.franchise_id));
-        const allPlayers = teamPicks.map(p => {
-          const projRow = findProj(p.name, p.pos, p.team);
-          return { name: p.name, pos: p.pos, team: p.team || '—', projPts: parseProjValue(projRow) };
-        });
-        const selectedPlayers = selectTopPlayers(allPlayers);
-        rankings.push(buildEntry(
-          team.team_name || `Team ${team.franchise_id}`,
-          selectedLeagueName,
-          'MFL',
-          choice.league_id,
-          team.franchise_id,
-          allPlayers,
-          selectedPlayers,
-          allPlayers
-        ));
+        const allPlayers = teamPicks.map(p => ({
+          name: p.name,
+          pos: p.pos,
+          team: p.team || '—',
+          projPts: parseProjValue(findProj(p.name, p.pos, p.team)),
+        }));
+        if (allPlayers.length) {
+          rankings.push(buildEntry(
+            team.team_name || `Team ${team.franchise_id}`,
+            lg.league_name,
+            'MFL',
+            lg.league_id,
+            team.franchise_id,
+            allPlayers,
+            selectTopPlayers(allPlayers),
+            allPlayers
+          ));
+        }
       });
-    } else {
-      const players = await fetch(PLAYERS_URL).then(r => r.json()).catch(() => ({}));
-      const activePlayers = Object.fromEntries(
-        Object.entries(players || {}).filter(([, player]) => player?.active !== false)
-      );
-      const picksRes = await fetch(`https://api.sleeper.app/v1/draft/${choice.draft_id}/picks`).then(r => r.json()).catch(() => []);
-      const usersRes = await fetch(`https://api.sleeper.app/v1/league/${choice.league_id}/users`).then(r => r.json()).catch(() => []);
-      const rostersRes = await fetch(`https://api.sleeper.app/v1/league/${choice.league_id}/rosters`).then(r => r.json()).catch(() => []);
+    });
+
+    const players = await fetch(PLAYERS_URL).then(r => r.json()).catch(() => ({}));
+    const activePlayers = Object.fromEntries(
+      Object.entries(players || {}).filter(([, player]) => player?.active !== false)
+    );
+
+    const sleeperLeagues = (leaguesData?.sleeper?.leagues || [])
+      .filter(lg => lg?.draft_id && String(lg.draft_status || '').toLowerCase() !== 'pre_draft');
+    for (const lg of sleeperLeagues) {
+      const picksRes = await fetch(`https://api.sleeper.app/v1/draft/${lg.draft_id}/picks`).then(r => r.json()).catch(() => []);
+      const usersRes = await fetch(`https://api.sleeper.app/v1/league/${lg.league_id}/users`).then(r => r.json()).catch(() => []);
+      const rostersRes = await fetch(`https://api.sleeper.app/v1/league/${lg.league_id}/rosters`).then(r => r.json()).catch(() => []);
 
       const usersById = new Map((Array.isArray(usersRes) ? usersRes : []).map(u => [String(u.user_id), u]));
       const rosters = Array.isArray(rostersRes) ? rostersRes : [];
@@ -479,16 +492,18 @@
           const projRow = findProj(name, pos, team);
           return { name, pos, team, projPts: parseProjValue(projRow) };
         });
-        rankings.push(buildEntry(
-          teamName,
-          selectedLeagueName,
-          'Sleeper',
-          choice.league_id,
-          roster.roster_id,
-          allPlayers,
-          selectTopPlayers(allPlayers),
-          allPlayers
-        ));
+        if (allPlayers.length) {
+          rankings.push(buildEntry(
+            teamName,
+            lg.league_name,
+            'Sleeper',
+            lg.league_id,
+            roster.roster_id,
+            allPlayers,
+            selectTopPlayers(allPlayers),
+            allPlayers
+          ));
+        }
       });
     }
 
@@ -496,12 +511,13 @@
 
     currentRankings = rankings;
     selectedTeamKey = selectedTeamKey && rankings.some(r => r.key === selectedTeamKey) ? selectedTeamKey : (rankings[0] || null)?.key || null;
-    leagueComparison = await buildLeagueComparison(choice);
+    leagueComparison = await buildLeagueComparison();
     renderRankings();
     document.getElementById('rankings-panel').style.display = 'block';
+    document.getElementById('setup-hint').textContent = `Loaded ${rankings.length.toLocaleString()} teams across ${new Set(rankings.map(r => r.leagueId)).size.toLocaleString()} leagues.`;
   }
 
-  async function buildLeagueComparison(selectedChoice) {
+  async function buildLeagueComparison() {
     const comparison = [];
 
     if (leaguesData?.mfl?.leagues?.length) {
@@ -538,23 +554,56 @@
             topTeamName: teams[0].teamName,
             top10Projection: teams[0].top10Projection,
             wholeTeamProjection: teams[0].wholeTeamProjection,
-            isSelected: String(selectedChoice?.league_id) === String(lg.league_id) && selectedChoice?.platform === 'mfl',
           });
         }
       });
     }
 
-    if (selectedChoice?.platform === 'sleeper') {
-      comparison.push({
-        leagueName: selectedChoice.league_name,
-        platform: 'Sleeper',
-        leagueId: selectedChoice.league_id,
-        topTeamName: 'Loaded league snapshot',
-        top10Projection: 0,
-        wholeTeamProjection: 0,
-        isSelected: true,
-        note: 'Live Sleeper draft data is shown in the team ranking table above.',
+    const sleeperLeagues = (leaguesData?.sleeper?.leagues || [])
+      .filter(lg => lg?.draft_id && String(lg.draft_status || '').toLowerCase() !== 'pre_draft');
+    const players = await fetch(PLAYERS_URL).then(r => r.json()).catch(() => ({}));
+    const activePlayers = Object.fromEntries(
+      Object.entries(players || {}).filter(([, player]) => player?.active !== false)
+    );
+
+    for (const lg of sleeperLeagues) {
+      const picksRes = await fetch(`https://api.sleeper.app/v1/draft/${lg.draft_id}/picks`).then(r => r.json()).catch(() => []);
+      const usersRes = await fetch(`https://api.sleeper.app/v1/league/${lg.league_id}/users`).then(r => r.json()).catch(() => []);
+      const rostersRes = await fetch(`https://api.sleeper.app/v1/league/${lg.league_id}/rosters`).then(r => r.json()).catch(() => []);
+      const usersById = new Map((Array.isArray(usersRes) ? usersRes : []).map(u => [String(u.user_id), u]));
+      const rosters = Array.isArray(rostersRes) ? rostersRes : [];
+      const picks = Array.isArray(picksRes) ? picksRes : [];
+      const teams = [];
+
+      rosters.forEach(roster => {
+        const owner = usersById.get(String(roster.owner_id));
+        const teamName = owner?.metadata?.team_name || owner?.display_name || `Roster ${roster.roster_id}`;
+        const rosterPicks = picks.filter(p => String(p.roster_id) === String(roster.roster_id));
+        const allPlayers = rosterPicks.map(pick => {
+          const meta = pick.metadata || {};
+          const playerInfo = activePlayers[String(pick.player_id)] || {};
+          const fullName = `${meta.first_name || ''} ${meta.last_name || ''}`.trim();
+          const name = playerInfo.full_name || fullName || pick.player_id;
+          const pos = (playerInfo.position || meta.position || '').toUpperCase();
+          const team = playerInfo.team || meta.team || '—';
+          return { name, pos, team, projPts: parseProjValue(findProj(name, pos, team)) };
+        });
+        if (allPlayers.length) {
+          teams.push(buildEntry(teamName, lg.league_name, 'Sleeper', lg.league_id, roster.roster_id, allPlayers, selectTopPlayers(allPlayers), allPlayers));
+        }
       });
+
+      teams.sort((a, b) => b.top10Projection - a.top10Projection || b.wholeTeamProjection - a.wholeTeamProjection || a.teamName.localeCompare(b.teamName));
+      if (teams.length) {
+        comparison.push({
+          leagueName: lg.league_name,
+          platform: 'Sleeper',
+          leagueId: lg.league_id,
+          topTeamName: teams[0].teamName,
+          top10Projection: teams[0].top10Projection,
+          wholeTeamProjection: teams[0].wholeTeamProjection,
+        });
+      }
     }
 
     comparison.sort((a, b) => b.top10Projection - a.top10Projection || a.leagueName.localeCompare(b.leagueName));
@@ -614,7 +663,7 @@
       <div class="summary-card">
         <div class="label">Teams</div>
         <div class="value">${currentRankings.length}</div>
-        <div class="sub">Across the loaded league</div>
+        <div class="sub">Across all loaded leagues</div>
       </div>
       <div class="summary-card">
         <div class="label">Top Team</div>
@@ -684,7 +733,7 @@
         document.getElementById('last-updated').textContent = 'Last updated: ' + m.last_updated;
       })
       .catch(() => {});
-    ensureLeaguesLoaded();
+    ensureLeaguesLoaded().then(() => loadLeague(null));
   });
 </script>
 </body>
