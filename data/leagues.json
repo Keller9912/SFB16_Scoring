@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T22:05:02.352Z",
+  "generated_at": "2026-07-18T23:06:59.322Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -23514,7 +23514,7 @@
             "user_id": "712837295757164544",
             "username": "JChips13",
             "team_name": null,
-            "draft_position": 11
+            "draft_position": null
           },
           {
             "user_id": "735980267235426304",
@@ -23562,7 +23562,7 @@
             "user_id": "1353900715881287680",
             "username": "AtomicBald",
             "team_name": "Original Rump Shakers",
-            "draft_position": 10
+            "draft_position": null
           }
         ]
       },
@@ -31763,8 +31763,8 @@
         "league_id": "1366408448048123904",
         "league_name": "#SFB16 Michigan - PBA Pro Bowling",
         "draft_id": "1366408449432260608",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "337851986563039232",
@@ -35022,12 +35022,6 @@
         "draft_complete": false,
         "teams": [
           {
-            "user_id": "76067712555958272",
-            "username": "FFChalupaBatman",
-            "team_name": null,
-            "draft_position": null
-          },
-          {
             "user_id": "76768929519124480",
             "username": "OtownSteveO",
             "team_name": null,
@@ -35036,7 +35030,7 @@
           {
             "user_id": "182531993677217792",
             "username": "Picott",
-            "team_name": null,
+            "team_name": "Black Label Society",
             "draft_position": 7
           },
           {
