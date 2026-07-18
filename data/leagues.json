@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T18:06:36.770Z",
+  "generated_at": "2026-07-18T19:22:40.006Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -15107,8 +15107,8 @@
         "league_id": "1367262956563226624",
         "league_name": "#SFB16 - Pac-Man",
         "draft_id": "1367262957372723200",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "335950486869917696",
@@ -23438,7 +23438,7 @@
           {
             "user_id": "825883494252134400",
             "username": "ER0CK84",
-            "team_name": null,
+            "team_name": "Gonna Need A Bigger Boat",
             "draft_position": 2
           },
           {
@@ -23561,7 +23561,7 @@
           {
             "user_id": "1353900715881287680",
             "username": "AtomicBald",
-            "team_name": null,
+            "team_name": "Original Rump Shakers",
             "draft_position": 10
           }
         ]
@@ -36038,7 +36038,7 @@
         "league_id": "1366398105213214720",
         "league_name": "#SFB16 Phoenix - GoldenEye 007",
         "draft_id": "1366398106962264064",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -36052,6 +36052,12 @@
             "username": "zacajewea",
             "team_name": "Alec Trevelyan",
             "draft_position": 3
+          },
+          {
+            "user_id": "302495529940574208",
+            "username": "bobgilchrist",
+            "team_name": null,
+            "draft_position": null
           },
           {
             "user_id": "303186870739697664",
@@ -36137,9 +36143,15 @@
         "league_id": "1366397930285568000",
         "league_name": "#SFB16 Phoenix - NFL Blitz",
         "draft_id": "1366397931984273408",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
+          {
+            "user_id": "302495529940574208",
+            "username": "bobgilchrist",
+            "team_name": null,
+            "draft_position": null
+          },
           {
             "user_id": "432648632638914560",
             "username": "TimH24",
@@ -36236,7 +36248,7 @@
         "league_id": "1366397777352867840",
         "league_name": "#SFB16 Phoenix - Super Mario 64",
         "draft_id": "1366397780649582592",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -36244,6 +36256,12 @@
             "username": "smenright27",
             "team_name": null,
             "draft_position": 8
+          },
+          {
+            "user_id": "302495529940574208",
+            "username": "bobgilchrist",
+            "team_name": null,
+            "draft_position": null
           },
           {
             "user_id": "325943249887850496",
@@ -36335,9 +36353,15 @@
         "league_id": "1366397646192779264",
         "league_name": "#SFB16 Phoenix - Tony Hawks Underground",
         "draft_id": "1366397647811809280",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
+          {
+            "user_id": "302495529940574208",
+            "username": "bobgilchrist",
+            "team_name": null,
+            "draft_position": null
+          },
           {
             "user_id": "437951608223952896",
             "username": "fantasyfootballshow",
@@ -36375,6 +36399,12 @@
             "draft_position": null
           },
           {
+            "user_id": "856664759691485184",
+            "username": "djc242",
+            "team_name": "Bombargo",
+            "draft_position": 6
+          },
+          {
             "user_id": "863250619660615680",
             "username": "Cjspeedy05",
             "team_name": null,
@@ -36402,7 +36432,7 @@
             "user_id": "1130895974827819008",
             "username": "FantasyDako",
             "team_name": "Reach",
-            "draft_position": 7
+            "draft_position": null
           },
           {
             "user_id": "1267563941857341440",
@@ -36415,6 +36445,18 @@
             "username": "simivalley",
             "team_name": null,
             "draft_position": 12
+          },
+          {
+            "user_id": "1384277192921333760",
+            "username": "ChizzyDaBoss994",
+            "team_name": null,
+            "draft_position": 7
+          },
+          {
+            "user_id": "1384277739179081728",
+            "username": "GhengisKvam",
+            "team_name": null,
+            "draft_position": 9
           }
         ]
       },
