@@ -74,27 +74,6 @@
       display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 16px;
     }
-    .chart-card {
-      background: #1a1a2e; border: 1px solid #7c3aed33; border-radius: 12px;
-      padding: 16px 18px; margin-bottom: 18px;
-    }
-    .chart-row {
-      display: grid; grid-template-columns: minmax(220px, 1.2fr) 2fr 70px;
-      gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid #ffffff0a;
-    }
-    .chart-row:last-child { border-bottom: none; }
-    .chart-row.is-selected { background: #7c3aed22; border-radius: 8px; padding-left: 8px; padding-right: 8px; }
-    .chart-label { font-size: 0.8rem; font-weight: 600; color: #e8e8f0; }
-    .chart-sub { font-size: 0.72rem; color: #777; margin-top: 2px; }
-    .chart-track {
-      position: relative; height: 10px; border-radius: 999px; overflow: hidden;
-      background: #12102a; border: 1px solid #ffffff08;
-    }
-    .chart-bar {
-      height: 100%; border-radius: inherit; background: linear-gradient(90deg, #7c3aed, #a78bfa);
-      box-shadow: 0 0 10px #7c3aed44;
-    }
-    .chart-value { text-align: right; color: #f5c542; font-weight: 700; font-variant-numeric: tabular-nums; }
     .detail-section {
       background: #12102a; border: 1px solid #ffffff0a; border-radius: 10px; padding: 12px;
     }
@@ -147,9 +126,6 @@
 <div id="rankings-panel" style="display:none">
   <div class="summary-grid" id="summary-grid"></div>
 
-  <div class="section-title">League Comparison</div>
-  <div id="league-chart" class="chart-card"></div>
-
   <div class="section-title">Team Ranking</div>
   <div class="table-wrap">
     <table class="rank-table" id="rankings-table">
@@ -192,7 +168,6 @@
   let leaguesLoadPromise = null;
   let projData = [];
   let currentRankings = [];
-  let leagueComparison = [];
   let selectedTeamKey = null;
 
   function normName(s) {
@@ -594,39 +569,16 @@
 
     currentRankings = rankings;
     selectedTeamKey = selectedTeamKey && rankings.some(r => r.key === selectedTeamKey) ? selectedTeamKey : (rankings[0] || null)?.key || null;
-    leagueComparison = buildLeagueComparison(rankings);
     renderRankings();
     setProgress(null);
     document.getElementById('rankings-panel').style.display = 'block';
     document.getElementById('setup-hint').textContent = `Loaded ${rankings.length.toLocaleString()} teams across ${new Set(rankings.map(r => r.leagueId)).size.toLocaleString()} leagues.`;
   }
 
-  // Builds the per-league comparison (top team + score per league) directly from
-  // the already-loaded rankings, instead of re-fetching every league a second time.
-  function buildLeagueComparison(rankings) {
-    const byLeague = new Map();
-    rankings.forEach(team => {
-      const key = `${team.platform}:${team.leagueId}`;
-      const existing = byLeague.get(key);
-      if (!existing || team.top10Projection > existing.top10Projection) {
-        byLeague.set(key, {
-          leagueName: team.leagueName,
-          platform: team.platform,
-          leagueId: team.leagueId,
-          topTeamName: team.teamName,
-          top10Projection: team.top10Projection,
-          wholeTeamProjection: team.wholeTeamProjection,
-        });
-      }
-    });
-    return [...byLeague.values()].sort((a, b) => b.top10Projection - a.top10Projection || a.leagueName.localeCompare(b.leagueName));
-  }
-
   function renderRankings() {
     const body = document.getElementById('rankings-body');
     const summaryGrid = document.getElementById('summary-grid');
     const detail = document.getElementById('team-detail');
-    const chart = document.getElementById('league-chart');
 
     if (!currentRankings.length) {
       body.innerHTML = '<tr><td colspan="4" class="no-results">No team data available for this league yet.</td></tr>';
@@ -647,30 +599,11 @@
       row.addEventListener('click', () => {
         selectedTeamKey = row.getAttribute('data-key');
         renderRankings();
+        document.getElementById('team-detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
 
     const topTeam = currentRankings[0];
-    if (leagueComparison.length) {
-      const maxValue = Math.max(...leagueComparison.map(item => item.top10Projection || 0), 1);
-      chart.innerHTML = leagueComparison.map(item => {
-        const pct = Math.max(8, (item.top10Projection / maxValue) * 100);
-        return `
-          <div class="chart-row ${item.isSelected ? 'is-selected' : ''}">
-            <div>
-              <div class="chart-label">${item.leagueName}</div>
-              <div class="chart-sub">${item.topTeamName}${item.note ? ` · ${item.note}` : ''}</div>
-            </div>
-            <div class="chart-track">
-              <div class="chart-bar" style="width:${pct}%"></div>
-            </div>
-            <div class="chart-value">${item.top10Projection.toFixed(1)}</div>
-          </div>`;
-      }).join('');
-    } else {
-      chart.innerHTML = '<div class="empty-state">No comparison data is available for the loaded leagues yet.</div>';
-    }
-
     summaryGrid.innerHTML = `
       <div class="summary-card">
         <div class="label">Teams</div>
