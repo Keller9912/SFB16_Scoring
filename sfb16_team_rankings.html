@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SFB16 Team Rankings</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .setup-card {
+      max-width: 760px; margin: 0 auto 20px; background: #1a1a2e;
+      border: 1px solid #7c3aed33; border-radius: 12px; padding: 24px 28px;
+    }
+    .search-wrap { position: relative; flex: 1; }
+    .search-results {
+      position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 30;
+      max-height: 340px; overflow-y: auto; background: #12102a;
+      border: 1px solid #7c3aed55; border-radius: 10px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+    }
+    .search-result-row {
+      display: flex; align-items: center; gap: 10px; padding: 9px 14px;
+      cursor: pointer; border-bottom: 1px solid #ffffff0a;
+    }
+    .search-result-row:last-child { border-bottom: none; }
+    .search-result-row:hover { background: #7c3aed22; }
+    .search-result-row .sr-label { font-weight: 600; color: #e8e8f0; font-size: 0.82rem; }
+    .search-result-row .sr-sub { color: #666; font-size: 0.72rem; margin-left: auto; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 240px; }
+    .search-empty { padding: 12px 14px; color: #666; font-size: 0.78rem; }
+    .plat-badge { font-size: 0.62rem; padding: 2px 7px; border-radius: 10px; font-weight: 700; letter-spacing: 0.3px; }
+    .plat-Sleeper { background: #34d39922; color: #34d399; }
+    .plat-MFL { background: #60a5fa22; color: #60a5fa; }
+    .summary-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px; margin-bottom: 20px;
+    }
+    .summary-card {
+      background: #1a1a2e; border: 1px solid #7c3aed33; border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .summary-card .label { font-size: 0.68rem; color: #7c3aed; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .summary-card .value { font-size: 1.15rem; font-weight: 700; color: #f5c542; }
+    .summary-card .sub { font-size: 0.72rem; color: #777; margin-top: 4px; }
+    .rank-table th:nth-child(1) { min-width: 64px; text-align: center; }
+    .rank-table th:nth-child(2) { min-width: 220px; }
+    .rank-table th:nth-child(3),
+    .rank-table th:nth-child(4) { text-align: right; }
+    .rank-table td:nth-child(1) { text-align: center; font-weight: 700; color: #f5c542; }
+    .rank-table td:nth-child(2) { font-weight: 600; }
+    .rank-table td:nth-child(3),
+    .rank-table td:nth-child(4) { font-variant-numeric: tabular-nums; }
+    .rank-table tbody tr { cursor: pointer; }
+    .rank-table tbody tr.selected { background: #7c3aed22; }
+    .detail-card {
+      background: #1a1a2e; border: 1px solid #7c3aed33; border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .detail-header {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
+      align-items: flex-start; margin-bottom: 12px;
+    }
+    .detail-title { font-size: 1.05rem; font-weight: 700; color: #f5c542; }
+    .detail-sub { font-size: 0.78rem; color: #777; margin-top: 4px; }
+    .detail-score {
+      font-size: 1.3rem; font-weight: 700; color: #f5c542;
+      text-align: right;
+    }
+    .detail-score span { display: block; font-size: 0.68rem; color: #7c3aed; text-transform: uppercase; letter-spacing: 1px; }
+    .detail-stats { display: flex; flex-wrap: wrap; gap: 10px; font-size: 0.78rem; color: #a0a0c0; margin-bottom: 16px; }
+    .detail-pill {
+      border: 1px solid #7c3aed33; background: #7c3aed11; border-radius: 999px;
+      padding: 3px 9px; color: #c4b5fd;
+    }
+    .detail-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .detail-section {
+      background: #12102a; border: 1px solid #ffffff0a; border-radius: 10px; padding: 12px;
+    }
+    .detail-section-title { font-size: 0.72rem; color: #7c3aed; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .detail-list { display: flex; flex-direction: column; gap: 8px; }
+    .detail-row {
+      display: flex; justify-content: space-between; gap: 10px; align-items: center;
+      padding: 6px 0; border-bottom: 1px solid #ffffff0a;
+      font-size: 0.79rem;
+    }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-row .name { color: #e8e8f0; }
+    .detail-row .pos { font-weight: 700; color: #60a5fa; font-size: 0.69rem; text-transform: uppercase; }
+    .detail-row .score { color: #f5c542; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .empty-state { color: #666; text-align: center; padding: 20px 8px; font-size: 0.82rem; }
+  </style>
+</head>
+<body>
+<a class="home-btn" href="index.html">🐟 Home</a>
+
+<header>
+  <h1>🏆 SFB16 Team Rankings</h1>
+  <p>Rank every league team by the projected value of its top 10 players, with no more than two QBs counted.</p>
+  <p class="last-updated" id="last-updated"></p>
+</header>
+
+<div class="setup-card">
+  <div class="section-title" style="margin-top:0">Search a League or Team</div>
+  <div class="controls">
+    <div class="search-wrap">
+      <span class="filter-label">Search:</span>
+      <input id="league-search" type="text" class="search-box" style="width:100%" autocomplete="off"
+             placeholder="Sleeper username, team name, or MFL league/team…" oninput="onLeagueSearch()">
+      <div id="search-results" class="search-results" style="display:none"></div>
+    </div>
+  </div>
+  <div class="setup-hint" id="setup-hint">Loading league directory…</div>
+  <div id="setup-error" class="setup-error" style="display:none"></div>
+</div>
+
+<div id="rankings-panel" style="display:none">
+  <div class="summary-grid" id="summary-grid"></div>
+
+  <div class="section-title">Team Ranking</div>
+  <div class="table-wrap">
+    <table class="rank-table" id="rankings-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Team</th>
+          <th>Top 10</th>
+          <th>Whole Team</th>
+        </tr>
+      </thead>
+      <tbody id="rankings-body"></tbody>
+    </table>
+  </div>
+
+  <div class="section-title">Selected Team</div>
+  <div id="team-detail" class="detail-card">
+    <div class="empty-state">Choose a league or team to load the ranking.</div>
+  </div>
+</div>
+
+<footer>
+  Data: MFL teams come from the same snapshot as the ADP and draft tools · Sleeper league data loads live from the Sleeper API · Projections from the same 2026 projection file used across the site.
+</footer>
+
+<script>
+  const PROJ_URL = 'https://keller9912.github.io/SFB16_Scoring/data/projections_2026.json';
+  const LEAGUES_URL = 'https://keller9912.github.io/SFB16_Scoring/data/leagues.json';
+  const MFL_DATA_URL = 'https://keller9912.github.io/SFB16_Scoring/data/mfl_picks.json';
+  const PLAYERS_URL = 'https://api.sleeper.app/v1/players/nfl';
+
+  let leaguesData = null;
+  let searchIndex = [];
+  let leaguesLoadPromise = null;
+  let projData = [];
+  let currentRankings = [];
+  let selectedTeamKey = null;
+
+  function normName(s) {
+    return (s || '')
+      .toString()
+      .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[.''`]/g, '')
+      .replace(/\s+(jr|sr|ii|iii|iv|v)\.?$/, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function projField(row, candidates) {
+    for (const c of candidates) {
+      if (row[c] !== undefined && row[c] !== null && row[c] !== '') return row[c];
+    }
+    return undefined;
+  }
+
+  function findProj(name, pos, team) {
+    const norm = normName(name);
+    if (!norm) return null;
+    let hit = projData.find(p => normName(p.player) === norm);
+    if (hit) return hit;
+
+    const parts = (name || '').trim().split(/\s+/);
+    if (parts.length >= 2) {
+      const abbrev = normName(parts[0][0] + '.' + parts[parts.length - 1]);
+      hit = projData.find(p => normName(p.player) === abbrev);
+      if (hit) return hit;
+
+      const firstInitial = parts[0][0].toLowerCase();
+      const lastName = normName(parts[parts.length - 1]);
+      const posUpper = (pos || '').toUpperCase();
+      const teamUpper = (team || '').toUpperCase();
+
+      const lastMatches = projData.filter(p => {
+        const pParts = normName(p.player).split(' ');
+        const pLast = pParts[pParts.length - 1];
+        if (pLast !== lastName || !pParts[0] || pParts[0][0] !== firstInitial) return false;
+        if (pParts.length > 2) return false;
+
+        const pPos = (projField(p, ['position', 'Position', 'pos', 'Pos']) || '').toUpperCase();
+        if (posUpper && pPos && pPos !== posUpper) return false;
+
+        const pTeam = (projField(p, ['team', 'Team', 'tm', 'Tm']) || '').toUpperCase();
+        if (teamUpper && pTeam && pTeam !== teamUpper) return false;
+        if ((teamUpper && !pTeam) || (!teamUpper && pTeam)) return false;
+        return true;
+      });
+      if (lastMatches.length === 1) return lastMatches[0];
+    }
+
+    return null;
+  }
+
+  function ensureLeaguesLoaded() {
+    if (!leaguesLoadPromise) {
+      leaguesLoadPromise = Promise.all([
+        fetch(LEAGUES_URL).then(r => { if (!r.ok) throw new Error(`${r.status} ${r.statusText}`); return r.json(); }),
+        fetch(PROJ_URL).then(r => { if (!r.ok) throw new Error(`${r.status} ${r.statusText}`); return r.json(); }),
+      ])
+        .then(([data, proj]) => {
+          leaguesData = data;
+          projData = Array.isArray(proj) ? proj : [];
+          searchIndex = buildSearchIndex(data);
+          document.getElementById('setup-hint').textContent =
+            `Search across ${data?.sleeper?.league_count || 0} Sleeper leagues and ${data?.mfl?.league_count || 0} MFL leagues.`;
+        })
+        .catch(err => {
+          document.getElementById('setup-hint').textContent = '';
+          const errEl = document.getElementById('setup-error');
+          errEl.textContent = `Couldn't load the league directory: ${err.message}`;
+          errEl.style.display = 'block';
+        });
+    }
+    return leaguesLoadPromise;
+  }
+
+  function buildSearchIndex(data) {
+    const rows = [];
+
+    (data?.sleeper?.leagues || []).forEach(lg => {
+      rows.push({
+        kind: 'league', platform: 'sleeper',
+        label: lg.league_name || `League ${lg.league_id}`,
+        sub: `${(lg.teams || []).length} teams · draft ${lg.draft_status || 'unknown'}`,
+        matchFields: [lg.league_name],
+        candidate: { league_id: lg.league_id, league_name: lg.league_name, draft_id: lg.draft_id, platform: 'sleeper' },
+      });
+      (lg.teams || []).forEach(t => {
+        rows.push({
+          kind: 'team', platform: 'sleeper',
+          label: t.team_name || t.username || 'Team',
+          sub: `${lg.league_name}` + (t.username ? ` · @${t.username}` : ''),
+          matchFields: [t.username, t.team_name, lg.league_name],
+          candidate: { league_id: lg.league_id, league_name: lg.league_name, draft_id: lg.draft_id, platform: 'sleeper', user_id: t.user_id, username: t.username, team_name: t.team_name },
+        });
+      });
+    });
+
+    (data?.mfl?.leagues || []).forEach(lg => {
+      rows.push({
+        kind: 'league', platform: 'mfl',
+        label: lg.league_name || `League ${lg.league_id}`,
+        sub: `${(lg.teams || []).length} teams · draft ${lg.draft_complete ? 'complete' : 'in progress'}`,
+        matchFields: [lg.league_name],
+        candidate: { league_id: lg.league_id, league_name: lg.league_name, platform: 'mfl' },
+      });
+      (lg.teams || []).forEach(t => {
+        rows.push({
+          kind: 'team', platform: 'mfl',
+          label: t.team_name || `Team ${t.franchise_id}`,
+          sub: `${lg.league_name}` + (t.owner_name ? ` · ${t.owner_name}` : ''),
+          matchFields: [t.team_name, t.owner_name, lg.league_name],
+          candidate: { league_id: lg.league_id, league_name: lg.league_name, platform: 'mfl', franchise_id: t.franchise_id, team_name: t.team_name },
+        });
+      });
+    });
+
+    return rows;
+  }
+
+  function scoreRow(row, q) {
+    let best = -1;
+    for (const raw of row.matchFields) {
+      const f = (raw || '').toLowerCase();
+      if (!f) continue;
+      if (f === q) best = Math.max(best, 100);
+      else if (f.startsWith(q)) best = Math.max(best, 80);
+      else if (f.includes(q)) best = Math.max(best, 50);
+    }
+    return best;
+  }
+
+  function onLeagueSearch() {
+    clearTimeout(window.searchDebounce);
+    window.searchDebounce = setTimeout(runLeagueSearch, 150);
+  }
+
+  async function runLeagueSearch() {
+    const input = document.getElementById('league-search');
+    const resultsEl = document.getElementById('search-results');
+    const q = input.value.trim().toLowerCase();
+
+    if (!q) {
+      resultsEl.style.display = 'none';
+      resultsEl.innerHTML = '';
+      return;
+    }
+
+    await ensureLeaguesLoaded();
+    if (!searchIndex.length) {
+      resultsEl.style.display = 'block';
+      resultsEl.innerHTML = '<div class="search-empty">League directory unavailable right now.</div>';
+      return;
+    }
+
+    const scored = searchIndex
+      .map(row => ({ row, score: scoreRow(row, q) }))
+      .filter(x => x.score > -1)
+      .sort((a, b) => b.score - a.score || a.row.label.localeCompare(b.row.label))
+      .slice(0, 20);
+
+    if (!scored.length) {
+      resultsEl.innerHTML = `<div class="search-empty">No leagues or teams match "${input.value.trim()}".</div>`;
+      resultsEl.style.display = 'block';
+      return;
+    }
+
+    resultsEl.innerHTML = scored.map(x => `
+      <div class="search-result-row">
+        <span class="plat-badge plat-${x.row.platform === 'sleeper' ? 'Sleeper' : 'MFL'}">${x.row.platform === 'sleeper' ? 'Sleeper' : 'MFL'}</span>
+        <span class="sr-label">${x.row.label}</span>
+        <span class="sr-sub">${x.row.sub}</span>
+      </div>`).join('');
+    resultsEl.style.display = 'block';
+
+    resultsEl.querySelectorAll('.search-result-row').forEach((el, i) => {
+      el.addEventListener('click', () => selectSearchResult(scored[i].row));
+    });
+  }
+
+  function selectSearchResult(row) {
+    document.getElementById('search-results').style.display = 'none';
+    document.getElementById('setup-error').style.display = 'none';
+    if (row.kind === 'team' && row.candidate?.league_id) {
+      document.getElementById('league-search').value = row.label;
+    }
+    loadLeague(row.candidate);
+  }
+
+  document.addEventListener('click', e => {
+    const box = document.getElementById('search-results');
+    const input = document.getElementById('league-search');
+    if (box && box.style.display !== 'none' && e.target !== input && !box.contains(e.target)) {
+      box.style.display = 'none';
+    }
+  });
+
+  function parseProjValue(row) {
+    if (!row) return 0;
+    const val = Number(row.total_proj_pts ?? row.total_proj ?? row.pts ?? row.points ?? 0);
+    return Number.isFinite(val) ? val : 0;
+  }
+
+  function selectTopPlayers(playerRows) {
+    const sorted = [...playerRows].sort((a, b) => b.projPts - a.projPts || a.name.localeCompare(b.name));
+    const selected = [];
+    let qbCount = 0;
+    for (const p of sorted) {
+      if (selected.length >= 10) break;
+      if (p.pos === 'QB' && qbCount >= 2) continue;
+      if (p.pos === 'QB') qbCount += 1;
+      selected.push(p);
+    }
+    return selected;
+  }
+
+  function buildEntry(teamName, leagueName, platform, leagueId, teamId, picks, selectedPlayers, allPlayers) {
+    const top10Players = selectTopPlayers(allPlayers);
+    const top10Projection = top10Players.reduce((sum, p) => sum + p.projPts, 0);
+    const wholeTeamProjection = picks.reduce((sum, p) => sum + p.projPts, 0);
+    return {
+      key: `${platform}:${leagueId}:${teamId}`,
+      teamName,
+      leagueName,
+      platform,
+      leagueId,
+      teamId,
+      top10Projection,
+      wholeTeamProjection,
+      top10Players,
+      allPlayers,
+      qbCount: top10Players.filter(p => p.pos === 'QB').length,
+      pickCount: picks.length,
+    };
+  }
+
+  async function loadLeague(choice) {
+    document.getElementById('rankings-panel').style.display = 'none';
+    document.getElementById('setup-hint').textContent = 'Loading rankings…';
+    document.getElementById('team-detail').innerHTML = '<div class="empty-state">Loading roster projections…</div>';
+
+    await ensureLeaguesLoaded();
+
+    const rankings = [];
+    const selectedLeagueName = choice?.league_name || 'Selected league';
+
+    if (choice?.platform === 'mfl') {
+      const mflData = await fetch(MFL_DATA_URL).then(r => { if (!r.ok) throw new Error(`${r.status} ${r.statusText}`); return r.json(); }).catch(() => ({ leagues: [], picks: [] }));
+      const leagueMeta = (leaguesData?.mfl?.leagues || []).find(l => String(l.league_id) === String(choice.league_id));
+      const leagueTeams = leagueMeta?.teams || [];
+      const leaguePicks = (mflData.picks || []).filter(p => String(p.league_id) === String(choice.league_id));
+
+      leagueTeams.forEach(team => {
+        const teamPicks = leaguePicks.filter(p => String(p.franchise_id) === String(team.franchise_id));
+        const allPlayers = teamPicks.map(p => {
+          const projRow = findProj(p.name, p.pos, p.team);
+          return { name: p.name, pos: p.pos, team: p.team || '—', projPts: parseProjValue(projRow) };
+        });
+        const selectedPlayers = selectTopPlayers(allPlayers);
+        rankings.push(buildEntry(
+          team.team_name || `Team ${team.franchise_id}`,
+          selectedLeagueName,
+          'MFL',
+          choice.league_id,
+          team.franchise_id,
+          allPlayers,
+          selectedPlayers,
+          allPlayers
+        ));
+      });
+    } else {
+      const players = await fetch(PLAYERS_URL).then(r => r.json()).catch(() => ({}));
+      const activePlayers = Object.fromEntries(
+        Object.entries(players || {}).filter(([, player]) => player?.active !== false)
+      );
+      const draftInfo = await fetch(`https://api.sleeper.app/v1/draft/${choice.draft_id}`).then(r => r.json()).catch(() => null);
+      const picksRes = await fetch(`https://api.sleeper.app/v1/draft/${choice.draft_id}/picks`).then(r => r.json()).catch(() => []);
+      const usersRes = await fetch(`https://api.sleeper.app/v1/league/${choice.league_id}/users`).then(r => r.json()).catch(() => []);
+      const rostersRes = await fetch(`https://api.sleeper.app/v1/league/${choice.league_id}/rosters`).then(r => r.json()).catch(() => []);
+
+      const usersById = new Map((Array.isArray(usersRes) ? usersRes : []).map(u => [String(u.user_id), u]));
+      const rosters = Array.isArray(rostersRes) ? rostersRes : [];
+      const picks = Array.isArray(picksRes) ? picksRes : [];
+
+      rosters.forEach(roster => {
+        const owner = usersById.get(String(roster.owner_id));
+        const teamName = owner?.metadata?.team_name || owner?.display_name || `Roster ${roster.roster_id}`;
+        const rosterPicks = picks.filter(p => String(p.roster_id) === String(roster.roster_id));
+        const allPlayers = rosterPicks.map(pick => {
+          const meta = pick.metadata || {};
+          const playerInfo = activePlayers[String(pick.player_id)] || {};
+          const fullName = `${meta.first_name || ''} ${meta.last_name || ''}`.trim();
+          const name = playerInfo.full_name || fullName || pick.player_id;
+          const pos = (playerInfo.position || meta.position || '').toUpperCase();
+          const team = playerInfo.team || meta.team || '—';
+          const projRow = findProj(name, pos, team);
+          return { name, pos, team, projPts: parseProjValue(projRow) };
+        });
+        rankings.push(buildEntry(
+          teamName,
+          selectedLeagueName,
+          'Sleeper',
+          choice.league_id,
+          roster.roster_id,
+          allPlayers,
+          selectTopPlayers(allPlayers),
+          allPlayers
+        ));
+      });
+    }
+
+    rankings.sort((a, b) => b.top10Projection - a.top10Projection || b.wholeTeamProjection - a.wholeTeamProjection || a.teamName.localeCompare(b.teamName));
+    currentRankings = rankings;
+    selectedTeamKey = selectedTeamKey && rankings.some(r => r.key === selectedTeamKey) ? selectedTeamKey : (rankings[0] || null)?.key || null;
+    renderRankings();
+    document.getElementById('rankings-panel').style.display = 'block';
+  }
+
+  function renderRankings() {
+    const body = document.getElementById('rankings-body');
+    const summaryGrid = document.getElementById('summary-grid');
+    const detail = document.getElementById('team-detail');
+
+    if (!currentRankings.length) {
+      body.innerHTML = '<tr><td colspan="4" class="no-results">No team data available for this league yet.</td></tr>';
+      summaryGrid.innerHTML = '';
+      detail.innerHTML = '<div class="empty-state">No ranking available yet.</div>';
+      return;
+    }
+
+    body.innerHTML = currentRankings.map((team, idx) => `
+      <tr data-key="${team.key}" class="${team.key === selectedTeamKey ? 'selected' : ''}">
+        <td>${idx + 1}</td>
+        <td>${team.teamName}</td>
+        <td>${team.top10Projection.toFixed(1)}</td>
+        <td>${team.wholeTeamProjection.toFixed(1)}</td>
+      </tr>`).join('');
+
+    body.querySelectorAll('tr').forEach(row => {
+      row.addEventListener('click', () => {
+        selectedTeamKey = row.getAttribute('data-key');
+        renderRankings();
+      });
+    });
+
+    const topTeam = currentRankings[0];
+    summaryGrid.innerHTML = `
+      <div class="summary-card">
+        <div class="label">Teams</div>
+        <div class="value">${currentRankings.length}</div>
+        <div class="sub">Across the loaded league</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">Top Team</div>
+        <div class="value">${topTeam ? topTeam.teamName : '—'}</div>
+        <div class="sub">${topTeam ? topTeam.top10Projection.toFixed(1) : '0.0'} pts top-10</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">Top 10 Avg</div>
+        <div class="value">${currentRankings.length ? (currentRankings.reduce((sum, team) => sum + team.top10Projection, 0) / currentRankings.length).toFixed(1) : '0.0'}</div>
+        <div class="sub">Per team projection</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">League</div>
+        <div class="value">${topTeam ? topTeam.leagueName : '—'}</div>
+        <div class="sub">${topTeam ? topTeam.platform : '—'}</div>
+      </div>`;
+
+    const activeTeam = currentRankings.find(team => team.key === selectedTeamKey) || currentRankings[0];
+    if (!activeTeam) {
+      detail.innerHTML = '<div class="empty-state">No ranking available yet.</div>';
+      return;
+    }
+
+    const top10Rows = activeTeam.top10Players.map(p => `
+      <div class="detail-row">
+        <span class="name">${p.name}</span>
+        <span class="pos">${p.pos}</span>
+        <span class="score">${p.projPts.toFixed(1)}</span>
+      </div>`).join('');
+
+    const allRows = activeTeam.allPlayers.map(p => `
+      <div class="detail-row">
+        <span class="name">${p.name}</span>
+        <span class="pos">${p.pos}</span>
+        <span class="score">${p.projPts.toFixed(1)}</span>
+      </div>`).join('');
+
+    detail.innerHTML = `
+      <div class="detail-header">
+        <div>
+          <div class="detail-title">${activeTeam.teamName}</div>
+          <div class="detail-sub">${activeTeam.leagueName} · ${activeTeam.platform}</div>
+        </div>
+        <div class="detail-score">${activeTeam.top10Projection.toFixed(1)}<span>Top 10</span></div>
+      </div>
+      <div class="detail-stats">
+        <span class="detail-pill">Whole team: ${activeTeam.wholeTeamProjection.toFixed(1)} pts</span>
+        <span class="detail-pill">QBs counted: ${activeTeam.qbCount}</span>
+        <span class="detail-pill">Picks: ${activeTeam.pickCount}</span>
+      </div>
+      <div class="detail-grid">
+        <div class="detail-section">
+          <div class="detail-section-title">Top 10 Players</div>
+          <div class="detail-list">${top10Rows || '<div class="empty-state">No players matched the projection filter.</div>'}</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Whole Team</div>
+          <div class="detail-list">${allRows || '<div class="empty-state">No picks available for this team.</div>'}</div>
+        </div>
+      </div>`;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch('data/meta.json')
+      .then(r => r.json())
+      .then(m => {
+        document.getElementById('last-updated').textContent = 'Last updated: ' + m.last_updated;
+      })
+      .catch(() => {});
+    ensureLeaguesLoaded();
+  });
+</script>
+</body>
+</html>
