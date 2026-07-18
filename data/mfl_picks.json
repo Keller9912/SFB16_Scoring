@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T03:34:03.736Z",
+  "generated_at": "2026-07-18T05:52:36.932Z",
   "leagues": [
     {
       "id": "14494",
@@ -28089,6 +28089,60 @@
       "league_id": "61959"
     },
     {
+      "name": "George Holani",
+      "pos": "RB",
+      "team": "SEA",
+      "pick_no": 210,
+      "round": 18,
+      "franchise_id": "0007",
+      "league_id": "61959"
+    },
+    {
+      "name": "Kirk Cousins",
+      "pos": "QB",
+      "team": "LVR",
+      "pick_no": 211,
+      "round": 18,
+      "franchise_id": "0006",
+      "league_id": "61959"
+    },
+    {
+      "name": "Tyler Allgeier",
+      "pos": "RB",
+      "team": "ARI",
+      "pick_no": 212,
+      "round": 18,
+      "franchise_id": "0005",
+      "league_id": "61959"
+    },
+    {
+      "name": "Tank Bigsby",
+      "pos": "RB",
+      "team": "PHI",
+      "pick_no": 213,
+      "round": 18,
+      "franchise_id": "0004",
+      "league_id": "61959"
+    },
+    {
+      "name": "Mason Taylor",
+      "pos": "TE",
+      "team": "NYJ",
+      "pick_no": 214,
+      "round": 18,
+      "franchise_id": "0003",
+      "league_id": "61959"
+    },
+    {
+      "name": "Shedeur Sanders",
+      "pos": "QB",
+      "team": "CLE",
+      "pick_no": 215,
+      "round": 18,
+      "franchise_id": "0002",
+      "league_id": "61959"
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -33306,6 +33360,24 @@
       "pick_no": 191,
       "round": 16,
       "franchise_id": "0002",
+      "league_id": "73136"
+    },
+    {
+      "name": "Germie Bernard",
+      "pos": "WR",
+      "team": "PIT",
+      "pick_no": 192,
+      "round": 16,
+      "franchise_id": "0001",
+      "league_id": "73136"
+    },
+    {
+      "name": "Deshaun Watson",
+      "pos": "QB",
+      "team": "CLE",
+      "pick_no": 193,
+      "round": 17,
+      "franchise_id": "0001",
       "league_id": "73136"
     }
   ]
