@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T00:08:27.244Z",
+  "generated_at": "2026-07-18T03:28:17.438Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -7259,8 +7259,8 @@
         "league_id": "1367866852939685888",
         "league_name": "#SFB16 - Donkey Kong 64",
         "draft_id": "1367866853958881280",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "31243809606483968",
@@ -13166,7 +13166,7 @@
           {
             "user_id": "393393817656496128",
             "username": "Biscuitmania",
-            "team_name": null,
+            "team_name": "WRs Are Overrated",
             "draft_position": 12
           },
           {
@@ -16148,8 +16148,8 @@
         "league_id": "1367188568459448320",
         "league_name": "#SFB16 - RBI Baseball",
         "draft_id": "1367188569260560384",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "437073633198731264",
@@ -19595,8 +19595,8 @@
         "league_id": "1367149802848026624",
         "league_name": "#SFB16 - The Golf Club",
         "draft_id": "1367149803582017536",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "439141573351960576",
@@ -20996,8 +20996,8 @@
         "league_id": "1366879486884220928",
         "league_name": "#SFB16 - Wario",
         "draft_id": "1366879487597232129",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "89986888722956288",
@@ -21340,7 +21340,7 @@
           },
           {
             "user_id": "726395317406216192",
-            "username": "BrandonBlancoFF",
+            "username": "BrandonBlanco",
             "team_name": null,
             "draft_position": 3
           },
@@ -22166,8 +22166,8 @@
         "league_id": "1366445707875069952",
         "league_name": "#SFB16 Atlanta - Frogger",
         "draft_id": "1366445711050162176",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "204009263637471232",
@@ -31466,7 +31466,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "drafting",
+        "draft_status": "paused",
         "draft_complete": false,
         "teams": [
           {
@@ -34763,7 +34763,7 @@
           {
             "user_id": "454886090931695616",
             "username": "DyNastyMoFo",
-            "team_name": null,
+            "team_name": "DyNastyMoFo",
             "draft_position": 11
           },
           {
@@ -35048,7 +35048,7 @@
           {
             "user_id": "188721962556596224",
             "username": "bloodfarts2",
-            "team_name": null,
+            "team_name": "Mantis Toboggan, M.D.",
             "draft_position": 12
           },
           {
@@ -35646,12 +35646,6 @@
             "draft_position": 2
           },
           {
-            "user_id": "341875577784897536",
-            "username": "ShaneSays",
-            "team_name": null,
-            "draft_position": 10
-          },
-          {
             "user_id": "440206459532210176",
             "username": "JawnRule",
             "team_name": "TwoMews, One Bowl",
@@ -35714,6 +35708,12 @@
           {
             "user_id": "851273550529671168",
             "username": "ColinMcT",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
+            "user_id": "981656424688177152",
+            "username": "Agbulit09",
             "team_name": null,
             "draft_position": null
           },
@@ -38547,6 +38547,12 @@
             "draft_position": null
           },
           {
+            "user_id": "571173946228506624",
+            "username": "derickbd",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
             "user_id": "601920288858382336",
             "username": "LucasdosAnjos",
             "team_name": null,
@@ -39587,7 +39593,7 @@
           {
             "user_id": "1115287298997948416",
             "username": "Commishyy",
-            "team_name": null,
+            "team_name": "Da Price is Wrong, Pitts",
             "draft_position": 12
           }
         ]
