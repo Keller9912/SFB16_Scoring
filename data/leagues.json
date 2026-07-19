@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T00:06:50.452Z",
+  "generated_at": "2026-07-19T03:49:32.754Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -1208,7 +1208,7 @@
         "league_id": "72117",
         "league_name": "#SFB16 - Pitfall",
         "roster_size": 20,
-        "draft_complete": false,
+        "draft_complete": true,
         "teams": [
           {
             "franchise_id": "0001",
@@ -3905,7 +3905,7 @@
           {
             "user_id": "479836674134634496",
             "username": "itsfoamie",
-            "team_name": null,
+            "team_name": "Team Uncivilized",
             "draft_position": 9
           },
           {
@@ -3965,7 +3965,7 @@
           {
             "user_id": "1378782125997723648",
             "username": "peterkeding",
-            "team_name": null,
+            "team_name": "Jacksonville Jaguars",
             "draft_position": 8
           }
         ]
@@ -7352,8 +7352,8 @@
         "league_id": "1367866796178173952",
         "league_name": "#SFB16 - Donkey Kong Country",
         "draft_id": "1367866796983459840",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "80049498529087488",
@@ -14351,8 +14351,8 @@
         "league_id": "1367661999051255808",
         "league_name": "#SFB16 - NHL94",
         "draft_id": "1367662000192094208",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "333300742045589504",
@@ -15776,8 +15776,8 @@
         "league_id": "1367262303409405952",
         "league_name": "#SFB16 - Pokémon Red and Blue",
         "draft_id": "1367262304076304384",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "193861810074427392",
@@ -24740,8 +24740,8 @@
         "league_id": "1366439871425556480",
         "league_name": "#SFB16 Chicago - Donkey Kong Country",
         "draft_id": "1366439873023602688",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "203517081663049728",
@@ -30227,7 +30227,7 @@
           {
             "user_id": "718303231394013184",
             "username": "Ciaran23",
-            "team_name": "insert_player_pun_here",
+            "team_name": "London Calling",
             "draft_position": 4
           },
           {
@@ -31466,7 +31466,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "drafting",
+        "draft_status": "paused",
         "draft_complete": false,
         "teams": [
           {
@@ -34916,7 +34916,7 @@
           {
             "user_id": "966901444177694720",
             "username": "Opeth666",
-            "team_name": null,
+            "team_name": "Thanos was right!",
             "draft_position": 11
           }
         ]
@@ -35460,9 +35460,9 @@
             "draft_position": 2
           },
           {
-            "user_id": "616016035853836288",
-            "username": "Pfirshizzle",
-            "team_name": null,
+            "user_id": "738234832441729024",
+            "username": "DaCommish111",
+            "team_name": "Drunk Muppets",
             "draft_position": 4
           },
           {
