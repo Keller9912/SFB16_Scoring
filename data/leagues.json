@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T21:32:48.663Z",
+  "generated_at": "2026-07-19T22:33:01.686Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -1048,7 +1048,7 @@
         "league_id": "61959",
         "league_name": "#SFB16 - Ice Hockey",
         "roster_size": 20,
-        "draft_complete": false,
+        "draft_complete": true,
         "teams": [
           {
             "franchise_id": "0001",
@@ -19502,8 +19502,8 @@
         "league_id": "1367149905503588352",
         "league_name": "#SFB16 - The Elder Scrolls V: Skyrim",
         "draft_id": "1367149906480857088",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "334745861420507136",
@@ -21473,8 +21473,8 @@
         "league_id": "1366878698623496192",
         "league_name": "#SFB16 - You Don’t Know Jack",
         "draft_id": "1366878699357491200",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "78552902868025344",
@@ -23810,12 +23810,6 @@
           {
             "user_id": "594202516166594560",
             "username": "AndrewCooper",
-            "team_name": null,
-            "draft_position": null
-          },
-          {
-            "user_id": "717456998110679040",
-            "username": "ssilva82",
             "team_name": null,
             "draft_position": null
           },
@@ -32044,8 +32038,8 @@
           },
           {
             "user_id": "1200105035703259136",
-            "username": "Feelinglucky13",
-            "team_name": null,
+            "username": "FeelingLucky13",
+            "team_name": "FeelingLucky13 ",
             "draft_position": 3
           },
           {
@@ -35090,7 +35084,7 @@
           {
             "user_id": "631291967837564928",
             "username": "Vinzizzlet",
-            "team_name": "Anakin",
+            "team_name": "Anakin or Vin Jarin (tbd)",
             "draft_position": 1
           },
           {
@@ -35226,12 +35220,6 @@
             "draft_position": 1
           },
           {
-            "user_id": "432629744085778432",
-            "username": "jeffratcliffe",
-            "team_name": null,
-            "draft_position": null
-          },
-          {
             "user_id": "451159606928863232",
             "username": "IFSEsq",
             "team_name": null,
@@ -35337,12 +35325,6 @@
             "draft_position": 10
           },
           {
-            "user_id": "432629744085778432",
-            "username": "jeffratcliffe",
-            "team_name": null,
-            "draft_position": null
-          },
-          {
             "user_id": "452692167064809472",
             "username": "JPeekFF",
             "team_name": null,
@@ -35434,12 +35416,6 @@
             "username": "billsnewera",
             "team_name": null,
             "draft_position": 8
-          },
-          {
-            "user_id": "432629744085778432",
-            "username": "jeffratcliffe",
-            "team_name": null,
-            "draft_position": null
           },
           {
             "user_id": "452692167064809472",
@@ -35658,12 +35634,6 @@
             "draft_position": 2
           },
           {
-            "user_id": "432629744085778432",
-            "username": "jeffratcliffe",
-            "team_name": null,
-            "draft_position": null
-          },
-          {
             "user_id": "440206459532210176",
             "username": "JawnRule",
             "team_name": "TwoMews, One Bowl",
@@ -35755,12 +35725,6 @@
             "username": "Jeremy_D",
             "team_name": null,
             "draft_position": 8
-          },
-          {
-            "user_id": "432629744085778432",
-            "username": "jeffratcliffe",
-            "team_name": null,
-            "draft_position": null
           },
           {
             "user_id": "440774379664568320",
@@ -35874,12 +35838,6 @@
             "draft_position": 5
           },
           {
-            "user_id": "432629744085778432",
-            "username": "jeffratcliffe",
-            "team_name": null,
-            "draft_position": null
-          },
-          {
             "user_id": "441249760259600384",
             "username": "DJB4",
             "team_name": null,
@@ -35971,12 +35929,6 @@
             "username": "Skappy625",
             "team_name": null,
             "draft_position": 3
-          },
-          {
-            "user_id": "432629744085778432",
-            "username": "jeffratcliffe",
-            "team_name": null,
-            "draft_position": null
           },
           {
             "user_id": "447102440186048512",
