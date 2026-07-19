@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T16:33:30.020Z",
+  "generated_at": "2026-07-19T17:40:24.972Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -88,7 +88,7 @@
         "league_id": "15797",
         "league_name": "#SFB16 - NHL 2021",
         "roster_size": 20,
-        "draft_complete": false,
+        "draft_complete": true,
         "teams": [
           {
             "franchise_id": "0001",
@@ -4631,8 +4631,8 @@
         "league_id": "1367870433398915072",
         "league_name": "#SFB16 - Boris (GoldenEye 007)",
         "draft_id": "1367870434288078848",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "204740363250827264",
@@ -20753,7 +20753,7 @@
           {
             "user_id": "588087598963003392",
             "username": "CreamyRick",
-            "team_name": "Jaxson and Daxter",
+            "team_name": "Hector AlcaJa’Marr",
             "draft_position": 3
           },
           {
@@ -26876,7 +26876,7 @@
         "league_id": "1366434942342434816",
         "league_name": "#SFB16 Dallas - Doom Slayer (DOOM)",
         "draft_id": "1366434943848173568",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -26884,12 +26884,6 @@
             "username": "KaceyKasem",
             "team_name": null,
             "draft_position": null
-          },
-          {
-            "user_id": "339068893370793984",
-            "username": "patels250",
-            "team_name": null,
-            "draft_position": 4
           },
           {
             "user_id": "428356183263285248",
@@ -26972,8 +26966,14 @@
           {
             "user_id": "1050974313265967104",
             "username": "DemMijos",
-            "team_name": null,
+            "team_name": "Shane Garza",
             "draft_position": 2
+          },
+          {
+            "user_id": "1384618806952861696",
+            "username": "NoahNM1",
+            "team_name": null,
+            "draft_position": 4
           }
         ]
       },
@@ -26981,7 +26981,7 @@
         "league_id": "1366434758053081088",
         "league_name": "#SFB16 Dallas - Duck Hunt",
         "draft_id": "1366434759642730496",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -27086,7 +27086,7 @@
         "league_id": "1366434540586799104",
         "league_name": "#SFB16 Dallas - GoldenEye 007",
         "draft_id": "1366434542138687488",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -27191,7 +27191,7 @@
         "league_id": "1366434238693412864",
         "league_name": "#SFB16 Dallas - John Madden Football",
         "draft_id": "1366434240324988928",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -27296,7 +27296,7 @@
         "league_id": "1366433787281432576",
         "league_name": "#SFB16 Dallas - Mortal Kombat",
         "draft_id": "1366433788774617088",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -27388,6 +27388,12 @@
             "username": "happymind",
             "team_name": "First Round Grade",
             "draft_position": 9
+          },
+          {
+            "user_id": "1384586008896479232",
+            "username": "BigBabyFetus",
+            "team_name": null,
+            "draft_position": 1
           }
         ]
       },
@@ -30371,7 +30377,7 @@
         "league_id": "1366417533124501504",
         "league_name": "#SFB16 Madison - Kingdom Hearts",
         "draft_id": "1366417534659600384",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -30470,7 +30476,7 @@
         "league_id": "1366417325850394624",
         "league_name": "#SFB16 Madison - Pokémon",
         "draft_id": "1366417327343566848",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -30569,7 +30575,7 @@
         "league_id": "1366417095738281984",
         "league_name": "#SFB16 Madison - RollerCoaster Tycoon",
         "draft_id": "1366417097365655552",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -30668,7 +30674,7 @@
         "league_id": "1366416883137388544",
         "league_name": "#SFB16 Madison - Super Smash Bros",
         "draft_id": "1366416885012234240",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -35220,6 +35226,12 @@
             "draft_position": 1
           },
           {
+            "user_id": "432629744085778432",
+            "username": "jeffratcliffe",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
             "user_id": "451159606928863232",
             "username": "IFSEsq",
             "team_name": null,
@@ -35325,16 +35337,22 @@
             "draft_position": 10
           },
           {
+            "user_id": "432629744085778432",
+            "username": "jeffratcliffe",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
             "user_id": "452692167064809472",
             "username": "JPeekFF",
             "team_name": null,
-            "draft_position": 11
+            "draft_position": null
           },
           {
             "user_id": "465959683518099456",
             "username": "CarterRighi",
             "team_name": "Char Lazard",
-            "draft_position": null
+            "draft_position": 11
           },
           {
             "user_id": "467159204226920448",
@@ -35416,6 +35434,12 @@
             "username": "billsnewera",
             "team_name": null,
             "draft_position": 8
+          },
+          {
+            "user_id": "432629744085778432",
+            "username": "jeffratcliffe",
+            "team_name": null,
+            "draft_position": null
           },
           {
             "user_id": "452692167064809472",
