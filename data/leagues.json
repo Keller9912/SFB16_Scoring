@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T12:11:41.834Z",
+  "generated_at": "2026-07-19T13:49:46.068Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -728,7 +728,7 @@
         "league_id": "44962",
         "league_name": "#SFB16 - Tetris",
         "roster_size": 20,
-        "draft_complete": false,
+        "draft_complete": true,
         "teams": [
           {
             "franchise_id": "0001",
@@ -20717,8 +20717,8 @@
         "league_id": "1366879822541783040",
         "league_name": "#SFB16 - Uncharted 4: A Thiefs End",
         "draft_id": "1366879823594545152",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79604502483058688",
@@ -23426,7 +23426,7 @@
           {
             "user_id": "728587183233015808",
             "username": "FantasyGranny",
-            "team_name": null,
+            "team_name": "Jaws of Victory",
             "draft_position": 5
           },
           {
@@ -23462,7 +23462,7 @@
           {
             "user_id": "1345180611471474688",
             "username": "dsqrdman01",
-            "team_name": null,
+            "team_name": "007th Pick",
             "draft_position": 7
           }
         ]
@@ -23660,7 +23660,7 @@
           {
             "user_id": "1369428021433335808",
             "username": "lakersbsk15",
-            "team_name": null,
+            "team_name": "SlappersOnly11",
             "draft_position": 1
           }
         ]
@@ -27011,7 +27011,7 @@
           {
             "user_id": "372892253666021376",
             "username": "WSDIII13",
-            "team_name": null,
+            "team_name": "Ha Ha Clinton-Dixons",
             "draft_position": 3
           },
           {
@@ -27368,7 +27368,7 @@
           {
             "user_id": "1001942679900495872",
             "username": "tjmaher",
-            "team_name": null,
+            "team_name": "Netherrealm Nightmares",
             "draft_position": 11
           },
           {
@@ -30548,7 +30548,7 @@
           {
             "user_id": "788478895107239936",
             "username": "mattchamp",
-            "team_name": "Slag Heap Bears ",
+            "team_name": "The Puka Rockets ",
             "draft_position": 1
           },
           {
@@ -35060,13 +35060,13 @@
           {
             "user_id": "409581899825029120",
             "username": "NoFiNhope",
-            "team_name": null,
+            "team_name": "GeneralWheeze",
             "draft_position": 3
           },
           {
             "user_id": "424750908522369024",
             "username": "AlexSalvo19",
-            "team_name": "Senator Binks",
+            "team_name": "Gonk Droid",
             "draft_position": 11
           },
           {
@@ -35748,7 +35748,7 @@
             "user_id": "606152723628371968",
             "username": "whalesvag1na",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 6
           },
           {
             "user_id": "667564984489832448",
@@ -37458,12 +37458,6 @@
             "draft_position": 8
           },
           {
-            "user_id": "471159527396339712",
-            "username": "ECUBONEDOC",
-            "team_name": null,
-            "draft_position": 3
-          },
-          {
             "user_id": "477563853727592448",
             "username": "ScaryT",
             "team_name": null,
@@ -37498,6 +37492,12 @@
             "username": "gryantharris3",
             "team_name": null,
             "draft_position": 2
+          },
+          {
+            "user_id": "868660030747119616",
+            "username": "holleratchaboyd",
+            "team_name": null,
+            "draft_position": 3
           },
           {
             "user_id": "1106081234033360896",
