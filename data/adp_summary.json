@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T08:56:50.317Z",
+  "generated_at": "2026-07-19T10:27:52.618Z",
   "source_drafts": 402,
   "player_count": 397,
   "players": [
@@ -205,10 +205,10 @@
       "adp": 14.92,
       "min": 2,
       "max": 43,
-      "stddev": 6.54,
-      "count": 357,
+      "stddev": 6.53,
+      "count": 358,
       "platforms": {
-        "Sleeper": 340,
+        "Sleeper": 341,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2632,13 +2632,13 @@
       "name": "Woody Marks",
       "position": "RB",
       "team": "HOU",
-      "adp": 174.81,
+      "adp": 174.8,
       "min": 126,
       "max": 223,
-      "stddev": 17.93,
-      "count": 320,
+      "stddev": 17.9,
+      "count": 321,
       "platforms": {
-        "Sleeper": 305,
+        "Sleeper": 306,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -2722,13 +2722,13 @@
       "name": "Adonai Mitchell",
       "position": "WR",
       "team": "NYJ",
-      "adp": 177.98,
+      "adp": 178.03,
       "min": 122,
       "max": 227,
       "stddev": 15.02,
-      "count": 317,
+      "count": 318,
       "platforms": {
-        "Sleeper": 300,
+        "Sleeper": 301,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2737,13 +2737,13 @@
       "name": "Chris Rodriguez",
       "position": "RB",
       "team": "JAX",
-      "adp": 179.19,
+      "adp": 179.16,
       "min": 133,
       "max": 226,
-      "stddev": 14.94,
-      "count": 312,
+      "stddev": 14.92,
+      "count": 313,
       "platforms": {
-        "Sleeper": 297,
+        "Sleeper": 298,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -3022,13 +3022,13 @@
       "name": "Dylan Sampson",
       "position": "RB",
       "team": "CLE",
-      "adp": 194.25,
+      "adp": 194.19,
       "min": 128,
       "max": 238,
       "stddev": 17.73,
-      "count": 284,
+      "count": 285,
       "platforms": {
-        "Sleeper": 274,
+        "Sleeper": 275,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -3127,13 +3127,13 @@
       "name": "Evan Engram",
       "position": "TE",
       "team": "DEN",
-      "adp": 201.92,
+      "adp": 201.94,
       "min": 35,
       "max": 240,
-      "stddev": 20.94,
-      "count": 234,
+      "stddev": 20.88,
+      "count": 236,
       "platforms": {
-        "Sleeper": 220,
+        "Sleeper": 222,
         "MFL": 14
       },
       "platformLabel": "Both"
@@ -3172,13 +3172,13 @@
       "name": "Deshaun Watson",
       "position": "QB",
       "team": "CLE",
-      "adp": 202.47,
+      "adp": 202.49,
       "min": 136,
       "max": 240,
-      "stddev": 21.8,
-      "count": 232,
+      "stddev": 21.75,
+      "count": 233,
       "platforms": {
-        "Sleeper": 218,
+        "Sleeper": 219,
         "MFL": 14
       },
       "platformLabel": "Both"
@@ -3262,13 +3262,13 @@
       "name": "Nicholas Singleton",
       "position": "RB",
       "team": "TEN",
-      "adp": 205.08,
+      "adp": 205.11,
       "min": 125,
       "max": 240,
-      "stddev": 18.99,
-      "count": 246,
+      "stddev": 18.95,
+      "count": 247,
       "platforms": {
-        "Sleeper": 238,
+        "Sleeper": 239,
         "MFL": 8
       },
       "platformLabel": "Both"
@@ -3382,13 +3382,13 @@
       "name": "Braelon Allen",
       "position": "RB",
       "team": "NYJ",
-      "adp": 207.08,
+      "adp": 207.11,
       "min": 150,
       "max": 240,
-      "stddev": 17.76,
-      "count": 222,
+      "stddev": 17.72,
+      "count": 223,
       "platforms": {
-        "Sleeper": 213,
+        "Sleeper": 214,
         "MFL": 9
       },
       "platformLabel": "Both"
@@ -3757,13 +3757,13 @@
       "name": "MarShawn Lloyd",
       "position": "RB",
       "team": "GB",
-      "adp": 213.93,
+      "adp": 214.08,
       "min": 165,
       "max": 240,
-      "stddev": 17.77,
-      "count": 126,
+      "stddev": 17.78,
+      "count": 127,
       "platforms": {
-        "Sleeper": 116,
+        "Sleeper": 117,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -4984,21 +4984,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Bryce Lance",
-      "position": "WR",
-      "team": "NO",
-      "adp": 227.33,
-      "min": 205,
-      "max": 239,
-      "stddev": 10.45,
-      "count": 12,
-      "platforms": {
-        "Sleeper": 11,
-        "MFL": 1
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Treylon Burks",
       "position": "WR",
       "team": "WAS",
@@ -5009,6 +4994,21 @@
       "count": 23,
       "platforms": {
         "Sleeper": 22,
+        "MFL": 1
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Bryce Lance",
+      "position": "WR",
+      "team": "NO",
+      "adp": 227.54,
+      "min": 205,
+      "max": 239,
+      "stddev": 10.07,
+      "count": 13,
+      "platforms": {
+        "Sleeper": 12,
         "MFL": 1
       },
       "platformLabel": "Both"
