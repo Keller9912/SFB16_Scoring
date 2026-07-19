@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T13:49:46.068Z",
+  "generated_at": "2026-07-19T14:45:58.941Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -22061,7 +22061,7 @@
         "league_id": "1366445934543654912",
         "league_name": "#SFB16 Atlanta - Burger Time",
         "draft_id": "1366445936066199552",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -30377,7 +30377,7 @@
           {
             "user_id": "205233488981401600",
             "username": "jonk",
-            "team_name": null,
+            "team_name": "No Punt Intended",
             "draft_position": 6
           },
           {
@@ -30419,7 +30419,7 @@
           {
             "user_id": "733457528867897344",
             "username": "erikacharais",
-            "team_name": null,
+            "team_name": "That’s What Cheesehead",
             "draft_position": 8
           },
           {
@@ -31466,7 +31466,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -31565,8 +31565,8 @@
         "league_id": "1366408782531293184",
         "league_name": "#SFB16 Michigan - Cabela's Ultimate Deer Hunt",
         "draft_id": "1366408783756009472",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "85531144736882688",
