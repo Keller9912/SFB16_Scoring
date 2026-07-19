@@ -393,8 +393,7 @@
     }
 
     selectedTeamKey = match.key;
-    renderRankings();
-    document.getElementById('team-detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    renderRankings({ scrollToRow: true });
   }
 
   document.addEventListener('click', e => {
@@ -649,7 +648,7 @@
     return teamsInLeague.reduce((best, t) => (t.top10Projection > best.top10Projection ? t : best), teamsInLeague[0]);
   }
 
-  function renderRankings() {
+  function renderRankings(options = {}) {
     const body = document.getElementById('rankings-body');
     const summaryGrid = document.getElementById('summary-grid');
     const detail = document.getElementById('team-detail');
@@ -696,28 +695,37 @@
       });
     });
 
+    // Auto-scroll the table to the highlighted row - lets a search match (which
+    // could be ranked anywhere from #1 to #5,000+) show up without the user
+    // having to manually hunt through the list to find it.
+    if (options.scrollToRow) {
+      const targetRow = Array.from(body.children).find(tr => tr.getAttribute('data-key') === selectedTeamKey);
+      if (targetRow) targetRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
     const topTeam = displayRankings[0];
-    const scopeLabel = comparisonScope === 'division' ? 'In this division' : 'Across all loaded leagues';
+    const activeRank = activeTeam ? displayRankings.findIndex(t => t.key === activeTeam.key) + 1 : 0;
+    const rankSub = comparisonScope === 'division' ? `of ${displayRankings.length} in division` : `of ${displayRankings.length.toLocaleString()} teams`;
     summaryGrid.innerHTML = `
       <div class="summary-card">
-        <div class="label">Teams</div>
-        <div class="value">${displayRankings.length}</div>
-        <div class="sub">${scopeLabel}</div>
+        <div class="label">${activeTeam ? activeTeam.teamName : 'Rank'}</div>
+        <div class="value">${activeRank ? `#${activeRank.toLocaleString()}` : '—'}</div>
+        <div class="sub">${rankSub}</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">Selected Team Top 10</div>
+        <div class="value">${activeTeam ? activeTeam.top10Projection.toFixed(1) : '0.0'}</div>
+        <div class="sub">${activeTeam ? `Whole team: ${activeTeam.wholeTeamProjection.toFixed(1)}` : '—'}</div>
       </div>
       <div class="summary-card">
         <div class="label">Top Team</div>
         <div class="value">${topTeam ? topTeam.teamName : '—'}</div>
-        <div class="sub">${topTeam ? topTeam.top10Projection.toFixed(1) : '0.0'} pts top-10</div>
+        <div class="sub">${topTeam ? topTeam.leagueName : '—'}</div>
       </div>
       <div class="summary-card">
-        <div class="label">Top 10 Avg</div>
-        <div class="value">${displayRankings.length ? (displayRankings.reduce((sum, team) => sum + team.top10Projection, 0) / displayRankings.length).toFixed(1) : '0.0'}</div>
-        <div class="sub">Per team projection</div>
-      </div>
-      <div class="summary-card">
-        <div class="label">${comparisonScope === 'division' ? 'Division' : 'League'}</div>
-        <div class="value">${activeTeam ? activeTeam.leagueName : '—'}</div>
-        <div class="sub">${activeTeam ? activeTeam.platform : '—'}</div>
+        <div class="label">Top Team Top 10</div>
+        <div class="value">${topTeam ? topTeam.top10Projection.toFixed(1) : '0.0'}</div>
+        <div class="sub">${topTeam ? `Whole team: ${topTeam.wholeTeamProjection.toFixed(1)}` : '—'}</div>
       </div>`;
 
     if (!activeTeam) {
