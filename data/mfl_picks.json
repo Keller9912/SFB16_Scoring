@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T16:27:42.090Z",
+  "generated_at": "2026-07-19T17:34:07.118Z",
   "leagues": [
     {
       "id": "14494",
@@ -4371,6 +4371,24 @@
       "pick_no": 238,
       "round": 20,
       "franchise_id": "0003",
+      "league_id": "15797"
+    },
+    {
+      "name": "Noah Gray",
+      "pos": "TE",
+      "team": "KCC",
+      "pick_no": 239,
+      "round": 20,
+      "franchise_id": "0002",
+      "league_id": "15797"
+    },
+    {
+      "name": "Emanuel Wilson",
+      "pos": "RB",
+      "team": "SEA",
+      "pick_no": 240,
+      "round": 20,
+      "franchise_id": "0001",
       "league_id": "15797"
     },
     {
@@ -25155,6 +25173,24 @@
       "league_id": "54792"
     },
     {
+      "name": "Eli Stowers",
+      "pos": "TE",
+      "team": "PHI",
+      "pick_no": 204,
+      "round": 17,
+      "franchise_id": "0012",
+      "league_id": "54792"
+    },
+    {
+      "name": "Brandon Aiyuk",
+      "pos": "WR",
+      "team": "SFO",
+      "pick_no": 205,
+      "round": 18,
+      "franchise_id": "0012",
+      "league_id": "54792"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -34629,6 +34665,51 @@
       "pick_no": 213,
       "round": 18,
       "franchise_id": "0004",
+      "league_id": "73136"
+    },
+    {
+      "name": "Chris Rodriguez",
+      "pos": "RB",
+      "team": "JAC",
+      "pick_no": 214,
+      "round": 18,
+      "franchise_id": "0003",
+      "league_id": "73136"
+    },
+    {
+      "name": "Elijah Arroyo",
+      "pos": "TE",
+      "team": "SEA",
+      "pick_no": 215,
+      "round": 18,
+      "franchise_id": "0002",
+      "league_id": "73136"
+    },
+    {
+      "name": "Nicholas Singleton",
+      "pos": "RB",
+      "team": "TEN",
+      "pick_no": 216,
+      "round": 18,
+      "franchise_id": "0001",
+      "league_id": "73136"
+    },
+    {
+      "name": "George Holani",
+      "pos": "RB",
+      "team": "SEA",
+      "pick_no": 217,
+      "round": 19,
+      "franchise_id": "0001",
+      "league_id": "73136"
+    },
+    {
+      "name": "Jaylin Noel",
+      "pos": "WR",
+      "team": "HOU",
+      "pick_no": 218,
+      "round": 19,
+      "franchise_id": "0002",
       "league_id": "73136"
     }
   ]
