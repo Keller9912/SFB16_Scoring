@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T11:43:25.878Z",
+  "generated_at": "2026-07-19T12:39:20.945Z",
   "leagues": [
     {
       "id": "14494",
@@ -21069,6 +21069,15 @@
       "league_id": "44962"
     },
     {
+      "name": "Chimere Dike",
+      "pos": "WR",
+      "team": "TEN",
+      "pick_no": 240,
+      "round": 20,
+      "franchise_id": "0001",
+      "league_id": "44962"
+    },
+    {
       "name": "Puka Nacua",
       "pos": "WR",
       "team": "LAR",
@@ -28782,6 +28791,69 @@
       "league_id": "61959"
     },
     {
+      "name": "Mack Hollins",
+      "pos": "WR",
+      "team": "NEP",
+      "pick_no": 227,
+      "round": 19,
+      "franchise_id": "0011",
+      "league_id": "61959"
+    },
+    {
+      "name": "Mike Washington Jr.",
+      "pos": "RB",
+      "team": "LVR",
+      "pick_no": 228,
+      "round": 19,
+      "franchise_id": "0012",
+      "league_id": "61959"
+    },
+    {
+      "name": "Adam Randall",
+      "pos": "RB",
+      "team": "BAL",
+      "pick_no": 229,
+      "round": 20,
+      "franchise_id": "0012",
+      "league_id": "61959"
+    },
+    {
+      "name": "Noah Fant",
+      "pos": "TE",
+      "team": "NOS",
+      "pick_no": 230,
+      "round": 20,
+      "franchise_id": "0011",
+      "league_id": "61959"
+    },
+    {
+      "name": "Jaylin Noel",
+      "pos": "WR",
+      "team": "HOU",
+      "pick_no": 231,
+      "round": 20,
+      "franchise_id": "0010",
+      "league_id": "61959"
+    },
+    {
+      "name": "Marvin Mims",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 232,
+      "round": 20,
+      "franchise_id": "0009",
+      "league_id": "61959"
+    },
+    {
+      "name": "Devin Singletary",
+      "pos": "RB",
+      "team": "NYG",
+      "pick_no": 233,
+      "round": 20,
+      "franchise_id": "0008",
+      "league_id": "61959"
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -34359,6 +34431,24 @@
       "pick_no": 205,
       "round": 18,
       "franchise_id": "0012",
+      "league_id": "73136"
+    },
+    {
+      "name": "Isiah Pacheco",
+      "pos": "RB",
+      "team": "DET",
+      "pick_no": 206,
+      "round": 18,
+      "franchise_id": "0011",
+      "league_id": "73136"
+    },
+    {
+      "name": "Troy Franklin",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 207,
+      "round": 18,
+      "franchise_id": "0010",
       "league_id": "73136"
     }
   ]
