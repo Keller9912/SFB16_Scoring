@@ -89,6 +89,15 @@
     .detail-row .pos { font-weight: 700; color: #60a5fa; font-size: 0.69rem; text-transform: uppercase; }
     .detail-row .score { color: #f5c542; font-weight: 700; font-variant-numeric: tabular-nums; }
     .empty-state { color: #666; text-align: center; padding: 20px 8px; font-size: 0.82rem; }
+    .scope-toggle { display: flex; gap: 6px; }
+    .scope-btn {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2px;
+      padding: 6px 12px; border-radius: 999px; cursor: pointer;
+      background: #12102a; color: #a0a0c0; border: 1px solid #7c3aed33;
+    }
+    .scope-btn:hover { border-color: #7c3aed77; color: #e8e8f0; }
+    .scope-btn.active { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+    .scope-btn:disabled { opacity: 0.4; cursor: not-allowed; }
     .progress-wrap {
       margin-top: 10px; height: 6px; border-radius: 999px; background: #12102a;
       border: 1px solid #ffffff08; overflow: hidden; display: none;
@@ -126,7 +135,13 @@
 <div id="rankings-panel" style="display:none">
   <div class="summary-grid" id="summary-grid"></div>
 
-  <div class="section-title">Team Ranking</div>
+  <div class="section-title" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+    <span>Team Ranking</span>
+    <div class="scope-toggle" id="scope-toggle">
+      <button type="button" class="scope-btn" data-scope="all">Compare: All Teams</button>
+      <button type="button" class="scope-btn" data-scope="division">Compare: This Division</button>
+    </div>
+  </div>
   <div class="table-wrap">
     <table class="rank-table" id="rankings-table">
       <thead>
@@ -169,6 +184,8 @@
   let projData = [];
   let currentRankings = [];
   let selectedTeamKey = null;
+  let comparisonScope = 'all'; // 'all' | 'division'
+  let rankingsLoadPromise = null;
 
   function normName(s) {
     return (s || '')
@@ -352,13 +369,32 @@
     });
   }
 
-  function selectSearchResult(row) {
+  async function selectSearchResult(row) {
     document.getElementById('search-results').style.display = 'none';
     document.getElementById('setup-error').style.display = 'none';
-    if (row.kind === 'team' && row.candidate?.league_id) {
+    if (row.candidate?.league_id) {
       document.getElementById('league-search').value = row.label;
     }
-    loadLeague(row.candidate);
+
+    // Rankings may still be mid-load the first time someone searches; wait for
+    // that to finish rather than kicking off a second full reload.
+    if (rankingsLoadPromise) {
+      document.getElementById('setup-hint').textContent = 'Finishing initial load, hang tight…';
+      await rankingsLoadPromise;
+    }
+
+    const match = row.kind === 'team' ? findTeamForCandidate(row.candidate) : findTopTeamForLeague(row.candidate);
+
+    if (!match) {
+      document.getElementById('setup-error').textContent =
+        `Couldn't find "${row.label}" in the loaded rankings yet. It may still be drafting or its data hasn't synced.`;
+      document.getElementById('setup-error').style.display = 'block';
+      return;
+    }
+
+    selectedTeamKey = match.key;
+    renderRankings();
+    document.getElementById('team-detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   document.addEventListener('click', e => {
@@ -475,7 +511,7 @@
         return { name, pos, team, projPts: parseProjValue(projRow) };
       });
       if (allPlayers.length) {
-        entries.push(buildEntry(
+        const entry = buildEntry(
           teamName,
           lg.league_name,
           'Sleeper',
@@ -484,7 +520,9 @@
           allPlayers,
           selectTopPlayers(allPlayers),
           allPlayers
-        ));
+        );
+        entry.ownerId = String(roster.owner_id || '');
+        entries.push(entry);
       }
     });
     return entries;
@@ -503,7 +541,7 @@
           projPts: parseProjValue(findProj(p.name, p.pos, p.team)),
         }));
         if (allPlayers.length) {
-          entries.push(buildEntry(
+          const entry = buildEntry(
             team.team_name || `Team ${team.franchise_id}`,
             lg.league_name,
             'MFL',
@@ -512,7 +550,9 @@
             allPlayers,
             selectTopPlayers(allPlayers),
             allPlayers
-          ));
+          );
+          entry.franchiseId = String(team.franchise_id || '');
+          entries.push(entry);
         }
       });
     });
@@ -520,9 +560,7 @@
   }
 
   // Loads every team across every MFL + Sleeper league once, in parallel batches.
-  // `choice` is currently unused for filtering (the ranking is always computed
-  // across all leagues) but is kept so a future "just this league" view is easy to add.
-  async function loadLeague(choice) {
+  async function loadLeague() {
     document.getElementById('rankings-panel').style.display = 'none';
     document.getElementById('setup-error').style.display = 'none';
     setProgress(0, 'Loading league directory…');
@@ -575,6 +613,42 @@
     document.getElementById('setup-hint').textContent = `Loaded ${rankings.length.toLocaleString()} teams across ${new Set(rankings.map(r => r.leagueId)).size.toLocaleString()} leagues.`;
   }
 
+  // Finds the team a search result refers to inside the already-loaded rankings,
+  // rather than re-fetching all ~5,000 teams again just to select one.
+  // Sleeper search results don't carry a roster_id (Sleeper's user/league endpoints
+  // key by user_id, not roster_id), so we match on the owner's user_id instead.
+  function findTeamForCandidate(candidate) {
+    if (!candidate) return null;
+    const platform = (candidate.platform || '').toLowerCase();
+    if (platform === 'mfl') {
+      return currentRankings.find(t =>
+        t.platform === 'MFL' &&
+        String(t.leagueId) === String(candidate.league_id) &&
+        String(t.franchiseId) === String(candidate.franchise_id)
+      ) || null;
+    }
+    if (platform === 'sleeper') {
+      return currentRankings.find(t =>
+        t.platform === 'Sleeper' &&
+        String(t.leagueId) === String(candidate.league_id) &&
+        String(t.ownerId) === String(candidate.user_id)
+      ) || null;
+    }
+    return null;
+  }
+
+  // Best team in a given league, used when the search result is a whole league
+  // rather than one specific team.
+  function findTopTeamForLeague(candidate) {
+    if (!candidate) return null;
+    const platformLabel = (candidate.platform || '').toLowerCase() === 'mfl' ? 'MFL' : 'Sleeper';
+    const teamsInLeague = currentRankings.filter(t =>
+      t.platform === platformLabel && String(t.leagueId) === String(candidate.league_id)
+    );
+    if (!teamsInLeague.length) return null;
+    return teamsInLeague.reduce((best, t) => (t.top10Projection > best.top10Projection ? t : best), teamsInLeague[0]);
+  }
+
   function renderRankings() {
     const body = document.getElementById('rankings-body');
     const summaryGrid = document.getElementById('summary-grid');
@@ -587,7 +661,26 @@
       return;
     }
 
-    body.innerHTML = currentRankings.map((team, idx) => `
+    const activeTeam = currentRankings.find(team => team.key === selectedTeamKey) || currentRankings[0];
+
+    // "This Division" scopes the table down to just the selected team's own
+    // league, ranked against its own leaguemates instead of every team loaded.
+    const displayRankings = (comparisonScope === 'division' && activeTeam)
+      ? currentRankings
+          .filter(t => t.platform === activeTeam.platform && t.leagueId === activeTeam.leagueId)
+          .sort((a, b) => b.top10Projection - a.top10Projection || b.wholeTeamProjection - a.wholeTeamProjection || a.teamName.localeCompare(b.teamName))
+      : currentRankings;
+
+    // Wire up the scope toggle buttons.
+    document.querySelectorAll('#scope-toggle .scope-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.scope === comparisonScope);
+      btn.onclick = () => {
+        comparisonScope = btn.dataset.scope;
+        renderRankings();
+      };
+    });
+
+    body.innerHTML = displayRankings.map((team, idx) => `
       <tr data-key="${team.key}" class="${team.key === selectedTeamKey ? 'selected' : ''}">
         <td>${idx + 1}</td>
         <td>${team.teamName}</td>
@@ -603,12 +696,13 @@
       });
     });
 
-    const topTeam = currentRankings[0];
+    const topTeam = displayRankings[0];
+    const scopeLabel = comparisonScope === 'division' ? 'In this division' : 'Across all loaded leagues';
     summaryGrid.innerHTML = `
       <div class="summary-card">
         <div class="label">Teams</div>
-        <div class="value">${currentRankings.length}</div>
-        <div class="sub">Across all loaded leagues</div>
+        <div class="value">${displayRankings.length}</div>
+        <div class="sub">${scopeLabel}</div>
       </div>
       <div class="summary-card">
         <div class="label">Top Team</div>
@@ -617,16 +711,15 @@
       </div>
       <div class="summary-card">
         <div class="label">Top 10 Avg</div>
-        <div class="value">${currentRankings.length ? (currentRankings.reduce((sum, team) => sum + team.top10Projection, 0) / currentRankings.length).toFixed(1) : '0.0'}</div>
+        <div class="value">${displayRankings.length ? (displayRankings.reduce((sum, team) => sum + team.top10Projection, 0) / displayRankings.length).toFixed(1) : '0.0'}</div>
         <div class="sub">Per team projection</div>
       </div>
       <div class="summary-card">
-        <div class="label">League</div>
-        <div class="value">${topTeam ? topTeam.leagueName : '—'}</div>
-        <div class="sub">${topTeam ? topTeam.platform : '—'}</div>
+        <div class="label">${comparisonScope === 'division' ? 'Division' : 'League'}</div>
+        <div class="value">${activeTeam ? activeTeam.leagueName : '—'}</div>
+        <div class="sub">${activeTeam ? activeTeam.platform : '—'}</div>
       </div>`;
 
-    const activeTeam = currentRankings.find(team => team.key === selectedTeamKey) || currentRankings[0];
     if (!activeTeam) {
       detail.innerHTML = '<div class="empty-state">No ranking available yet.</div>';
       return;
@@ -678,7 +771,9 @@
         document.getElementById('last-updated').textContent = 'Last updated: ' + m.last_updated;
       })
       .catch(() => {});
-    ensureLeaguesLoaded().then(() => loadLeague(null));
+    rankingsLoadPromise = ensureLeaguesLoaded()
+      .then(() => loadLeague())
+      .finally(() => { rankingsLoadPromise = null; });
   });
 </script>
 </body>
