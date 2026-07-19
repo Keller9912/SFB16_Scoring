@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T18:36:23.225Z",
+  "generated_at": "2026-07-19T19:51:05.410Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -8654,8 +8654,8 @@
         "league_id": "1367863938607222784",
         "league_name": "#SFB16 - Final Fantasy VII",
         "draft_id": "1367863939378999296",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79729225976135680",
@@ -12764,8 +12764,8 @@
         "league_id": "1367747404043935744",
         "league_name": "#SFB16 - Mass Effect Legendary Edition",
         "draft_id": "1367747405650366464",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "222742796488929280",
@@ -15497,8 +15497,8 @@
         "league_id": "1367262684554211328",
         "league_name": "#SFB16 - Pikachu (Pokemon)",
         "draft_id": "1367262685342744576",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "388518121209593856",
@@ -30692,7 +30692,7 @@
           {
             "user_id": "335525179071397888",
             "username": "ffdustydog",
-            "team_name": null,
+            "team_name": "Wyld Stallions",
             "draft_position": 8
           },
           {
@@ -35530,6 +35530,12 @@
             "username": "elitelasagna",
             "team_name": null,
             "draft_position": null
+          },
+          {
+            "user_id": "1269471012144029696",
+            "username": "EagleAR72",
+            "team_name": null,
+            "draft_position": null
           }
         ]
       },
@@ -37484,13 +37490,13 @@
           {
             "user_id": "318213639863566336",
             "username": "thebestestKB",
-            "team_name": null,
+            "team_name": "Fat Daddies",
             "draft_position": 11
           },
           {
             "user_id": "331457281088585728",
             "username": "TooMuchBrian",
-            "team_name": null,
+            "team_name": "WR or Bust",
             "draft_position": 12
           },
           {
@@ -37520,7 +37526,7 @@
           {
             "user_id": "655093952973709312",
             "username": "matljord23",
-            "team_name": null,
+            "team_name": "Bengals or Bust",
             "draft_position": 5
           },
           {
@@ -37544,7 +37550,7 @@
           {
             "user_id": "865231116305596416",
             "username": "gryantharris3",
-            "team_name": null,
+            "team_name": "Compensatory Picks",
             "draft_position": 2
           },
           {
