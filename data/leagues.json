@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T17:40:24.972Z",
+  "generated_at": "2026-07-20T18:27:36.308Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -1048,7 +1048,7 @@
         "league_id": "61959",
         "league_name": "#SFB16 - Ice Hockey",
         "roster_size": 20,
-        "draft_complete": false,
+        "draft_complete": true,
         "teams": [
           {
             "franchise_id": "0001",
@@ -1485,6 +1485,12 @@
             "draft_position": 8
           },
           {
+            "user_id": "976596119377506304",
+            "username": "clementk6799",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
             "user_id": "994769240152461312",
             "username": "PiBK",
             "team_name": null,
@@ -1613,8 +1619,8 @@
         "league_id": "1378150704643870720",
         "league_name": "#SFB16 Michigan - City of Heroes",
         "draft_id": "1378150710729773056",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "337851986563039232",
@@ -1712,8 +1718,8 @@
         "league_id": "1375636654701699072",
         "league_name": "#SFB16 - Mario Party-e",
         "draft_id": "1375636658879229952",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "335534871587856384",
@@ -2375,8 +2381,8 @@
         "league_id": "1367874245899620352",
         "league_name": "#SFB16 - Abby (The Last of Us)",
         "draft_id": "1367874246767828992",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "401746764060729344",
@@ -2753,8 +2759,8 @@
         "league_id": "1367874104123731968",
         "league_name": "#SFB16 - Aloy (Horizon Zero Dawn)",
         "draft_id": "1367874104899690496",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "229292136577626112",
@@ -3038,8 +3044,8 @@
         "league_id": "1367873997655506944",
         "league_name": "#SFB16 - Angry Birds",
         "draft_id": "1367873998444060672",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "205405674174156800",
@@ -3602,8 +3608,8 @@
         "league_id": "1367873787088883712",
         "league_name": "#SFB16 - Assassin's Creed",
         "draft_id": "1367873787885793280",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "300461566078234624",
@@ -4067,8 +4073,8 @@
         "league_id": "1367873471110987776",
         "league_name": "#SFB16 - Baron Samedi (GoldenEye 007)",
         "draft_id": "1367873472054689792",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "91039203601039360",
@@ -5300,8 +5306,8 @@
         "league_id": "1367870053315272704",
         "league_name": "#SFB16 - Candy Crush",
         "draft_id": "1367870054128967680",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "434017161661378560",
@@ -5858,8 +5864,8 @@
         "league_id": "1367869718580441088",
         "league_name": "#SFB16 - Claptrap (Borderlands)",
         "draft_id": "1367869719377354752",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "241843779210838016",
@@ -6323,8 +6329,8 @@
         "league_id": "1367867470588698624",
         "league_name": "#SFB16 - Combat",
         "draft_id": "1367867471385604096",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "374743865384558592",
@@ -6788,8 +6794,8 @@
         "league_id": "1367867138563395584",
         "league_name": "#SFB16 - Diablo II",
         "draft_id": "1367867139347726336",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "78959413628911616",
@@ -8003,8 +8009,8 @@
         "league_id": "1367864360667463680",
         "league_name": "#SFB16 - Ezio Audatore (Assassins Creed)",
         "draft_id": "1367864361464381440",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "322028274488209408",
@@ -8654,8 +8660,8 @@
         "league_id": "1367863938607222784",
         "league_name": "#SFB16 - Final Fantasy VII",
         "draft_id": "1367863939378999296",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79729225976135680",
@@ -10241,8 +10247,8 @@
         "league_id": "1367858091223154688",
         "league_name": "#SFB16 - Hollow Knight",
         "draft_id": "1367858092053647360",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "400820258002178048",
@@ -12578,8 +12584,8 @@
         "league_id": "1367747727634477057",
         "league_name": "#SFB16 - Mario Kart World",
         "draft_id": "1367747729148612608",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79261045256241152",
@@ -12764,8 +12770,8 @@
         "league_id": "1367747404043935744",
         "league_name": "#SFB16 - Mass Effect Legendary Edition",
         "draft_id": "1367747405650366464",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "222742796488929280",
@@ -13322,8 +13328,8 @@
         "league_id": "1367746434601877504",
         "league_name": "#SFB16 - Metroid Prime",
         "draft_id": "1367746436057296896",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "90538643189809152",
@@ -14630,8 +14636,8 @@
         "league_id": "1367660650884509696",
         "league_name": "#SFB16 - Oregon Trail",
         "draft_id": "1367660652008583168",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "198585767394545664",
@@ -15404,8 +15410,8 @@
         "league_id": "1367262754456469504",
         "league_name": "#SFB16 - Perfect Dark",
         "draft_id": "1367262755316301824",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "332148941711749120",
@@ -15497,8 +15503,8 @@
         "league_id": "1367262684554211328",
         "league_name": "#SFB16 - Pikachu (Pokemon)",
         "draft_id": "1367262685342744576",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "388518121209593856",
@@ -15683,8 +15689,8 @@
         "league_id": "1367262396132909056",
         "league_name": "#SFB16 - Pokémon Gold and Silver",
         "draft_id": "1367262396883673088",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "89056571203928064",
@@ -17171,8 +17177,8 @@
         "league_id": "1367187718383104000",
         "league_name": "#SFB16 - Skyrim",
         "draft_id": "1367187719184191488",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "78290080581959680",
@@ -17231,7 +17237,7 @@
           {
             "user_id": "726242886944935936",
             "username": "Rylucpicard",
-            "team_name": null,
+            "team_name": "Ryluc Picard",
             "draft_position": 7
           },
           {
@@ -17579,7 +17585,7 @@
           {
             "user_id": "471500892164583424",
             "username": "seibs24",
-            "team_name": null,
+            "team_name": "Golden(Super) Sonic Chaos",
             "draft_position": 10
           },
           {
@@ -17729,8 +17735,8 @@
         "league_id": "1367186969087442944",
         "league_name": "#SFB16 - Space Invaders",
         "draft_id": "1367186969808863232",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "452113409471672320",
@@ -19502,8 +19508,8 @@
         "league_id": "1367149905503588352",
         "league_name": "#SFB16 - The Elder Scrolls V: Skyrim",
         "draft_id": "1367149906480857088",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "334745861420507136",
@@ -19586,7 +19592,7 @@
           {
             "user_id": "1099251364997251072",
             "username": "OfficialJono",
-            "team_name": null,
+            "team_name": "Joe Buck Yourself",
             "draft_position": 9
           }
         ]
@@ -21473,8 +21479,8 @@
         "league_id": "1366878698623496192",
         "league_name": "#SFB16 - You Don’t Know Jack",
         "draft_id": "1366878699357491200",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "78552902868025344",
@@ -23240,7 +23246,7 @@
           {
             "user_id": "725439288036143104",
             "username": "GPW",
-            "team_name": null,
+            "team_name": "GrandPrizeWinner",
             "draft_position": 11
           },
           {
@@ -23461,7 +23467,7 @@
           },
           {
             "user_id": "1345180611471474688",
-            "username": "dsqrdman01",
+            "username": "007thPick",
             "team_name": "007th Pick",
             "draft_position": 7
           }
@@ -23810,12 +23816,6 @@
           {
             "user_id": "594202516166594560",
             "username": "AndrewCooper",
-            "team_name": null,
-            "draft_position": null
-          },
-          {
-            "user_id": "717456998110679040",
-            "username": "ssilva82",
             "team_name": null,
             "draft_position": null
           },
@@ -24845,8 +24845,8 @@
         "league_id": "1366439699085795328",
         "league_name": "#SFB16 Chicago - Gran Turismo",
         "draft_id": "1366439700776099840",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "203517081663049728",
@@ -25142,8 +25142,8 @@
         "league_id": "1366439113485484032",
         "league_name": "#SFB16 Chicago - Star Fox",
         "draft_id": "1366439115196747776",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79701759924518912",
@@ -25241,8 +25241,8 @@
         "league_id": "1366438905703858176",
         "league_name": "#SFB16 Chicago - Super Mario Kart",
         "draft_id": "1366438907339640832",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "203517081663049728",
@@ -25340,8 +25340,8 @@
         "league_id": "1366438703035064320",
         "league_name": "#SFB16 Chicago - Super Smash Bros. Ultimate",
         "draft_id": "1366438704859607040",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "203517081663049728",
@@ -26579,8 +26579,8 @@
         "league_id": "1366435570380738560",
         "league_name": "#SFB16 Cleveland - Axel Steel (Guitar Hero)",
         "draft_id": "1366435571920019456",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "203870887152189440",
@@ -27287,7 +27287,7 @@
           {
             "user_id": "1056885231497736192",
             "username": "lilPocketRocket",
-            "team_name": null,
+            "team_name": "Tush Pushers",
             "draft_position": 9
           }
         ]
@@ -28352,7 +28352,7 @@
           {
             "user_id": "1110864452158611456",
             "username": "BoJaya",
-            "team_name": null,
+            "team_name": "DeSilvaBack Gorillaz",
             "draft_position": 11
           },
           {
@@ -30413,7 +30413,7 @@
           {
             "user_id": "520077943893065728",
             "username": "clemke007",
-            "team_name": null,
+            "team_name": "Smokin' Joe's Camel-Toes",
             "draft_position": 2
           },
           {
@@ -30692,7 +30692,7 @@
           {
             "user_id": "335525179071397888",
             "username": "ffdustydog",
-            "team_name": null,
+            "team_name": "Wyld Stallions",
             "draft_position": 8
           },
           {
@@ -31670,8 +31670,8 @@
         "league_id": "1366408609776275456",
         "league_name": "#SFB16 Michigan - Civilization",
         "draft_id": "1366408611172982784",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79577223560314880",
@@ -31868,8 +31868,8 @@
         "league_id": "1366408287670525952",
         "league_name": "#SFB16 Michigan - Portal",
         "draft_id": "1366408288974934016",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "337851986563039232",
@@ -32044,8 +32044,8 @@
           },
           {
             "user_id": "1200105035703259136",
-            "username": "Feelinglucky13",
-            "team_name": null,
+            "username": "FeelingLucky13",
+            "team_name": "FeelingLucky13 ",
             "draft_position": 3
           },
           {
@@ -34343,7 +34343,7 @@
         "league_id": "1366404921762525184",
         "league_name": "#SFB16 Oklahoma City - Sonic (Sonic the Hedgehog)",
         "draft_id": "1366404923318616064",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -34448,7 +34448,7 @@
         "league_id": "1366404737322209280",
         "league_name": "#SFB16 Omaha - Master Chief (Halo)",
         "draft_id": "1366404741130645504",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -34547,7 +34547,7 @@
         "league_id": "1366404564374265856",
         "league_name": "#SFB16 Omaha - Super Smash Bros. Melee",
         "draft_id": "1366404566320418816",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -35042,7 +35042,7 @@
           {
             "user_id": "188721962556596224",
             "username": "bloodfarts2",
-            "team_name": "Mantis Toboggan, M.D.",
+            "team_name": "StmtrooperThatHitsHisHead",
             "draft_position": 12
           },
           {
@@ -35090,7 +35090,7 @@
           {
             "user_id": "631291967837564928",
             "username": "Vinzizzlet",
-            "team_name": "Anakin",
+            "team_name": "Anakin or Vin Jarin (tbd)",
             "draft_position": 1
           },
           {
@@ -35226,12 +35226,6 @@
             "draft_position": 1
           },
           {
-            "user_id": "432629744085778432",
-            "username": "jeffratcliffe",
-            "team_name": null,
-            "draft_position": null
-          },
-          {
             "user_id": "451159606928863232",
             "username": "IFSEsq",
             "team_name": null,
@@ -35337,12 +35331,6 @@
             "draft_position": 10
           },
           {
-            "user_id": "432629744085778432",
-            "username": "jeffratcliffe",
-            "team_name": null,
-            "draft_position": null
-          },
-          {
             "user_id": "452692167064809472",
             "username": "JPeekFF",
             "team_name": null,
@@ -35436,12 +35424,6 @@
             "draft_position": 8
           },
           {
-            "user_id": "432629744085778432",
-            "username": "jeffratcliffe",
-            "team_name": null,
-            "draft_position": null
-          },
-          {
             "user_id": "452692167064809472",
             "username": "JPeekFF",
             "team_name": null,
@@ -35458,6 +35440,12 @@
             "username": "DGeorge40",
             "team_name": null,
             "draft_position": 10
+          },
+          {
+            "user_id": "471802822866759680",
+            "username": "Mattb1236",
+            "team_name": null,
+            "draft_position": null
           },
           {
             "user_id": "526272859737284608",
@@ -35522,6 +35510,12 @@
           {
             "user_id": "1253565431814299648",
             "username": "elitelasagna",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
+            "user_id": "1269471012144029696",
+            "username": "EagleAR72",
             "team_name": null,
             "draft_position": null
           }
@@ -35912,13 +35906,13 @@
           {
             "user_id": "970729952368791552",
             "username": "NotSoSlimShadle",
-            "team_name": null,
+            "team_name": "Chase-ing McGreatness",
             "draft_position": 10
           },
           {
             "user_id": "996901880435445760",
             "username": "dantheeffinman",
-            "team_name": null,
+            "team_name": "Cat-a-boo",
             "draft_position": 7
           }
         ]
@@ -36415,12 +36409,6 @@
             "username": "greggroesbeck",
             "team_name": null,
             "draft_position": 11
-          },
-          {
-            "user_id": "1130895974827819008",
-            "username": "FantasyDako",
-            "team_name": "Reach",
-            "draft_position": null
           },
           {
             "user_id": "1267563941857341440",
@@ -36965,7 +36953,7 @@
           {
             "user_id": "214108240420544512",
             "username": "All22_FF",
-            "team_name": "Rippin Darts🚬Tuten Farts💨",
+            "team_name": null,
             "draft_position": 9
           },
           {
@@ -37310,7 +37298,7 @@
           {
             "user_id": "797897394179121152",
             "username": "BartWheeler",
-            "team_name": null,
+            "team_name": "Bart",
             "draft_position": 12
           },
           {
@@ -37385,7 +37373,7 @@
           {
             "user_id": "606964371255554048",
             "username": "bsomers10",
-            "team_name": null,
+            "team_name": "Cookin’ up Flowers",
             "draft_position": 8
           },
           {
@@ -37448,19 +37436,19 @@
           {
             "user_id": "208016355381739520",
             "username": "GOYAADi",
-            "team_name": null,
+            "team_name": "VIKANEERS 🏴‍☠️",
             "draft_position": 10
           },
           {
             "user_id": "318213639863566336",
             "username": "thebestestKB",
-            "team_name": null,
+            "team_name": "Fat Daddies",
             "draft_position": 11
           },
           {
             "user_id": "331457281088585728",
             "username": "TooMuchBrian",
-            "team_name": null,
+            "team_name": "WR or Bust",
             "draft_position": 12
           },
           {
@@ -37490,7 +37478,7 @@
           {
             "user_id": "655093952973709312",
             "username": "matljord23",
-            "team_name": null,
+            "team_name": "Bengals or Bust",
             "draft_position": 5
           },
           {
@@ -37502,7 +37490,7 @@
           {
             "user_id": "813138141098651648",
             "username": "EVS98",
-            "team_name": null,
+            "team_name": "EVS98",
             "draft_position": 1
           },
           {
@@ -37514,7 +37502,7 @@
           {
             "user_id": "865231116305596416",
             "username": "gryantharris3",
-            "team_name": null,
+            "team_name": "Compensatory Picks",
             "draft_position": 2
           },
           {
@@ -37559,7 +37547,7 @@
           {
             "user_id": "572484034929414144",
             "username": "BettyAnne3214",
-            "team_name": null,
+            "team_name": "Ih8Dallas ",
             "draft_position": 1
           },
           {
@@ -38438,8 +38426,8 @@
         "league_id": "1366393741518069760",
         "league_name": "#SFB16 San Francisco - Watch Dogs 2",
         "draft_id": "1366393743632011264",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "196489484332703744",
@@ -38601,6 +38589,12 @@
             "draft_position": null
           },
           {
+            "user_id": "735347702807822336",
+            "username": "rafaeltobarbosa",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
             "user_id": "819245060922130432",
             "username": "ScottFishBowl",
             "team_name": null,
@@ -38706,12 +38700,6 @@
             "draft_position": null
           },
           {
-            "user_id": "606218078447005696",
-            "username": "smlcandido",
-            "team_name": "Far West Caboclos",
-            "draft_position": null
-          },
-          {
             "user_id": "701837229500203008",
             "username": "cbanego",
             "team_name": "Washington Denzell",
@@ -38720,6 +38708,12 @@
           {
             "user_id": "819245060922130432",
             "username": "ScottFishBowl",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
+            "user_id": "1252446294723543040",
+            "username": "beetinho",
             "team_name": null,
             "draft_position": null
           },
