@@ -434,23 +434,21 @@
     return Number.isFinite(val) ? val : 0;
   }
 
-  // Starting lineup = whatever RB/WR/TE landed in the team's existing "top 10,
-  // max 2 QB" selection, plus the team's top 2 QBs specifically (independent
-  // of whether both happened to score high enough to land in that top-10 group).
-  // No FLEX bucket - a position just shows however many of its players made the cut.
+  // Starting lineup = whatever QB/RB/WR/TE landed in the team's existing "top 10,
+  // max 2 QB" selection. A weaker backup QB only shows up here if he actually
+  // outscored whatever RB/WR/TE would otherwise have taken that spot - there's
+  // no guaranteed 2nd QB slot, and no FLEX bucket.
   function computeStartingLineup(team) {
-    const top10 = team.top10Players;
-    const rb = top10.filter(p => p.pos === 'RB').sort((a, b) => b.projPts - a.projPts);
-    const wr = top10.filter(p => p.pos === 'WR').sort((a, b) => b.projPts - a.projPts);
-    const te = top10.filter(p => p.pos === 'TE').sort((a, b) => b.projPts - a.projPts);
-    const qb = team.allPlayers.filter(p => p.pos === 'QB').sort((a, b) => b.projPts - a.projPts).slice(0, 2);
+    const groups = { QB: [], RB: [], WR: [], TE: [] };
+    team.top10Players.forEach(p => { if (groups[p.pos]) groups[p.pos].push(p); });
+    Object.values(groups).forEach(arr => arr.sort((a, b) => b.projPts - a.projPts));
 
     const sum = arr => arr.reduce((s, p) => s + p.projPts, 0);
     return {
-      qb: { players: qb, total: sum(qb) },
-      rb: { players: rb, total: sum(rb) },
-      wr: { players: wr, total: sum(wr) },
-      te: { players: te, total: sum(te) },
+      qb: { players: groups.QB, total: sum(groups.QB) },
+      rb: { players: groups.RB, total: sum(groups.RB) },
+      wr: { players: groups.WR, total: sum(groups.WR) },
+      te: { players: groups.TE, total: sum(groups.TE) },
     };
   }
 
