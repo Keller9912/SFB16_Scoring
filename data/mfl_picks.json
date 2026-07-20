@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T15:15:02.228Z",
+  "generated_at": "2026-07-20T16:47:06.229Z",
   "leagues": [
     {
       "id": "14494",
@@ -19134,6 +19134,24 @@
       "league_id": "43844"
     },
     {
+      "name": "De'Zhaun Stribling",
+      "pos": "WR",
+      "team": "SFO",
+      "pick_no": 199,
+      "round": 17,
+      "franchise_id": "0007",
+      "league_id": "43844"
+    },
+    {
+      "name": "Kirk Cousins",
+      "pos": "QB",
+      "team": "LVR",
+      "pick_no": 200,
+      "round": 17,
+      "franchise_id": "0008",
+      "league_id": "43844"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -27387,6 +27405,15 @@
       "league_id": "55743"
     },
     {
+      "name": "Cooper Kupp",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 211,
+      "round": 18,
+      "franchise_id": "0006",
+      "league_id": "55743"
+    },
+    {
       "name": "Joe Burrow",
       "pos": "QB",
       "team": "CIN",
@@ -35421,6 +35448,42 @@
       "pick_no": 229,
       "round": 20,
       "franchise_id": "0012",
+      "league_id": "73136"
+    },
+    {
+      "name": "Rashod Bateman",
+      "pos": "WR",
+      "team": "BAL",
+      "pick_no": 230,
+      "round": 20,
+      "franchise_id": "0011",
+      "league_id": "73136"
+    },
+    {
+      "name": "Marvin Mims",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 231,
+      "round": 20,
+      "franchise_id": "0010",
+      "league_id": "73136"
+    },
+    {
+      "name": "Dylan Sampson",
+      "pos": "RB",
+      "team": "CLE",
+      "pick_no": 232,
+      "round": 20,
+      "franchise_id": "0009",
+      "league_id": "73136"
+    },
+    {
+      "name": "Mack Hollins",
+      "pos": "WR",
+      "team": "NEP",
+      "pick_no": 233,
+      "round": 20,
+      "franchise_id": "0008",
       "league_id": "73136"
     }
   ]
