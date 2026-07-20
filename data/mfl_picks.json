@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T00:13:35.027Z",
+  "generated_at": "2026-07-20T04:08:41.658Z",
   "leagues": [
     {
       "id": "14494",
@@ -19053,6 +19053,24 @@
       "league_id": "43844"
     },
     {
+      "name": "Troy Franklin",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 190,
+      "round": 16,
+      "franchise_id": "0003",
+      "league_id": "43844"
+    },
+    {
+      "name": "Woody Marks",
+      "pos": "RB",
+      "team": "HOU",
+      "pick_no": 191,
+      "round": 16,
+      "franchise_id": "0002",
+      "league_id": "43844"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -25371,6 +25389,42 @@
       "league_id": "54792"
     },
     {
+      "name": "Kaytron Allen",
+      "pos": "RB",
+      "team": "WAS",
+      "pick_no": 223,
+      "round": 19,
+      "franchise_id": "0007",
+      "league_id": "54792"
+    },
+    {
+      "name": "Darnell Mooney",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 224,
+      "round": 19,
+      "franchise_id": "0008",
+      "league_id": "54792"
+    },
+    {
+      "name": "Zachariah Branch",
+      "pos": "WR",
+      "team": "ATL",
+      "pick_no": 225,
+      "round": 19,
+      "franchise_id": "0009",
+      "league_id": "54792"
+    },
+    {
+      "name": "J.J. McCarthy",
+      "pos": "QB",
+      "team": "MIN",
+      "pick_no": 226,
+      "round": 19,
+      "franchise_id": "0010",
+      "league_id": "54792"
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -27231,6 +27285,33 @@
       "pick_no": 207,
       "round": 18,
       "franchise_id": "0010",
+      "league_id": "55743"
+    },
+    {
+      "name": "Malachi Fields",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 208,
+      "round": 18,
+      "franchise_id": "0009",
+      "league_id": "55743"
+    },
+    {
+      "name": "Jameis Winston",
+      "pos": "QB",
+      "team": "NYG",
+      "pick_no": 209,
+      "round": 18,
+      "franchise_id": "0008",
+      "league_id": "55743"
+    },
+    {
+      "name": "Tory Horton",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 210,
+      "round": 18,
+      "franchise_id": "0007",
       "league_id": "55743"
     },
     {
@@ -30983,6 +31064,69 @@
       "team": "NYG",
       "pick_no": 177,
       "round": 15,
+      "franchise_id": "0009",
+      "league_id": "65583"
+    },
+    {
+      "name": "Zachariah Branch",
+      "pos": "WR",
+      "team": "ATL",
+      "pick_no": 178,
+      "round": 15,
+      "franchise_id": "0010",
+      "league_id": "65583"
+    },
+    {
+      "name": "Evan Engram",
+      "pos": "TE",
+      "team": "DEN",
+      "pick_no": 179,
+      "round": 15,
+      "franchise_id": "0011",
+      "league_id": "65583"
+    },
+    {
+      "name": "Jalen Nailor",
+      "pos": "WR",
+      "team": "LVR",
+      "pick_no": 180,
+      "round": 15,
+      "franchise_id": "0012",
+      "league_id": "65583"
+    },
+    {
+      "name": "Isiah Pacheco",
+      "pos": "RB",
+      "team": "DET",
+      "pick_no": 181,
+      "round": 16,
+      "franchise_id": "0012",
+      "league_id": "65583"
+    },
+    {
+      "name": "Alvin Kamara",
+      "pos": "RB",
+      "team": "NOS",
+      "pick_no": 182,
+      "round": 16,
+      "franchise_id": "0011",
+      "league_id": "65583"
+    },
+    {
+      "name": "Antonio Williams",
+      "pos": "WR",
+      "team": "WAS",
+      "pick_no": 183,
+      "round": 16,
+      "franchise_id": "0010",
+      "league_id": "65583"
+    },
+    {
+      "name": "Tre Tucker",
+      "pos": "WR",
+      "team": "LVR",
+      "pick_no": 184,
+      "round": 16,
       "franchise_id": "0009",
       "league_id": "65583"
     },
@@ -35124,6 +35268,60 @@
       "pick_no": 220,
       "round": 19,
       "franchise_id": "0004",
+      "league_id": "73136"
+    },
+    {
+      "name": "Elic Ayomanor",
+      "pos": "WR",
+      "team": "TEN",
+      "pick_no": 221,
+      "round": 19,
+      "franchise_id": "0005",
+      "league_id": "73136"
+    },
+    {
+      "name": "Michael Mayer",
+      "pos": "TE",
+      "team": "LVR",
+      "pick_no": 222,
+      "round": 19,
+      "franchise_id": "0006",
+      "league_id": "73136"
+    },
+    {
+      "name": "Carson Beck",
+      "pos": "QB",
+      "team": "ARI",
+      "pick_no": 223,
+      "round": 19,
+      "franchise_id": "0007",
+      "league_id": "73136"
+    },
+    {
+      "name": "Tyquan Thornton",
+      "pos": "WR",
+      "team": "KCC",
+      "pick_no": 224,
+      "round": 19,
+      "franchise_id": "0008",
+      "league_id": "73136"
+    },
+    {
+      "name": "Tyreek Hill",
+      "pos": "WR",
+      "team": "FA",
+      "pick_no": 225,
+      "round": 19,
+      "franchise_id": "0009",
+      "league_id": "73136"
+    },
+    {
+      "name": "Xavier Legette",
+      "pos": "WR",
+      "team": "CAR",
+      "pick_no": 226,
+      "round": 19,
+      "franchise_id": "0010",
       "league_id": "73136"
     }
   ]
