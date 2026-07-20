@@ -434,21 +434,16 @@
     return Number.isFinite(val) ? val : 0;
   }
 
-  // Builds a starting-lineup-style breakdown: best 2 QB, best 2 RB, best 3 WR,
-  // best 1 TE, and best 2 remaining RB/WR/TE as FLEX (2 + 8 = 10, matching the
-  // "top 10, max 2 QB" rule used for the overall team ranking elsewhere).
-  function computeLineup(allPlayers) {
-    const byPos = { QB: [], RB: [], WR: [], TE: [] };
-    allPlayers.forEach(p => { if (byPos[p.pos]) byPos[p.pos].push(p); });
-    Object.values(byPos).forEach(arr => arr.sort((a, b) => b.projPts - a.projPts));
-
-    const qb = byPos.QB.slice(0, 2);
-    const rb = byPos.RB.slice(0, 2);
-    const wr = byPos.WR.slice(0, 3);
-    const te = byPos.TE.slice(0, 1);
-    const leftover = [...byPos.RB.slice(2), ...byPos.WR.slice(3), ...byPos.TE.slice(1)]
-      .sort((a, b) => b.projPts - a.projPts);
-    const flex = leftover.slice(0, 2);
+  // Starting lineup = whatever RB/WR/TE landed in the team's existing "top 10,
+  // max 2 QB" selection, plus the team's top 2 QBs specifically (independent
+  // of whether both happened to score high enough to land in that top-10 group).
+  // No FLEX bucket - a position just shows however many of its players made the cut.
+  function computeStartingLineup(team) {
+    const top10 = team.top10Players;
+    const rb = top10.filter(p => p.pos === 'RB').sort((a, b) => b.projPts - a.projPts);
+    const wr = top10.filter(p => p.pos === 'WR').sort((a, b) => b.projPts - a.projPts);
+    const te = top10.filter(p => p.pos === 'TE').sort((a, b) => b.projPts - a.projPts);
+    const qb = team.allPlayers.filter(p => p.pos === 'QB').sort((a, b) => b.projPts - a.projPts).slice(0, 2);
 
     const sum = arr => arr.reduce((s, p) => s + p.projPts, 0);
     return {
@@ -456,15 +451,35 @@
       rb: { players: rb, total: sum(rb) },
       wr: { players: wr, total: sum(wr) },
       te: { players: te, total: sum(te) },
-      flex: { players: flex, total: sum(flex) },
     };
   }
 
-  // Lineups are cheap to compute but there's no need to redo it for the same
-  // team on every render, so cache the result directly on the team object.
-  function getTeamLineup(team) {
-    if (!team._lineup) team._lineup = computeLineup(team.allPlayers);
-    return team._lineup;
+  // Full-depth-chart totals: every QB/RB/WR/TE on the roster, not just starters.
+  // A position can total 0 if the team never drafted one.
+  function computeFullRosterTotals(team) {
+    const groups = { QB: [], RB: [], WR: [], TE: [] };
+    team.allPlayers.forEach(p => { if (groups[p.pos]) groups[p.pos].push(p); });
+    Object.values(groups).forEach(arr => arr.sort((a, b) => b.projPts - a.projPts));
+
+    const sum = arr => arr.reduce((s, p) => s + p.projPts, 0);
+    return {
+      qb: { players: groups.QB, total: sum(groups.QB) },
+      rb: { players: groups.RB, total: sum(groups.RB) },
+      wr: { players: groups.WR, total: sum(groups.WR) },
+      te: { players: groups.TE, total: sum(groups.TE) },
+    };
+  }
+
+  // Cheap to compute, but no need to redo it for the same team on every render,
+  // so cache both breakdowns directly on the team object.
+  function getStartingLineup(team) {
+    if (!team._startingLineup) team._startingLineup = computeStartingLineup(team);
+    return team._startingLineup;
+  }
+
+  function getFullRosterTotals(team) {
+    if (!team._fullRosterTotals) team._fullRosterTotals = computeFullRosterTotals(team);
+    return team._fullRosterTotals;
   }
 
   function selectTopPlayers(playerRows) {
@@ -708,36 +723,31 @@
   // Renders the positional-strength breakdown for one team, benchmarked against
   // whichever population is currently active in the Compare toggle (all teams
   // or just this division/league).
-  function renderPositionalStrengths(activeTeam, scopeTeams) {
+  function renderPositionGroup(groupData, scopeTeams, scopeGetter, scopeLabel) {
     const posKeys = [
       { key: 'qb', label: 'QB' },
       { key: 'rb', label: 'RB' },
       { key: 'wr', label: 'WR' },
       { key: 'te', label: 'TE' },
-      { key: 'flex', label: 'FLEX' },
     ];
-
-    const teamLineup = getTeamLineup(activeTeam);
 
     const scopeStats = {};
     posKeys.forEach(({ key }) => {
       let sum = 0, best = 0, bestTeam = null;
       scopeTeams.forEach(t => {
-        const val = getTeamLineup(t)[key].total;
+        const val = scopeGetter(t)[key].total;
         sum += val;
         if (val > best) { best = val; bestTeam = t; }
       });
       scopeStats[key] = { avg: scopeTeams.length ? sum / scopeTeams.length : 0, best, bestTeam };
     });
 
-    const scopeLabel = comparisonScope === 'division' ? 'this division' : 'all teams';
-
-    const rows = posKeys.map(({ key, label }) => {
-      const group = teamLineup[key];
+    return posKeys.map(({ key, label }) => {
+      const group = groupData[key];
       const stats = scopeStats[key];
       const maxVal = Math.max(stats.best, group.total, 1);
       const pct = Math.max(6, (group.total / maxVal) * 100);
-      const playerNames = group.players.length ? group.players.map(p => p.name).join(', ') : 'None rostered';
+      const playerNames = group.players.length ? group.players.map(p => p.name).join(', ') : 'None drafted';
       return `
         <div class="posstrength-row">
           <div class="posstrength-label">${label}</div>
@@ -749,8 +759,30 @@
           <div class="posstrength-value">${group.total.toFixed(1)}</div>
         </div>`;
     }).join('');
+  }
 
-    return `<div class="detail-section">${rows}</div>`;
+  // Renders the positional-strength breakdown for one team, benchmarked against
+  // whichever population is currently active in the Compare toggle (all teams
+  // or just this division/league).
+  function renderPositionalStrengths(activeTeam, scopeTeams) {
+    const scopeLabel = comparisonScope === 'division' ? 'this division' : 'all teams';
+
+    const startingRows = renderPositionGroup(
+      getStartingLineup(activeTeam), scopeTeams, getStartingLineup, scopeLabel
+    );
+    const rosterRows = renderPositionGroup(
+      getFullRosterTotals(activeTeam), scopeTeams, getFullRosterTotals, scopeLabel
+    );
+
+    return `
+      <div class="detail-section">
+        <div class="detail-section-title">Starting Lineup (top 10 picks, max 2 QB)</div>
+        ${startingRows}
+      </div>
+      <div class="detail-section" style="margin-top:14px;">
+        <div class="detail-section-title">Full Roster by Position</div>
+        ${rosterRows}
+      </div>`;
   }
 
   function renderRankings(options = {}) {
