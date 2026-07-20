@@ -98,6 +98,23 @@
     .scope-btn:hover { border-color: #7c3aed77; color: #e8e8f0; }
     .scope-btn.active { background: #7c3aed; color: #fff; border-color: #7c3aed; }
     .scope-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .posstrength-row {
+      display: grid; grid-template-columns: 56px 1fr 64px;
+      gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid #ffffff0a;
+    }
+    .posstrength-row:last-child { border-bottom: none; }
+    .posstrength-label { font-size: 0.78rem; font-weight: 700; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.5px; }
+    .posstrength-track {
+      position: relative; height: 10px; border-radius: 999px; overflow: hidden;
+      background: #12102a; border: 1px solid #ffffff08;
+    }
+    .posstrength-bar {
+      height: 100%; border-radius: inherit; background: linear-gradient(90deg, #7c3aed, #a78bfa);
+      box-shadow: 0 0 10px #7c3aed44;
+    }
+    .posstrength-players { font-size: 0.68rem; color: #a0a0c0; margin-top: 5px; }
+    .posstrength-sub { font-size: 0.68rem; color: #777; margin-top: 3px; }
+    .posstrength-value { text-align: right; color: #f5c542; font-weight: 700; font-variant-numeric: tabular-nums; }
     .progress-wrap {
       margin-top: 10px; height: 6px; border-radius: 999px; background: #12102a;
       border: 1px solid #ffffff08; overflow: hidden; display: none;
@@ -156,7 +173,13 @@
     </table>
   </div>
 
-  <div class="section-title">Selected Team</div>
+  <div class="section-title" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+    <span>Selected Team</span>
+    <div class="scope-toggle" id="detail-view-toggle">
+      <button type="button" class="scope-btn" data-view="roster">Show Roster</button>
+      <button type="button" class="scope-btn" data-view="positional">Show Positional Strengths</button>
+    </div>
+  </div>
   <div id="team-detail" class="detail-card">
     <div class="empty-state">Choose a league or team to load the ranking.</div>
   </div>
@@ -185,6 +208,7 @@
   let currentRankings = [];
   let selectedTeamKey = null;
   let comparisonScope = 'all'; // 'all' | 'division'
+  let detailView = 'roster'; // 'roster' | 'positional'
   let rankingsLoadPromise = null;
 
   function normName(s) {
@@ -408,6 +432,39 @@
     if (!row) return 0;
     const val = Number(row.total_proj_pts ?? row.total_proj ?? row.pts ?? row.points ?? 0);
     return Number.isFinite(val) ? val : 0;
+  }
+
+  // Builds a starting-lineup-style breakdown: best 2 QB, best 2 RB, best 3 WR,
+  // best 1 TE, and best 2 remaining RB/WR/TE as FLEX (2 + 8 = 10, matching the
+  // "top 10, max 2 QB" rule used for the overall team ranking elsewhere).
+  function computeLineup(allPlayers) {
+    const byPos = { QB: [], RB: [], WR: [], TE: [] };
+    allPlayers.forEach(p => { if (byPos[p.pos]) byPos[p.pos].push(p); });
+    Object.values(byPos).forEach(arr => arr.sort((a, b) => b.projPts - a.projPts));
+
+    const qb = byPos.QB.slice(0, 2);
+    const rb = byPos.RB.slice(0, 2);
+    const wr = byPos.WR.slice(0, 3);
+    const te = byPos.TE.slice(0, 1);
+    const leftover = [...byPos.RB.slice(2), ...byPos.WR.slice(3), ...byPos.TE.slice(1)]
+      .sort((a, b) => b.projPts - a.projPts);
+    const flex = leftover.slice(0, 2);
+
+    const sum = arr => arr.reduce((s, p) => s + p.projPts, 0);
+    return {
+      qb: { players: qb, total: sum(qb) },
+      rb: { players: rb, total: sum(rb) },
+      wr: { players: wr, total: sum(wr) },
+      te: { players: te, total: sum(te) },
+      flex: { players: flex, total: sum(flex) },
+    };
+  }
+
+  // Lineups are cheap to compute but there's no need to redo it for the same
+  // team on every render, so cache the result directly on the team object.
+  function getTeamLineup(team) {
+    if (!team._lineup) team._lineup = computeLineup(team.allPlayers);
+    return team._lineup;
   }
 
   function selectTopPlayers(playerRows) {
@@ -648,6 +705,54 @@
     return teamsInLeague.reduce((best, t) => (t.top10Projection > best.top10Projection ? t : best), teamsInLeague[0]);
   }
 
+  // Renders the positional-strength breakdown for one team, benchmarked against
+  // whichever population is currently active in the Compare toggle (all teams
+  // or just this division/league).
+  function renderPositionalStrengths(activeTeam, scopeTeams) {
+    const posKeys = [
+      { key: 'qb', label: 'QB' },
+      { key: 'rb', label: 'RB' },
+      { key: 'wr', label: 'WR' },
+      { key: 'te', label: 'TE' },
+      { key: 'flex', label: 'FLEX' },
+    ];
+
+    const teamLineup = getTeamLineup(activeTeam);
+
+    const scopeStats = {};
+    posKeys.forEach(({ key }) => {
+      let sum = 0, best = 0, bestTeam = null;
+      scopeTeams.forEach(t => {
+        const val = getTeamLineup(t)[key].total;
+        sum += val;
+        if (val > best) { best = val; bestTeam = t; }
+      });
+      scopeStats[key] = { avg: scopeTeams.length ? sum / scopeTeams.length : 0, best, bestTeam };
+    });
+
+    const scopeLabel = comparisonScope === 'division' ? 'this division' : 'all teams';
+
+    const rows = posKeys.map(({ key, label }) => {
+      const group = teamLineup[key];
+      const stats = scopeStats[key];
+      const maxVal = Math.max(stats.best, group.total, 1);
+      const pct = Math.max(6, (group.total / maxVal) * 100);
+      const playerNames = group.players.length ? group.players.map(p => p.name).join(', ') : 'None rostered';
+      return `
+        <div class="posstrength-row">
+          <div class="posstrength-label">${label}</div>
+          <div>
+            <div class="posstrength-track"><div class="posstrength-bar" style="width:${pct}%"></div></div>
+            <div class="posstrength-players">${playerNames}</div>
+            <div class="posstrength-sub">Avg in ${scopeLabel}: ${stats.avg.toFixed(1)} · Best: ${stats.best.toFixed(1)}${stats.bestTeam ? ` (${stats.bestTeam.teamName})` : ''}</div>
+          </div>
+          <div class="posstrength-value">${group.total.toFixed(1)}</div>
+        </div>`;
+    }).join('');
+
+    return `<div class="detail-section">${rows}</div>`;
+  }
+
   function renderRankings(options = {}) {
     const body = document.getElementById('rankings-body');
     const summaryGrid = document.getElementById('summary-grid');
@@ -675,6 +780,15 @@
       btn.classList.toggle('active', btn.dataset.scope === comparisonScope);
       btn.onclick = () => {
         comparisonScope = btn.dataset.scope;
+        renderRankings();
+      };
+    });
+
+    // Wire up the roster / positional-strength view toggle.
+    document.querySelectorAll('#detail-view-toggle .scope-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.view === detailView);
+      btn.onclick = () => {
+        detailView = btn.dataset.view;
         renderRankings();
       };
     });
@@ -747,6 +861,20 @@
         <span class="score">${p.projPts.toFixed(1)}</span>
       </div>`).join('');
 
+    const bodyContent = detailView === 'positional'
+      ? renderPositionalStrengths(activeTeam, displayRankings)
+      : `
+      <div class="detail-grid">
+        <div class="detail-section">
+          <div class="detail-section-title">Top 10 Players</div>
+          <div class="detail-list">${top10Rows || '<div class="empty-state">No players matched the projection filter.</div>'}</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Whole Team</div>
+          <div class="detail-list">${allRows || '<div class="empty-state">No picks available for this team.</div>'}</div>
+        </div>
+      </div>`;
+
     detail.innerHTML = `
       <div class="detail-header">
         <div>
@@ -760,16 +888,7 @@
         <span class="detail-pill">QBs counted: ${activeTeam.qbCount}</span>
         <span class="detail-pill">Picks: ${activeTeam.pickCount}</span>
       </div>
-      <div class="detail-grid">
-        <div class="detail-section">
-          <div class="detail-section-title">Top 10 Players</div>
-          <div class="detail-list">${top10Rows || '<div class="empty-state">No players matched the projection filter.</div>'}</div>
-        </div>
-        <div class="detail-section">
-          <div class="detail-section-title">Whole Team</div>
-          <div class="detail-list">${allRows || '<div class="empty-state">No picks available for this team.</div>'}</div>
-        </div>
-      </div>`;
+      ${bodyContent}`;
   }
 
   document.addEventListener('DOMContentLoaded', () => {
