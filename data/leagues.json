@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T01:12:44.809Z",
+  "generated_at": "2026-07-20T04:50:17.113Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -1485,6 +1485,12 @@
             "draft_position": 8
           },
           {
+            "user_id": "976596119377506304",
+            "username": "clementk6799",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
             "user_id": "994769240152461312",
             "username": "PiBK",
             "team_name": null,
@@ -2375,8 +2381,8 @@
         "league_id": "1367874245899620352",
         "league_name": "#SFB16 - Abby (The Last of Us)",
         "draft_id": "1367874246767828992",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "401746764060729344",
@@ -14630,8 +14636,8 @@
         "league_id": "1367660650884509696",
         "league_name": "#SFB16 - Oregon Trail",
         "draft_id": "1367660652008583168",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "198585767394545664",
@@ -17231,7 +17237,7 @@
           {
             "user_id": "726242886944935936",
             "username": "Rylucpicard",
-            "team_name": null,
+            "team_name": "Ryluc Picard",
             "draft_position": 7
           },
           {
@@ -17579,7 +17585,7 @@
           {
             "user_id": "471500892164583424",
             "username": "seibs24",
-            "team_name": null,
+            "team_name": "Golden(Super) Sonic Chaos",
             "draft_position": 10
           },
           {
@@ -25334,8 +25340,8 @@
         "league_id": "1366438703035064320",
         "league_name": "#SFB16 Chicago - Super Smash Bros. Ultimate",
         "draft_id": "1366438704859607040",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "203517081663049728",
@@ -31466,7 +31472,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "drafting",
+        "draft_status": "paused",
         "draft_complete": false,
         "teams": [
           {
@@ -31664,8 +31670,8 @@
         "league_id": "1366408609776275456",
         "league_name": "#SFB16 Michigan - Civilization",
         "draft_id": "1366408611172982784",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79577223560314880",
@@ -36403,12 +36409,6 @@
             "username": "greggroesbeck",
             "team_name": null,
             "draft_position": 11
-          },
-          {
-            "user_id": "1130895974827819008",
-            "username": "FantasyDako",
-            "team_name": "Reach",
-            "draft_position": null
           },
           {
             "user_id": "1267563941857341440",
