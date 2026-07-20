@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T12:39:40.240Z",
+  "generated_at": "2026-07-20T14:55:21.972Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -1619,8 +1619,8 @@
         "league_id": "1378150704643870720",
         "league_name": "#SFB16 Michigan - City of Heroes",
         "draft_id": "1378150710729773056",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "337851986563039232",
@@ -3044,8 +3044,8 @@
         "league_id": "1367873997655506944",
         "league_name": "#SFB16 - Angry Birds",
         "draft_id": "1367873998444060672",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "205405674174156800",
@@ -3608,8 +3608,8 @@
         "league_id": "1367873787088883712",
         "league_name": "#SFB16 - Assassin's Creed",
         "draft_id": "1367873787885793280",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "300461566078234624",
@@ -17735,8 +17735,8 @@
         "league_id": "1367186969087442944",
         "league_name": "#SFB16 - Space Invaders",
         "draft_id": "1367186969808863232",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "452113409471672320",
@@ -22067,7 +22067,7 @@
         "league_id": "1366445934543654912",
         "league_name": "#SFB16 Atlanta - Burger Time",
         "draft_id": "1366445936066199552",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -23675,7 +23675,7 @@
         "league_id": "1366442357284667392",
         "league_name": "#SFB16 Boston - Natalya (GoldenEye 007)",
         "draft_id": "1366442358823985152",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -31472,7 +31472,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -38691,12 +38691,6 @@
             "user_id": "593895308065284096",
             "username": "AmaraLynch",
             "team_name": null,
-            "draft_position": null
-          },
-          {
-            "user_id": "606218078447005696",
-            "username": "smlcandido",
-            "team_name": "Far West Caboclos",
             "draft_position": null
           },
           {
