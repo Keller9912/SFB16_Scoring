@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T22:41:41.772Z",
+  "generated_at": "2026-07-20T23:42:25.946Z",
   "leagues": [
     {
       "id": "14494",
@@ -31527,6 +31527,24 @@
       "league_id": "65583"
     },
     {
+      "name": "Michael Penix Jr.",
+      "pos": "QB",
+      "team": "ATL",
+      "pick_no": 192,
+      "round": 16,
+      "franchise_id": "0001",
+      "league_id": "65583"
+    },
+    {
+      "name": "Cooper Kupp",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 193,
+      "round": 17,
+      "franchise_id": "0001",
+      "league_id": "65583"
+    },
+    {
       "name": "Puka Nacua",
       "pos": "WR",
       "team": "LAR",
@@ -35781,6 +35799,42 @@
       "pick_no": 233,
       "round": 20,
       "franchise_id": "0008",
+      "league_id": "73136"
+    },
+    {
+      "name": "Devin Singletary",
+      "pos": "RB",
+      "team": "NYG",
+      "pick_no": 234,
+      "round": 20,
+      "franchise_id": "0007",
+      "league_id": "73136"
+    },
+    {
+      "name": "Brandon Aiyuk",
+      "pos": "WR",
+      "team": "SFO",
+      "pick_no": 235,
+      "round": 20,
+      "franchise_id": "0006",
+      "league_id": "73136"
+    },
+    {
+      "name": "Kirk Cousins",
+      "pos": "QB",
+      "team": "LVR",
+      "pick_no": 236,
+      "round": 20,
+      "franchise_id": "0005",
+      "league_id": "73136"
+    },
+    {
+      "name": "Adam Randall",
+      "pos": "RB",
+      "team": "BAL",
+      "pick_no": 237,
+      "round": 20,
+      "franchise_id": "0004",
       "league_id": "73136"
     }
   ]
