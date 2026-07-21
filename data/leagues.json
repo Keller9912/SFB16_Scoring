@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T12:50:53.900Z",
+  "generated_at": "2026-07-21T14:53:53.140Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -7637,8 +7637,8 @@
         "league_id": "1367864764893495296",
         "league_name": "#SFB16 - Dragon Age: Origins",
         "draft_id": "1367864765690437632",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "452692167064809472",
@@ -8567,8 +8567,8 @@
         "league_id": "1367863993393238016",
         "league_name": "#SFB16 - FIFA Series",
         "draft_id": "1367863994131439616",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79325198041890816",
@@ -15311,8 +15311,8 @@
         "league_id": "1367262829639405568",
         "league_name": "#SFB16 - Paper Mario",
         "draft_id": "1367262830381764608",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "323233196483301376",
@@ -17363,8 +17363,8 @@
         "league_id": "1367187366439059456",
         "league_name": "#SFB16 - Soap McTavish (Call of Duty)",
         "draft_id": "1367187367336607744",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79476453393448960",
@@ -22067,7 +22067,7 @@
         "league_id": "1366445934543654912",
         "league_name": "#SFB16 Atlanta - Burger Time",
         "draft_id": "1366445936066199552",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -23675,7 +23675,7 @@
         "league_id": "1366442357284667392",
         "league_name": "#SFB16 Boston - Natalya (GoldenEye 007)",
         "draft_id": "1366442358823985152",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -31466,7 +31466,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -33870,12 +33870,6 @@
             "draft_position": 10
           },
           {
-            "user_id": "331986060584165376",
-            "username": "MikeMiklius",
-            "team_name": null,
-            "draft_position": 9
-          },
-          {
             "user_id": "339632730692206592",
             "username": "IronLion23",
             "team_name": "FROBEARD",
@@ -34155,16 +34149,16 @@
             "draft_position": 3
           },
           {
+            "user_id": "341875577784897536",
+            "username": "ShaneSays",
+            "team_name": null,
+            "draft_position": 9
+          },
+          {
             "user_id": "438917064355213312",
             "username": "RyanHallam",
             "team_name": null,
             "draft_position": null
-          },
-          {
-            "user_id": "452121404368744448",
-            "username": "GMenManny",
-            "team_name": null,
-            "draft_position": 9
           },
           {
             "user_id": "452692167064809472",
