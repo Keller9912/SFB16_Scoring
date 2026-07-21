@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T23:30:33.531Z",
+  "generated_at": "2026-07-21T00:58:52.928Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -1288,7 +1288,7 @@
         "league_id": "73136",
         "league_name": "#SFB16 - Excitebike",
         "roster_size": 20,
-        "draft_complete": false,
+        "draft_complete": true,
         "teams": [
           {
             "franchise_id": "0001",
@@ -6236,8 +6236,8 @@
         "league_id": "1367867543938678784",
         "league_name": "#SFB16 - Cloud Strife (Final Fantasy)",
         "draft_id": "1367867544832081920",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "78796420756684800",
@@ -12677,8 +12677,8 @@
         "league_id": "1367747551675031552",
         "league_name": "#SFB16 - Marvel Rivals",
         "draft_id": "1367747553226915840",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "76611801420546048",
@@ -28322,7 +28322,7 @@
           {
             "user_id": "731423142303629312",
             "username": "emrich905",
-            "team_name": null,
+            "team_name": "Misterdister69",
             "draft_position": 2
           },
           {
@@ -28352,7 +28352,7 @@
           {
             "user_id": "1110864452158611456",
             "username": "BoJaya",
-            "team_name": "DeSilvaBack Gorillaz",
+            "team_name": "BoJaya",
             "draft_position": 11
           },
           {
@@ -30542,7 +30542,7 @@
           {
             "user_id": "738598999656919040",
             "username": "BeerConoiseur25",
-            "team_name": "Lamarizard",
+            "team_name": "Bijanbasaur",
             "draft_position": 2
           },
           {
@@ -30958,12 +30958,6 @@
             "username": "bigotesdeltoro",
             "team_name": null,
             "draft_position": 11
-          },
-          {
-            "user_id": "981404259088388096",
-            "username": "H0kuum",
-            "team_name": null,
-            "draft_position": 12
           }
         ]
       },
@@ -31243,6 +31237,12 @@
             "username": "rolaran",
             "team_name": null,
             "draft_position": 4
+          },
+          {
+            "user_id": "1137418521778147328",
+            "username": "CowboyOnaLamb",
+            "team_name": null,
+            "draft_position": null
           },
           {
             "user_id": "1238184482981302272",
@@ -35852,7 +35852,7 @@
           {
             "user_id": "603674505382006784",
             "username": "RyanBreadPal",
-            "team_name": null,
+            "team_name": "The Bakery",
             "draft_position": 2
           },
           {
