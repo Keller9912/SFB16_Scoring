@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T00:58:52.928Z",
+  "generated_at": "2026-07-21T04:13:02.830Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -2189,8 +2189,8 @@
         "league_id": "1370176971622858752",
         "league_name": "#SFB16 Chicago - Kirby",
         "draft_id": "1370176972646281216",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "203517081663049728",
@@ -13985,8 +13985,8 @@
         "league_id": "1367667013249409024",
         "league_name": "#SFB16 - Nathan Drake (Uncharted)",
         "draft_id": "1367667014545444864",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "77187161803603968",
@@ -19043,8 +19043,8 @@
         "league_id": "1367150314670542848",
         "league_name": "#SFB16 - Super Smash Bros. Melee",
         "draft_id": "1367150315538751488",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "192824984085729280",
@@ -30518,7 +30518,7 @@
           {
             "user_id": "557054601774678016",
             "username": "JoeWisco",
-            "team_name": null,
+            "team_name": "Exebuka",
             "draft_position": 6
           },
           {
@@ -30548,7 +30548,7 @@
           {
             "user_id": "739937559085510656",
             "username": "TheJuuice",
-            "team_name": "Calebander Williams",
+            "team_name": "ALLENkazam",
             "draft_position": 8
           },
           {
@@ -30958,6 +30958,12 @@
             "username": "bigotesdeltoro",
             "team_name": null,
             "draft_position": 11
+          },
+          {
+            "user_id": "1257126549564424192",
+            "username": "BernsCC7",
+            "team_name": null,
+            "draft_position": null
           }
         ]
       },
@@ -31460,7 +31466,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "drafting",
+        "draft_status": "paused",
         "draft_complete": false,
         "teams": [
           {
@@ -35216,7 +35222,7 @@
           {
             "user_id": "451159606928863232",
             "username": "IFSEsq",
-            "team_name": null,
+            "team_name": "Underage Bijan",
             "draft_position": 3
           },
           {
