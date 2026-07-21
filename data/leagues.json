@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T22:34:55.766Z",
+  "generated_at": "2026-07-21T23:39:16.709Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -12956,8 +12956,8 @@
         "league_id": "1367747044231372800",
         "league_name": "#SFB16 - Master Chief (Halo)",
         "draft_id": "1367747045695180800",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "389156968138338304",
@@ -18851,8 +18851,8 @@
         "league_id": "1367150470111440896",
         "league_name": "#SFB16 - Super Mario World",
         "draft_id": "1367150471197769728",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "72815361707622400",
@@ -21572,8 +21572,8 @@
         "league_id": "1366878384889565184",
         "league_name": "#SFB16 - Yu-Gi-Oh!",
         "draft_id": "1366878385707450368",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "76443833428492288",
@@ -21665,8 +21665,8 @@
         "league_id": "1366877553293279232",
         "league_name": "#SFB16 - Zelda (The Legend of Zelda)",
         "draft_id": "1366877554073403392",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "90629140143030272",
@@ -31225,12 +31225,6 @@
             "username": "rigarciglia",
             "team_name": "The House of Downs",
             "draft_position": 1
-          },
-          {
-            "user_id": "1125232641072074752",
-            "username": "FantasyBowl",
-            "team_name": null,
-            "draft_position": 6
           },
           {
             "user_id": "1126336845085769728",
