@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T12:01:55.588Z",
+  "generated_at": "2026-07-21T14:24:32.529Z",
   "leagues": [
     {
       "id": "14494",
@@ -31757,6 +31757,33 @@
       "team": "LVR",
       "pick_no": 203,
       "round": 17,
+      "franchise_id": "0011",
+      "league_id": "65583"
+    },
+    {
+      "name": "Woody Marks",
+      "pos": "RB",
+      "team": "HOU",
+      "pick_no": 204,
+      "round": 17,
+      "franchise_id": "0012",
+      "league_id": "65583"
+    },
+    {
+      "name": "De'Zhaun Stribling",
+      "pos": "WR",
+      "team": "SFO",
+      "pick_no": 205,
+      "round": 18,
+      "franchise_id": "0012",
+      "league_id": "65583"
+    },
+    {
+      "name": "Mac Jones",
+      "pos": "QB",
+      "team": "SFO",
+      "pick_no": 206,
+      "round": 18,
       "franchise_id": "0011",
       "league_id": "65583"
     },
