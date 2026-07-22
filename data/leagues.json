@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T22:33:27.506Z",
+  "generated_at": "2026-07-22T23:38:55.642Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -11276,8 +11276,8 @@
         "league_id": "1367759492741099520",
         "league_name": "#SFB16 - Korok",
         "draft_id": "1367759495396085760",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "78982287362244608",
@@ -17084,8 +17084,8 @@
         "league_id": "1367187802927693824",
         "league_name": "#SFB16 - SimCity",
         "draft_id": "1367187803699445760",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "211146489571844096",
@@ -17132,7 +17132,7 @@
           {
             "user_id": "606976430852608000",
             "username": "jchong",
-            "team_name": null,
+            "team_name": "LaPorta Potty",
             "draft_position": 2
           },
           {
@@ -23279,8 +23279,8 @@
         "league_id": "1366443334033215488",
         "league_name": "#SFB16 Boston - Boris (GoldenEye 007)",
         "draft_id": "1366443335627079680",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79662245025824768",
@@ -27191,8 +27191,8 @@
         "league_id": "1366434238693412864",
         "league_name": "#SFB16 Dallas - John Madden Football",
         "draft_id": "1366434240324988928",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "76412554435772416",
@@ -34183,6 +34183,12 @@
             "username": "GonnaKickTomorrow",
             "team_name": null,
             "draft_position": 7
+          },
+          {
+            "user_id": "608330509025640448",
+            "username": "DelloDello",
+            "team_name": null,
+            "draft_position": 6
           },
           {
             "user_id": "739530429937381376",
