@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T17:41:05.235Z",
+  "generated_at": "2026-07-22T18:46:57.345Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -968,7 +968,7 @@
         "league_id": "55743",
         "league_name": "#SFB16 - Pong",
         "roster_size": 20,
-        "draft_complete": false,
+        "draft_complete": true,
         "teams": [
           {
             "franchise_id": "0001",
@@ -4829,8 +4829,8 @@
         "league_id": "1367870320597270528",
         "league_name": "#SFB16 - Brawl Stars",
         "draft_id": "1367870321406779392",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "177515371962974208",
