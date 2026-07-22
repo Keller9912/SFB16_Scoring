@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-22T12:57:40.055Z",
+  "generated_at": "2026-07-22T14:55:57.708Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -648,7 +648,7 @@
         "league_id": "43844",
         "league_name": "#SFB16 - Metroid",
         "roster_size": 20,
-        "draft_complete": false,
+        "draft_complete": true,
         "teams": [
           {
             "franchise_id": "0001",
@@ -9776,8 +9776,8 @@
         "league_id": "1367858487186436096",
         "league_name": "#SFB16 - Grand Theft Auto Vice City",
         "draft_id": "1367858488079835136",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "339093515612979200",
@@ -19940,7 +19940,7 @@
           {
             "user_id": "727339427545849856",
             "username": "adk1979",
-            "team_name": null,
+            "team_name": "Kokiri Kittle",
             "draft_position": 2
           },
           {
@@ -20771,7 +20771,7 @@
           {
             "user_id": "721511753585872896",
             "username": "dlogan",
-            "team_name": null,
+            "team_name": "Travis Treasure Hunters ",
             "draft_position": 6
           },
           {
@@ -23675,7 +23675,7 @@
         "league_id": "1366442357284667392",
         "league_name": "#SFB16 Boston - Natalya (GoldenEye 007)",
         "draft_id": "1366442358823985152",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -25439,8 +25439,8 @@
         "league_id": "1366438459534761984",
         "league_name": "#SFB16 Chicago - You Don't Know Jack",
         "draft_id": "1366438461074071552",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "203517081663049728",
@@ -31466,7 +31466,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -33050,8 +33050,8 @@
         "league_id": "1366407377670144000",
         "league_name": "#SFB16 Nashville - Skyrim",
         "draft_id": "1366407378848718848",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "76559114847010816",
