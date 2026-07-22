@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T23:39:16.709Z",
+  "generated_at": "2026-07-22T01:05:14.291Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -22067,8 +22067,8 @@
         "league_id": "1366445934543654912",
         "league_name": "#SFB16 Atlanta - Burger Time",
         "draft_id": "1366445936066199552",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "101119113690497024",
@@ -31233,6 +31233,12 @@
             "draft_position": 8
           },
           {
+            "user_id": "1136880218553409536",
+            "username": "iamcoryOO",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
             "user_id": "1137247142764142592",
             "username": "rolaran",
             "team_name": null,
@@ -38495,6 +38501,12 @@
           {
             "user_id": "563150747701485568",
             "username": "Rafaellobo87",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
+            "user_id": "563404799401287680",
+            "username": "MestreDan",
             "team_name": null,
             "draft_position": null
           },
