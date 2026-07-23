@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T16:44:04.379Z",
+  "generated_at": "2026-07-23T18:01:28.133Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -11090,8 +11090,8 @@
         "league_id": "1367759737587798016",
         "league_name": "#SFB16 - Kingdom Hearts",
         "draft_id": "1367759739471003648",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "74998740964229120",
@@ -13892,8 +13892,8 @@
         "league_id": "1367737892356505600",
         "league_name": "#SFB16 - Mortal Kombat",
         "draft_id": "1367737893744828416",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "335682914203217920",
@@ -29016,13 +29016,13 @@
             "user_id": "191300304468189184",
             "username": "kapnted",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 1
           },
           {
             "user_id": "410595530284994560",
             "username": "DeweyKerner",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 4
           },
           {
             "user_id": "452692167064809472",
@@ -29034,43 +29034,43 @@
             "user_id": "457952413098176512",
             "username": "DoOrDieNASTY",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 10
           },
           {
             "user_id": "498366864963923968",
             "username": "StonedSportDude",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 5
           },
           {
             "user_id": "565297978002219008",
             "username": "BigDiesel95",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 7
           },
           {
             "user_id": "592631165492445184",
             "username": "RCJHeier3",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 11
           },
           {
             "user_id": "646794119389208576",
             "username": "WComfort",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 12
           },
           {
             "user_id": "730486205950562304",
             "username": "AustinTO1",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 3
           },
           {
             "user_id": "735966809882312704",
             "username": "Sloth55",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 8
           },
           {
             "user_id": "819245060922130432",
@@ -29082,19 +29082,19 @@
             "user_id": "863979542186958848",
             "username": "BourbaBOOS",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 9
           },
           {
             "user_id": "1109977314139623424",
             "username": "FantasyFlyover",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 2
           },
           {
             "user_id": "1261380106161496064",
             "username": "BEARTHIS",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 6
           }
         ]
       },
@@ -30963,7 +30963,7 @@
             "user_id": "1257126549564424192",
             "username": "BernsCC7",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 12
           }
         ]
       },
@@ -30979,6 +30979,12 @@
             "username": "JPeekFF",
             "team_name": null,
             "draft_position": null
+          },
+          {
+            "user_id": "568185135299551232",
+            "username": "IdoloMoctezuma",
+            "team_name": null,
+            "draft_position": 2
           },
           {
             "user_id": "569316118028595200",
@@ -31236,7 +31242,7 @@
             "user_id": "1136880218553409536",
             "username": "iamcoryOO",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 6
           },
           {
             "user_id": "1137247142764142592",
@@ -31248,7 +31254,7 @@
             "user_id": "1137418521778147328",
             "username": "CowboyOnaLamb",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 10
           },
           {
             "user_id": "1238184482981302272",
