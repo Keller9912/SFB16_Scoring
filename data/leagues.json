@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T16:06:26.111Z",
+  "generated_at": "2026-07-24T17:50:10.220Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -1128,7 +1128,7 @@
         "league_id": "65583",
         "league_name": "#SFB16 - NBA Jam (Berry)",
         "roster_size": 20,
-        "draft_complete": false,
+        "draft_complete": true,
         "teams": [
           {
             "franchise_id": "0001",
@@ -23675,8 +23675,8 @@
         "league_id": "1366442357284667392",
         "league_name": "#SFB16 Boston - Natalya (GoldenEye 007)",
         "draft_id": "1366442358823985152",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "427288605866598400",
@@ -23711,7 +23711,7 @@
           {
             "user_id": "560930247324557312",
             "username": "djschandel4",
-            "team_name": null,
+            "team_name": "Everybody Love Everybody",
             "draft_position": 12
           },
           {
@@ -23723,7 +23723,7 @@
           {
             "user_id": "604457082602741760",
             "username": "skoLinNH",
-            "team_name": null,
+            "team_name": "WR Nation 🏴‍☠️",
             "draft_position": 11
           },
           {
@@ -30377,8 +30377,8 @@
         "league_id": "1366417533124501504",
         "league_name": "#SFB16 Madison - Kingdom Hearts",
         "draft_id": "1366417534659600384",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "205233488981401600",
@@ -30853,6 +30853,18 @@
             "username": "Kika22",
             "team_name": null,
             "draft_position": 4
+          },
+          {
+            "user_id": "1261417640388206592",
+            "username": "Serch1007",
+            "team_name": null,
+            "draft_position": 5
+          },
+          {
+            "user_id": "1269448159478689792",
+            "username": "Jaimes1917",
+            "team_name": null,
+            "draft_position": 10
           }
         ]
       },
