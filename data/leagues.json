@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T01:06:25.796Z",
+  "generated_at": "2026-07-24T04:29:45.925Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -18014,8 +18014,8 @@
         "league_id": "1367151102297911296",
         "league_name": "#SFB16 - Star Fox",
         "draft_id": "1367151102998368256",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "77846397990617088",
@@ -27086,8 +27086,8 @@
         "league_id": "1366434540586799104",
         "league_name": "#SFB16 Dallas - GoldenEye 007",
         "draft_id": "1366434542138687488",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "76412554435772416",
@@ -30855,12 +30855,6 @@
             "draft_position": 9
           },
           {
-            "user_id": "857327903870963712",
-            "username": "bdonabedian",
-            "team_name": "Los Guanagatos",
-            "draft_position": 5
-          },
-          {
             "user_id": "1131045729168023552",
             "username": "Kika22",
             "team_name": null,
@@ -31472,7 +31466,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "drafting",
+        "draft_status": "paused",
         "draft_complete": false,
         "teams": [
           {
@@ -36287,8 +36281,8 @@
         "league_id": "1366397646192779264",
         "league_name": "#SFB16 Phoenix - Tony Hawks Underground",
         "draft_id": "1366397647811809280",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "302495529940574208",
@@ -36353,7 +36347,7 @@
           {
             "user_id": "977992814128689152",
             "username": "frankjackalope",
-            "team_name": null,
+            "team_name": "Down With Gesickness",
             "draft_position": 4
           },
           {
