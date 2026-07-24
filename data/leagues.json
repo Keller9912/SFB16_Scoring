@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T17:50:10.220Z",
+  "generated_at": "2026-07-24T19:08:29.123Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -5957,8 +5957,8 @@
         "league_id": "1367869633201184768",
         "league_name": "#SFB16 - Clash of Clans",
         "draft_id": "1367869633998102528",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "343522922176028672",
@@ -38499,12 +38499,6 @@
             "draft_position": null
           },
           {
-            "user_id": "467463590522122240",
-            "username": "Jonesburgo96",
-            "team_name": "Sic Mundus Winden",
-            "draft_position": 8
-          },
-          {
             "user_id": "563150747701485568",
             "username": "Rafaellobo87",
             "team_name": null,
@@ -38533,12 +38527,6 @@
             "username": "LucasdosAnjos",
             "team_name": null,
             "draft_position": 7
-          },
-          {
-            "user_id": "604347013617745920",
-            "username": "HawkDestro",
-            "team_name": null,
-            "draft_position": 4
           },
           {
             "user_id": "701850307616919552",
