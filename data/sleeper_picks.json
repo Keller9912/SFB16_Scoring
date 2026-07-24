@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T09:56:14.355Z",
+  "generated_at": "2026-07-24T11:45:05.838Z",
   "leagues": [
     {
       "league_id": "1383225951596314624",
@@ -2576,6 +2576,12 @@
       "pos": "TE",
       "team": "LAC",
       "pick_no": 94
+    },
+    {
+      "name": "Jordan Love",
+      "pos": "QB",
+      "team": "GB",
+      "pick_no": 95
     },
     {
       "name": "Bijan Robinson",
@@ -109744,6 +109750,12 @@
       "pick_no": 201
     },
     {
+      "name": "Calvin Ridley",
+      "pos": "WR",
+      "team": "TEN",
+      "pick_no": 202
+    },
+    {
       "name": "Brock Bowers",
       "pos": "TE",
       "team": "LV",
@@ -146366,6 +146378,12 @@
       "pos": "RB",
       "team": "MIN",
       "pick_no": 223
+    },
+    {
+      "name": "Brandon Aiyuk",
+      "pos": "WR",
+      "team": "SF",
+      "pick_no": 224
     },
     {
       "name": "Brock Bowers",
@@ -187792,6 +187810,12 @@
       "pick_no": 234
     },
     {
+      "name": "Pat Bryant",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 235
+    },
+    {
       "name": "Bijan Robinson",
       "pos": "RB",
       "team": "ATL",
@@ -189176,6 +189200,12 @@
       "pos": "WR",
       "team": "TB",
       "pick_no": 231
+    },
+    {
+      "name": "Jalen Tolbert",
+      "pos": "WR",
+      "team": "MIA",
+      "pick_no": 232
     },
     {
       "name": "Josh Allen",
@@ -289348,6 +289378,24 @@
       "pick_no": 198
     },
     {
+      "name": "Zachariah Branch",
+      "pos": "WR",
+      "team": "ATL",
+      "pick_no": 199
+    },
+    {
+      "name": "Skyler Bell",
+      "pos": "WR",
+      "team": "BUF",
+      "pick_no": 200
+    },
+    {
+      "name": "Isiah Pacheco",
+      "pos": "RB",
+      "team": "DET",
+      "pick_no": 201
+    },
+    {
       "name": "Josh Allen",
       "pos": "QB",
       "team": "BUF",
@@ -306422,6 +306470,12 @@
       "pos": "WR",
       "team": "NYG",
       "pick_no": 213
+    },
+    {
+      "name": "Kayshon Boutte",
+      "pos": "WR",
+      "team": "NE",
+      "pick_no": 214
     },
     {
       "name": "Bijan Robinson",
@@ -335426,6 +335480,12 @@
       "pos": "TE",
       "team": "NYG",
       "pick_no": 195
+    },
+    {
+      "name": "De'Zhaun Stribling",
+      "pos": "WR",
+      "team": "SF",
+      "pick_no": 196
     },
     {
       "name": "Puka Nacua",
@@ -386278,6 +386338,12 @@
       "pick_no": 197
     },
     {
+      "name": "J.J. McCarthy",
+      "pos": "QB",
+      "team": "MIN",
+      "pick_no": 198
+    },
+    {
       "name": "Bijan Robinson",
       "pos": "RB",
       "team": "ATL",
@@ -390248,6 +390314,12 @@
       "pos": "WR",
       "team": "SF",
       "pick_no": 182
+    },
+    {
+      "name": "Jacoby Brissett",
+      "pos": "QB",
+      "team": "ARI",
+      "pick_no": 183
     },
     {
       "name": "Josh Allen",
@@ -427300,6 +427372,12 @@
       "pick_no": 208
     },
     {
+      "name": "Pat Bryant",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 209
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -431564,6 +431642,12 @@
       "pos": "TE",
       "team": "SEA",
       "pick_no": 231
+    },
+    {
+      "name": "Mike Washington",
+      "pos": "RB",
+      "team": "LV",
+      "pick_no": 232
     },
     {
       "name": "Jahmyr Gibbs",
@@ -467338,6 +467422,12 @@
       "pick_no": 220
     },
     {
+      "name": "Kaleb Johnson",
+      "pos": "RB",
+      "team": "PIT",
+      "pick_no": 221
+    },
+    {
       "name": "Josh Allen",
       "pos": "QB",
       "team": "BUF",
@@ -477208,6 +477298,30 @@
       "pick_no": 205
     },
     {
+      "name": "Zachariah Branch",
+      "pos": "WR",
+      "team": "ATL",
+      "pick_no": 206
+    },
+    {
+      "name": "Mike Gesicki",
+      "pos": "TE",
+      "team": "CIN",
+      "pick_no": 207
+    },
+    {
+      "name": "Tre' Harris",
+      "pos": "WR",
+      "team": "LAC",
+      "pick_no": 208
+    },
+    {
+      "name": "Germie Bernard",
+      "pos": "WR",
+      "team": "PIT",
+      "pick_no": 209
+    },
+    {
       "name": "Josh Allen",
       "pos": "QB",
       "team": "BUF",
@@ -478466,6 +478580,12 @@
       "pos": "QB",
       "team": "MIN",
       "pick_no": 210
+    },
+    {
+      "name": "Isiah Pacheco",
+      "pos": "RB",
+      "team": "DET",
+      "pick_no": 211
     },
     {
       "name": "Josh Allen",
@@ -497660,6 +497780,18 @@
       "pos": "WR",
       "team": "NYG",
       "pick_no": 186
+    },
+    {
+      "name": "Jerry Jeudy",
+      "pos": "WR",
+      "team": "CLE",
+      "pick_no": 187
+    },
+    {
+      "name": "Jauan Jennings",
+      "pos": "WR",
+      "team": "MIN",
+      "pick_no": 188
     },
     {
       "name": "Jahmyr Gibbs",
