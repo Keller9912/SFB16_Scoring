@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T07:18:21.983Z",
+  "generated_at": "2026-07-24T09:44:44.787Z",
   "source_drafts": 402,
   "player_count": 413,
   "players": [
@@ -2290,10 +2290,10 @@
       "adp": 153.29,
       "min": 106,
       "max": 190,
-      "stddev": 12.04,
-      "count": 387,
+      "stddev": 12.03,
+      "count": 388,
       "platforms": {
-        "Sleeper": 370,
+        "Sleeper": 371,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2542,13 +2542,13 @@
       "name": "David Njoku",
       "position": "TE",
       "team": "LAC",
-      "adp": 167.21,
+      "adp": 167.25,
       "min": 58,
       "max": 232,
-      "stddev": 21.48,
-      "count": 379,
+      "stddev": 21.46,
+      "count": 380,
       "platforms": {
-        "Sleeper": 362,
+        "Sleeper": 363,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2890,10 +2890,10 @@
       "adp": 189.38,
       "min": 136,
       "max": 233,
-      "stddev": 16.81,
-      "count": 368,
+      "stddev": 16.79,
+      "count": 369,
       "platforms": {
-        "Sleeper": 351,
+        "Sleeper": 352,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3859,21 +3859,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Dontayvion Wicks",
-      "position": "WR",
-      "team": "PHI",
-      "adp": 216.3,
-      "min": 157,
-      "max": 240,
-      "stddev": 18.93,
-      "count": 234,
-      "platforms": {
-        "Sleeper": 221,
-        "MFL": 13
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "MarShawn Lloyd",
       "position": "RB",
       "team": "GB",
@@ -3900,6 +3885,21 @@
       "platforms": {
         "Sleeper": 148,
         "MFL": 15
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Dontayvion Wicks",
+      "position": "WR",
+      "team": "PHI",
+      "adp": 216.36,
+      "min": 157,
+      "max": 240,
+      "stddev": 18.93,
+      "count": 236,
+      "platforms": {
+        "Sleeper": 223,
+        "MFL": 13
       },
       "platformLabel": "Both"
     },
@@ -3937,13 +3937,13 @@
       "name": "Michael Mayer",
       "position": "TE",
       "team": "LV",
-      "adp": 216.66,
+      "adp": 216.74,
       "min": 159,
       "max": 240,
       "stddev": 16.39,
-      "count": 226,
+      "count": 227,
       "platforms": {
-        "Sleeper": 215,
+        "Sleeper": 216,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -4042,13 +4042,13 @@
       "name": "Keenan Allen",
       "position": "WR",
       "team": "",
-      "adp": 218.38,
+      "adp": 218.27,
       "min": 137,
       "max": 240,
-      "stddev": 17.28,
-      "count": 202,
+      "stddev": 17.3,
+      "count": 203,
       "platforms": {
-        "Sleeper": 195,
+        "Sleeper": 196,
         "MFL": 7
       },
       "platformLabel": "Both"
@@ -4417,13 +4417,13 @@
       "name": "Justin Joly",
       "position": "TE",
       "team": "DEN",
-      "adp": 221.06,
+      "adp": 221.15,
       "min": 147,
       "max": 240,
-      "stddev": 18.59,
-      "count": 64,
+      "stddev": 18.46,
+      "count": 65,
       "platforms": {
-        "Sleeper": 62,
+        "Sleeper": 63,
         "MFL": 2
       },
       "platformLabel": "Both"
