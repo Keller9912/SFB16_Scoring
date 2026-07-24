@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T12:53:03.666Z",
+  "generated_at": "2026-07-24T14:32:22.699Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -20444,8 +20444,8 @@
         "league_id": "1366880179103735808",
         "league_name": "#SFB16 - Tony Hawks Underground",
         "draft_id": "1366880179825168384",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "400454967112052736",
@@ -23675,7 +23675,7 @@
         "league_id": "1366442357284667392",
         "league_name": "#SFB16 Boston - Natalya (GoldenEye 007)",
         "draft_id": "1366442358823985152",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -30789,12 +30789,6 @@
             "draft_position": null
           },
           {
-            "user_id": "455891582550274048",
-            "username": "cynthiaspears19",
-            "team_name": null,
-            "draft_position": 10
-          },
-          {
             "user_id": "466238139241852928",
             "username": "Bitboyz",
             "team_name": null,
@@ -31466,7 +31460,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -35864,7 +35858,7 @@
           {
             "user_id": "996901880435445760",
             "username": "dantheeffinman",
-            "team_name": "Cat-a-boo",
+            "team_name": "No Aiyukses",
             "draft_position": 7
           }
         ]
