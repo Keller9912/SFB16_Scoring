@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T06:40:41.756Z",
+  "generated_at": "2026-07-25T08:51:40.831Z",
   "source_drafts": 402,
   "player_count": 414,
   "players": [
@@ -2749,21 +2749,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Isaac TeSlaa",
-      "position": "WR",
-      "team": "DET",
-      "adp": 181.67,
-      "min": 92,
-      "max": 229,
-      "stddev": 17.06,
-      "count": 381,
-      "platforms": {
-        "Sleeper": 364,
-        "MFL": 17
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Keaton Mitchell",
       "position": "RB",
       "team": "LAC",
@@ -2774,6 +2759,21 @@
       "count": 383,
       "platforms": {
         "Sleeper": 366,
+        "MFL": 17
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Isaac TeSlaa",
+      "position": "WR",
+      "team": "DET",
+      "adp": 181.76,
+      "min": 92,
+      "max": 229,
+      "stddev": 17.12,
+      "count": 382,
+      "platforms": {
+        "Sleeper": 365,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2977,13 +2977,13 @@
       "name": "Dylan Sampson",
       "position": "RB",
       "team": "CLE",
-      "adp": 195.34,
+      "adp": 195.35,
       "min": 128,
       "max": 238,
-      "stddev": 18,
-      "count": 370,
+      "stddev": 17.98,
+      "count": 371,
       "platforms": {
-        "Sleeper": 355,
+        "Sleeper": 356,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -3082,13 +3082,13 @@
       "name": "Kayshon Boutte",
       "position": "WR",
       "team": "NE",
-      "adp": 198.75,
+      "adp": 198.82,
       "min": 109,
       "max": 240,
-      "stddev": 21.08,
-      "count": 335,
+      "stddev": 21.1,
+      "count": 336,
       "platforms": {
-        "Sleeper": 319,
+        "Sleeper": 320,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3700,10 +3700,10 @@
       "adp": 214.1,
       "min": 166,
       "max": 240,
-      "stddev": 16.68,
-      "count": 239,
+      "stddev": 16.65,
+      "count": 240,
       "platforms": {
-        "Sleeper": 227,
+        "Sleeper": 228,
         "MFL": 12
       },
       "platformLabel": "Both"
