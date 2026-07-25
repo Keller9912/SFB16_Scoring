@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T12:43:28.692Z",
+  "generated_at": "2026-07-25T14:17:48.142Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -7823,8 +7823,8 @@
         "league_id": "1367864597339443200",
         "league_name": "#SFB16 - Elder Scrolls",
         "draft_id": "1367864598178328576",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "404872414111989760",
@@ -13613,8 +13613,8 @@
         "league_id": "1367739514184822784",
         "league_name": "#SFB16 - Minecraft",
         "draft_id": "1367739515736707072",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "308059044411633664",
@@ -29696,7 +29696,7 @@
         "league_id": "1366420401227321344",
         "league_name": "#SFB16 London - FIFA Football",
         "draft_id": "1366420402791796736",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -29795,32 +29795,32 @@
         "league_id": "1366420212689154048",
         "league_name": "#SFB16 London - GoldenEye 007",
         "draft_id": "1366420214048096256",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
             "user_id": "32631690371678208",
             "username": "LiamSteventon",
             "team_name": "Skolfall",
-            "draft_position": null
+            "draft_position": 5
           },
           {
             "user_id": "78619466673831936",
             "username": "PaulMarnie",
             "team_name": "Stop Getting Bond Wrong",
-            "draft_position": null
+            "draft_position": 7
           },
           {
             "user_id": "414378565539217408",
             "username": "Davidb8",
             "team_name": "Baileys Giants",
-            "draft_position": null
+            "draft_position": 2
           },
           {
             "user_id": "439137918108299264",
             "username": "DolphinAbroad",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 6
           },
           {
             "user_id": "452692167064809472",
@@ -29832,7 +29832,13 @@
             "user_id": "557481692454473728",
             "username": "garethshaw",
             "team_name": "FromRussiaW/JeremiyahLove",
-            "draft_position": null
+            "draft_position": 8
+          },
+          {
+            "user_id": "575474018096181248",
+            "username": "Daz10",
+            "team_name": null,
+            "draft_position": 11
           },
           {
             "user_id": "578521099042598912",
@@ -29844,19 +29850,19 @@
             "user_id": "681315956957483008",
             "username": "Randomtask",
             "team_name": "OnHerMajesty’sSecretADP",
-            "draft_position": null
+            "draft_position": 9
           },
           {
             "user_id": "712025507360759808",
             "username": "RaiderMation",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 12
           },
           {
             "user_id": "784238781283831808",
             "username": "mickey1103",
             "team_name": null,
-            "draft_position": null
+            "draft_position": 1
           },
           {
             "user_id": "819245060922130432",
@@ -29868,13 +29874,19 @@
             "user_id": "844582958567383040",
             "username": "IamNotLuke",
             "team_name": "You Only Punt Twice",
-            "draft_position": null
+            "draft_position": 4
           },
           {
             "user_id": "1001982377993867264",
             "username": "WildGuns",
             "team_name": "The QB Spy Who Sacked Me",
-            "draft_position": null
+            "draft_position": 3
+          },
+          {
+            "user_id": "1061349186165194752",
+            "username": "cfbfletch",
+            "team_name": null,
+            "draft_position": 10
           }
         ]
       },
@@ -31466,7 +31478,7 @@
         "league_id": "1366408962026504192",
         "league_name": "#SFB16 Michigan - Alpha Centauri",
         "draft_id": "1366408963293208576",
-        "draft_status": "paused",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -34931,8 +34943,8 @@
         "league_id": "1366403311007207424",
         "league_name": "#SFB16 Orlando - RollerCoaster Tycoon",
         "draft_id": "1366403312676503552",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "215131888136757248",
@@ -37178,8 +37190,8 @@
         "league_id": "1366396072280195072",
         "league_name": "#SFB16 Richmond - Minecraft",
         "draft_id": "1366396073957953536",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "194368677515104256",
