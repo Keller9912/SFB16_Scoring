@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T23:33:10.710Z",
+  "generated_at": "2026-07-25T01:10:00.518Z",
   "source_drafts": 402,
   "player_count": 414,
   "players": [
@@ -1267,13 +1267,13 @@
       "name": "David Montgomery",
       "position": "RB",
       "team": "HOU",
-      "adp": 87.94,
+      "adp": 87.98,
       "min": 60,
       "max": 123,
-      "stddev": 10.5,
-      "count": 389,
+      "stddev": 10.52,
+      "count": 390,
       "platforms": {
-        "Sleeper": 372,
+        "Sleeper": 373,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2542,13 +2542,13 @@
       "name": "David Njoku",
       "position": "TE",
       "team": "LAC",
-      "adp": 167.25,
+      "adp": 167.35,
       "min": 58,
       "max": 232,
-      "stddev": 21.73,
-      "count": 384,
+      "stddev": 21.71,
+      "count": 387,
       "platforms": {
-        "Sleeper": 367,
+        "Sleeper": 370,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2572,13 +2572,13 @@
       "name": "Pat Freiermuth",
       "position": "TE",
       "team": "PIT",
-      "adp": 169.05,
+      "adp": 169.19,
       "min": 79,
       "max": 230,
-      "stddev": 17.68,
-      "count": 382,
+      "stddev": 17.88,
+      "count": 383,
       "platforms": {
-        "Sleeper": 365,
+        "Sleeper": 366,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2662,13 +2662,13 @@
       "name": "Jerry Jeudy",
       "position": "WR",
       "team": "CLE",
-      "adp": 176.31,
+      "adp": 176.34,
       "min": 102,
       "max": 231,
       "stddev": 17.04,
-      "count": 382,
+      "count": 383,
       "platforms": {
-        "Sleeper": 365,
+        "Sleeper": 366,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2707,25 +2707,10 @@
       "name": "Adonai Mitchell",
       "position": "WR",
       "team": "NYJ",
-      "adp": 178.2,
+      "adp": 178.27,
       "min": 122,
       "max": 231,
-      "stddev": 15.12,
-      "count": 382,
-      "platforms": {
-        "Sleeper": 365,
-        "MFL": 17
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "Tyjae Spears",
-      "position": "RB",
-      "team": "TEN",
-      "adp": 178.46,
-      "min": 121,
-      "max": 222,
-      "stddev": 15.33,
+      "stddev": 15.18,
       "count": 383,
       "platforms": {
         "Sleeper": 366,
@@ -2734,31 +2719,31 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Chris Rodriguez",
+      "name": "Tyjae Spears",
       "position": "RB",
-      "team": "JAX",
-      "adp": 179.42,
-      "min": 133,
-      "max": 226,
-      "stddev": 15.31,
-      "count": 382,
+      "team": "TEN",
+      "adp": 178.49,
+      "min": 121,
+      "max": 222,
+      "stddev": 15.32,
+      "count": 384,
       "platforms": {
-        "Sleeper": 365,
+        "Sleeper": 367,
         "MFL": 17
       },
       "platformLabel": "Both"
     },
     {
-      "name": "Keaton Mitchell",
+      "name": "Chris Rodriguez",
       "position": "RB",
-      "team": "LAC",
-      "adp": 181.62,
-      "min": 118,
-      "max": 238,
-      "stddev": 17.53,
-      "count": 381,
+      "team": "JAX",
+      "adp": 179.44,
+      "min": 133,
+      "max": 226,
+      "stddev": 15.3,
+      "count": 383,
       "platforms": {
-        "Sleeper": 364,
+        "Sleeper": 366,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2774,6 +2759,21 @@
       "count": 381,
       "platforms": {
         "Sleeper": 364,
+        "MFL": 17
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Keaton Mitchell",
+      "position": "RB",
+      "team": "LAC",
+      "adp": 181.69,
+      "min": 118,
+      "max": 238,
+      "stddev": 17.56,
+      "count": 382,
+      "platforms": {
+        "Sleeper": 365,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2905,10 +2905,10 @@
       "adp": 190.65,
       "min": 108,
       "max": 240,
-      "stddev": 18.25,
-      "count": 373,
+      "stddev": 18.22,
+      "count": 374,
       "platforms": {
-        "Sleeper": 356,
+        "Sleeper": 357,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2947,13 +2947,13 @@
       "name": "Tank Dell",
       "position": "WR",
       "team": "HOU",
-      "adp": 193.39,
+      "adp": 193.51,
       "min": 67,
       "max": 237,
-      "stddev": 20.09,
-      "count": 373,
+      "stddev": 20.18,
+      "count": 374,
       "platforms": {
-        "Sleeper": 356,
+        "Sleeper": 357,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2962,13 +2962,13 @@
       "name": "Mike Gesicki",
       "position": "TE",
       "team": "CIN",
-      "adp": 194.25,
+      "adp": 194.36,
       "min": 115,
       "max": 240,
-      "stddev": 20.1,
-      "count": 363,
+      "stddev": 20.18,
+      "count": 364,
       "platforms": {
-        "Sleeper": 347,
+        "Sleeper": 348,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -2977,13 +2977,13 @@
       "name": "Dylan Sampson",
       "position": "RB",
       "team": "CLE",
-      "adp": 195.26,
+      "adp": 195.25,
       "min": 128,
       "max": 238,
-      "stddev": 17.97,
-      "count": 368,
+      "stddev": 17.95,
+      "count": 369,
       "platforms": {
-        "Sleeper": 353,
+        "Sleeper": 354,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -2992,13 +2992,13 @@
       "name": "Jake Tonges",
       "position": "TE",
       "team": "SF",
-      "adp": 195.28,
+      "adp": 195.35,
       "min": 123,
       "max": 239,
-      "stddev": 19.02,
-      "count": 360,
+      "stddev": 19.04,
+      "count": 361,
       "platforms": {
-        "Sleeper": 344,
+        "Sleeper": 345,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3022,13 +3022,13 @@
       "name": "Shedeur Sanders",
       "position": "QB",
       "team": "CLE",
-      "adp": 196.42,
+      "adp": 196.53,
       "min": 129,
       "max": 240,
-      "stddev": 22.92,
-      "count": 341,
+      "stddev": 22.97,
+      "count": 342,
       "platforms": {
-        "Sleeper": 324,
+        "Sleeper": 325,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3037,13 +3037,13 @@
       "name": "Michael Penix",
       "position": "QB",
       "team": "ATL",
-      "adp": 196.98,
+      "adp": 197.1,
       "min": 109,
       "max": 239,
-      "stddev": 23.15,
-      "count": 325,
+      "stddev": 23.13,
+      "count": 327,
       "platforms": {
-        "Sleeper": 308,
+        "Sleeper": 310,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3067,13 +3067,13 @@
       "name": "Tyreek Hill",
       "position": "WR",
       "team": "",
-      "adp": 198.44,
+      "adp": 198.56,
       "min": 111,
       "max": 240,
-      "stddev": 24.67,
-      "count": 284,
+      "stddev": 24.6,
+      "count": 287,
       "platforms": {
-        "Sleeper": 278,
+        "Sleeper": 281,
         "MFL": 6
       },
       "platformLabel": "Both"
@@ -3097,13 +3097,13 @@
       "name": "Calvin Ridley",
       "position": "WR",
       "team": "TEN",
-      "adp": 200.48,
+      "adp": 200.51,
       "min": 131,
       "max": 240,
-      "stddev": 21.31,
-      "count": 341,
+      "stddev": 21.28,
+      "count": 342,
       "platforms": {
-        "Sleeper": 326,
+        "Sleeper": 327,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -3112,13 +3112,13 @@
       "name": "Mason Taylor",
       "position": "TE",
       "team": "NYJ",
-      "adp": 200.97,
+      "adp": 201.04,
       "min": 124,
       "max": 240,
-      "stddev": 22.55,
-      "count": 313,
+      "stddev": 22.49,
+      "count": 315,
       "platforms": {
-        "Sleeper": 303,
+        "Sleeper": 305,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -3157,13 +3157,13 @@
       "name": "Evan Engram",
       "position": "TE",
       "team": "DEN",
-      "adp": 204.09,
+      "adp": 204.11,
       "min": 35,
       "max": 240,
-      "stddev": 20.58,
-      "count": 328,
+      "stddev": 20.56,
+      "count": 329,
       "platforms": {
-        "Sleeper": 311,
+        "Sleeper": 312,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3202,13 +3202,13 @@
       "name": "Germie Bernard",
       "position": "WR",
       "team": "PIT",
-      "adp": 205.24,
+      "adp": 205.21,
       "min": 90,
       "max": 240,
-      "stddev": 19.56,
-      "count": 343,
+      "stddev": 19.55,
+      "count": 345,
       "platforms": {
-        "Sleeper": 328,
+        "Sleeper": 330,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -3217,13 +3217,13 @@
       "name": "Troy Franklin",
       "position": "WR",
       "team": "DEN",
-      "adp": 205.42,
+      "adp": 205.47,
       "min": 124,
       "max": 239,
-      "stddev": 20.45,
-      "count": 314,
+      "stddev": 20.4,
+      "count": 316,
       "platforms": {
-        "Sleeper": 298,
+        "Sleeper": 300,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3277,13 +3277,13 @@
       "name": "Kirk Cousins",
       "position": "QB",
       "team": "LV",
-      "adp": 206.71,
+      "adp": 206.74,
       "min": 103,
       "max": 240,
-      "stddev": 23.4,
-      "count": 301,
+      "stddev": 23.36,
+      "count": 302,
       "platforms": {
-        "Sleeper": 284,
+        "Sleeper": 285,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3292,13 +3292,13 @@
       "name": "Darnell Mooney",
       "position": "WR",
       "team": "NYG",
-      "adp": 207.18,
+      "adp": 207.28,
       "min": 152,
       "max": 240,
-      "stddev": 18.61,
-      "count": 311,
+      "stddev": 18.55,
+      "count": 314,
       "platforms": {
-        "Sleeper": 297,
+        "Sleeper": 300,
         "MFL": 14
       },
       "platformLabel": "Both"
@@ -3307,13 +3307,13 @@
       "name": "Braelon Allen",
       "position": "RB",
       "team": "NYJ",
-      "adp": 207.92,
+      "adp": 208.07,
       "min": 150,
       "max": 240,
-      "stddev": 17.73,
-      "count": 303,
+      "stddev": 17.77,
+      "count": 305,
       "platforms": {
-        "Sleeper": 291,
+        "Sleeper": 293,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -3382,13 +3382,13 @@
       "name": "Chris Bell",
       "position": "WR",
       "team": "MIA",
-      "adp": 209.55,
+      "adp": 209.64,
       "min": 142,
       "max": 240,
-      "stddev": 19.07,
-      "count": 294,
+      "stddev": 19.04,
+      "count": 296,
       "platforms": {
-        "Sleeper": 283,
+        "Sleeper": 285,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -3397,13 +3397,13 @@
       "name": "Pat Bryant",
       "position": "WR",
       "team": "DEN",
-      "adp": 209.88,
+      "adp": 209.91,
       "min": 148,
       "max": 240,
-      "stddev": 18.24,
-      "count": 273,
+      "stddev": 18.22,
+      "count": 274,
       "platforms": {
-        "Sleeper": 267,
+        "Sleeper": 268,
         "MFL": 6
       },
       "platformLabel": "Both"
@@ -3484,21 +3484,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Ja'Kobi Lane",
-      "position": "WR",
-      "team": "BAL",
-      "adp": 210.85,
-      "min": 138,
-      "max": 240,
-      "stddev": 18.54,
-      "count": 281,
-      "platforms": {
-        "Sleeper": 280,
-        "MFL": 1
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Cooper Kupp",
       "position": "WR",
       "team": "SEA",
@@ -3514,6 +3499,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Ja'Kobi Lane",
+      "position": "WR",
+      "team": "BAL",
+      "adp": 210.9,
+      "min": 138,
+      "max": 240,
+      "stddev": 18.53,
+      "count": 282,
+      "platforms": {
+        "Sleeper": 281,
+        "MFL": 1
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Malachi Fields",
       "position": "WR",
       "team": "NYG",
@@ -3525,21 +3525,6 @@
       "platforms": {
         "Sleeper": 285,
         "MFL": 12
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "Cade Klubnik",
-      "position": "QB",
-      "team": "NYJ",
-      "adp": 211.27,
-      "min": 117,
-      "max": 238,
-      "stddev": 32.65,
-      "count": 15,
-      "platforms": {
-        "Sleeper": 13,
-        "MFL": 2
       },
       "platformLabel": "Both"
     },
@@ -3562,13 +3547,13 @@
       "name": "Kaytron Allen",
       "position": "RB",
       "team": "WAS",
-      "adp": 212.11,
+      "adp": 212.13,
       "min": 151,
       "max": 240,
-      "stddev": 18.46,
-      "count": 282,
+      "stddev": 18.43,
+      "count": 283,
       "platforms": {
-        "Sleeper": 269,
+        "Sleeper": 270,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -3577,13 +3562,13 @@
       "name": "Rashod Bateman",
       "position": "WR",
       "team": "BAL",
-      "adp": 212.31,
+      "adp": 212.44,
       "min": 139,
       "max": 240,
-      "stddev": 17.7,
-      "count": 248,
+      "stddev": 17.72,
+      "count": 250,
       "platforms": {
-        "Sleeper": 234,
+        "Sleeper": 236,
         "MFL": 14
       },
       "platformLabel": "Both"
@@ -3604,6 +3589,21 @@
       "platformLabel": "Sleeper"
     },
     {
+      "name": "Cade Klubnik",
+      "position": "QB",
+      "team": "NYJ",
+      "adp": 212.94,
+      "min": 117,
+      "max": 238,
+      "stddev": 32.27,
+      "count": 16,
+      "platforms": {
+        "Sleeper": 14,
+        "MFL": 2
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Jonnu Smith",
       "position": "TE",
       "team": "",
@@ -3622,13 +3622,13 @@
       "name": "Ray Davis",
       "position": "RB",
       "team": "BUF",
-      "adp": 213.52,
+      "adp": 213.53,
       "min": 152,
       "max": 240,
-      "stddev": 15.63,
-      "count": 298,
+      "stddev": 15.61,
+      "count": 299,
       "platforms": {
-        "Sleeper": 284,
+        "Sleeper": 285,
         "MFL": 14
       },
       "platformLabel": "Both"
@@ -3697,13 +3697,13 @@
       "name": "Demond Claiborne",
       "position": "RB",
       "team": "MIN",
-      "adp": 214.12,
+      "adp": 214.03,
       "min": 166,
       "max": 240,
-      "stddev": 16.75,
-      "count": 234,
+      "stddev": 16.77,
+      "count": 235,
       "platforms": {
-        "Sleeper": 222,
+        "Sleeper": 223,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -3742,13 +3742,13 @@
       "name": "Jack Bech",
       "position": "WR",
       "team": "LV",
-      "adp": 214.54,
+      "adp": 214.59,
       "min": 135,
       "max": 240,
-      "stddev": 17.3,
-      "count": 279,
+      "stddev": 17.21,
+      "count": 283,
       "platforms": {
-        "Sleeper": 270,
+        "Sleeper": 274,
         "MFL": 9
       },
       "platformLabel": "Both"
@@ -3784,21 +3784,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Trey Benson",
-      "position": "RB",
-      "team": "ARI",
-      "adp": 215.67,
-      "min": 160,
-      "max": 240,
-      "stddev": 19.42,
-      "count": 129,
-      "platforms": {
-        "Sleeper": 128,
-        "MFL": 1
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Elic Ayomanor",
       "position": "WR",
       "team": "TEN",
@@ -3810,6 +3795,21 @@
       "platforms": {
         "Sleeper": 120,
         "MFL": 10
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Trey Benson",
+      "position": "RB",
+      "team": "ARI",
+      "adp": 215.72,
+      "min": 160,
+      "max": 240,
+      "stddev": 19.35,
+      "count": 130,
+      "platforms": {
+        "Sleeper": 129,
+        "MFL": 1
       },
       "platformLabel": "Both"
     },
@@ -3844,6 +3844,21 @@
       "platformLabel": "Sleeper"
     },
     {
+      "name": "Dontayvion Wicks",
+      "position": "WR",
+      "team": "PHI",
+      "adp": 216.14,
+      "min": 157,
+      "max": 240,
+      "stddev": 18.99,
+      "count": 240,
+      "platforms": {
+        "Sleeper": 227,
+        "MFL": 13
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Sean Tucker",
       "position": "RB",
       "team": "TB",
@@ -3859,31 +3874,16 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Dontayvion Wicks",
-      "position": "WR",
-      "team": "PHI",
-      "adp": 216.28,
-      "min": 157,
-      "max": 240,
-      "stddev": 18.99,
-      "count": 238,
-      "platforms": {
-        "Sleeper": 225,
-        "MFL": 13
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "MarShawn Lloyd",
       "position": "RB",
       "team": "GB",
       "adp": 216.37,
       "min": 159,
       "max": 240,
-      "stddev": 17.17,
-      "count": 185,
+      "stddev": 17.09,
+      "count": 187,
       "platforms": {
-        "Sleeper": 173,
+        "Sleeper": 175,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -3937,13 +3937,13 @@
       "name": "Jordan James",
       "position": "RB",
       "team": "SF",
-      "adp": 216.71,
+      "adp": 216.74,
       "min": 49,
       "max": 240,
-      "stddev": 20.8,
-      "count": 160,
+      "stddev": 20.74,
+      "count": 161,
       "platforms": {
-        "Sleeper": 150,
+        "Sleeper": 151,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -3952,13 +3952,13 @@
       "name": "Michael Mayer",
       "position": "TE",
       "team": "LV",
-      "adp": 216.72,
+      "adp": 216.84,
       "min": 159,
       "max": 240,
-      "stddev": 16.26,
-      "count": 233,
+      "stddev": 16.22,
+      "count": 236,
       "platforms": {
-        "Sleeper": 222,
+        "Sleeper": 225,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -4042,29 +4042,14 @@
       "name": "Keenan Allen",
       "position": "WR",
       "team": "",
-      "adp": 218.46,
+      "adp": 218.48,
       "min": 137,
       "max": 240,
-      "stddev": 17.27,
-      "count": 206,
+      "stddev": 17.24,
+      "count": 208,
       "platforms": {
-        "Sleeper": 199,
+        "Sleeper": 201,
         "MFL": 7
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "Darius Slayton",
-      "position": "WR",
-      "team": "NYG",
-      "adp": 218.67,
-      "min": 159,
-      "max": 240,
-      "stddev": 17.62,
-      "count": 70,
-      "platforms": {
-        "Sleeper": 57,
-        "MFL": 13
       },
       "platformLabel": "Both"
     },
@@ -4072,13 +4057,13 @@
       "name": "Caleb Douglas",
       "position": "WR",
       "team": "MIA",
-      "adp": 218.67,
+      "adp": 218.53,
       "min": 116,
       "max": 240,
-      "stddev": 25.54,
-      "count": 61,
+      "stddev": 25.36,
+      "count": 62,
       "platforms": {
-        "Sleeper": 58,
+        "Sleeper": 59,
         "MFL": 3
       },
       "platformLabel": "Both"
@@ -4087,14 +4072,29 @@
       "name": "Christian Kirk",
       "position": "WR",
       "team": "SF",
-      "adp": 218.68,
+      "adp": 218.61,
       "min": 102,
       "max": 240,
-      "stddev": 17.76,
-      "count": 189,
+      "stddev": 17.74,
+      "count": 190,
       "platforms": {
-        "Sleeper": 185,
+        "Sleeper": 186,
         "MFL": 4
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Darius Slayton",
+      "position": "WR",
+      "team": "NYG",
+      "adp": 218.89,
+      "min": 159,
+      "max": 240,
+      "stddev": 17.58,
+      "count": 71,
+      "platforms": {
+        "Sleeper": 58,
+        "MFL": 13
       },
       "platformLabel": "Both"
     },
@@ -4159,36 +4159,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Chris Brazzell",
-      "position": "WR",
-      "team": "CAR",
-      "adp": 219.47,
-      "min": 161,
-      "max": 239,
-      "stddev": 14.6,
-      "count": 188,
-      "platforms": {
-        "Sleeper": 183,
-        "MFL": 5
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "Jalen Tolbert",
-      "position": "WR",
-      "team": "MIA",
-      "adp": 219.49,
-      "min": 176,
-      "max": 240,
-      "stddev": 14.64,
-      "count": 97,
-      "platforms": {
-        "Sleeper": 92,
-        "MFL": 5
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Davis Mills",
       "position": "QB",
       "team": "HOU",
@@ -4202,6 +4172,36 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Jalen Tolbert",
+      "position": "WR",
+      "team": "MIA",
+      "adp": 219.54,
+      "min": 176,
+      "max": 240,
+      "stddev": 14.57,
+      "count": 98,
+      "platforms": {
+        "Sleeper": 93,
+        "MFL": 5
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Chris Brazzell",
+      "position": "WR",
+      "team": "CAR",
+      "adp": 219.57,
+      "min": 161,
+      "max": 239,
+      "stddev": 14.62,
+      "count": 189,
+      "platforms": {
+        "Sleeper": 184,
+        "MFL": 5
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Tutu Atwell",
@@ -4357,13 +4357,13 @@
       "name": "Marvin Mims",
       "position": "WR",
       "team": "DEN",
-      "adp": 220.51,
+      "adp": 220.45,
       "min": 169,
       "max": 240,
-      "stddev": 16.48,
-      "count": 79,
+      "stddev": 16.39,
+      "count": 80,
       "platforms": {
-        "Sleeper": 68,
+        "Sleeper": 69,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -4387,13 +4387,13 @@
       "name": "Jaydon Blue",
       "position": "RB",
       "team": "DAL",
-      "adp": 220.6,
+      "adp": 220.58,
       "min": 168,
       "max": 240,
-      "stddev": 14.62,
-      "count": 204,
+      "stddev": 14.55,
+      "count": 206,
       "platforms": {
-        "Sleeper": 195,
+        "Sleeper": 197,
         "MFL": 9
       },
       "platformLabel": "Both"
