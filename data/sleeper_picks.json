@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T17:16:24.237Z",
+  "generated_at": "2026-07-25T18:27:23.792Z",
   "leagues": [
     {
       "league_id": "1383225951596314624",
@@ -2654,6 +2654,12 @@
       "pos": "QB",
       "team": "TEN",
       "pick_no": 107
+    },
+    {
+      "name": "Fernando Mendoza",
+      "pos": "QB",
+      "team": "LV",
+      "pick_no": 108
     },
     {
       "name": "Bijan Robinson",
@@ -94618,6 +94624,12 @@
       "pick_no": 221
     },
     {
+      "name": "Cooper Kupp",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 222
+    },
+    {
       "name": "Puka Nacua",
       "pos": "WR",
       "team": "LAR",
@@ -147350,6 +147362,12 @@
       "pos": "WR",
       "team": "PHI",
       "pick_no": 232
+    },
+    {
+      "name": "Darius Slayton",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 233
     },
     {
       "name": "Brock Bowers",
@@ -331948,6 +331966,12 @@
       "pick_no": 166
     },
     {
+      "name": "Denzel Boston",
+      "pos": "WR",
+      "team": "CLE",
+      "pick_no": 167
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -338522,6 +338546,18 @@
       "pos": "WR",
       "team": "LAC",
       "pick_no": 199
+    },
+    {
+      "name": "Isaac TeSlaa",
+      "pos": "WR",
+      "team": "DET",
+      "pick_no": 200
+    },
+    {
+      "name": "Sean Tucker",
+      "pos": "RB",
+      "team": "TB",
+      "pick_no": 201
     },
     {
       "name": "Josh Allen",
@@ -388576,6 +388612,12 @@
       "pick_no": 232
     },
     {
+      "name": "Elijah Sarratt",
+      "pos": "WR",
+      "team": "BAL",
+      "pick_no": 233
+    },
+    {
       "name": "Bijan Robinson",
       "pos": "RB",
       "team": "ATL",
@@ -419428,6 +419470,24 @@
       "pick_no": 150
     },
     {
+      "name": "Daniel Jones",
+      "pos": "QB",
+      "team": "IND",
+      "pick_no": 151
+    },
+    {
+      "name": "Jacoby Brissett",
+      "pos": "QB",
+      "team": "ARI",
+      "pick_no": 152
+    },
+    {
+      "name": "Jordan Mason",
+      "pos": "RB",
+      "team": "MIN",
+      "pick_no": 153
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -424390,6 +424450,42 @@
       "pick_no": 223
     },
     {
+      "name": "Nicholas Singleton",
+      "pos": "RB",
+      "team": "TEN",
+      "pick_no": 224
+    },
+    {
+      "name": "Mike Washington",
+      "pos": "RB",
+      "team": "LV",
+      "pick_no": 225
+    },
+    {
+      "name": "Geno Smith",
+      "pos": "QB",
+      "team": "NYJ",
+      "pick_no": 226
+    },
+    {
+      "name": "Skyler Bell",
+      "pos": "WR",
+      "team": "BUF",
+      "pick_no": 227
+    },
+    {
+      "name": "Alvin Kamara",
+      "pos": "RB",
+      "team": "NO",
+      "pick_no": 228
+    },
+    {
+      "name": "Jake Tonges",
+      "pos": "TE",
+      "team": "SF",
+      "pick_no": 229
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -425576,6 +425672,12 @@
       "pos": "RB",
       "team": "NO",
       "pick_no": 198
+    },
+    {
+      "name": "Tyquan Thornton",
+      "pos": "WR",
+      "team": "KC",
+      "pick_no": 199
     },
     {
       "name": "Jeremiyah Love",
@@ -436754,6 +436856,12 @@
       "pos": "WR",
       "team": "HOU",
       "pick_no": 236
+    },
+    {
+      "name": "Jaylen Wright",
+      "pos": "RB",
+      "team": "MIA",
+      "pick_no": 237
     },
     {
       "name": "Jahmyr Gibbs",
@@ -463876,6 +463984,12 @@
       "pick_no": 217
     },
     {
+      "name": "Cooper Kupp",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 218
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -469202,6 +469316,18 @@
       "pos": "QB",
       "team": "SF",
       "pick_no": 210
+    },
+    {
+      "name": "Keaton Mitchell",
+      "pos": "RB",
+      "team": "LAC",
+      "pick_no": 211
+    },
+    {
+      "name": "Tyjae Spears",
+      "pos": "RB",
+      "team": "TEN",
+      "pick_no": 212
     },
     {
       "name": "Puka Nacua",
@@ -476362,6 +476488,12 @@
       "pick_no": 233
     },
     {
+      "name": "Jack Bech",
+      "pos": "WR",
+      "team": "LV",
+      "pick_no": 234
+    },
+    {
       "name": "Brock Bowers",
       "pos": "TE",
       "team": "LV",
@@ -477482,6 +477614,12 @@
       "pos": "TE",
       "team": "SF",
       "pick_no": 187
+    },
+    {
+      "name": "Aaron Rodgers",
+      "pos": "QB",
+      "team": "PIT",
+      "pick_no": 188
     },
     {
       "name": "Jaxon Smith-Njigba",
@@ -482818,6 +482956,18 @@
       "pick_no": 233
     },
     {
+      "name": "Kaelon Black",
+      "pos": "RB",
+      "team": "SF",
+      "pick_no": 234
+    },
+    {
+      "name": "MarShawn Lloyd",
+      "pos": "RB",
+      "team": "GB",
+      "pick_no": 235
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -484228,6 +484378,12 @@
       "pick_no": 235
     },
     {
+      "name": "Skyler Bell",
+      "pos": "WR",
+      "team": "BUF",
+      "pick_no": 236
+    },
+    {
       "name": "Josh Allen",
       "pos": "QB",
       "team": "BUF",
@@ -485608,6 +485764,30 @@
       "pick_no": 230
     },
     {
+      "name": "Jaylen Wright",
+      "pos": "RB",
+      "team": "MIA",
+      "pick_no": 231
+    },
+    {
+      "name": "Mac Jones",
+      "pos": "QB",
+      "team": "SF",
+      "pick_no": 232
+    },
+    {
+      "name": "Kaytron Allen",
+      "pos": "RB",
+      "team": "WAS",
+      "pick_no": 233
+    },
+    {
+      "name": "Marvin Mims",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 234
+    },
+    {
       "name": "Josh Allen",
       "pos": "QB",
       "team": "BUF",
@@ -486878,6 +487058,24 @@
       "pos": "WR",
       "team": "NO",
       "pick_no": 212
+    },
+    {
+      "name": "Pat Bryant",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 213
+    },
+    {
+      "name": "Jack Bech",
+      "pos": "WR",
+      "team": "LV",
+      "pick_no": 214
+    },
+    {
+      "name": "Ja'Kobi Lane",
+      "pos": "WR",
+      "team": "BAL",
+      "pick_no": 215
     },
     {
       "name": "Puka Nacua",
@@ -489704,6 +489902,42 @@
       "pos": "RB",
       "team": "LAC",
       "pick_no": 231
+    },
+    {
+      "name": "Mason Taylor",
+      "pos": "TE",
+      "team": "NYJ",
+      "pick_no": 232
+    },
+    {
+      "name": "Brandon Aiyuk",
+      "pos": "WR",
+      "team": "SF",
+      "pick_no": 233
+    },
+    {
+      "name": "Demond Claiborne",
+      "pos": "RB",
+      "team": "MIN",
+      "pick_no": 234
+    },
+    {
+      "name": "Michael Trigg",
+      "pos": "TE",
+      "team": "DAL",
+      "pick_no": 235
+    },
+    {
+      "name": "Max Klare",
+      "pos": "TE",
+      "team": "LAR",
+      "pick_no": 236
+    },
+    {
+      "name": "Caleb Douglas",
+      "pos": "WR",
+      "team": "MIA",
+      "pick_no": 237
     },
     {
       "name": "Jahmyr Gibbs",
@@ -505294,6 +505528,12 @@
       "pick_no": 198
     },
     {
+      "name": "Zachariah Branch",
+      "pos": "WR",
+      "team": "ATL",
+      "pick_no": 199
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -520850,6 +521090,336 @@
       "pos": "RB",
       "team": "DAL",
       "pick_no": 240
+    },
+    {
+      "name": "Ja'Marr Chase",
+      "pos": "WR",
+      "team": "CIN",
+      "pick_no": 1
+    },
+    {
+      "name": "Jahmyr Gibbs",
+      "pos": "RB",
+      "team": "DET",
+      "pick_no": 2
+    },
+    {
+      "name": "Puka Nacua",
+      "pos": "WR",
+      "team": "LAR",
+      "pick_no": 3
+    },
+    {
+      "name": "Jaxon Smith-Njigba",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 4
+    },
+    {
+      "name": "Bijan Robinson",
+      "pos": "RB",
+      "team": "ATL",
+      "pick_no": 5
+    },
+    {
+      "name": "Josh Allen",
+      "pos": "QB",
+      "team": "BUF",
+      "pick_no": 6
+    },
+    {
+      "name": "Christian McCaffrey",
+      "pos": "RB",
+      "team": "SF",
+      "pick_no": 7
+    },
+    {
+      "name": "Amon-Ra St. Brown",
+      "pos": "WR",
+      "team": "DET",
+      "pick_no": 8
+    },
+    {
+      "name": "CeeDee Lamb",
+      "pos": "WR",
+      "team": "DAL",
+      "pick_no": 9
+    },
+    {
+      "name": "Justin Jefferson",
+      "pos": "WR",
+      "team": "MIN",
+      "pick_no": 10
+    },
+    {
+      "name": "Jonathan Taylor",
+      "pos": "RB",
+      "team": "IND",
+      "pick_no": 11
+    },
+    {
+      "name": "James Cook",
+      "pos": "RB",
+      "team": "BUF",
+      "pick_no": 12
+    },
+    {
+      "name": "Drake Maye",
+      "pos": "QB",
+      "team": "NE",
+      "pick_no": 13
+    },
+    {
+      "name": "Trey McBride",
+      "pos": "TE",
+      "team": "ARI",
+      "pick_no": 14
+    },
+    {
+      "name": "Brock Bowers",
+      "pos": "TE",
+      "team": "LV",
+      "pick_no": 15
+    },
+    {
+      "name": "Drake London",
+      "pos": "WR",
+      "team": "ATL",
+      "pick_no": 16
+    },
+    {
+      "name": "A.J. Brown",
+      "pos": "WR",
+      "team": "NE",
+      "pick_no": 17
+    },
+    {
+      "name": "Malik Nabers",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 18
+    },
+    {
+      "name": "De'Von Achane",
+      "pos": "RB",
+      "team": "MIA",
+      "pick_no": 19
+    },
+    {
+      "name": "Nico Collins",
+      "pos": "WR",
+      "team": "HOU",
+      "pick_no": 20
+    },
+    {
+      "name": "George Pickens",
+      "pos": "WR",
+      "team": "DAL",
+      "pick_no": 21
+    },
+    {
+      "name": "Ashton Jeanty",
+      "pos": "RB",
+      "team": "LV",
+      "pick_no": 22
+    },
+    {
+      "name": "Joe Burrow",
+      "pos": "QB",
+      "team": "CIN",
+      "pick_no": 23
+    },
+    {
+      "name": "Saquon Barkley",
+      "pos": "RB",
+      "team": "PHI",
+      "pick_no": 24
+    },
+    {
+      "name": "Kenneth Walker",
+      "pos": "RB",
+      "team": "KC",
+      "pick_no": 25
+    },
+    {
+      "name": "Colston Loveland",
+      "pos": "TE",
+      "team": "CHI",
+      "pick_no": 26
+    },
+    {
+      "name": "Omarion Hampton",
+      "pos": "RB",
+      "team": "LAC",
+      "pick_no": 27
+    },
+    {
+      "name": "Chris Olave",
+      "pos": "WR",
+      "team": "NO",
+      "pick_no": 28
+    },
+    {
+      "name": "Lamar Jackson",
+      "pos": "QB",
+      "team": "BAL",
+      "pick_no": 29
+    },
+    {
+      "name": "Rashee Rice",
+      "pos": "WR",
+      "team": "KC",
+      "pick_no": 30
+    },
+    {
+      "name": "Tyler Warren",
+      "pos": "TE",
+      "team": "IND",
+      "pick_no": 31
+    },
+    {
+      "name": "Chase Brown",
+      "pos": "RB",
+      "team": "CIN",
+      "pick_no": 32
+    },
+    {
+      "name": "Ladd McConkey",
+      "pos": "WR",
+      "team": "LAC",
+      "pick_no": 33
+    },
+    {
+      "name": "Garrett Wilson",
+      "pos": "WR",
+      "team": "NYJ",
+      "pick_no": 34
+    },
+    {
+      "name": "DeVonta Smith",
+      "pos": "WR",
+      "team": "PHI",
+      "pick_no": 35
+    },
+    {
+      "name": "Zay Flowers",
+      "pos": "WR",
+      "team": "BAL",
+      "pick_no": 36
+    },
+    {
+      "name": "Jaylen Waddle",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 37
+    },
+    {
+      "name": "Tetairoa McMillan",
+      "pos": "WR",
+      "team": "CAR",
+      "pick_no": 38
+    },
+    {
+      "name": "Jayden Daniels",
+      "pos": "QB",
+      "team": "WAS",
+      "pick_no": 39
+    },
+    {
+      "name": "Luther Burden",
+      "pos": "WR",
+      "team": "CHI",
+      "pick_no": 40
+    },
+    {
+      "name": "Tucker Kraft",
+      "pos": "TE",
+      "team": "GB",
+      "pick_no": 41
+    },
+    {
+      "name": "Emeka Egbuka",
+      "pos": "WR",
+      "team": "TB",
+      "pick_no": 42
+    },
+    {
+      "name": "Kyle Pitts",
+      "pos": "TE",
+      "team": "ATL",
+      "pick_no": 43
+    },
+    {
+      "name": "Travis Kelce",
+      "pos": "TE",
+      "team": "KC",
+      "pick_no": 44
+    },
+    {
+      "name": "Tee Higgins",
+      "pos": "WR",
+      "team": "CIN",
+      "pick_no": 45
+    },
+    {
+      "name": "Davante Adams",
+      "pos": "WR",
+      "team": "LAR",
+      "pick_no": 46
+    },
+    {
+      "name": "DJ Moore",
+      "pos": "WR",
+      "team": "BUF",
+      "pick_no": 47
+    },
+    {
+      "name": "Mike Evans",
+      "pos": "WR",
+      "team": "SF",
+      "pick_no": 48
+    },
+    {
+      "name": "Sam LaPorta",
+      "pos": "TE",
+      "team": "DET",
+      "pick_no": 49
+    },
+    {
+      "name": "Jeremiyah Love",
+      "pos": "RB",
+      "team": "ARI",
+      "pick_no": 50
+    },
+    {
+      "name": "Caleb Williams",
+      "pos": "QB",
+      "team": "CHI",
+      "pick_no": 51
+    },
+    {
+      "name": "Dalton Kincaid",
+      "pos": "TE",
+      "team": "BUF",
+      "pick_no": 52
+    },
+    {
+      "name": "Josh Jacobs",
+      "pos": "RB",
+      "team": "GB",
+      "pick_no": 53
+    },
+    {
+      "name": "Terry McLaurin",
+      "pos": "WR",
+      "team": "WAS",
+      "pick_no": 54
+    },
+    {
+      "name": "Derrick Henry",
+      "pos": "RB",
+      "team": "BAL",
+      "pick_no": 55
     },
     {
       "name": "Ja'Marr Chase",
