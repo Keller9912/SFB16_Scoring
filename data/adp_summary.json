@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T07:27:23.480Z",
+  "generated_at": "2026-07-26T09:33:38.422Z",
   "source_drafts": 402,
   "player_count": 415,
   "players": [
@@ -2722,13 +2722,13 @@
       "name": "Tyjae Spears",
       "position": "RB",
       "team": "TEN",
-      "adp": 178.56,
+      "adp": 178.55,
       "min": 121,
       "max": 222,
-      "stddev": 15.66,
-      "count": 389,
+      "stddev": 15.64,
+      "count": 390,
       "platforms": {
-        "Sleeper": 372,
+        "Sleeper": 373,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3304,21 +3304,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Jaylin Noel",
-      "position": "WR",
-      "team": "HOU",
-      "adp": 208.4,
-      "min": 142,
-      "max": 240,
-      "stddev": 18.7,
-      "count": 323,
-      "platforms": {
-        "Sleeper": 310,
-        "MFL": 13
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Braelon Allen",
       "position": "RB",
       "team": "NYJ",
@@ -3330,6 +3315,21 @@
       "platforms": {
         "Sleeper": 303,
         "MFL": 12
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Jaylin Noel",
+      "position": "WR",
+      "team": "HOU",
+      "adp": 208.49,
+      "min": 142,
+      "max": 240,
+      "stddev": 18.74,
+      "count": 324,
+      "platforms": {
+        "Sleeper": 311,
+        "MFL": 13
       },
       "platformLabel": "Both"
     },
@@ -3817,13 +3817,13 @@
       "name": "Dontayvion Wicks",
       "position": "WR",
       "team": "PHI",
-      "adp": 216.33,
+      "adp": 216.31,
       "min": 157,
       "max": 240,
-      "stddev": 18.85,
-      "count": 246,
+      "stddev": 18.82,
+      "count": 247,
       "platforms": {
-        "Sleeper": 233,
+        "Sleeper": 234,
         "MFL": 13
       },
       "platformLabel": "Both"
