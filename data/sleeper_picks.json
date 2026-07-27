@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T19:55:53.994Z",
+  "generated_at": "2026-07-27T21:14:18.295Z",
   "leagues": [
     {
       "league_id": "1383225951596314624",
@@ -2792,6 +2792,12 @@
       "pos": "WR",
       "team": "KC",
       "pick_no": 130
+    },
+    {
+      "name": "Jayden Reed",
+      "pos": "WR",
+      "team": "GB",
+      "pick_no": 131
     },
     {
       "name": "Bijan Robinson",
@@ -135092,6 +135098,12 @@
       "pos": "WR",
       "team": "NE",
       "pick_no": 226
+    },
+    {
+      "name": "Devaughn Vele",
+      "pos": "WR",
+      "team": "NO",
+      "pick_no": 227
     },
     {
       "name": "Ja'Marr Chase",
@@ -339004,6 +339016,12 @@
       "pick_no": 238
     },
     {
+      "name": "Malachi Fields",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 239
+    },
+    {
       "name": "Puka Nacua",
       "pos": "WR",
       "team": "LAR",
@@ -409096,6 +409114,12 @@
       "pick_no": 177
     },
     {
+      "name": "Emmett Johnson",
+      "pos": "RB",
+      "team": "KC",
+      "pick_no": 178
+    },
+    {
       "name": "Joe Burrow",
       "pos": "QB",
       "team": "CIN",
@@ -417838,6 +417862,12 @@
       "pick_no": 135
     },
     {
+      "name": "Chuba Hubbard",
+      "pos": "RB",
+      "team": "CAR",
+      "pick_no": 136
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -418622,6 +418652,24 @@
       "pos": "QB",
       "team": "IND",
       "pick_no": 131
+    },
+    {
+      "name": "Greg Dulcich",
+      "pos": "TE",
+      "team": "MIA",
+      "pick_no": 132
+    },
+    {
+      "name": "Kenny Gainwell",
+      "pos": "RB",
+      "team": "TB",
+      "pick_no": 133
+    },
+    {
+      "name": "Matthew Golden",
+      "pos": "WR",
+      "team": "GB",
+      "pick_no": 134
     },
     {
       "name": "Puka Nacua",
@@ -419522,6 +419570,24 @@
       "pos": "RB",
       "team": "DEN",
       "pick_no": 150
+    },
+    {
+      "name": "Tyrone Tracy",
+      "pos": "RB",
+      "team": "NYG",
+      "pick_no": 151
+    },
+    {
+      "name": "Geno Smith",
+      "pos": "QB",
+      "team": "NYJ",
+      "pick_no": 152
+    },
+    {
+      "name": "Greg Dulcich",
+      "pos": "TE",
+      "team": "MIA",
+      "pick_no": 153
     },
     {
       "name": "Brock Bowers",
@@ -442366,6 +442432,30 @@
       "pick_no": 129
     },
     {
+      "name": "Jonathon Brooks",
+      "pos": "RB",
+      "team": "CAR",
+      "pick_no": 130
+    },
+    {
+      "name": "C.J. Stroud",
+      "pos": "QB",
+      "team": "HOU",
+      "pick_no": 131
+    },
+    {
+      "name": "Fernando Mendoza",
+      "pos": "QB",
+      "team": "LV",
+      "pick_no": 132
+    },
+    {
+      "name": "Stefon Diggs",
+      "pos": "WR",
+      "team": "—",
+      "pick_no": 133
+    },
+    {
       "name": "Josh Allen",
       "pos": "QB",
       "team": "BUF",
@@ -443132,6 +443222,24 @@
       "pos": "TE",
       "team": "NO",
       "pick_no": 128
+    },
+    {
+      "name": "Jacoby Brissett",
+      "pos": "QB",
+      "team": "ARI",
+      "pick_no": 129
+    },
+    {
+      "name": "Brenton Strange",
+      "pos": "TE",
+      "team": "JAX",
+      "pick_no": 130
+    },
+    {
+      "name": "Romeo Doubs",
+      "pos": "WR",
+      "team": "NE",
+      "pick_no": 131
     },
     {
       "name": "Jahmyr Gibbs",
@@ -444698,6 +444806,18 @@
       "pos": "WR",
       "team": "TEN",
       "pick_no": 133
+    },
+    {
+      "name": "Jayden Higgins",
+      "pos": "WR",
+      "team": "HOU",
+      "pick_no": 134
+    },
+    {
+      "name": "Rico Dowdle",
+      "pos": "RB",
+      "team": "PIT",
+      "pick_no": 135
     },
     {
       "name": "Jahmyr Gibbs",
@@ -490624,6 +490744,24 @@
       "pick_no": 214
     },
     {
+      "name": "Brandon Aiyuk",
+      "pos": "WR",
+      "team": "SF",
+      "pick_no": 215
+    },
+    {
+      "name": "Michael Penix",
+      "pos": "QB",
+      "team": "ATL",
+      "pick_no": 216
+    },
+    {
+      "name": "Dontayvion Wicks",
+      "pos": "WR",
+      "team": "PHI",
+      "pick_no": 217
+    },
+    {
       "name": "Jaxon Smith-Njigba",
       "pos": "WR",
       "team": "SEA",
@@ -519076,6 +519214,18 @@
       "pick_no": 222
     },
     {
+      "name": "Mason Taylor",
+      "pos": "TE",
+      "team": "NYJ",
+      "pick_no": 223
+    },
+    {
+      "name": "Pat Bryant",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 224
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -520400,6 +520550,36 @@
       "pos": "RB",
       "team": "PHI",
       "pick_no": 221
+    },
+    {
+      "name": "Darnell Mooney",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 222
+    },
+    {
+      "name": "Pat Bryant",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 223
+    },
+    {
+      "name": "Chris Bell",
+      "pos": "WR",
+      "team": "MIA",
+      "pick_no": 224
+    },
+    {
+      "name": "Nicholas Singleton",
+      "pos": "RB",
+      "team": "TEN",
+      "pick_no": 225
+    },
+    {
+      "name": "Mac Jones",
+      "pos": "QB",
+      "team": "SF",
+      "pick_no": 226
     },
     {
       "name": "Josh Allen",
@@ -536888,6 +537068,18 @@
       "pos": "RB",
       "team": "ARI",
       "pick_no": 185
+    },
+    {
+      "name": "Isaac TeSlaa",
+      "pos": "WR",
+      "team": "DET",
+      "pick_no": 186
+    },
+    {
+      "name": "Ja'Kobi Lane",
+      "pos": "WR",
+      "team": "BAL",
+      "pick_no": 187
     },
     {
       "name": "Ja'Marr Chase",
