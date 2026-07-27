@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T01:17:23.484Z",
+  "generated_at": "2026-07-27T05:00:30.480Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -3515,8 +3515,8 @@
         "league_id": "1367873820811075584",
         "league_name": "#SFB16 - Arthur Morgan (Red Dead)",
         "draft_id": "1367873821641555968",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "301801821435867136",
@@ -9869,8 +9869,8 @@
         "league_id": "1367858424200572928",
         "league_name": "#SFB16 - Guitar Hero",
         "draft_id": "1367858425257545728",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "335896962039566336",
@@ -28976,7 +28976,7 @@
           {
             "user_id": "834859296457076736",
             "username": "TSummers3",
-            "team_name": null,
+            "team_name": "TR3Y 6 Mafia",
             "draft_position": 10
           },
           {
