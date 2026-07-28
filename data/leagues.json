@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T23:19:33.961Z",
+  "generated_at": "2026-07-28T00:16:46.430Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -20258,8 +20258,8 @@
         "league_id": "1366885729073926144",
         "league_name": "#SFB16 - Tiger Woods PGA Tour",
         "draft_id": "1366885729816281088",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "81492986705625088",
@@ -23477,8 +23477,8 @@
         "league_id": "1366442849247199232",
         "league_name": "#SFB16 Boston - Mayday (GoldenEye 007)",
         "draft_id": "1366442851092676608",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "113836663125721088",
@@ -29795,7 +29795,7 @@
         "league_id": "1366420212689154048",
         "league_name": "#SFB16 London - GoldenEye 007",
         "draft_id": "1366420214048096256",
-        "draft_status": "drafting",
+        "draft_status": "paused",
         "draft_complete": false,
         "teams": [
           {
@@ -37874,7 +37874,7 @@
           {
             "user_id": "1243264548031447040",
             "username": "Scottg9661",
-            "team_name": null,
+            "team_name": "Release The Kraft-ken",
             "draft_position": 12
           },
           {
