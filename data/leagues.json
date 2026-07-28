@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T15:32:46.768Z",
+  "generated_at": "2026-07-28T17:08:04.944Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -28286,8 +28286,8 @@
         "league_id": "1366425537018351616",
         "league_name": "#SFB16 Hawaii - Grand Theft Auto V",
         "draft_id": "1366425538989690880",
-        "draft_status": "paused",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "335642966322315264",
@@ -33633,12 +33633,6 @@
             "draft_position": null
           },
           {
-            "user_id": "867645060831956992",
-            "username": "styliani",
-            "team_name": null,
-            "draft_position": 3
-          },
-          {
             "user_id": "990058196435865600",
             "username": "LyrisH",
             "team_name": "Moot Points",
@@ -37394,8 +37388,8 @@
         "league_id": "1366395684948803584",
         "league_name": "#SFB16 Richmond - Rocket League",
         "draft_id": "1366395690162335744",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "208016355381739520",
