@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T19:42:37.408Z",
+  "generated_at": "2026-07-29T20:37:53.675Z",
   "source_drafts": 402,
   "player_count": 420,
   "players": [
@@ -1837,13 +1837,13 @@
       "name": "Xavier Worthy",
       "position": "WR",
       "team": "KC",
-      "adp": 122,
+      "adp": 122.05,
       "min": 67,
       "max": 171,
-      "stddev": 13.36,
-      "count": 403,
+      "stddev": 13.38,
+      "count": 404,
       "platforms": {
-        "Sleeper": 386,
+        "Sleeper": 387,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2242,13 +2242,13 @@
       "name": "Rachaad White",
       "position": "RB",
       "team": "WAS",
-      "adp": 149.56,
+      "adp": 149.54,
       "min": 91,
       "max": 191,
-      "stddev": 12.8,
-      "count": 401,
+      "stddev": 12.79,
+      "count": 402,
       "platforms": {
-        "Sleeper": 384,
+        "Sleeper": 385,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2347,13 +2347,13 @@
       "name": "Denzel Boston",
       "position": "WR",
       "team": "CLE",
-      "adp": 159.11,
+      "adp": 159.09,
       "min": 100,
       "max": 208,
-      "stddev": 13.54,
-      "count": 399,
+      "stddev": 13.53,
+      "count": 400,
       "platforms": {
-        "Sleeper": 382,
+        "Sleeper": 383,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3394,21 +3394,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Mike Washington",
-      "position": "RB",
-      "team": "LV",
-      "adp": 210.63,
-      "min": 148,
-      "max": 240,
-      "stddev": 18.3,
-      "count": 307,
-      "platforms": {
-        "Sleeper": 296,
-        "MFL": 11
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Chris Bell",
       "position": "WR",
       "team": "MIA",
@@ -3424,16 +3409,31 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Mike Washington",
+      "position": "RB",
+      "team": "LV",
+      "adp": 210.72,
+      "min": 148,
+      "max": 240,
+      "stddev": 18.34,
+      "count": 308,
+      "platforms": {
+        "Sleeper": 297,
+        "MFL": 11
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Pat Bryant",
       "position": "WR",
       "team": "DEN",
-      "adp": 210.91,
+      "adp": 210.94,
       "min": 148,
       "max": 240,
-      "stddev": 18.14,
-      "count": 300,
+      "stddev": 18.12,
+      "count": 301,
       "platforms": {
-        "Sleeper": 294,
+        "Sleeper": 295,
         "MFL": 6
       },
       "platformLabel": "Both"
@@ -3772,13 +3772,13 @@
       "name": "Elic Ayomanor",
       "position": "WR",
       "team": "TEN",
-      "adp": 216.1,
+      "adp": 216.26,
       "min": 154,
       "max": 240,
-      "stddev": 18.55,
-      "count": 144,
+      "stddev": 18.58,
+      "count": 145,
       "platforms": {
-        "Sleeper": 134,
+        "Sleeper": 135,
         "MFL": 10
       },
       "platformLabel": "Both"
