@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T22:38:53.564Z",
+  "generated_at": "2026-07-29T23:42:41.315Z",
   "source_drafts": 402,
   "player_count": 420,
   "players": [
@@ -2275,10 +2275,10 @@
       "adp": 151.29,
       "min": 85,
       "max": 190,
-      "stddev": 14.19,
-      "count": 401,
+      "stddev": 14.17,
+      "count": 402,
       "platforms": {
-        "Sleeper": 384,
+        "Sleeper": 385,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2287,13 +2287,13 @@
       "name": "Gunnar Helm",
       "position": "TE",
       "team": "TEN",
-      "adp": 153.22,
+      "adp": 153.25,
       "min": 106,
       "max": 190,
       "stddev": 12.04,
-      "count": 400,
+      "count": 401,
       "platforms": {
-        "Sleeper": 383,
+        "Sleeper": 384,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2362,13 +2362,13 @@
       "name": "Jalen McMillan",
       "position": "WR",
       "team": "TB",
-      "adp": 160.19,
+      "adp": 160.2,
       "min": 97,
       "max": 202,
-      "stddev": 13.12,
-      "count": 400,
+      "stddev": 13.11,
+      "count": 401,
       "platforms": {
-        "Sleeper": 383,
+        "Sleeper": 384,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2380,10 +2380,10 @@
       "adp": 161.76,
       "min": 66,
       "max": 235,
-      "stddev": 22.32,
-      "count": 397,
+      "stddev": 22.3,
+      "count": 398,
       "platforms": {
-        "Sleeper": 380,
+        "Sleeper": 381,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2410,10 +2410,10 @@
       "adp": 162.17,
       "min": 97,
       "max": 234,
-      "stddev": 15.38,
-      "count": 398,
+      "stddev": 15.36,
+      "count": 399,
       "platforms": {
-        "Sleeper": 381,
+        "Sleeper": 382,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2602,13 +2602,13 @@
       "name": "Woody Marks",
       "position": "RB",
       "team": "HOU",
-      "adp": 174.8,
+      "adp": 174.77,
       "min": 122,
       "max": 223,
-      "stddev": 17.84,
-      "count": 397,
+      "stddev": 17.82,
+      "count": 398,
       "platforms": {
-        "Sleeper": 380,
+        "Sleeper": 381,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2959,6 +2959,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Jake Tonges",
+      "position": "TE",
+      "team": "SF",
+      "adp": 195.73,
+      "min": 123,
+      "max": 239,
+      "stddev": 19.3,
+      "count": 385,
+      "platforms": {
+        "Sleeper": 369,
+        "MFL": 16
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Dylan Sampson",
       "position": "RB",
       "team": "CLE",
@@ -2970,21 +2985,6 @@
       "platforms": {
         "Sleeper": 370,
         "MFL": 15
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "Jake Tonges",
-      "position": "TE",
-      "team": "SF",
-      "adp": 195.79,
-      "min": 123,
-      "max": 239,
-      "stddev": 19.29,
-      "count": 384,
-      "platforms": {
-        "Sleeper": 368,
-        "MFL": 16
       },
       "platformLabel": "Both"
     },
@@ -3127,13 +3127,13 @@
       "name": "Evan Engram",
       "position": "TE",
       "team": "DEN",
-      "adp": 204.45,
+      "adp": 204.55,
       "min": 35,
       "max": 240,
-      "stddev": 20.43,
-      "count": 346,
+      "stddev": 20.48,
+      "count": 347,
       "platforms": {
-        "Sleeper": 329,
+        "Sleeper": 330,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3394,21 +3394,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Chris Bell",
-      "position": "WR",
-      "team": "MIA",
-      "adp": 210.66,
-      "min": 142,
-      "max": 240,
-      "stddev": 19,
-      "count": 317,
-      "platforms": {
-        "Sleeper": 306,
-        "MFL": 11
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Mike Washington",
       "position": "RB",
       "team": "LV",
@@ -3419,6 +3404,21 @@
       "count": 308,
       "platforms": {
         "Sleeper": 297,
+        "MFL": 11
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Chris Bell",
+      "position": "WR",
+      "team": "MIA",
+      "adp": 210.75,
+      "min": 142,
+      "max": 240,
+      "stddev": 19.04,
+      "count": 318,
+      "platforms": {
+        "Sleeper": 307,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -3487,13 +3487,13 @@
       "name": "Kimani Vidal",
       "position": "RB",
       "team": "LAC",
-      "adp": 211.77,
+      "adp": 211.68,
       "min": 126,
       "max": 240,
-      "stddev": 18.68,
-      "count": 273,
+      "stddev": 18.7,
+      "count": 274,
       "platforms": {
-        "Sleeper": 261,
+        "Sleeper": 262,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -3784,21 +3784,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Trey Benson",
-      "position": "RB",
-      "team": "ARI",
-      "adp": 216.37,
-      "min": 160,
-      "max": 240,
-      "stddev": 19.27,
-      "count": 143,
-      "platforms": {
-        "Sleeper": 142,
-        "MFL": 1
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Austin Ekeler",
       "position": "RB",
       "team": "",
@@ -3812,6 +3797,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Trey Benson",
+      "position": "RB",
+      "team": "ARI",
+      "adp": 216.51,
+      "min": 160,
+      "max": 240,
+      "stddev": 19.28,
+      "count": 144,
+      "platforms": {
+        "Sleeper": 143,
+        "MFL": 1
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Dontayvion Wicks",
@@ -3922,13 +3922,13 @@
       "name": "Elijah Sarratt",
       "position": "WR",
       "team": "BAL",
-      "adp": 217.62,
+      "adp": 217.64,
       "min": 153,
       "max": 240,
-      "stddev": 17.19,
-      "count": 272,
+      "stddev": 17.16,
+      "count": 273,
       "platforms": {
-        "Sleeper": 270,
+        "Sleeper": 271,
         "MFL": 2
       },
       "platformLabel": "Both"
