@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T01:02:55.937Z",
+  "generated_at": "2026-07-30T04:17:51.271Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -13703,7 +13703,7 @@
           {
             "user_id": "1379829402459738112",
             "username": "Dooleynator",
-            "team_name": null,
+            "team_name": "Dooleynator",
             "draft_position": 12
           }
         ]
@@ -30785,8 +30785,8 @@
         "league_id": "1366415856594079744",
         "league_name": "#SFB16 Mexico City - Abby (The Last of Us)",
         "draft_id": "1366415858162761728",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "74026217472671744",
@@ -33726,6 +33726,12 @@
             "draft_position": 1
           },
           {
+            "user_id": "740289116482248704",
+            "username": "gulati8",
+            "team_name": "Windrunners",
+            "draft_position": 4
+          },
+          {
             "user_id": "819245060922130432",
             "username": "ScottFishBowl",
             "team_name": null,
@@ -34047,10 +34053,10 @@
             "draft_position": 1
           },
           {
-            "user_id": "1368080225421770752",
-            "username": "BurnleyDog",
-            "team_name": null,
-            "draft_position": 8
+            "user_id": "1388398365619781632",
+            "username": "ericsullivan023",
+            "team_name": "GardenStateDynasty",
+            "draft_position": null
           }
         ]
       },
