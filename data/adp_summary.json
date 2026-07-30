@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T09:43:00.675Z",
+  "generated_at": "2026-07-30T11:34:40.215Z",
   "source_drafts": 402,
   "player_count": 420,
   "players": [
@@ -2332,13 +2332,13 @@
       "name": "Cade Otton",
       "position": "TE",
       "team": "TB",
-      "adp": 155.47,
+      "adp": 155.53,
       "min": 105,
       "max": 205,
-      "stddev": 12.44,
-      "count": 402,
+      "stddev": 12.47,
+      "count": 403,
       "platforms": {
-        "Sleeper": 385,
+        "Sleeper": 386,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2422,13 +2422,13 @@
       "name": "Geno Smith",
       "position": "QB",
       "team": "NYJ",
-      "adp": 162.46,
+      "adp": 162.56,
       "min": 105,
       "max": 238,
-      "stddev": 19.14,
-      "count": 400,
+      "stddev": 19.24,
+      "count": 401,
       "platforms": {
-        "Sleeper": 383,
+        "Sleeper": 384,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3037,13 +3037,13 @@
       "name": "Tank Bigsby",
       "position": "RB",
       "team": "PHI",
-      "adp": 198.19,
+      "adp": 198.13,
       "min": 149,
       "max": 240,
-      "stddev": 17.51,
-      "count": 388,
+      "stddev": 17.53,
+      "count": 389,
       "platforms": {
-        "Sleeper": 371,
+        "Sleeper": 372,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -4699,21 +4699,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Kaelon Black",
-      "position": "RB",
-      "team": "SF",
-      "adp": 223.5,
-      "min": 174,
-      "max": 240,
-      "stddev": 14.15,
-      "count": 120,
-      "platforms": {
-        "Sleeper": 108,
-        "MFL": 12
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Dont'e Thornton",
       "position": "WR",
       "team": "LV",
@@ -4742,6 +4727,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Kaelon Black",
+      "position": "RB",
+      "team": "SF",
+      "adp": 223.53,
+      "min": 174,
+      "max": 240,
+      "stddev": 14.09,
+      "count": 121,
+      "platforms": {
+        "Sleeper": 109,
+        "MFL": 12
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Anthony Richardson",
@@ -4777,13 +4777,13 @@
       "name": "Eli Raridon",
       "position": "TE",
       "team": "NE",
-      "adp": 223.87,
+      "adp": 223.9,
       "min": 165,
       "max": 240,
-      "stddev": 14.58,
-      "count": 67,
+      "stddev": 14.47,
+      "count": 68,
       "platforms": {
-        "Sleeper": 61,
+        "Sleeper": 62,
         "MFL": 6
       },
       "platformLabel": "Both"
