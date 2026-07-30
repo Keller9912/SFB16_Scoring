@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T11:34:40.215Z",
+  "generated_at": "2026-07-30T13:15:49.012Z",
   "source_drafts": 402,
   "player_count": 420,
   "players": [
@@ -2152,13 +2152,13 @@
       "name": "Fernando Mendoza",
       "position": "QB",
       "team": "LV",
-      "adp": 138.52,
+      "adp": 138.56,
       "min": 37,
       "max": 233,
-      "stddev": 27.94,
-      "count": 402,
+      "stddev": 27.92,
+      "count": 403,
       "platforms": {
-        "Sleeper": 385,
+        "Sleeper": 386,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2437,13 +2437,13 @@
       "name": "Zach Charbonnet",
       "position": "RB",
       "team": "SEA",
-      "adp": 163.5,
+      "adp": 163.52,
       "min": 89,
       "max": 238,
-      "stddev": 20.11,
-      "count": 400,
+      "stddev": 20.08,
+      "count": 401,
       "platforms": {
-        "Sleeper": 383,
+        "Sleeper": 384,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2527,13 +2527,13 @@
       "name": "Tua Tagovailoa",
       "position": "QB",
       "team": "ATL",
-      "adp": 166.71,
+      "adp": 166.81,
       "min": 108,
       "max": 240,
-      "stddev": 21.08,
-      "count": 400,
+      "stddev": 21.15,
+      "count": 401,
       "platforms": {
-        "Sleeper": 383,
+        "Sleeper": 384,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2542,13 +2542,13 @@
       "name": "David Njoku",
       "position": "TE",
       "team": "LAC",
-      "adp": 167.33,
+      "adp": 167.3,
       "min": 58,
       "max": 232,
-      "stddev": 21.67,
-      "count": 399,
+      "stddev": 21.66,
+      "count": 400,
       "platforms": {
-        "Sleeper": 382,
+        "Sleeper": 383,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2977,13 +2977,13 @@
       "name": "Dylan Sampson",
       "position": "RB",
       "team": "CLE",
-      "adp": 195.79,
+      "adp": 195.74,
       "min": 128,
       "max": 238,
       "stddev": 17.98,
-      "count": 385,
+      "count": 386,
       "platforms": {
-        "Sleeper": 370,
+        "Sleeper": 371,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -3277,13 +3277,13 @@
       "name": "Darnell Mooney",
       "position": "WR",
       "team": "NYG",
-      "adp": 207.9,
+      "adp": 207.94,
       "min": 152,
       "max": 240,
-      "stddev": 18.34,
-      "count": 337,
+      "stddev": 18.32,
+      "count": 338,
       "platforms": {
-        "Sleeper": 323,
+        "Sleeper": 324,
         "MFL": 14
       },
       "platformLabel": "Both"
@@ -4279,6 +4279,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Marvin Mims",
+      "position": "WR",
+      "team": "DEN",
+      "adp": 220.33,
+      "min": 169,
+      "max": 240,
+      "stddev": 16.45,
+      "count": 86,
+      "platforms": {
+        "Sleeper": 75,
+        "MFL": 11
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Taylen Green",
       "position": "QB",
       "team": "CLE",
@@ -4292,21 +4307,6 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
-    },
-    {
-      "name": "Marvin Mims",
-      "position": "WR",
-      "team": "DEN",
-      "adp": 220.35,
-      "min": 169,
-      "max": 240,
-      "stddev": 16.54,
-      "count": 85,
-      "platforms": {
-        "Sleeper": 74,
-        "MFL": 11
-      },
-      "platformLabel": "Both"
     },
     {
       "name": "Carson Beck",
@@ -5224,6 +5224,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Jalen Milroe",
+      "position": "QB",
+      "team": "SEA",
+      "adp": 228.33,
+      "min": 213,
+      "max": 238,
+      "stddev": 7.49,
+      "count": 12,
+      "platforms": {
+        "Sleeper": 12,
+        "MFL": 0
+      },
+      "platformLabel": "Sleeper"
+    },
+    {
       "name": "Devin Neal",
       "position": "RB",
       "team": "NO",
@@ -5234,21 +5249,6 @@
       "count": 3,
       "platforms": {
         "Sleeper": 3,
-        "MFL": 0
-      },
-      "platformLabel": "Sleeper"
-    },
-    {
-      "name": "Jalen Milroe",
-      "position": "QB",
-      "team": "SEA",
-      "adp": 228.91,
-      "min": 213,
-      "max": 238,
-      "stddev": 7.56,
-      "count": 11,
-      "platforms": {
-        "Sleeper": 11,
         "MFL": 0
       },
       "platformLabel": "Sleeper"
