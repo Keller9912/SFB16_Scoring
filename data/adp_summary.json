@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T12:40:32.442Z",
+  "generated_at": "2026-08-01T14:14:00.870Z",
   "source_drafts": 402,
   "player_count": 423,
   "players": [
@@ -2962,13 +2962,13 @@
       "name": "Jake Tonges",
       "position": "TE",
       "team": "SF",
-      "adp": 195.61,
+      "adp": 195.63,
       "min": 123,
       "max": 239,
-      "stddev": 19.34,
-      "count": 390,
+      "stddev": 19.32,
+      "count": 391,
       "platforms": {
-        "Sleeper": 374,
+        "Sleeper": 375,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -4444,6 +4444,21 @@
       "platformLabel": "Sleeper"
     },
     {
+      "name": "Cyrus Allen",
+      "position": "WR",
+      "team": "KC",
+      "adp": 221.56,
+      "min": 178,
+      "max": 240,
+      "stddev": 17.14,
+      "count": 27,
+      "platforms": {
+        "Sleeper": 26,
+        "MFL": 1
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Jalen Royals",
       "position": "WR",
       "team": "KC",
@@ -4500,21 +4515,6 @@
       "platforms": {
         "Sleeper": 9,
         "MFL": 2
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "Cyrus Allen",
-      "position": "WR",
-      "team": "KC",
-      "adp": 222.04,
-      "min": 178,
-      "max": 240,
-      "stddev": 17.28,
-      "count": 26,
-      "platforms": {
-        "Sleeper": 25,
-        "MFL": 1
       },
       "platformLabel": "Both"
     },
