@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T03:50:09.365Z",
+  "generated_at": "2026-08-01T06:27:49.028Z",
   "source_drafts": 402,
   "player_count": 423,
   "players": [
@@ -2737,13 +2737,13 @@
       "name": "Chris Rodriguez",
       "position": "RB",
       "team": "JAX",
-      "adp": 179.59,
+      "adp": 179.61,
       "min": 133,
       "max": 226,
-      "stddev": 15.28,
-      "count": 401,
+      "stddev": 15.26,
+      "count": 402,
       "platforms": {
-        "Sleeper": 384,
+        "Sleeper": 385,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3022,13 +3022,13 @@
       "name": "Michael Penix",
       "position": "QB",
       "team": "ATL",
-      "adp": 197.44,
+      "adp": 197.49,
       "min": 109,
       "max": 239,
-      "stddev": 23.11,
-      "count": 342,
+      "stddev": 23.09,
+      "count": 343,
       "platforms": {
-        "Sleeper": 325,
+        "Sleeper": 326,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3232,13 +3232,13 @@
       "name": "Troy Franklin",
       "position": "WR",
       "team": "DEN",
-      "adp": 206.17,
+      "adp": 206.12,
       "min": 124,
       "max": 240,
       "stddev": 20.2,
-      "count": 345,
+      "count": 346,
       "platforms": {
-        "Sleeper": 329,
+        "Sleeper": 330,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3457,14 +3457,29 @@
       "name": "Cooper Kupp",
       "position": "WR",
       "team": "SEA",
-      "adp": 211.27,
+      "adp": 211.19,
       "min": 153,
       "max": 240,
-      "stddev": 19.45,
-      "count": 288,
+      "stddev": 19.46,
+      "count": 289,
       "platforms": {
-        "Sleeper": 273,
+        "Sleeper": 274,
         "MFL": 15
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Kimani Vidal",
+      "position": "RB",
+      "team": "LAC",
+      "adp": 211.44,
+      "min": 126,
+      "max": 240,
+      "stddev": 18.76,
+      "count": 277,
+      "platforms": {
+        "Sleeper": 265,
+        "MFL": 12
       },
       "platformLabel": "Both"
     },
@@ -3482,21 +3497,6 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
-    },
-    {
-      "name": "Kimani Vidal",
-      "position": "RB",
-      "team": "LAC",
-      "adp": 211.49,
-      "min": 126,
-      "max": 240,
-      "stddev": 18.77,
-      "count": 276,
-      "platforms": {
-        "Sleeper": 264,
-        "MFL": 12
-      },
-      "platformLabel": "Both"
     },
     {
       "name": "Zander Horvath",
@@ -3700,10 +3700,10 @@
       "adp": 214.85,
       "min": 136,
       "max": 240,
-      "stddev": 20.28,
-      "count": 232,
+      "stddev": 20.24,
+      "count": 233,
       "platforms": {
-        "Sleeper": 221,
+        "Sleeper": 222,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -4834,21 +4834,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Noah Gray",
-      "position": "TE",
-      "team": "KC",
-      "adp": 224.32,
-      "min": 187,
-      "max": 240,
-      "stddev": 11.17,
-      "count": 40,
-      "platforms": {
-        "Sleeper": 36,
-        "MFL": 4
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Konata Mumpfield",
       "position": "WR",
       "team": "LAR",
@@ -4905,6 +4890,21 @@
       "platforms": {
         "Sleeper": 60,
         "MFL": 6
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Noah Gray",
+      "position": "TE",
+      "team": "KC",
+      "adp": 224.71,
+      "min": 187,
+      "max": 240,
+      "stddev": 11.29,
+      "count": 41,
+      "platforms": {
+        "Sleeper": 37,
+        "MFL": 4
       },
       "platformLabel": "Both"
     },
