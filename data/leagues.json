@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T16:37:02.365Z",
+  "generated_at": "2026-08-01T17:40:57.312Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -18671,8 +18671,8 @@
         "league_id": "1367150619726446592",
         "league_name": "#SFB16 - Super Mario Bros. 3",
         "draft_id": "1367150620531769344",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "66689159758495744",
@@ -33569,7 +33569,7 @@
         "league_id": "1366406482962182144",
         "league_name": "#SFB16 New York - Double Dragon",
         "draft_id": "1366406484149149696",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -33668,7 +33668,7 @@
         "league_id": "1366406309267668992",
         "league_name": "#SFB16 New York - Gauntlet",
         "draft_id": "1366406310479790080",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -33754,6 +33754,12 @@
             "username": "JoeChapeau",
             "team_name": null,
             "draft_position": 10
+          },
+          {
+            "user_id": "1389313642431799296",
+            "username": "DJDeBlaz",
+            "team_name": null,
+            "draft_position": 5
           }
         ]
       },
@@ -33761,7 +33767,7 @@
         "league_id": "1366406159543578624",
         "league_name": "#SFB16 New York - Last of Us",
         "draft_id": "1366406160839634944",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -34058,7 +34064,7 @@
         "league_id": "1366405592075235328",
         "league_name": "#SFB16 New York - NBA Jam",
         "draft_id": "1366405593987842048",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
@@ -34262,7 +34268,7 @@
         "league_id": "1366405193670885376",
         "league_name": "#SFB16 New York - Teenage Mutant Ninja Turtles",
         "draft_id": "1366405195365371904",
-        "draft_status": "pre_draft",
+        "draft_status": "drafting",
         "draft_complete": false,
         "teams": [
           {
