@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T15:34:15.283Z",
+  "generated_at": "2026-08-01T16:37:02.365Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -29108,8 +29108,8 @@
         "league_id": "1366423425660239872",
         "league_name": "#SFB16 Kansas City - Super Mario Bros. 3",
         "draft_id": "1366423427111460864",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "79729225976135680",
@@ -33393,12 +33393,6 @@
             "draft_position": 10
           },
           {
-            "user_id": "338368889689759744",
-            "username": "FatCampDropouts",
-            "team_name": null,
-            "draft_position": 6
-          },
-          {
             "user_id": "340578527470473216",
             "username": "lukekendall",
             "team_name": null,
@@ -33463,6 +33457,12 @@
             "username": "Zavala32",
             "team_name": "Bad Company",
             "draft_position": 12
+          },
+          {
+            "user_id": "1389304959354294272",
+            "username": "MrsFluffyCuffz",
+            "team_name": null,
+            "draft_position": 6
           }
         ]
       },
@@ -33489,7 +33489,7 @@
             "user_id": "438917064355213312",
             "username": "RyanHallam",
             "team_name": null,
-            "draft_position": 7
+            "draft_position": null
           },
           {
             "user_id": "452692167064809472",
@@ -33546,12 +33546,6 @@
             "draft_position": 3
           },
           {
-            "user_id": "975864905142247424",
-            "username": "shhherecomesJoe",
-            "team_name": null,
-            "draft_position": 2
-          },
-          {
             "user_id": "1110638010351190016",
             "username": "ScotttyDubs",
             "team_name": null,
@@ -33561,7 +33555,13 @@
             "user_id": "1375178544069509120",
             "username": "prodijae",
             "team_name": "Knicks in 5",
-            "draft_position": null
+            "draft_position": 7
+          },
+          {
+            "user_id": "1389307756523065344",
+            "username": "m8b91989",
+            "team_name": null,
+            "draft_position": 2
           }
         ]
       },
@@ -33748,12 +33748,6 @@
             "username": "Rdip444",
             "team_name": null,
             "draft_position": 3
-          },
-          {
-            "user_id": "1194782535627059200",
-            "username": "jspera33",
-            "team_name": null,
-            "draft_position": 5
           },
           {
             "user_id": "1366986049368096768",
@@ -33999,12 +33993,6 @@
             "draft_position": null
           },
           {
-            "user_id": "464843440731975680",
-            "username": "deekers",
-            "team_name": null,
-            "draft_position": 6
-          },
-          {
             "user_id": "504112967961276416",
             "username": "wilkel39",
             "team_name": null,
@@ -34051,6 +34039,12 @@
             "username": "HAVOC2823",
             "team_name": null,
             "draft_position": 1
+          },
+          {
+            "user_id": "1194782535627059200",
+            "username": "jspera33",
+            "team_name": null,
+            "draft_position": 6
           },
           {
             "user_id": "1388398365619781632",
