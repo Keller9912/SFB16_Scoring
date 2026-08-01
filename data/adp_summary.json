@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T11:42:29.756Z",
+  "generated_at": "2026-08-01T12:40:32.442Z",
   "source_drafts": 402,
   "player_count": 423,
   "players": [
@@ -3265,10 +3265,10 @@
       "adp": 206.85,
       "min": 124,
       "max": 240,
-      "stddev": 22.5,
-      "count": 340,
+      "stddev": 22.46,
+      "count": 341,
       "platforms": {
-        "Sleeper": 324,
+        "Sleeper": 325,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -4624,21 +4624,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Kaelon Black",
-      "position": "RB",
-      "team": "SF",
-      "adp": 223.23,
-      "min": 174,
-      "max": 240,
-      "stddev": 14.17,
-      "count": 123,
-      "platforms": {
-        "Sleeper": 111,
-        "MFL": 12
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Jahan Dotson",
       "position": "WR",
       "team": "ATL",
@@ -4650,6 +4635,21 @@
       "platforms": {
         "Sleeper": 30,
         "MFL": 2
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Kaelon Black",
+      "position": "RB",
+      "team": "SF",
+      "adp": 223.35,
+      "min": 174,
+      "max": 240,
+      "stddev": 14.19,
+      "count": 124,
+      "platforms": {
+        "Sleeper": 112,
+        "MFL": 12
       },
       "platformLabel": "Both"
     },
@@ -5152,13 +5152,13 @@
       "name": "Erick All",
       "position": "TE",
       "team": "CIN",
-      "adp": 227.51,
+      "adp": 227.78,
       "min": 196,
       "max": 240,
-      "stddev": 11.08,
-      "count": 45,
+      "stddev": 11.11,
+      "count": 46,
       "platforms": {
-        "Sleeper": 43,
+        "Sleeper": 44,
         "MFL": 2
       },
       "platformLabel": "Both"
