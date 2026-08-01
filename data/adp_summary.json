@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T21:54:37.726Z",
+  "generated_at": "2026-08-01T22:54:03.068Z",
   "source_drafts": 402,
   "player_count": 423,
   "players": [
@@ -1444,21 +1444,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Sam Darnold",
-      "position": "QB",
-      "team": "SEA",
-      "adp": 98.86,
-      "min": 36,
-      "max": 147,
-      "stddev": 17.46,
-      "count": 409,
-      "platforms": {
-        "Sleeper": 392,
-        "MFL": 17
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Mark Andrews",
       "position": "TE",
       "team": "BAL",
@@ -1469,6 +1454,21 @@
       "count": 414,
       "platforms": {
         "Sleeper": 397,
+        "MFL": 17
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Sam Darnold",
+      "position": "QB",
+      "team": "SEA",
+      "adp": 98.92,
+      "min": 36,
+      "max": 147,
+      "stddev": 17.48,
+      "count": 410,
+      "platforms": {
+        "Sleeper": 393,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -1747,13 +1747,13 @@
       "name": "Jayden Reed",
       "position": "WR",
       "team": "GB",
-      "adp": 116.28,
+      "adp": 116.3,
       "min": 70,
       "max": 148,
-      "stddev": 11.08,
-      "count": 412,
+      "stddev": 11.07,
+      "count": 413,
       "platforms": {
-        "Sleeper": 395,
+        "Sleeper": 396,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2077,13 +2077,13 @@
       "name": "Blake Corum",
       "position": "RB",
       "team": "LAR",
-      "adp": 135.64,
+      "adp": 135.62,
       "min": 85,
       "max": 171,
-      "stddev": 14.35,
-      "count": 409,
+      "stddev": 14.34,
+      "count": 410,
       "platforms": {
-        "Sleeper": 392,
+        "Sleeper": 393,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2182,13 +2182,13 @@
       "name": "Jonathon Brooks",
       "position": "RB",
       "team": "CAR",
-      "adp": 143.48,
+      "adp": 143.47,
       "min": 93,
       "max": 197,
-      "stddev": 14.74,
-      "count": 406,
+      "stddev": 14.72,
+      "count": 407,
       "platforms": {
-        "Sleeper": 389,
+        "Sleeper": 390,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2362,13 +2362,13 @@
       "name": "Jalen McMillan",
       "position": "WR",
       "team": "TB",
-      "adp": 160.23,
+      "adp": 160.15,
       "min": 97,
       "max": 202,
-      "stddev": 13.07,
-      "count": 404,
+      "stddev": 13.16,
+      "count": 405,
       "platforms": {
-        "Sleeper": 387,
+        "Sleeper": 388,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3247,13 +3247,13 @@
       "name": "Brandon Aiyuk",
       "position": "WR",
       "team": "SF",
-      "adp": 206.85,
+      "adp": 206.86,
       "min": 124,
       "max": 240,
-      "stddev": 22.46,
-      "count": 341,
+      "stddev": 22.43,
+      "count": 342,
       "platforms": {
-        "Sleeper": 325,
+        "Sleeper": 326,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3517,13 +3517,13 @@
       "name": "Malachi Fields",
       "position": "WR",
       "team": "NYG",
-      "adp": 212.21,
+      "adp": 212.24,
       "min": 148,
       "max": 240,
-      "stddev": 18.95,
-      "count": 326,
+      "stddev": 18.93,
+      "count": 327,
       "platforms": {
-        "Sleeper": 314,
+        "Sleeper": 315,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -3907,13 +3907,13 @@
       "name": "Elijah Sarratt",
       "position": "WR",
       "team": "BAL",
-      "adp": 217.52,
+      "adp": 217.6,
       "min": 153,
       "max": 240,
-      "stddev": 17.26,
-      "count": 275,
+      "stddev": 17.29,
+      "count": 276,
       "platforms": {
-        "Sleeper": 273,
+        "Sleeper": 274,
         "MFL": 2
       },
       "platformLabel": "Both"
