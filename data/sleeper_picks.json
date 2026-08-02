@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T19:55:14.601Z",
+  "generated_at": "2026-08-02T20:57:44.236Z",
   "leagues": [
     {
       "league_id": "1383225951596314624",
@@ -447898,6 +447898,18 @@
       "pick_no": 217
     },
     {
+      "name": "Colby Parkinson",
+      "pos": "TE",
+      "team": "LAR",
+      "pick_no": 218
+    },
+    {
+      "name": "Emanuel Wilson",
+      "pos": "RB",
+      "team": "SEA",
+      "pick_no": 219
+    },
+    {
       "name": "Josh Allen",
       "pos": "QB",
       "team": "BUF",
@@ -449182,6 +449194,12 @@
       "pick_no": 214
     },
     {
+      "name": "Chimere Dike",
+      "pos": "WR",
+      "team": "TEN",
+      "pick_no": 215
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -450434,6 +450452,12 @@
       "pos": "WR",
       "team": "—",
       "pick_no": 209
+    },
+    {
+      "name": "Nicholas Singleton",
+      "pos": "RB",
+      "team": "TEN",
+      "pick_no": 210
     },
     {
       "name": "Bijan Robinson",
@@ -482962,6 +482986,36 @@
       "pick_no": 141
     },
     {
+      "name": "Rashid Shaheed",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 142
+    },
+    {
+      "name": "T.J. Hockenson",
+      "pos": "TE",
+      "team": "MIN",
+      "pick_no": 143
+    },
+    {
+      "name": "De'Zhaun Stribling",
+      "pos": "WR",
+      "team": "SF",
+      "pick_no": 144
+    },
+    {
+      "name": "Greg Dulcich",
+      "pos": "TE",
+      "team": "MIA",
+      "pick_no": 145
+    },
+    {
+      "name": "Deebo Samuel",
+      "pos": "WR",
+      "team": "SF",
+      "pick_no": 146
+    },
+    {
       "name": "Josh Allen",
       "pos": "QB",
       "team": "BUF",
@@ -483758,6 +483812,24 @@
       "pos": "WR",
       "team": "CAR",
       "pick_no": 133
+    },
+    {
+      "name": "Kenny Gainwell",
+      "pos": "RB",
+      "team": "TB",
+      "pick_no": 134
+    },
+    {
+      "name": "Jonathon Brooks",
+      "pos": "RB",
+      "team": "CAR",
+      "pick_no": 135
+    },
+    {
+      "name": "Rashid Shaheed",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 136
     },
     {
       "name": "Brock Bowers",
@@ -484586,6 +484658,12 @@
       "pos": "QB",
       "team": "TEN",
       "pick_no": 138
+    },
+    {
+      "name": "Blake Corum",
+      "pos": "RB",
+      "team": "LAR",
+      "pick_no": 139
     },
     {
       "name": "Puka Nacua",
@@ -486178,6 +486256,12 @@
       "pick_no": 128
     },
     {
+      "name": "Khalil Shakir",
+      "pos": "WR",
+      "team": "BUF",
+      "pick_no": 129
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -487160,6 +487244,18 @@
       "pos": "QB",
       "team": "ARI",
       "pick_no": 164
+    },
+    {
+      "name": "Jalen Nailor",
+      "pos": "WR",
+      "team": "LV",
+      "pick_no": 165
+    },
+    {
+      "name": "Travis Hunter",
+      "pos": "WR",
+      "team": "JAX",
+      "pick_no": 166
     },
     {
       "name": "Ja'Marr Chase",
@@ -553622,6 +553718,408 @@
       "pos": "WR",
       "team": "TEN",
       "pick_no": 240
+    },
+    {
+      "name": "Jahmyr Gibbs",
+      "pos": "RB",
+      "team": "DET",
+      "pick_no": 1
+    },
+    {
+      "name": "Puka Nacua",
+      "pos": "WR",
+      "team": "LAR",
+      "pick_no": 2
+    },
+    {
+      "name": "Bijan Robinson",
+      "pos": "RB",
+      "team": "ATL",
+      "pick_no": 3
+    },
+    {
+      "name": "Ja'Marr Chase",
+      "pos": "WR",
+      "team": "CIN",
+      "pick_no": 4
+    },
+    {
+      "name": "Jaxon Smith-Njigba",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 5
+    },
+    {
+      "name": "Josh Allen",
+      "pos": "QB",
+      "team": "BUF",
+      "pick_no": 6
+    },
+    {
+      "name": "Brock Bowers",
+      "pos": "TE",
+      "team": "LV",
+      "pick_no": 7
+    },
+    {
+      "name": "Amon-Ra St. Brown",
+      "pos": "WR",
+      "team": "DET",
+      "pick_no": 8
+    },
+    {
+      "name": "Justin Jefferson",
+      "pos": "WR",
+      "team": "MIN",
+      "pick_no": 9
+    },
+    {
+      "name": "Trey McBride",
+      "pos": "TE",
+      "team": "ARI",
+      "pick_no": 10
+    },
+    {
+      "name": "Christian McCaffrey",
+      "pos": "RB",
+      "team": "SF",
+      "pick_no": 11
+    },
+    {
+      "name": "Lamar Jackson",
+      "pos": "QB",
+      "team": "BAL",
+      "pick_no": 12
+    },
+    {
+      "name": "Joe Burrow",
+      "pos": "QB",
+      "team": "CIN",
+      "pick_no": 13
+    },
+    {
+      "name": "A.J. Brown",
+      "pos": "WR",
+      "team": "NE",
+      "pick_no": 14
+    },
+    {
+      "name": "Drake Maye",
+      "pos": "QB",
+      "team": "NE",
+      "pick_no": 15
+    },
+    {
+      "name": "CeeDee Lamb",
+      "pos": "WR",
+      "team": "DAL",
+      "pick_no": 16
+    },
+    {
+      "name": "Kenneth Walker",
+      "pos": "RB",
+      "team": "KC",
+      "pick_no": 17
+    },
+    {
+      "name": "Ashton Jeanty",
+      "pos": "RB",
+      "team": "LV",
+      "pick_no": 18
+    },
+    {
+      "name": "Ja'Marr Chase",
+      "pos": "WR",
+      "team": "CIN",
+      "pick_no": 1
+    },
+    {
+      "name": "Jahmyr Gibbs",
+      "pos": "RB",
+      "team": "DET",
+      "pick_no": 2
+    },
+    {
+      "name": "Puka Nacua",
+      "pos": "WR",
+      "team": "LAR",
+      "pick_no": 3
+    },
+    {
+      "name": "Jaxon Smith-Njigba",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 4
+    },
+    {
+      "name": "Bijan Robinson",
+      "pos": "RB",
+      "team": "ATL",
+      "pick_no": 5
+    },
+    {
+      "name": "Brock Bowers",
+      "pos": "TE",
+      "team": "LV",
+      "pick_no": 6
+    },
+    {
+      "name": "Christian McCaffrey",
+      "pos": "RB",
+      "team": "SF",
+      "pick_no": 7
+    },
+    {
+      "name": "Josh Allen",
+      "pos": "QB",
+      "team": "BUF",
+      "pick_no": 8
+    },
+    {
+      "name": "Amon-Ra St. Brown",
+      "pos": "WR",
+      "team": "DET",
+      "pick_no": 9
+    },
+    {
+      "name": "Justin Jefferson",
+      "pos": "WR",
+      "team": "MIN",
+      "pick_no": 10
+    },
+    {
+      "name": "Lamar Jackson",
+      "pos": "QB",
+      "team": "BAL",
+      "pick_no": 11
+    },
+    {
+      "name": "Jonathan Taylor",
+      "pos": "RB",
+      "team": "IND",
+      "pick_no": 12
+    },
+    {
+      "name": "Trey McBride",
+      "pos": "TE",
+      "team": "ARI",
+      "pick_no": 13
+    },
+    {
+      "name": "Drake Maye",
+      "pos": "QB",
+      "team": "NE",
+      "pick_no": 14
+    },
+    {
+      "name": "CeeDee Lamb",
+      "pos": "WR",
+      "team": "DAL",
+      "pick_no": 15
+    },
+    {
+      "name": "Colston Loveland",
+      "pos": "TE",
+      "team": "CHI",
+      "pick_no": 16
+    },
+    {
+      "name": "James Cook",
+      "pos": "RB",
+      "team": "BUF",
+      "pick_no": 17
+    },
+    {
+      "name": "De'Von Achane",
+      "pos": "RB",
+      "team": "MIA",
+      "pick_no": 18
+    },
+    {
+      "name": "A.J. Brown",
+      "pos": "WR",
+      "team": "NE",
+      "pick_no": 19
+    },
+    {
+      "name": "Joe Burrow",
+      "pos": "QB",
+      "team": "CIN",
+      "pick_no": 20
+    },
+    {
+      "name": "Tyler Warren",
+      "pos": "TE",
+      "team": "IND",
+      "pick_no": 21
+    },
+    {
+      "name": "Drake London",
+      "pos": "WR",
+      "team": "ATL",
+      "pick_no": 22
+    },
+    {
+      "name": "Ashton Jeanty",
+      "pos": "RB",
+      "team": "LV",
+      "pick_no": 23
+    },
+    {
+      "name": "Omarion Hampton",
+      "pos": "RB",
+      "team": "LAC",
+      "pick_no": 24
+    },
+    {
+      "name": "Saquon Barkley",
+      "pos": "RB",
+      "team": "PHI",
+      "pick_no": 25
+    },
+    {
+      "name": "Malik Nabers",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 26
+    },
+    {
+      "name": "Nico Collins",
+      "pos": "WR",
+      "team": "HOU",
+      "pick_no": 27
+    },
+    {
+      "name": "George Pickens",
+      "pos": "WR",
+      "team": "DAL",
+      "pick_no": 28
+    },
+    {
+      "name": "DeVonta Smith",
+      "pos": "WR",
+      "team": "PHI",
+      "pick_no": 29
+    },
+    {
+      "name": "Zay Flowers",
+      "pos": "WR",
+      "team": "BAL",
+      "pick_no": 30
+    },
+    {
+      "name": "Kyren Williams",
+      "pos": "RB",
+      "team": "LAR",
+      "pick_no": 31
+    },
+    {
+      "name": "Jayden Daniels",
+      "pos": "QB",
+      "team": "WAS",
+      "pick_no": 32
+    },
+    {
+      "name": "Rashee Rice",
+      "pos": "WR",
+      "team": "KC",
+      "pick_no": 33
+    },
+    {
+      "name": "Justin Herbert",
+      "pos": "QB",
+      "team": "LAC",
+      "pick_no": 34
+    },
+    {
+      "name": "Bijan Robinson",
+      "pos": "RB",
+      "team": "ATL",
+      "pick_no": 1
+    },
+    {
+      "name": "Jahmyr Gibbs",
+      "pos": "RB",
+      "team": "DET",
+      "pick_no": 2
+    },
+    {
+      "name": "Josh Allen",
+      "pos": "QB",
+      "team": "BUF",
+      "pick_no": 3
+    },
+    {
+      "name": "Ja'Marr Chase",
+      "pos": "WR",
+      "team": "CIN",
+      "pick_no": 4
+    },
+    {
+      "name": "Christian McCaffrey",
+      "pos": "RB",
+      "team": "SF",
+      "pick_no": 5
+    },
+    {
+      "name": "Puka Nacua",
+      "pos": "WR",
+      "team": "LAR",
+      "pick_no": 6
+    },
+    {
+      "name": "Amon-Ra St. Brown",
+      "pos": "WR",
+      "team": "DET",
+      "pick_no": 7
+    },
+    {
+      "name": "Jaxon Smith-Njigba",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 8
+    },
+    {
+      "name": "Kenneth Walker",
+      "pos": "RB",
+      "team": "KC",
+      "pick_no": 9
+    },
+    {
+      "name": "Brock Bowers",
+      "pos": "TE",
+      "team": "LV",
+      "pick_no": 10
+    },
+    {
+      "name": "Drake Maye",
+      "pos": "QB",
+      "team": "NE",
+      "pick_no": 11
+    },
+    {
+      "name": "CeeDee Lamb",
+      "pos": "WR",
+      "team": "DAL",
+      "pick_no": 12
+    },
+    {
+      "name": "James Cook",
+      "pos": "RB",
+      "team": "BUF",
+      "pick_no": 13
+    },
+    {
+      "name": "Lamar Jackson",
+      "pos": "QB",
+      "team": "BAL",
+      "pick_no": 14
+    },
+    {
+      "name": "Justin Jefferson",
+      "pos": "WR",
+      "team": "MIN",
+      "pick_no": 15
     },
     {
       "name": "Ja'Marr Chase",
