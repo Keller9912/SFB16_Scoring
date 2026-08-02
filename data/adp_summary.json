@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T16:28:57.660Z",
+  "generated_at": "2026-08-02T17:34:01.416Z",
   "source_drafts": 402,
   "player_count": 423,
   "players": [
@@ -1882,13 +1882,13 @@
       "name": "Kenyon Sadiq",
       "position": "TE",
       "team": "NYJ",
-      "adp": 125.35,
+      "adp": 125.36,
       "min": 79,
       "max": 157,
-      "stddev": 13.17,
-      "count": 410,
+      "stddev": 13.15,
+      "count": 411,
       "platforms": {
-        "Sleeper": 393,
+        "Sleeper": 394,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2002,13 +2002,13 @@
       "name": "Matthew Golden",
       "position": "WR",
       "team": "GB",
-      "adp": 131.72,
+      "adp": 131.67,
       "min": 75,
       "max": 165,
-      "stddev": 13.91,
-      "count": 411,
+      "stddev": 13.93,
+      "count": 412,
       "platforms": {
-        "Sleeper": 394,
+        "Sleeper": 395,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2167,13 +2167,13 @@
       "name": "Stefon Diggs",
       "position": "WR",
       "team": "",
-      "adp": 139.54,
+      "adp": 139.51,
       "min": 97,
       "max": 177,
-      "stddev": 14.2,
-      "count": 409,
+      "stddev": 14.19,
+      "count": 410,
       "platforms": {
-        "Sleeper": 392,
+        "Sleeper": 393,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2212,13 +2212,13 @@
       "name": "Aaron Jones",
       "position": "RB",
       "team": "MIN",
-      "adp": 146.76,
+      "adp": 146.8,
       "min": 97,
       "max": 185,
       "stddev": 13.1,
-      "count": 405,
+      "count": 406,
       "platforms": {
-        "Sleeper": 388,
+        "Sleeper": 389,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2636,9 +2636,9 @@
       "min": 110,
       "max": 223,
       "stddev": 15.58,
-      "count": 403,
+      "count": 405,
       "platforms": {
-        "Sleeper": 386,
+        "Sleeper": 388,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2872,13 +2872,13 @@
       "name": "Isiah Pacheco",
       "position": "RB",
       "team": "DET",
-      "adp": 190.23,
+      "adp": 190.24,
       "min": 136,
       "max": 235,
-      "stddev": 16.99,
-      "count": 402,
+      "stddev": 16.97,
+      "count": 403,
       "platforms": {
-        "Sleeper": 385,
+        "Sleeper": 386,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2980,10 +2980,10 @@
       "adp": 195.92,
       "min": 128,
       "max": 238,
-      "stddev": 18.08,
-      "count": 394,
+      "stddev": 18.05,
+      "count": 395,
       "platforms": {
-        "Sleeper": 379,
+        "Sleeper": 380,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -3067,13 +3067,13 @@
       "name": "Tyreek Hill",
       "position": "WR",
       "team": "",
-      "adp": 199.52,
+      "adp": 199.63,
       "min": 111,
       "max": 240,
-      "stddev": 24.34,
-      "count": 311,
+      "stddev": 24.38,
+      "count": 312,
       "platforms": {
-        "Sleeper": 305,
+        "Sleeper": 306,
         "MFL": 6
       },
       "platformLabel": "Both"
@@ -3394,21 +3394,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Mike Washington",
-      "position": "RB",
-      "team": "LV",
-      "adp": 210.73,
-      "min": 148,
-      "max": 240,
-      "stddev": 18.34,
-      "count": 313,
-      "platforms": {
-        "Sleeper": 302,
-        "MFL": 11
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Chris Bell",
       "position": "WR",
       "team": "MIA",
@@ -3424,16 +3409,31 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Mike Washington",
+      "position": "RB",
+      "team": "LV",
+      "adp": 210.77,
+      "min": 148,
+      "max": 240,
+      "stddev": 18.33,
+      "count": 314,
+      "platforms": {
+        "Sleeper": 303,
+        "MFL": 11
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Pat Bryant",
       "position": "WR",
       "team": "DEN",
-      "adp": 210.82,
+      "adp": 210.87,
       "min": 148,
       "max": 240,
-      "stddev": 18.13,
-      "count": 306,
+      "stddev": 18.11,
+      "count": 307,
       "platforms": {
-        "Sleeper": 300,
+        "Sleeper": 301,
         "MFL": 6
       },
       "platformLabel": "Both"
