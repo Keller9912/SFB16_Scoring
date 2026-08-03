@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T06:43:52.431Z",
+  "generated_at": "2026-08-03T10:28:02.861Z",
   "source_drafts": 402,
   "player_count": 423,
   "players": [
@@ -2017,13 +2017,13 @@
       "name": "Kyle Monangai",
       "position": "RB",
       "team": "CHI",
-      "adp": 131.81,
+      "adp": 131.85,
       "min": 81,
       "max": 175,
       "stddev": 16.62,
-      "count": 411,
+      "count": 412,
       "platforms": {
-        "Sleeper": 394,
+        "Sleeper": 395,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2074,6 +2074,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Kenny Gainwell",
+      "position": "RB",
+      "team": "TB",
+      "adp": 135.62,
+      "min": 97,
+      "max": 171,
+      "stddev": 11.79,
+      "count": 369,
+      "platforms": {
+        "Sleeper": 369,
+        "MFL": 0
+      },
+      "platformLabel": "Sleeper"
+    },
+    {
       "name": "Blake Corum",
       "position": "RB",
       "team": "LAR",
@@ -2087,21 +2102,6 @@
         "MFL": 17
       },
       "platformLabel": "Both"
-    },
-    {
-      "name": "Kenny Gainwell",
-      "position": "RB",
-      "team": "TB",
-      "adp": 135.64,
-      "min": 97,
-      "max": 171,
-      "stddev": 11.79,
-      "count": 368,
-      "platforms": {
-        "Sleeper": 368,
-        "MFL": 0
-      },
-      "platformLabel": "Sleeper"
     },
     {
       "name": "J.K. Dobbins",
@@ -2272,13 +2272,13 @@
       "name": "Jacory Croskey-Merritt",
       "position": "RB",
       "team": "WAS",
-      "adp": 151.11,
+      "adp": 151.14,
       "min": 85,
       "max": 190,
-      "stddev": 14.46,
-      "count": 408,
+      "stddev": 14.45,
+      "count": 409,
       "platforms": {
-        "Sleeper": 391,
+        "Sleeper": 392,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2362,13 +2362,13 @@
       "name": "Jalen McMillan",
       "position": "WR",
       "team": "TB",
-      "adp": 160.07,
+      "adp": 160.04,
       "min": 97,
       "max": 202,
-      "stddev": 13.15,
-      "count": 408,
+      "stddev": 13.14,
+      "count": 409,
       "platforms": {
-        "Sleeper": 391,
+        "Sleeper": 392,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2647,13 +2647,13 @@
       "name": "Tyler Allgeier",
       "position": "RB",
       "team": "ARI",
-      "adp": 176.01,
+      "adp": 175.92,
       "min": 123,
       "max": 236,
-      "stddev": 21.15,
-      "count": 407,
+      "stddev": 21.2,
+      "count": 408,
       "platforms": {
-        "Sleeper": 390,
+        "Sleeper": 391,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2902,13 +2902,13 @@
       "name": "De'Zhaun Stribling",
       "position": "WR",
       "team": "SF",
-      "adp": 192.4,
+      "adp": 192.31,
       "min": 118,
       "max": 240,
-      "stddev": 20.66,
-      "count": 403,
+      "stddev": 20.72,
+      "count": 404,
       "platforms": {
-        "Sleeper": 390,
+        "Sleeper": 391,
         "MFL": 13
       },
       "platformLabel": "Both"
