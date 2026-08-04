@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T20:14:14.779Z",
+  "generated_at": "2026-08-04T21:39:44.025Z",
   "source_drafts": 402,
   "player_count": 423,
   "players": [
@@ -1837,13 +1837,13 @@
       "name": "Xavier Worthy",
       "position": "WR",
       "team": "KC",
-      "adp": 121.91,
+      "adp": 121.97,
       "min": 67,
       "max": 171,
-      "stddev": 13.32,
-      "count": 416,
+      "stddev": 13.36,
+      "count": 417,
       "platforms": {
-        "Sleeper": 399,
+        "Sleeper": 400,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -1879,21 +1879,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Kenyon Sadiq",
-      "position": "TE",
-      "team": "NYJ",
-      "adp": 125.4,
-      "min": 79,
-      "max": 157,
-      "stddev": 13.12,
-      "count": 415,
-      "platforms": {
-        "Sleeper": 398,
-        "MFL": 17
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Chigoziem Okonkwo",
       "position": "TE",
       "team": "WAS",
@@ -1907,6 +1892,21 @@
         "MFL": 17
       },
       "platformLabel": "MFL"
+    },
+    {
+      "name": "Kenyon Sadiq",
+      "position": "TE",
+      "team": "NYJ",
+      "adp": 125.46,
+      "min": 79,
+      "max": 157,
+      "stddev": 13.17,
+      "count": 416,
+      "platforms": {
+        "Sleeper": 399,
+        "MFL": 17
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Rico Dowdle",
@@ -2137,13 +2137,13 @@
       "name": "AJ Barner",
       "position": "TE",
       "team": "SEA",
-      "adp": 138.22,
+      "adp": 138.25,
       "min": 86,
       "max": 175,
       "stddev": 13.61,
-      "count": 414,
+      "count": 415,
       "platforms": {
-        "Sleeper": 397,
+        "Sleeper": 398,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2260,10 +2260,10 @@
       "adp": 151.03,
       "min": 110,
       "max": 204,
-      "stddev": 15.11,
-      "count": 411,
+      "stddev": 15.09,
+      "count": 412,
       "platforms": {
-        "Sleeper": 394,
+        "Sleeper": 395,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2302,13 +2302,13 @@
       "name": "Jacoby Brissett",
       "position": "QB",
       "team": "ARI",
-      "adp": 153.56,
+      "adp": 153.55,
       "min": 90,
       "max": 217,
-      "stddev": 18.41,
-      "count": 414,
+      "stddev": 18.39,
+      "count": 415,
       "platforms": {
-        "Sleeper": 397,
+        "Sleeper": 398,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2332,13 +2332,13 @@
       "name": "Cade Otton",
       "position": "TE",
       "team": "TB",
-      "adp": 155.68,
+      "adp": 155.67,
       "min": 105,
       "max": 205,
-      "stddev": 12.53,
-      "count": 411,
+      "stddev": 12.52,
+      "count": 412,
       "platforms": {
-        "Sleeper": 394,
+        "Sleeper": 395,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2362,13 +2362,13 @@
       "name": "Jalen McMillan",
       "position": "WR",
       "team": "TB",
-      "adp": 160.02,
+      "adp": 159.99,
       "min": 97,
       "max": 202,
-      "stddev": 13.12,
-      "count": 411,
+      "stddev": 13.11,
+      "count": 412,
       "platforms": {
-        "Sleeper": 394,
+        "Sleeper": 395,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2407,13 +2407,13 @@
       "name": "Jalen Nailor",
       "position": "WR",
       "team": "LV",
-      "adp": 162.45,
+      "adp": 162.43,
       "min": 97,
       "max": 234,
-      "stddev": 15.46,
-      "count": 412,
+      "stddev": 15.45,
+      "count": 413,
       "platforms": {
-        "Sleeper": 395,
+        "Sleeper": 396,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2422,13 +2422,13 @@
       "name": "Geno Smith",
       "position": "QB",
       "team": "NYJ",
-      "adp": 162.64,
+      "adp": 162.67,
       "min": 105,
       "max": 238,
-      "stddev": 19.41,
-      "count": 409,
+      "stddev": 19.39,
+      "count": 410,
       "platforms": {
-        "Sleeper": 392,
+        "Sleeper": 393,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2482,13 +2482,13 @@
       "name": "Jauan Jennings",
       "position": "WR",
       "team": "MIN",
-      "adp": 165.22,
+      "adp": 165.2,
       "min": 116,
       "max": 234,
-      "stddev": 17.24,
-      "count": 409,
+      "stddev": 17.22,
+      "count": 410,
       "platforms": {
-        "Sleeper": 392,
+        "Sleeper": 393,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2527,13 +2527,13 @@
       "name": "Tua Tagovailoa",
       "position": "QB",
       "team": "ATL",
-      "adp": 166.99,
+      "adp": 166.95,
       "min": 108,
       "max": 240,
-      "stddev": 21.4,
-      "count": 408,
+      "stddev": 21.39,
+      "count": 409,
       "platforms": {
-        "Sleeper": 391,
+        "Sleeper": 392,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2827,13 +2827,13 @@
       "name": "Deebo Samuel",
       "position": "WR",
       "team": "",
-      "adp": 184.62,
+      "adp": 184.54,
       "min": 95,
       "max": 236,
-      "stddev": 21.17,
-      "count": 410,
+      "stddev": 21.21,
+      "count": 411,
       "platforms": {
-        "Sleeper": 394,
+        "Sleeper": 395,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3757,13 +3757,13 @@
       "name": "Elic Ayomanor",
       "position": "WR",
       "team": "TEN",
-      "adp": 216.17,
+      "adp": 216.24,
       "min": 154,
       "max": 240,
-      "stddev": 18.45,
-      "count": 150,
+      "stddev": 18.41,
+      "count": 151,
       "platforms": {
-        "Sleeper": 140,
+        "Sleeper": 141,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -4657,13 +4657,13 @@
       "name": "Andrei Iosivas",
       "position": "WR",
       "team": "CIN",
-      "adp": 223.39,
+      "adp": 223.44,
       "min": 174,
       "max": 240,
-      "stddev": 14.45,
-      "count": 79,
+      "stddev": 14.36,
+      "count": 80,
       "platforms": {
-        "Sleeper": 76,
+        "Sleeper": 77,
         "MFL": 3
       },
       "platformLabel": "Both"
