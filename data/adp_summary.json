@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T22:45:18.494Z",
+  "generated_at": "2026-08-04T23:45:28.747Z",
   "source_drafts": 402,
   "player_count": 423,
   "players": [
@@ -2512,13 +2512,13 @@
       "name": "Tyrone Tracy",
       "position": "RB",
       "team": "NYG",
-      "adp": 166.63,
+      "adp": 166.65,
       "min": 133,
       "max": 209,
-      "stddev": 13.48,
-      "count": 410,
+      "stddev": 13.47,
+      "count": 411,
       "platforms": {
-        "Sleeper": 393,
+        "Sleeper": 394,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3442,13 +3442,13 @@
       "name": "Ja'Kobi Lane",
       "position": "WR",
       "team": "BAL",
-      "adp": 211.07,
+      "adp": 210.95,
       "min": 138,
       "max": 240,
-      "stddev": 18.72,
-      "count": 314,
+      "stddev": 18.8,
+      "count": 315,
       "platforms": {
-        "Sleeper": 313,
+        "Sleeper": 314,
         "MFL": 1
       },
       "platformLabel": "Both"
@@ -3592,13 +3592,13 @@
       "name": "Tory Horton",
       "position": "WR",
       "team": "SEA",
-      "adp": 213.71,
+      "adp": 213.75,
       "min": 159,
       "max": 240,
-      "stddev": 18.07,
-      "count": 288,
+      "stddev": 18.06,
+      "count": 289,
       "platforms": {
-        "Sleeper": 281,
+        "Sleeper": 282,
         "MFL": 7
       },
       "platformLabel": "Both"
@@ -3757,13 +3757,13 @@
       "name": "Elic Ayomanor",
       "position": "WR",
       "team": "TEN",
-      "adp": 216.24,
+      "adp": 216.33,
       "min": 154,
       "max": 240,
-      "stddev": 18.41,
-      "count": 151,
+      "stddev": 18.38,
+      "count": 152,
       "platforms": {
-        "Sleeper": 141,
+        "Sleeper": 142,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -3817,13 +3817,13 @@
       "name": "Sean Tucker",
       "position": "RB",
       "team": "TB",
-      "adp": 216.7,
+      "adp": 216.79,
       "min": 163,
       "max": 240,
-      "stddev": 16.87,
-      "count": 233,
+      "stddev": 16.89,
+      "count": 234,
       "platforms": {
-        "Sleeper": 226,
+        "Sleeper": 227,
         "MFL": 7
       },
       "platformLabel": "Both"
@@ -4204,21 +4204,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Jaylen Wright",
-      "position": "RB",
-      "team": "MIA",
-      "adp": 219.97,
-      "min": 164,
-      "max": 240,
-      "stddev": 14.44,
-      "count": 192,
-      "platforms": {
-        "Sleeper": 185,
-        "MFL": 7
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Andy Dalton",
       "position": "QB",
       "team": "PHI",
@@ -4247,6 +4232,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Jaylen Wright",
+      "position": "RB",
+      "team": "MIA",
+      "adp": 220.02,
+      "min": 164,
+      "max": 240,
+      "stddev": 14.41,
+      "count": 193,
+      "platforms": {
+        "Sleeper": 186,
+        "MFL": 7
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Emanuel Wilson",
@@ -4567,13 +4567,13 @@
       "name": "Justice Hill",
       "position": "RB",
       "team": "BAL",
-      "adp": 222.91,
+      "adp": 223,
       "min": 175,
       "max": 240,
-      "stddev": 14.74,
-      "count": 53,
+      "stddev": 14.62,
+      "count": 54,
       "platforms": {
-        "Sleeper": 48,
+        "Sleeper": 49,
         "MFL": 5
       },
       "platformLabel": "Both"
