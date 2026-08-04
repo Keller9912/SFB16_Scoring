@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T17:22:59.352Z",
+  "generated_at": "2026-08-04T19:08:13.378Z",
   "leagues": [
     {
       "league_id": "1383225951596314624",
@@ -419458,6 +419458,12 @@
       "pick_no": 214
     },
     {
+      "name": "Cooper Kupp",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 215
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -448208,6 +448214,18 @@
       "pos": "WR",
       "team": "NYG",
       "pick_no": 232
+    },
+    {
+      "name": "Troy Franklin",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 233
+    },
+    {
+      "name": "Michael Trigg",
+      "pos": "TE",
+      "team": "DAL",
+      "pick_no": 234
     },
     {
       "name": "Josh Allen",
@@ -484936,6 +484954,84 @@
       "pick_no": 209
     },
     {
+      "name": "Jake Tonges",
+      "pos": "TE",
+      "team": "SF",
+      "pick_no": 210
+    },
+    {
+      "name": "Dontayvion Wicks",
+      "pos": "WR",
+      "team": "PHI",
+      "pick_no": 211
+    },
+    {
+      "name": "Nicholas Singleton",
+      "pos": "RB",
+      "team": "TEN",
+      "pick_no": 212
+    },
+    {
+      "name": "Tank Dell",
+      "pos": "WR",
+      "team": "HOU",
+      "pick_no": 213
+    },
+    {
+      "name": "Michael Penix",
+      "pos": "QB",
+      "team": "ATL",
+      "pick_no": 214
+    },
+    {
+      "name": "Shedeur Sanders",
+      "pos": "QB",
+      "team": "CLE",
+      "pick_no": 215
+    },
+    {
+      "name": "Kimani Vidal",
+      "pos": "RB",
+      "team": "LAC",
+      "pick_no": 216
+    },
+    {
+      "name": "Chimere Dike",
+      "pos": "WR",
+      "team": "TEN",
+      "pick_no": 217
+    },
+    {
+      "name": "Mason Taylor",
+      "pos": "TE",
+      "team": "NYJ",
+      "pick_no": 218
+    },
+    {
+      "name": "Chris Bell",
+      "pos": "WR",
+      "team": "MIA",
+      "pick_no": 219
+    },
+    {
+      "name": "Ray Davis",
+      "pos": "RB",
+      "team": "BUF",
+      "pick_no": 220
+    },
+    {
+      "name": "Braelon Allen",
+      "pos": "RB",
+      "team": "NYJ",
+      "pick_no": 221
+    },
+    {
+      "name": "Mike Gesicki",
+      "pos": "TE",
+      "team": "CIN",
+      "pick_no": 222
+    },
+    {
       "name": "Brock Bowers",
       "pos": "TE",
       "team": "LV",
@@ -485930,6 +486026,12 @@
       "pos": "RB",
       "team": "WAS",
       "pick_no": 166
+    },
+    {
+      "name": "Tre Tucker",
+      "pos": "WR",
+      "team": "LV",
+      "pick_no": 167
     },
     {
       "name": "Puka Nacua",
@@ -487910,6 +488012,24 @@
       "pos": "RB",
       "team": "CAR",
       "pick_no": 143
+    },
+    {
+      "name": "Jalen Coker",
+      "pos": "WR",
+      "team": "CAR",
+      "pick_no": 144
+    },
+    {
+      "name": "Rashid Shaheed",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 145
+    },
+    {
+      "name": "Cam Ward",
+      "pos": "QB",
+      "team": "TEN",
+      "pick_no": 146
     },
     {
       "name": "Ja'Marr Chase",
@@ -491128,6 +491248,12 @@
       "pick_no": 174
     },
     {
+      "name": "Adonai Mitchell",
+      "pos": "WR",
+      "team": "NYJ",
+      "pick_no": 175
+    },
+    {
       "name": "Brock Bowers",
       "pos": "TE",
       "team": "LV",
@@ -492944,6 +493070,42 @@
       "pos": "TE",
       "team": "LAC",
       "pick_no": 151
+    },
+    {
+      "name": "Jalen Nailor",
+      "pos": "WR",
+      "team": "LV",
+      "pick_no": 152
+    },
+    {
+      "name": "Zach Charbonnet",
+      "pos": "RB",
+      "team": "SEA",
+      "pick_no": 153
+    },
+    {
+      "name": "Blake Corum",
+      "pos": "RB",
+      "team": "LAR",
+      "pick_no": 154
+    },
+    {
+      "name": "Denzel Boston",
+      "pos": "WR",
+      "team": "CLE",
+      "pick_no": 155
+    },
+    {
+      "name": "De'Zhaun Stribling",
+      "pos": "WR",
+      "team": "SF",
+      "pick_no": 156
+    },
+    {
+      "name": "Fernando Mendoza",
+      "pos": "QB",
+      "team": "LV",
+      "pick_no": 157
     },
     {
       "name": "Bijan Robinson",
@@ -558154,6 +558316,48 @@
       "pick_no": 162
     },
     {
+      "name": "Rachaad White",
+      "pos": "RB",
+      "team": "WAS",
+      "pick_no": 163
+    },
+    {
+      "name": "Malik Washington",
+      "pos": "WR",
+      "team": "MIA",
+      "pick_no": 164
+    },
+    {
+      "name": "Woody Marks",
+      "pos": "RB",
+      "team": "HOU",
+      "pick_no": 165
+    },
+    {
+      "name": "Tre' Harris",
+      "pos": "WR",
+      "team": "LAC",
+      "pick_no": 166
+    },
+    {
+      "name": "Jonah Coleman",
+      "pos": "RB",
+      "team": "DEN",
+      "pick_no": 167
+    },
+    {
+      "name": "Isaac TeSlaa",
+      "pos": "WR",
+      "team": "DET",
+      "pick_no": 168
+    },
+    {
+      "name": "Jordan Mason",
+      "pos": "RB",
+      "team": "MIN",
+      "pick_no": 169
+    },
+    {
       "name": "Bijan Robinson",
       "pos": "RB",
       "team": "ATL",
@@ -558980,6 +559184,30 @@
       "pos": "TE",
       "team": "MIN",
       "pick_no": 138
+    },
+    {
+      "name": "Fernando Mendoza",
+      "pos": "QB",
+      "team": "LV",
+      "pick_no": 139
+    },
+    {
+      "name": "Rashid Shaheed",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 140
+    },
+    {
+      "name": "Jonathon Brooks",
+      "pos": "RB",
+      "team": "CAR",
+      "pick_no": 141
+    },
+    {
+      "name": "Rico Dowdle",
+      "pos": "RB",
+      "team": "PIT",
+      "pick_no": 142
     },
     {
       "name": "Ja'Marr Chase",
