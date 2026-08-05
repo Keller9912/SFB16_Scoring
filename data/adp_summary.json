@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T18:11:35.195Z",
+  "generated_at": "2026-08-05T19:54:54.373Z",
   "source_drafts": 402,
   "player_count": 423,
   "players": [
@@ -2287,13 +2287,13 @@
       "name": "Gunnar Helm",
       "position": "TE",
       "team": "TEN",
-      "adp": 153.34,
+      "adp": 153.37,
       "min": 106,
       "max": 196,
       "stddev": 12.15,
-      "count": 413,
+      "count": 414,
       "platforms": {
-        "Sleeper": 396,
+        "Sleeper": 397,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2542,13 +2542,13 @@
       "name": "David Njoku",
       "position": "TE",
       "team": "LAC",
-      "adp": 167.23,
+      "adp": 167.29,
       "min": 58,
       "max": 232,
-      "stddev": 21.69,
-      "count": 410,
+      "stddev": 21.67,
+      "count": 412,
       "platforms": {
-        "Sleeper": 393,
+        "Sleeper": 395,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2722,13 +2722,13 @@
       "name": "Tyjae Spears",
       "position": "RB",
       "team": "TEN",
-      "adp": 178.69,
+      "adp": 178.73,
       "min": 121,
       "max": 222,
       "stddev": 15.67,
-      "count": 410,
+      "count": 411,
       "platforms": {
-        "Sleeper": 393,
+        "Sleeper": 394,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2872,13 +2872,13 @@
       "name": "Isiah Pacheco",
       "position": "RB",
       "team": "DET",
-      "adp": 190.17,
+      "adp": 190.12,
       "min": 136,
       "max": 235,
-      "stddev": 16.92,
-      "count": 407,
+      "stddev": 16.93,
+      "count": 408,
       "platforms": {
-        "Sleeper": 390,
+        "Sleeper": 391,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2887,13 +2887,13 @@
       "name": "Tre' Harris",
       "position": "WR",
       "team": "LAC",
-      "adp": 190.57,
+      "adp": 190.52,
       "min": 108,
       "max": 240,
-      "stddev": 18.27,
-      "count": 409,
+      "stddev": 18.29,
+      "count": 410,
       "platforms": {
-        "Sleeper": 392,
+        "Sleeper": 393,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2977,13 +2977,13 @@
       "name": "Dylan Sampson",
       "position": "RB",
       "team": "CLE",
-      "adp": 195.91,
+      "adp": 195.83,
       "min": 128,
       "max": 238,
-      "stddev": 17.99,
-      "count": 398,
+      "stddev": 18,
+      "count": 400,
       "platforms": {
-        "Sleeper": 383,
+        "Sleeper": 385,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -3022,13 +3022,13 @@
       "name": "Michael Penix",
       "position": "QB",
       "team": "ATL",
-      "adp": 197.68,
+      "adp": 197.66,
       "min": 109,
       "max": 239,
-      "stddev": 22.99,
-      "count": 348,
+      "stddev": 22.96,
+      "count": 349,
       "platforms": {
-        "Sleeper": 331,
+        "Sleeper": 332,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3472,13 +3472,13 @@
       "name": "Kimani Vidal",
       "position": "RB",
       "team": "LAC",
-      "adp": 211.49,
+      "adp": 211.42,
       "min": 126,
       "max": 240,
       "stddev": 18.6,
-      "count": 282,
+      "count": 283,
       "platforms": {
-        "Sleeper": 270,
+        "Sleeper": 271,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -3994,6 +3994,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Cyrus Allen",
+      "position": "WR",
+      "team": "KC",
+      "adp": 218.42,
+      "min": 157,
+      "max": 240,
+      "stddev": 20.52,
+      "count": 36,
+      "platforms": {
+        "Sleeper": 35,
+        "MFL": 1
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Justin Fields",
       "position": "QB",
       "team": "KC",
@@ -4127,21 +4142,6 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
-    },
-    {
-      "name": "Cyrus Allen",
-      "position": "WR",
-      "team": "KC",
-      "adp": 219.63,
-      "min": 157,
-      "max": 240,
-      "stddev": 19.5,
-      "count": 35,
-      "platforms": {
-        "Sleeper": 34,
-        "MFL": 1
-      },
-      "platformLabel": "Both"
     },
     {
       "name": "Marquise Brown",
