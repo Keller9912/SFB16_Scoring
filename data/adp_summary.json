@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T07:18:04.746Z",
+  "generated_at": "2026-08-05T10:05:59.516Z",
   "source_drafts": 402,
   "player_count": 423,
   "players": [
@@ -2422,13 +2422,13 @@
       "name": "Geno Smith",
       "position": "QB",
       "team": "NYJ",
-      "adp": 162.72,
+      "adp": 162.71,
       "min": 105,
       "max": 238,
-      "stddev": 19.38,
-      "count": 412,
+      "stddev": 19.36,
+      "count": 413,
       "platforms": {
-        "Sleeper": 395,
+        "Sleeper": 396,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2572,13 +2572,13 @@
       "name": "Pat Freiermuth",
       "position": "TE",
       "team": "PIT",
-      "adp": 169.57,
+      "adp": 169.58,
       "min": 79,
       "max": 238,
-      "stddev": 18.06,
-      "count": 407,
+      "stddev": 18.04,
+      "count": 408,
       "platforms": {
-        "Sleeper": 390,
+        "Sleeper": 391,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3247,13 +3247,13 @@
       "name": "Brandon Aiyuk",
       "position": "WR",
       "team": "SF",
-      "adp": 206.94,
+      "adp": 207.02,
       "min": 124,
       "max": 240,
-      "stddev": 22.45,
-      "count": 343,
+      "stddev": 22.46,
+      "count": 344,
       "platforms": {
-        "Sleeper": 327,
+        "Sleeper": 328,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -4624,21 +4624,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Jahan Dotson",
-      "position": "WR",
-      "team": "ATL",
-      "adp": 223.12,
-      "min": 200,
-      "max": 239,
-      "stddev": 10.95,
-      "count": 34,
-      "platforms": {
-        "Sleeper": 32,
-        "MFL": 2
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Kaelon Black",
       "position": "RB",
       "team": "SF",
@@ -4682,6 +4667,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Jahan Dotson",
+      "position": "WR",
+      "team": "ATL",
+      "adp": 223.54,
+      "min": 200,
+      "max": 239,
+      "stddev": 11.07,
+      "count": 35,
+      "platforms": {
+        "Sleeper": 33,
+        "MFL": 2
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Darren Waller",
