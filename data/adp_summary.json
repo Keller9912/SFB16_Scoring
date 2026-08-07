@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T20:59:08.347Z",
+  "generated_at": "2026-08-07T21:45:40.872Z",
   "source_drafts": 402,
   "player_count": 425,
   "players": [
@@ -2497,13 +2497,13 @@
       "name": "Antonio Williams",
       "position": "WR",
       "team": "WAS",
-      "adp": 166.1,
+      "adp": 166.14,
       "min": 111,
       "max": 209,
-      "stddev": 13.99,
-      "count": 415,
+      "stddev": 14.01,
+      "count": 416,
       "platforms": {
-        "Sleeper": 398,
+        "Sleeper": 399,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2812,13 +2812,13 @@
       "name": "Jonah Coleman",
       "position": "RB",
       "team": "DEN",
-      "adp": 183.56,
+      "adp": 183.62,
       "min": 124,
       "max": 239,
-      "stddev": 18.36,
-      "count": 414,
+      "stddev": 18.37,
+      "count": 415,
       "platforms": {
-        "Sleeper": 398,
+        "Sleeper": 399,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3082,13 +3082,13 @@
       "name": "Calvin Ridley",
       "position": "WR",
       "team": "TEN",
-      "adp": 200.5,
+      "adp": 200.46,
       "min": 89,
       "max": 240,
-      "stddev": 22.05,
-      "count": 380,
+      "stddev": 22.04,
+      "count": 381,
       "platforms": {
-        "Sleeper": 365,
+        "Sleeper": 366,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -3427,13 +3427,13 @@
       "name": "Pat Bryant",
       "position": "WR",
       "team": "DEN",
-      "adp": 210.83,
+      "adp": 210.74,
       "min": 148,
       "max": 240,
-      "stddev": 18,
-      "count": 317,
+      "stddev": 18.05,
+      "count": 318,
       "platforms": {
-        "Sleeper": 311,
+        "Sleeper": 312,
         "MFL": 6
       },
       "platformLabel": "Both"
@@ -3547,13 +3547,13 @@
       "name": "Kaytron Allen",
       "position": "RB",
       "team": "WAS",
-      "adp": 212.53,
+      "adp": 212.54,
       "min": 151,
       "max": 240,
-      "stddev": 18.16,
-      "count": 318,
+      "stddev": 18.13,
+      "count": 319,
       "platforms": {
-        "Sleeper": 305,
+        "Sleeper": 306,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -3724,6 +3724,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "J.J. McCarthy",
+      "position": "QB",
+      "team": "MIN",
+      "adp": 214.98,
+      "min": 136,
+      "max": 240,
+      "stddev": 20.08,
+      "count": 240,
+      "platforms": {
+        "Sleeper": 229,
+        "MFL": 11
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Cedric Tillman",
       "position": "WR",
       "team": "CLE",
@@ -3737,21 +3752,6 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
-    },
-    {
-      "name": "J.J. McCarthy",
-      "position": "QB",
-      "team": "MIN",
-      "adp": 215.02,
-      "min": 136,
-      "max": 240,
-      "stddev": 20.11,
-      "count": 239,
-      "platforms": {
-        "Sleeper": 228,
-        "MFL": 11
-      },
-      "platformLabel": "Both"
     },
     {
       "name": "Cade Klubnik",
@@ -3787,13 +3787,13 @@
       "name": "Trey Benson",
       "position": "RB",
       "team": "ARI",
-      "adp": 216.25,
+      "adp": 216.04,
       "min": 160,
       "max": 240,
-      "stddev": 19.1,
-      "count": 151,
+      "stddev": 19.22,
+      "count": 152,
       "platforms": {
-        "Sleeper": 150,
+        "Sleeper": 151,
         "MFL": 1
       },
       "platformLabel": "Both"
