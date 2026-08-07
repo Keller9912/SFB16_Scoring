@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-07T20:02:07.228Z",
+  "generated_at": "2026-08-07T20:59:08.347Z",
   "source_drafts": 402,
-  "player_count": 424,
+  "player_count": 425,
   "players": [
     {
       "name": "Puka Nacua",
@@ -2392,13 +2392,13 @@
       "name": "Omar Cooper",
       "position": "WR",
       "team": "NYJ",
-      "adp": 162.18,
+      "adp": 162.24,
       "min": 109,
       "max": 192,
-      "stddev": 12.73,
-      "count": 416,
+      "stddev": 12.78,
+      "count": 417,
       "platforms": {
-        "Sleeper": 399,
+        "Sleeper": 400,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2737,13 +2737,13 @@
       "name": "Chris Rodriguez",
       "position": "RB",
       "team": "JAX",
-      "adp": 179.78,
+      "adp": 179.79,
       "min": 133,
       "max": 226,
-      "stddev": 15.21,
-      "count": 415,
+      "stddev": 15.19,
+      "count": 416,
       "platforms": {
-        "Sleeper": 398,
+        "Sleeper": 399,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2932,13 +2932,13 @@
       "name": "Zachariah Branch",
       "position": "WR",
       "team": "ATL",
-      "adp": 194.06,
+      "adp": 194.05,
       "min": 130,
       "max": 240,
-      "stddev": 18.29,
-      "count": 413,
+      "stddev": 18.27,
+      "count": 414,
       "platforms": {
-        "Sleeper": 397,
+        "Sleeper": 398,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3067,13 +3067,13 @@
       "name": "Tyreek Hill",
       "position": "WR",
       "team": "",
-      "adp": 199.69,
+      "adp": 199.65,
       "min": 111,
       "max": 240,
-      "stddev": 24.32,
-      "count": 315,
+      "stddev": 24.29,
+      "count": 316,
       "platforms": {
-        "Sleeper": 309,
+        "Sleeper": 310,
         "MFL": 6
       },
       "platformLabel": "Both"
@@ -3277,13 +3277,13 @@
       "name": "Darnell Mooney",
       "position": "WR",
       "team": "NYG",
-      "adp": 207.74,
+      "adp": 207.69,
       "min": 148,
       "max": 240,
       "stddev": 18.32,
-      "count": 353,
+      "count": 354,
       "platforms": {
-        "Sleeper": 339,
+        "Sleeper": 340,
         "MFL": 14
       },
       "platformLabel": "Both"
@@ -3634,6 +3634,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Darius Cooper",
+      "position": "WR",
+      "team": "PHI",
+      "adp": 214,
+      "min": 214,
+      "max": 214,
+      "stddev": 0,
+      "count": 1,
+      "platforms": {
+        "Sleeper": 1,
+        "MFL": 0
+      },
+      "platformLabel": "Sleeper"
+    },
+    {
       "name": "Devin Singletary",
       "position": "RB",
       "team": "NYG",
@@ -3802,13 +3817,13 @@
       "name": "Elic Ayomanor",
       "position": "WR",
       "team": "TEN",
-      "adp": 216.39,
+      "adp": 216.31,
       "min": 154,
       "max": 240,
-      "stddev": 18.33,
-      "count": 153,
+      "stddev": 18.29,
+      "count": 154,
       "platforms": {
-        "Sleeper": 143,
+        "Sleeper": 144,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -4699,6 +4714,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Devaughn Vele",
+      "position": "WR",
+      "team": "NO",
+      "adp": 223.55,
+      "min": 166,
+      "max": 240,
+      "stddev": 15.23,
+      "count": 104,
+      "platforms": {
+        "Sleeper": 101,
+        "MFL": 3
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Andrei Iosivas",
       "position": "WR",
       "team": "CIN",
@@ -4709,21 +4739,6 @@
       "count": 81,
       "platforms": {
         "Sleeper": 78,
-        "MFL": 3
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "Devaughn Vele",
-      "position": "WR",
-      "team": "NO",
-      "adp": 223.65,
-      "min": 166,
-      "max": 240,
-      "stddev": 15.26,
-      "count": 103,
-      "platforms": {
-        "Sleeper": 100,
         "MFL": 3
       },
       "platformLabel": "Both"
