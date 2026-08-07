@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T22:32:55.997Z",
+  "generated_at": "2026-08-07T23:17:27.376Z",
   "source_drafts": 402,
   "player_count": 425,
   "players": [
@@ -2377,13 +2377,13 @@
       "name": "Aaron Rodgers",
       "position": "QB",
       "team": "PIT",
-      "adp": 161.98,
+      "adp": 162.05,
       "min": 66,
       "max": 235,
-      "stddev": 22.38,
-      "count": 413,
+      "stddev": 22.4,
+      "count": 414,
       "platforms": {
-        "Sleeper": 396,
+        "Sleeper": 397,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2965,10 +2965,10 @@
       "adp": 195.35,
       "min": 123,
       "max": 239,
-      "stddev": 19.32,
-      "count": 402,
+      "stddev": 19.29,
+      "count": 403,
       "platforms": {
-        "Sleeper": 386,
+        "Sleeper": 387,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3217,13 +3217,13 @@
       "name": "Germie Bernard",
       "position": "WR",
       "team": "PIT",
-      "adp": 205.96,
+      "adp": 205.94,
       "min": 90,
       "max": 240,
-      "stddev": 19.1,
-      "count": 386,
+      "stddev": 19.08,
+      "count": 387,
       "platforms": {
-        "Sleeper": 371,
+        "Sleeper": 372,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -3442,13 +3442,13 @@
       "name": "Chris Bell",
       "position": "WR",
       "team": "MIA",
-      "adp": 210.96,
+      "adp": 210.98,
       "min": 142,
       "max": 240,
-      "stddev": 18.92,
-      "count": 329,
+      "stddev": 18.89,
+      "count": 330,
       "platforms": {
-        "Sleeper": 318,
+        "Sleeper": 319,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -5434,6 +5434,21 @@
       "platformLabel": "Sleeper"
     },
     {
+      "name": "Malik Benson",
+      "position": "WR",
+      "team": "LV",
+      "adp": 230.27,
+      "min": 219,
+      "max": 240,
+      "stddev": 6.3,
+      "count": 11,
+      "platforms": {
+        "Sleeper": 11,
+        "MFL": 0
+      },
+      "platformLabel": "Sleeper"
+    },
+    {
       "name": "Brashard Smith",
       "position": "RB",
       "team": "KC",
@@ -5609,21 +5624,6 @@
       "count": 9,
       "platforms": {
         "Sleeper": 9,
-        "MFL": 0
-      },
-      "platformLabel": "Sleeper"
-    },
-    {
-      "name": "Malik Benson",
-      "position": "WR",
-      "team": "LV",
-      "adp": 231.4,
-      "min": 222,
-      "max": 240,
-      "stddev": 5.44,
-      "count": 10,
-      "platforms": {
-        "Sleeper": 10,
         "MFL": 0
       },
       "platformLabel": "Sleeper"
