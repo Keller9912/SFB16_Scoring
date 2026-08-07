@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T16:24:15.166Z",
+  "generated_at": "2026-08-07T17:23:41.757Z",
   "source_drafts": 402,
   "player_count": 424,
   "players": [
@@ -2332,13 +2332,13 @@
       "name": "Cade Otton",
       "position": "TE",
       "team": "TB",
-      "adp": 155.77,
+      "adp": 155.82,
       "min": 105,
       "max": 205,
-      "stddev": 12.61,
-      "count": 416,
+      "stddev": 12.65,
+      "count": 417,
       "platforms": {
-        "Sleeper": 399,
+        "Sleeper": 400,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2662,13 +2662,13 @@
       "name": "Jerry Jeudy",
       "position": "WR",
       "team": "CLE",
-      "adp": 176.33,
+      "adp": 176.34,
       "min": 102,
       "max": 231,
-      "stddev": 17.79,
-      "count": 413,
+      "stddev": 17.77,
+      "count": 414,
       "platforms": {
-        "Sleeper": 396,
+        "Sleeper": 397,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2812,13 +2812,13 @@
       "name": "Jonah Coleman",
       "position": "RB",
       "team": "DEN",
-      "adp": 183.57,
+      "adp": 183.56,
       "min": 124,
       "max": 239,
-      "stddev": 18.38,
-      "count": 413,
+      "stddev": 18.36,
+      "count": 414,
       "platforms": {
-        "Sleeper": 397,
+        "Sleeper": 398,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3172,13 +3172,13 @@
       "name": "Deshaun Watson",
       "position": "QB",
       "team": "CLE",
-      "adp": 205.36,
+      "adp": 205.37,
       "min": 136,
       "max": 240,
-      "stddev": 21.62,
-      "count": 340,
+      "stddev": 21.59,
+      "count": 341,
       "platforms": {
-        "Sleeper": 323,
+        "Sleeper": 324,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3730,10 +3730,10 @@
       "adp": 215.02,
       "min": 136,
       "max": 240,
-      "stddev": 20.15,
-      "count": 238,
+      "stddev": 20.11,
+      "count": 239,
       "platforms": {
-        "Sleeper": 227,
+        "Sleeper": 228,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -4669,21 +4669,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Devaughn Vele",
-      "position": "WR",
-      "team": "NO",
-      "adp": 223.52,
-      "min": 166,
-      "max": 240,
-      "stddev": 15.28,
-      "count": 102,
-      "platforms": {
-        "Sleeper": 99,
-        "MFL": 3
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Jahan Dotson",
       "position": "WR",
       "team": "ATL",
@@ -4724,6 +4709,21 @@
       "count": 81,
       "platforms": {
         "Sleeper": 78,
+        "MFL": 3
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Devaughn Vele",
+      "position": "WR",
+      "team": "NO",
+      "adp": 223.65,
+      "min": 166,
+      "max": 240,
+      "stddev": 15.26,
+      "count": 103,
+      "platforms": {
+        "Sleeper": 100,
         "MFL": 3
       },
       "platformLabel": "Both"
@@ -4834,6 +4834,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "LeQuint Allen",
+      "position": "RB",
+      "team": "JAX",
+      "adp": 224.25,
+      "min": 177,
+      "max": 240,
+      "stddev": 15.78,
+      "count": 24,
+      "platforms": {
+        "Sleeper": 23,
+        "MFL": 1
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Konata Mumpfield",
       "position": "WR",
       "team": "LAR",
@@ -4874,21 +4889,6 @@
       "count": 2,
       "platforms": {
         "Sleeper": 1,
-        "MFL": 1
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "LeQuint Allen",
-      "position": "RB",
-      "team": "JAX",
-      "adp": 224.65,
-      "min": 177,
-      "max": 240,
-      "stddev": 16,
-      "count": 23,
-      "platforms": {
-        "Sleeper": 22,
         "MFL": 1
       },
       "platformLabel": "Both"
