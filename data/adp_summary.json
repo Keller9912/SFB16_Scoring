@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T05:14:51.236Z",
+  "generated_at": "2026-08-07T06:34:00.897Z",
   "source_drafts": 402,
   "player_count": 424,
   "players": [
@@ -2467,13 +2467,13 @@
       "name": "Terrance Ferguson",
       "position": "TE",
       "team": "LAR",
-      "adp": 165.09,
+      "adp": 165.16,
       "min": 115,
       "max": 230,
-      "stddev": 16.65,
-      "count": 415,
+      "stddev": 16.68,
+      "count": 416,
       "platforms": {
-        "Sleeper": 398,
+        "Sleeper": 399,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2527,13 +2527,13 @@
       "name": "Tua Tagovailoa",
       "position": "QB",
       "team": "ATL",
-      "adp": 167.2,
+      "adp": 167.26,
       "min": 108,
       "max": 240,
-      "stddev": 21.58,
-      "count": 413,
+      "stddev": 21.59,
+      "count": 414,
       "platforms": {
-        "Sleeper": 396,
+        "Sleeper": 397,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2614,21 +2614,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Brian Robinson",
-      "position": "RB",
-      "team": "ATL",
-      "adp": 175.25,
-      "min": 117,
-      "max": 233,
-      "stddev": 21.99,
-      "count": 412,
-      "platforms": {
-        "Sleeper": 395,
-        "MFL": 17
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Tre Tucker",
       "position": "WR",
       "team": "LV",
@@ -2639,6 +2624,21 @@
       "count": 415,
       "platforms": {
         "Sleeper": 398,
+        "MFL": 17
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Brian Robinson",
+      "position": "RB",
+      "team": "ATL",
+      "adp": 175.29,
+      "min": 117,
+      "max": 233,
+      "stddev": 21.97,
+      "count": 413,
+      "platforms": {
+        "Sleeper": 396,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2977,13 +2977,13 @@
       "name": "Dylan Sampson",
       "position": "RB",
       "team": "CLE",
-      "adp": 195.8,
+      "adp": 195.83,
       "min": 128,
       "max": 238,
-      "stddev": 17.99,
-      "count": 401,
+      "stddev": 17.96,
+      "count": 403,
       "platforms": {
-        "Sleeper": 386,
+        "Sleeper": 388,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -3022,13 +3022,13 @@
       "name": "Michael Penix",
       "position": "QB",
       "team": "ATL",
-      "adp": 197.66,
+      "adp": 197.69,
       "min": 109,
       "max": 239,
-      "stddev": 22.96,
-      "count": 349,
+      "stddev": 22.91,
+      "count": 351,
       "platforms": {
-        "Sleeper": 332,
+        "Sleeper": 334,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3055,10 +3055,10 @@
       "adp": 198.92,
       "min": 109,
       "max": 240,
-      "stddev": 21.23,
-      "count": 379,
+      "stddev": 21.2,
+      "count": 380,
       "platforms": {
-        "Sleeper": 363,
+        "Sleeper": 364,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3367,13 +3367,13 @@
       "name": "Chimere Dike",
       "position": "WR",
       "team": "TEN",
-      "adp": 210.24,
+      "adp": 210.19,
       "min": 128,
       "max": 240,
-      "stddev": 20.49,
-      "count": 285,
+      "stddev": 20.47,
+      "count": 286,
       "platforms": {
-        "Sleeper": 272,
+        "Sleeper": 273,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -3382,13 +3382,13 @@
       "name": "Mike Washington",
       "position": "RB",
       "team": "LV",
-      "adp": 210.42,
+      "adp": 210.38,
       "min": 148,
       "max": 240,
-      "stddev": 18.44,
-      "count": 321,
+      "stddev": 18.4,
+      "count": 323,
       "platforms": {
-        "Sleeper": 310,
+        "Sleeper": 312,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -3412,13 +3412,13 @@
       "name": "Ja'Kobi Lane",
       "position": "WR",
       "team": "BAL",
-      "adp": 210.87,
+      "adp": 210.83,
       "min": 138,
       "max": 240,
-      "stddev": 18.88,
-      "count": 320,
+      "stddev": 18.87,
+      "count": 321,
       "platforms": {
-        "Sleeper": 319,
+        "Sleeper": 320,
         "MFL": 1
       },
       "platformLabel": "Both"
