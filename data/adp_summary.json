@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T22:46:30.135Z",
+  "generated_at": "2026-08-08T23:27:20.847Z",
   "source_drafts": 402,
   "player_count": 426,
   "players": [
@@ -3187,13 +3187,13 @@
       "name": "Nicholas Singleton",
       "position": "RB",
       "team": "TEN",
-      "adp": 205.87,
+      "adp": 205.96,
       "min": 121,
       "max": 240,
-      "stddev": 19.1,
-      "count": 380,
+      "stddev": 19.15,
+      "count": 381,
       "platforms": {
-        "Sleeper": 367,
+        "Sleeper": 368,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -3202,13 +3202,13 @@
       "name": "Germie Bernard",
       "position": "WR",
       "team": "PIT",
-      "adp": 206.05,
+      "adp": 206.12,
       "min": 90,
       "max": 240,
-      "stddev": 19.05,
-      "count": 390,
+      "stddev": 19.06,
+      "count": 391,
       "platforms": {
-        "Sleeper": 375,
+        "Sleeper": 376,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -3649,21 +3649,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Ray Davis",
-      "position": "RB",
-      "team": "BUF",
-      "adp": 214.17,
-      "min": 149,
-      "max": 240,
-      "stddev": 15.84,
-      "count": 340,
-      "platforms": {
-        "Sleeper": 326,
-        "MFL": 14
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Devin Singletary",
       "position": "RB",
       "team": "NYG",
@@ -3677,6 +3662,21 @@
         "MFL": 6
       },
       "platformLabel": "MFL"
+    },
+    {
+      "name": "Ray Davis",
+      "position": "RB",
+      "team": "BUF",
+      "adp": 214.22,
+      "min": 149,
+      "max": 240,
+      "stddev": 15.85,
+      "count": 341,
+      "platforms": {
+        "Sleeper": 327,
+        "MFL": 14
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Demond Claiborne",
@@ -4117,13 +4117,13 @@
       "name": "Mac Jones",
       "position": "QB",
       "team": "SF",
-      "adp": 219.14,
+      "adp": 219.22,
       "min": 165,
       "max": 240,
-      "stddev": 17.95,
-      "count": 162,
+      "stddev": 17.92,
+      "count": 163,
       "platforms": {
-        "Sleeper": 157,
+        "Sleeper": 158,
         "MFL": 5
       },
       "platformLabel": "Both"
