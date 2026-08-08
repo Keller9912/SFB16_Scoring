@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T12:03:42.737Z",
+  "generated_at": "2026-08-08T13:12:20.776Z",
   "source_drafts": 402,
   "player_count": 425,
   "players": [
@@ -2782,13 +2782,13 @@
       "name": "Ryan Flournoy",
       "position": "WR",
       "team": "DAL",
-      "adp": 183.22,
+      "adp": 183.24,
       "min": 130,
       "max": 236,
-      "stddev": 17.27,
-      "count": 413,
+      "stddev": 17.26,
+      "count": 414,
       "platforms": {
-        "Sleeper": 396,
+        "Sleeper": 397,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3082,13 +3082,13 @@
       "name": "Calvin Ridley",
       "position": "WR",
       "team": "TEN",
-      "adp": 200.46,
+      "adp": 200.48,
       "min": 89,
       "max": 240,
-      "stddev": 22.04,
-      "count": 381,
+      "stddev": 22.02,
+      "count": 382,
       "platforms": {
-        "Sleeper": 366,
+        "Sleeper": 367,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -4279,6 +4279,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Caleb Douglas",
+      "position": "WR",
+      "team": "MIA",
+      "adp": 220.21,
+      "min": 116,
+      "max": 240,
+      "stddev": 22.86,
+      "count": 85,
+      "platforms": {
+        "Sleeper": 82,
+        "MFL": 3
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Marvin Mims",
       "position": "WR",
       "team": "DEN",
@@ -4305,21 +4320,6 @@
       "platforms": {
         "Sleeper": 193,
         "MFL": 7
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "Caleb Douglas",
-      "position": "WR",
-      "team": "MIA",
-      "adp": 220.27,
-      "min": 116,
-      "max": 240,
-      "stddev": 22.99,
-      "count": 84,
-      "platforms": {
-        "Sleeper": 81,
-        "MFL": 3
       },
       "platformLabel": "Both"
     },
