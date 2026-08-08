@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T20:28:00.287Z",
+  "generated_at": "2026-08-08T21:00:42.511Z",
   "source_drafts": 402,
   "player_count": 426,
   "players": [
@@ -3127,13 +3127,13 @@
       "name": "Evan Engram",
       "position": "TE",
       "team": "DEN",
-      "adp": 204.69,
+      "adp": 204.7,
       "min": 35,
       "max": 240,
-      "stddev": 20.39,
-      "count": 362,
+      "stddev": 20.36,
+      "count": 363,
       "platforms": {
-        "Sleeper": 345,
+        "Sleeper": 346,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3157,13 +3157,13 @@
       "name": "Theo Johnson",
       "position": "TE",
       "team": "NYG",
-      "adp": 205.32,
+      "adp": 205.38,
       "min": 148,
       "max": 240,
       "stddev": 20.9,
-      "count": 359,
+      "count": 360,
       "platforms": {
-        "Sleeper": 349,
+        "Sleeper": 350,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -4264,6 +4264,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Marvin Mims",
+      "position": "WR",
+      "team": "DEN",
+      "adp": 220.14,
+      "min": 169,
+      "max": 240,
+      "stddev": 16.03,
+      "count": 94,
+      "platforms": {
+        "Sleeper": 83,
+        "MFL": 11
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Carson Beck",
       "position": "QB",
       "team": "ARI",
@@ -4290,21 +4305,6 @@
       "platforms": {
         "Sleeper": 82,
         "MFL": 3
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "Marvin Mims",
-      "position": "WR",
-      "team": "DEN",
-      "adp": 220.26,
-      "min": 169,
-      "max": 240,
-      "stddev": 16.08,
-      "count": 93,
-      "platforms": {
-        "Sleeper": 82,
-        "MFL": 11
       },
       "platformLabel": "Both"
     },
