@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T23:59:27.388Z",
+  "generated_at": "2026-08-08T02:10:47.731Z",
   "leagues": [
     {
       "league_id": "1383225951596314624",
@@ -419596,6 +419596,12 @@
       "pick_no": 237
     },
     {
+      "name": "Jaylen Wright",
+      "pos": "RB",
+      "team": "MIA",
+      "pick_no": 238
+    },
+    {
       "name": "Jahmyr Gibbs",
       "pos": "RB",
       "team": "DET",
@@ -484198,6 +484204,12 @@
       "pick_no": 207
     },
     {
+      "name": "Tyjae Spears",
+      "pos": "RB",
+      "team": "TEN",
+      "pick_no": 208
+    },
+    {
       "name": "Josh Allen",
       "pos": "QB",
       "team": "BUF",
@@ -486898,6 +486910,18 @@
       "pick_no": 210
     },
     {
+      "name": "Ray Davis",
+      "pos": "RB",
+      "team": "BUF",
+      "pick_no": 211
+    },
+    {
+      "name": "Theo Johnson",
+      "pos": "TE",
+      "team": "NYG",
+      "pick_no": 212
+    },
+    {
       "name": "Puka Nacua",
       "pos": "WR",
       "team": "LAR",
@@ -488218,6 +488242,18 @@
       "pick_no": 220
     },
     {
+      "name": "Elijah Sarratt",
+      "pos": "WR",
+      "team": "BAL",
+      "pick_no": 221
+    },
+    {
+      "name": "Caleb Douglas",
+      "pos": "WR",
+      "team": "MIA",
+      "pick_no": 222
+    },
+    {
       "name": "Bijan Robinson",
       "pos": "RB",
       "team": "ATL",
@@ -489374,6 +489410,12 @@
       "pos": "TE",
       "team": "SF",
       "pick_no": 193
+    },
+    {
+      "name": "Tre Tucker",
+      "pos": "WR",
+      "team": "LV",
+      "pick_no": 194
     },
     {
       "name": "Ja'Marr Chase",
@@ -492004,6 +492046,12 @@
       "pick_no": 198
     },
     {
+      "name": "Kaytron Allen",
+      "pos": "RB",
+      "team": "WAS",
+      "pick_no": 199
+    },
+    {
       "name": "Bijan Robinson",
       "pos": "RB",
       "team": "ATL",
@@ -493282,6 +493330,30 @@
       "pick_no": 213
     },
     {
+      "name": "Ja'Kobi Lane",
+      "pos": "WR",
+      "team": "BAL",
+      "pick_no": 214
+    },
+    {
+      "name": "Cole Kmet",
+      "pos": "TE",
+      "team": "CHI",
+      "pick_no": 215
+    },
+    {
+      "name": "Braelon Allen",
+      "pos": "RB",
+      "team": "NYJ",
+      "pick_no": 216
+    },
+    {
+      "name": "Jaylen Wright",
+      "pos": "RB",
+      "team": "MIA",
+      "pick_no": 217
+    },
+    {
       "name": "Brock Bowers",
       "pos": "TE",
       "team": "LV",
@@ -494420,6 +494492,24 @@
       "pos": "RB",
       "team": "NO",
       "pick_no": 190
+    },
+    {
+      "name": "Tyjae Spears",
+      "pos": "RB",
+      "team": "TEN",
+      "pick_no": 191
+    },
+    {
+      "name": "Ja'Kobi Lane",
+      "pos": "WR",
+      "team": "BAL",
+      "pick_no": 192
+    },
+    {
+      "name": "Ted Hurst",
+      "pos": "WR",
+      "team": "TB",
+      "pick_no": 193
     },
     {
       "name": "Ja'Marr Chase",
@@ -495680,6 +495770,18 @@
       "pos": "WR",
       "team": "DEN",
       "pick_no": 210
+    },
+    {
+      "name": "Isiah Pacheco",
+      "pos": "RB",
+      "team": "DET",
+      "pick_no": 211
+    },
+    {
+      "name": "Dylan Sampson",
+      "pos": "RB",
+      "team": "CLE",
+      "pick_no": 212
     },
     {
       "name": "Bijan Robinson",
@@ -560344,6 +560446,12 @@
       "pick_no": 218
     },
     {
+      "name": "Theo Johnson",
+      "pos": "TE",
+      "team": "NYG",
+      "pick_no": 219
+    },
+    {
       "name": "Ja'Marr Chase",
       "pos": "WR",
       "team": "CIN",
@@ -563012,6 +563120,60 @@
       "pos": "WR",
       "team": "TEN",
       "pick_no": 205
+    },
+    {
+      "name": "Marvin Mims",
+      "pos": "WR",
+      "team": "DEN",
+      "pick_no": 206
+    },
+    {
+      "name": "Darnell Mooney",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 207
+    },
+    {
+      "name": "Tank Bigsby",
+      "pos": "RB",
+      "team": "PHI",
+      "pick_no": 208
+    },
+    {
+      "name": "Malachi Fields",
+      "pos": "WR",
+      "team": "NYG",
+      "pick_no": 209
+    },
+    {
+      "name": "Ted Hurst",
+      "pos": "WR",
+      "team": "TB",
+      "pick_no": 210
+    },
+    {
+      "name": "Caleb Douglas",
+      "pos": "WR",
+      "team": "MIA",
+      "pick_no": 211
+    },
+    {
+      "name": "Emmett Johnson",
+      "pos": "RB",
+      "team": "KC",
+      "pick_no": 212
+    },
+    {
+      "name": "Shedeur Sanders",
+      "pos": "QB",
+      "team": "CLE",
+      "pick_no": 213
+    },
+    {
+      "name": "Cooper Kupp",
+      "pos": "WR",
+      "team": "SEA",
+      "pick_no": 214
     },
     {
       "name": "Ja'Marr Chase",
