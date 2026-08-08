@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T15:04:21.004Z",
+  "generated_at": "2026-08-08T15:45:20.484Z",
   "source_drafts": 402,
   "player_count": 425,
   "players": [
@@ -3232,13 +3232,13 @@
       "name": "Troy Franklin",
       "position": "WR",
       "team": "DEN",
-      "adp": 206.23,
+      "adp": 206.29,
       "min": 124,
       "max": 240,
       "stddev": 20.06,
-      "count": 356,
+      "count": 357,
       "platforms": {
-        "Sleeper": 340,
+        "Sleeper": 341,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3277,13 +3277,13 @@
       "name": "Darnell Mooney",
       "position": "WR",
       "team": "NYG",
-      "adp": 207.69,
+      "adp": 207.66,
       "min": 148,
       "max": 240,
-      "stddev": 18.29,
-      "count": 355,
+      "stddev": 18.28,
+      "count": 356,
       "platforms": {
-        "Sleeper": 341,
+        "Sleeper": 342,
         "MFL": 14
       },
       "platformLabel": "Both"
@@ -3367,13 +3367,13 @@
       "name": "Chimere Dike",
       "position": "WR",
       "team": "TEN",
-      "adp": 210.17,
+      "adp": 210.18,
       "min": 128,
       "max": 240,
-      "stddev": 20.42,
-      "count": 288,
+      "stddev": 20.39,
+      "count": 289,
       "platforms": {
-        "Sleeper": 275,
+        "Sleeper": 276,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -3649,6 +3649,21 @@
       "platformLabel": "Sleeper"
     },
     {
+      "name": "Ray Davis",
+      "position": "RB",
+      "team": "BUF",
+      "adp": 214.17,
+      "min": 149,
+      "max": 240,
+      "stddev": 15.84,
+      "count": 340,
+      "platforms": {
+        "Sleeper": 326,
+        "MFL": 14
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Devin Singletary",
       "position": "RB",
       "team": "NYG",
@@ -3662,21 +3677,6 @@
         "MFL": 6
       },
       "platformLabel": "MFL"
-    },
-    {
-      "name": "Ray Davis",
-      "position": "RB",
-      "team": "BUF",
-      "adp": 214.22,
-      "min": 149,
-      "max": 240,
-      "stddev": 15.84,
-      "count": 339,
-      "platforms": {
-        "Sleeper": 325,
-        "MFL": 14
-      },
-      "platformLabel": "Both"
     },
     {
       "name": "Demond Claiborne",
@@ -3862,13 +3862,13 @@
       "name": "MarShawn Lloyd",
       "position": "RB",
       "team": "GB",
-      "adp": 216.68,
+      "adp": 216.73,
       "min": 159,
       "max": 240,
-      "stddev": 17.15,
-      "count": 219,
+      "stddev": 17.13,
+      "count": 220,
       "platforms": {
-        "Sleeper": 207,
+        "Sleeper": 208,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -4762,13 +4762,13 @@
       "name": "Eli Raridon",
       "position": "TE",
       "team": "NE",
-      "adp": 223.73,
+      "adp": 223.68,
       "min": 165,
       "max": 240,
-      "stddev": 14.4,
-      "count": 71,
+      "stddev": 14.31,
+      "count": 72,
       "platforms": {
-        "Sleeper": 65,
+        "Sleeper": 66,
         "MFL": 6
       },
       "platformLabel": "Both"
