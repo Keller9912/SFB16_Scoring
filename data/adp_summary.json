@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T15:45:20.484Z",
+  "generated_at": "2026-08-08T16:13:45.284Z",
   "source_drafts": 402,
   "player_count": 425,
   "players": [
@@ -4105,10 +4105,10 @@
       "adp": 219.06,
       "min": 102,
       "max": 240,
-      "stddev": 17.35,
-      "count": 217,
+      "stddev": 17.31,
+      "count": 218,
       "platforms": {
-        "Sleeper": 213,
+        "Sleeper": 214,
         "MFL": 4
       },
       "platformLabel": "Both"
@@ -5029,6 +5029,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Tyson Bagent",
+      "position": "QB",
+      "team": "CHI",
+      "adp": 226.43,
+      "min": 218,
+      "max": 240,
+      "stddev": 6.74,
+      "count": 7,
+      "platforms": {
+        "Sleeper": 7,
+        "MFL": 0
+      },
+      "platformLabel": "Sleeper"
+    },
+    {
       "name": "Malik Davis",
       "position": "RB",
       "team": "DAL",
@@ -5114,21 +5129,6 @@
       "count": 2,
       "platforms": {
         "Sleeper": 2,
-        "MFL": 0
-      },
-      "platformLabel": "Sleeper"
-    },
-    {
-      "name": "Tyson Bagent",
-      "position": "QB",
-      "team": "CHI",
-      "adp": 227.33,
-      "min": 218,
-      "max": 240,
-      "stddev": 6.87,
-      "count": 6,
-      "platforms": {
-        "Sleeper": 6,
         "MFL": 0
       },
       "platformLabel": "Sleeper"
