@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T18:48:54.919Z",
+  "generated_at": "2026-08-08T19:29:56.441Z",
   "source_drafts": 402,
   "player_count": 426,
   "players": [
@@ -2887,13 +2887,13 @@
       "name": "Tre' Harris",
       "position": "WR",
       "team": "LAC",
-      "adp": 190.4,
+      "adp": 190.43,
       "min": 108,
       "max": 240,
-      "stddev": 18.26,
-      "count": 414,
+      "stddev": 18.25,
+      "count": 415,
       "platforms": {
-        "Sleeper": 397,
+        "Sleeper": 398,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3184,31 +3184,16 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Taysom Hill",
-      "position": "TE",
-      "team": "",
-      "adp": 205.8,
-      "min": 153,
-      "max": 239,
-      "stddev": 33.29,
-      "count": 5,
-      "platforms": {
-        "Sleeper": 2,
-        "MFL": 3
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Nicholas Singleton",
       "position": "RB",
       "team": "TEN",
       "adp": 205.87,
       "min": 121,
       "max": 240,
-      "stddev": 19.12,
-      "count": 379,
+      "stddev": 19.1,
+      "count": 380,
       "platforms": {
-        "Sleeper": 366,
+        "Sleeper": 367,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -3319,6 +3304,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Taysom Hill",
+      "position": "TE",
+      "team": "",
+      "adp": 208.67,
+      "min": 153,
+      "max": 239,
+      "stddev": 31.06,
+      "count": 6,
+      "platforms": {
+        "Sleeper": 3,
+        "MFL": 3
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Jaylin Noel",
       "position": "WR",
       "team": "HOU",
@@ -3337,13 +3337,13 @@
       "name": "Ty Simpson",
       "position": "QB",
       "team": "LAR",
-      "adp": 209.9,
+      "adp": 209.88,
       "min": 132,
       "max": 240,
-      "stddev": 23.16,
-      "count": 170,
+      "stddev": 23.09,
+      "count": 171,
       "platforms": {
-        "Sleeper": 168,
+        "Sleeper": 169,
         "MFL": 2
       },
       "platformLabel": "Both"
@@ -3397,13 +3397,13 @@
       "name": "Ted Hurst",
       "position": "WR",
       "team": "TB",
-      "adp": 210.47,
+      "adp": 210.49,
       "min": 144,
       "max": 240,
-      "stddev": 17.72,
-      "count": 372,
+      "stddev": 17.69,
+      "count": 374,
       "platforms": {
-        "Sleeper": 362,
+        "Sleeper": 364,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -3577,13 +3577,13 @@
       "name": "Rashod Bateman",
       "position": "WR",
       "team": "BAL",
-      "adp": 212.72,
+      "adp": 212.76,
       "min": 139,
       "max": 240,
-      "stddev": 17.8,
-      "count": 292,
+      "stddev": 17.78,
+      "count": 293,
       "platforms": {
-        "Sleeper": 278,
+        "Sleeper": 279,
         "MFL": 14
       },
       "platformLabel": "Both"
@@ -3814,6 +3814,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Dontayvion Wicks",
+      "position": "WR",
+      "team": "PHI",
+      "adp": 216.39,
+      "min": 157,
+      "max": 240,
+      "stddev": 18.49,
+      "count": 278,
+      "platforms": {
+        "Sleeper": 265,
+        "MFL": 13
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Elic Ayomanor",
       "position": "WR",
       "team": "TEN",
@@ -3825,21 +3840,6 @@
       "platforms": {
         "Sleeper": 146,
         "MFL": 10
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "Dontayvion Wicks",
-      "position": "WR",
-      "team": "PHI",
-      "adp": 216.42,
-      "min": 157,
-      "max": 240,
-      "stddev": 18.52,
-      "count": 277,
-      "platforms": {
-        "Sleeper": 264,
-        "MFL": 13
       },
       "platformLabel": "Both"
     },
@@ -3862,13 +3862,13 @@
       "name": "MarShawn Lloyd",
       "position": "RB",
       "team": "GB",
-      "adp": 216.73,
+      "adp": 216.69,
       "min": 159,
       "max": 240,
-      "stddev": 17.13,
-      "count": 220,
+      "stddev": 17.11,
+      "count": 221,
       "platforms": {
-        "Sleeper": 208,
+        "Sleeper": 209,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -4342,13 +4342,13 @@
       "name": "Jaydon Blue",
       "position": "RB",
       "team": "DAL",
-      "adp": 220.55,
+      "adp": 220.48,
       "min": 168,
       "max": 240,
-      "stddev": 14.48,
-      "count": 244,
+      "stddev": 14.49,
+      "count": 246,
       "platforms": {
-        "Sleeper": 235,
+        "Sleeper": 237,
         "MFL": 9
       },
       "platformLabel": "Both"
