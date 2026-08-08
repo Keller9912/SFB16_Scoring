@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T13:12:20.776Z",
+  "generated_at": "2026-08-08T13:57:26.896Z",
   "source_drafts": 402,
   "player_count": 425,
   "players": [
@@ -3097,13 +3097,13 @@
       "name": "Mason Taylor",
       "position": "TE",
       "team": "NYJ",
-      "adp": 202.14,
+      "adp": 202.2,
       "min": 124,
       "max": 240,
       "stddev": 22.51,
-      "count": 355,
+      "count": 356,
       "platforms": {
-        "Sleeper": 345,
+        "Sleeper": 346,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -3442,13 +3442,13 @@
       "name": "Chris Bell",
       "position": "WR",
       "team": "MIA",
-      "adp": 210.98,
+      "adp": 211,
       "min": 142,
       "max": 240,
-      "stddev": 18.89,
-      "count": 330,
+      "stddev": 18.86,
+      "count": 331,
       "platforms": {
-        "Sleeper": 319,
+        "Sleeper": 320,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -3472,13 +3472,13 @@
       "name": "Kimani Vidal",
       "position": "RB",
       "team": "LAC",
-      "adp": 211.33,
+      "adp": 211.38,
       "min": 126,
       "max": 240,
-      "stddev": 18.53,
-      "count": 287,
+      "stddev": 18.51,
+      "count": 288,
       "platforms": {
-        "Sleeper": 275,
+        "Sleeper": 276,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -3799,21 +3799,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Cyrus Allen",
-      "position": "WR",
-      "team": "KC",
-      "adp": 216.31,
-      "min": 157,
-      "max": 240,
-      "stddev": 21.22,
-      "count": 39,
-      "platforms": {
-        "Sleeper": 38,
-        "MFL": 1
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Elic Ayomanor",
       "position": "WR",
       "team": "TEN",
@@ -3825,6 +3810,21 @@
       "platforms": {
         "Sleeper": 144,
         "MFL": 10
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Cyrus Allen",
+      "position": "WR",
+      "team": "KC",
+      "adp": 216.32,
+      "min": 157,
+      "max": 240,
+      "stddev": 20.95,
+      "count": 40,
+      "platforms": {
+        "Sleeper": 39,
+        "MFL": 1
       },
       "platformLabel": "Both"
     },
@@ -4312,13 +4312,13 @@
       "name": "Jaylen Wright",
       "position": "RB",
       "team": "MIA",
-      "adp": 220.27,
+      "adp": 220.28,
       "min": 164,
       "max": 240,
-      "stddev": 14.4,
-      "count": 200,
+      "stddev": 14.37,
+      "count": 201,
       "platforms": {
-        "Sleeper": 193,
+        "Sleeper": 194,
         "MFL": 7
       },
       "platformLabel": "Both"
