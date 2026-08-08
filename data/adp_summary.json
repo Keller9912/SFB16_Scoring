@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T02:01:31.658Z",
+  "generated_at": "2026-08-08T03:43:43.447Z",
   "source_drafts": 402,
   "player_count": 425,
   "players": [
@@ -2662,13 +2662,13 @@
       "name": "Jerry Jeudy",
       "position": "WR",
       "team": "CLE",
-      "adp": 176.34,
+      "adp": 176.39,
       "min": 102,
       "max": 231,
       "stddev": 17.77,
-      "count": 414,
+      "count": 415,
       "platforms": {
-        "Sleeper": 397,
+        "Sleeper": 398,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -2767,13 +2767,13 @@
       "name": "Isaac TeSlaa",
       "position": "WR",
       "team": "DET",
-      "adp": 182.33,
+      "adp": 182.36,
       "min": 92,
       "max": 231,
-      "stddev": 17.12,
-      "count": 415,
+      "stddev": 17.11,
+      "count": 416,
       "platforms": {
-        "Sleeper": 398,
+        "Sleeper": 399,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3307,13 +3307,13 @@
       "name": "Braelon Allen",
       "position": "RB",
       "team": "NYJ",
-      "adp": 208.57,
+      "adp": 208.59,
       "min": 150,
       "max": 240,
-      "stddev": 17.93,
-      "count": 340,
+      "stddev": 17.91,
+      "count": 341,
       "platforms": {
-        "Sleeper": 328,
+        "Sleeper": 329,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -3322,13 +3322,13 @@
       "name": "Jaylin Noel",
       "position": "WR",
       "team": "HOU",
-      "adp": 208.96,
+      "adp": 208.98,
       "min": 142,
       "max": 240,
-      "stddev": 18.76,
-      "count": 341,
+      "stddev": 18.73,
+      "count": 342,
       "platforms": {
-        "Sleeper": 328,
+        "Sleeper": 329,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -3367,13 +3367,13 @@
       "name": "Chimere Dike",
       "position": "WR",
       "team": "TEN",
-      "adp": 210.14,
+      "adp": 210.17,
       "min": 128,
       "max": 240,
-      "stddev": 20.45,
-      "count": 287,
+      "stddev": 20.42,
+      "count": 288,
       "platforms": {
-        "Sleeper": 274,
+        "Sleeper": 275,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -3547,13 +3547,13 @@
       "name": "Kaytron Allen",
       "position": "RB",
       "team": "WAS",
-      "adp": 212.5,
+      "adp": 212.58,
       "min": 151,
       "max": 240,
-      "stddev": 18.12,
-      "count": 320,
+      "stddev": 18.15,
+      "count": 321,
       "platforms": {
-        "Sleeper": 307,
+        "Sleeper": 308,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -4294,6 +4294,21 @@
       "platformLabel": "Both"
     },
     {
+      "name": "Jaylen Wright",
+      "position": "RB",
+      "team": "MIA",
+      "adp": 220.27,
+      "min": 164,
+      "max": 240,
+      "stddev": 14.4,
+      "count": 200,
+      "platforms": {
+        "Sleeper": 193,
+        "MFL": 7
+      },
+      "platformLabel": "Both"
+    },
+    {
       "name": "Caleb Douglas",
       "position": "WR",
       "team": "MIA",
@@ -4320,21 +4335,6 @@
       "platforms": {
         "Sleeper": 5,
         "MFL": 9
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "Jaylen Wright",
-      "position": "RB",
-      "team": "MIA",
-      "adp": 220.32,
-      "min": 164,
-      "max": 240,
-      "stddev": 14.46,
-      "count": 198,
-      "platforms": {
-        "Sleeper": 191,
-        "MFL": 7
       },
       "platformLabel": "Both"
     },
