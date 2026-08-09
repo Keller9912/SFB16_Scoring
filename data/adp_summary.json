@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T17:49:45.484Z",
+  "generated_at": "2026-08-09T18:37:47.856Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -2584,21 +2584,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "David Moore",
-      "position": "WR",
-      "team": "CAR",
-      "adp": 174.25,
-      "min": 102,
-      "max": 213,
-      "stddev": 42.88,
-      "count": 4,
-      "platforms": {
-        "Sleeper": 3,
-        "MFL": 1
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Woody Marks",
       "position": "RB",
       "team": "HOU",
@@ -2867,6 +2852,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "David Moore",
+      "position": "WR",
+      "team": "CAR",
+      "adp": 187.2,
+      "min": 102,
+      "max": 239,
+      "stddev": 46.28,
+      "count": 5,
+      "platforms": {
+        "Sleeper": 4,
+        "MFL": 1
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Isiah Pacheco",
@@ -3847,13 +3847,13 @@
       "name": "Elic Ayomanor",
       "position": "WR",
       "team": "TEN",
-      "adp": 216.64,
+      "adp": 216.67,
       "min": 154,
       "max": 240,
-      "stddev": 18.25,
-      "count": 158,
+      "stddev": 18.2,
+      "count": 159,
       "platforms": {
-        "Sleeper": 148,
+        "Sleeper": 149,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -3862,13 +3862,13 @@
       "name": "MarShawn Lloyd",
       "position": "RB",
       "team": "GB",
-      "adp": 216.69,
+      "adp": 216.8,
       "min": 159,
       "max": 240,
-      "stddev": 17.11,
-      "count": 221,
+      "stddev": 17.14,
+      "count": 222,
       "platforms": {
-        "Sleeper": 209,
+        "Sleeper": 210,
         "MFL": 12
       },
       "platformLabel": "Both"
