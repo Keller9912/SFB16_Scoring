@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-09T15:02:21.584Z",
+  "generated_at": "2026-08-09T15:46:58.089Z",
   "source_drafts": 402,
-  "player_count": 426,
+  "player_count": 427,
   "players": [
     {
       "name": "Puka Nacua",
@@ -3127,13 +3127,13 @@
       "name": "Evan Engram",
       "position": "TE",
       "team": "DEN",
-      "adp": 204.7,
+      "adp": 204.79,
       "min": 35,
       "max": 240,
-      "stddev": 20.36,
-      "count": 363,
+      "stddev": 20.4,
+      "count": 364,
       "platforms": {
-        "Sleeper": 346,
+        "Sleeper": 347,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3367,13 +3367,13 @@
       "name": "Chimere Dike",
       "position": "WR",
       "team": "TEN",
-      "adp": 210.26,
+      "adp": 210.35,
       "min": 128,
       "max": 240,
-      "stddev": 20.39,
-      "count": 290,
+      "stddev": 20.42,
+      "count": 291,
       "platforms": {
-        "Sleeper": 277,
+        "Sleeper": 278,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -3397,13 +3397,13 @@
       "name": "Ted Hurst",
       "position": "WR",
       "team": "TB",
-      "adp": 210.49,
+      "adp": 210.51,
       "min": 144,
       "max": 240,
-      "stddev": 17.69,
-      "count": 374,
+      "stddev": 17.67,
+      "count": 375,
       "platforms": {
-        "Sleeper": 364,
+        "Sleeper": 365,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -3517,13 +3517,13 @@
       "name": "Malachi Fields",
       "position": "WR",
       "team": "NYG",
-      "adp": 212.14,
+      "adp": 212.15,
       "min": 148,
       "max": 240,
-      "stddev": 18.82,
-      "count": 339,
+      "stddev": 18.79,
+      "count": 340,
       "platforms": {
-        "Sleeper": 327,
+        "Sleeper": 328,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -3769,21 +3769,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Trey Benson",
-      "position": "RB",
-      "team": "ARI",
-      "adp": 215.99,
-      "min": 160,
-      "max": 240,
-      "stddev": 19.12,
-      "count": 154,
-      "platforms": {
-        "Sleeper": 153,
-        "MFL": 1
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Ty Chandler",
       "position": "RB",
       "team": "NO",
@@ -3797,6 +3782,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Trey Benson",
+      "position": "RB",
+      "team": "ARI",
+      "adp": 216.1,
+      "min": 160,
+      "max": 240,
+      "stddev": 19.12,
+      "count": 155,
+      "platforms": {
+        "Sleeper": 154,
+        "MFL": 1
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Dontayvion Wicks",
@@ -4654,21 +4654,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Kaelon Black",
-      "position": "RB",
-      "team": "SF",
-      "adp": 223.49,
-      "min": 174,
-      "max": 240,
-      "stddev": 14.12,
-      "count": 127,
-      "platforms": {
-        "Sleeper": 115,
-        "MFL": 12
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Dont'e Thornton",
       "position": "WR",
       "team": "LV",
@@ -4740,6 +4725,21 @@
       "platforms": {
         "Sleeper": 79,
         "MFL": 3
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Kaelon Black",
+      "position": "RB",
+      "team": "SF",
+      "adp": 223.58,
+      "min": 174,
+      "max": 240,
+      "stddev": 14.1,
+      "count": 128,
+      "platforms": {
+        "Sleeper": 116,
+        "MFL": 12
       },
       "platformLabel": "Both"
     },
@@ -5797,6 +5797,21 @@
       "name": "Antonio Brown",
       "position": "WR",
       "team": "",
+      "adp": 233,
+      "min": 233,
+      "max": 233,
+      "stddev": 0,
+      "count": 1,
+      "platforms": {
+        "Sleeper": 1,
+        "MFL": 0
+      },
+      "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Jaydn Ott",
+      "position": "RB",
+      "team": "KC",
       "adp": 233,
       "min": 233,
       "max": 233,
