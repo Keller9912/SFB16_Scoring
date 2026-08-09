@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T15:46:58.089Z",
+  "generated_at": "2026-08-09T16:32:51.700Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -3082,13 +3082,13 @@
       "name": "Calvin Ridley",
       "position": "WR",
       "team": "TEN",
-      "adp": 200.48,
+      "adp": 200.57,
       "min": 89,
       "max": 240,
-      "stddev": 22.02,
-      "count": 382,
+      "stddev": 22.06,
+      "count": 383,
       "platforms": {
-        "Sleeper": 367,
+        "Sleeper": 368,
         "MFL": 15
       },
       "platformLabel": "Both"
@@ -3814,21 +3814,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Elic Ayomanor",
-      "position": "WR",
-      "team": "TEN",
-      "adp": 216.5,
-      "min": 154,
-      "max": 240,
-      "stddev": 18.23,
-      "count": 157,
-      "platforms": {
-        "Sleeper": 147,
-        "MFL": 10
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Austin Ekeler",
       "position": "RB",
       "team": "",
@@ -3855,6 +3840,21 @@
       "platforms": {
         "Sleeper": 42,
         "MFL": 1
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Elic Ayomanor",
+      "position": "WR",
+      "team": "TEN",
+      "adp": 216.64,
+      "min": 154,
+      "max": 240,
+      "stddev": 18.25,
+      "count": 158,
+      "platforms": {
+        "Sleeper": 148,
+        "MFL": 10
       },
       "platformLabel": "Both"
     },
@@ -4039,21 +4039,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Keenan Allen",
-      "position": "WR",
-      "team": "",
-      "adp": 218.95,
-      "min": 137,
-      "max": 240,
-      "stddev": 16.78,
-      "count": 247,
-      "platforms": {
-        "Sleeper": 240,
-        "MFL": 7
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Nick Chubb",
       "position": "RB",
       "team": "",
@@ -4097,6 +4082,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Keenan Allen",
+      "position": "WR",
+      "team": "",
+      "adp": 219.01,
+      "min": 137,
+      "max": 240,
+      "stddev": 16.78,
+      "count": 248,
+      "platforms": {
+        "Sleeper": 241,
+        "MFL": 7
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Christian Kirk",
@@ -4342,13 +4342,13 @@
       "name": "Jaydon Blue",
       "position": "RB",
       "team": "DAL",
-      "adp": 220.45,
+      "adp": 220.51,
       "min": 168,
       "max": 240,
       "stddev": 14.43,
-      "count": 249,
+      "count": 250,
       "platforms": {
-        "Sleeper": 240,
+        "Sleeper": 241,
         "MFL": 9
       },
       "platformLabel": "Both"
@@ -4762,13 +4762,13 @@
       "name": "Eli Raridon",
       "position": "TE",
       "team": "NE",
-      "adp": 223.68,
+      "adp": 223.85,
       "min": 165,
       "max": 240,
-      "stddev": 14.31,
-      "count": 72,
+      "stddev": 14.28,
+      "count": 73,
       "platforms": {
-        "Sleeper": 66,
+        "Sleeper": 67,
         "MFL": 6
       },
       "platformLabel": "Both"
