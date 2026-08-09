@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T16:32:51.700Z",
+  "generated_at": "2026-08-09T17:13:52.221Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -3019,21 +3019,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Michael Penix",
-      "position": "QB",
-      "team": "ATL",
-      "adp": 197.8,
-      "min": 109,
-      "max": 239,
-      "stddev": 22.9,
-      "count": 353,
-      "platforms": {
-        "Sleeper": 336,
-        "MFL": 17
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Tank Bigsby",
       "position": "RB",
       "team": "PHI",
@@ -3044,6 +3029,21 @@
       "count": 410,
       "platforms": {
         "Sleeper": 393,
+        "MFL": 17
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Michael Penix",
+      "position": "QB",
+      "team": "ATL",
+      "adp": 197.92,
+      "min": 109,
+      "max": 239,
+      "stddev": 22.98,
+      "count": 354,
+      "platforms": {
+        "Sleeper": 337,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3112,13 +3112,13 @@
       "name": "James Conner",
       "position": "RB",
       "team": "ARI",
-      "adp": 203,
+      "adp": 203.1,
       "min": 80,
       "max": 240,
-      "stddev": 25.53,
-      "count": 323,
+      "stddev": 25.56,
+      "count": 324,
       "platforms": {
-        "Sleeper": 313,
+        "Sleeper": 314,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -3187,13 +3187,13 @@
       "name": "Nicholas Singleton",
       "position": "RB",
       "team": "TEN",
-      "adp": 205.96,
+      "adp": 205.98,
       "min": 121,
       "max": 240,
-      "stddev": 19.13,
-      "count": 382,
+      "stddev": 19.11,
+      "count": 383,
       "platforms": {
-        "Sleeper": 369,
+        "Sleeper": 370,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -3229,21 +3229,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Kirk Cousins",
-      "position": "QB",
-      "team": "LV",
-      "adp": 206.99,
-      "min": 103,
-      "max": 240,
-      "stddev": 23.84,
-      "count": 328,
-      "platforms": {
-        "Sleeper": 311,
-        "MFL": 17
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Brandon Aiyuk",
       "position": "WR",
       "team": "SF",
@@ -3255,6 +3240,21 @@
       "platforms": {
         "Sleeper": 330,
         "MFL": 16
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Kirk Cousins",
+      "position": "QB",
+      "team": "LV",
+      "adp": 207.02,
+      "min": 103,
+      "max": 240,
+      "stddev": 23.8,
+      "count": 329,
+      "platforms": {
+        "Sleeper": 312,
+        "MFL": 17
       },
       "platformLabel": "Both"
     },
@@ -3382,13 +3382,13 @@
       "name": "Mike Washington",
       "position": "RB",
       "team": "LV",
-      "adp": 210.39,
+      "adp": 210.42,
       "min": 148,
       "max": 240,
-      "stddev": 18.37,
-      "count": 324,
+      "stddev": 18.35,
+      "count": 325,
       "platforms": {
-        "Sleeper": 313,
+        "Sleeper": 314,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -3442,13 +3442,13 @@
       "name": "Chris Bell",
       "position": "WR",
       "team": "MIA",
-      "adp": 211.11,
+      "adp": 211.12,
       "min": 142,
       "max": 240,
-      "stddev": 18.86,
-      "count": 333,
+      "stddev": 18.83,
+      "count": 334,
       "platforms": {
-        "Sleeper": 322,
+        "Sleeper": 323,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -3472,13 +3472,13 @@
       "name": "Kimani Vidal",
       "position": "RB",
       "team": "LAC",
-      "adp": 211.34,
+      "adp": 211.35,
       "min": 126,
       "max": 240,
-      "stddev": 18.49,
-      "count": 289,
+      "stddev": 18.46,
+      "count": 290,
       "platforms": {
-        "Sleeper": 277,
+        "Sleeper": 278,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -4759,21 +4759,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Eli Raridon",
-      "position": "TE",
-      "team": "NE",
-      "adp": 223.85,
-      "min": 165,
-      "max": 240,
-      "stddev": 14.28,
-      "count": 73,
-      "platforms": {
-        "Sleeper": 67,
-        "MFL": 6
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Joe Flacco",
       "position": "QB",
       "team": "CIN",
@@ -4829,6 +4814,21 @@
       "count": 68,
       "platforms": {
         "Sleeper": 62,
+        "MFL": 6
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Eli Raridon",
+      "position": "TE",
+      "team": "NE",
+      "adp": 224.07,
+      "min": 165,
+      "max": 240,
+      "stddev": 14.3,
+      "count": 74,
+      "platforms": {
+        "Sleeper": 68,
         "MFL": 6
       },
       "platformLabel": "Both"
