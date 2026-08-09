@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T01:29:34.418Z",
+  "generated_at": "2026-08-09T03:19:54.491Z",
   "source_drafts": 402,
   "player_count": 426,
   "players": [
@@ -3289,21 +3289,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Braelon Allen",
-      "position": "RB",
-      "team": "NYJ",
-      "adp": 208.63,
-      "min": 150,
-      "max": 240,
-      "stddev": 17.89,
-      "count": 343,
-      "platforms": {
-        "Sleeper": 331,
-        "MFL": 12
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Taysom Hill",
       "position": "TE",
       "team": "",
@@ -3315,6 +3300,21 @@
       "platforms": {
         "Sleeper": 3,
         "MFL": 3
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Braelon Allen",
+      "position": "RB",
+      "team": "NYJ",
+      "adp": 208.69,
+      "min": 150,
+      "max": 240,
+      "stddev": 17.9,
+      "count": 344,
+      "platforms": {
+        "Sleeper": 332,
+        "MFL": 12
       },
       "platformLabel": "Both"
     },
@@ -4102,13 +4102,13 @@
       "name": "Christian Kirk",
       "position": "WR",
       "team": "SF",
-      "adp": 219.11,
+      "adp": 219.08,
       "min": 102,
       "max": 240,
-      "stddev": 17.28,
-      "count": 219,
+      "stddev": 17.25,
+      "count": 220,
       "platforms": {
-        "Sleeper": 215,
+        "Sleeper": 216,
         "MFL": 4
       },
       "platformLabel": "Both"
@@ -4282,13 +4282,13 @@
       "name": "Marvin Mims",
       "position": "WR",
       "team": "DEN",
-      "adp": 220.14,
+      "adp": 220.12,
       "min": 169,
       "max": 240,
-      "stddev": 16.03,
-      "count": 94,
+      "stddev": 15.95,
+      "count": 95,
       "platforms": {
-        "Sleeper": 83,
+        "Sleeper": 84,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -4297,13 +4297,13 @@
       "name": "Jaylen Wright",
       "position": "RB",
       "team": "MIA",
-      "adp": 220.23,
+      "adp": 220.28,
       "min": 164,
       "max": 240,
-      "stddev": 14.35,
-      "count": 202,
+      "stddev": 14.33,
+      "count": 203,
       "platforms": {
-        "Sleeper": 195,
+        "Sleeper": 196,
         "MFL": 7
       },
       "platformLabel": "Both"
