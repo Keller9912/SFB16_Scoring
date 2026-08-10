@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T21:59:46.450Z",
+  "generated_at": "2026-08-10T22:47:05.457Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -3217,13 +3217,13 @@
       "name": "Troy Franklin",
       "position": "WR",
       "team": "DEN",
-      "adp": 206.51,
+      "adp": 206.55,
       "min": 124,
       "max": 240,
-      "stddev": 20.13,
-      "count": 360,
+      "stddev": 20.12,
+      "count": 361,
       "platforms": {
-        "Sleeper": 344,
+        "Sleeper": 345,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3397,13 +3397,13 @@
       "name": "Ted Hurst",
       "position": "WR",
       "team": "TB",
-      "adp": 210.51,
+      "adp": 210.58,
       "min": 144,
       "max": 240,
-      "stddev": 17.67,
-      "count": 375,
+      "stddev": 17.7,
+      "count": 376,
       "platforms": {
-        "Sleeper": 365,
+        "Sleeper": 366,
         "MFL": 10
       },
       "platformLabel": "Both"
@@ -3967,13 +3967,13 @@
       "name": "Elijah Sarratt",
       "position": "WR",
       "team": "BAL",
-      "adp": 217.76,
+      "adp": 217.82,
       "min": 153,
       "max": 240,
       "stddev": 17.27,
-      "count": 283,
+      "count": 284,
       "platforms": {
-        "Sleeper": 281,
+        "Sleeper": 282,
         "MFL": 2
       },
       "platformLabel": "Both"
@@ -4234,21 +4234,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Carson Beck",
-      "position": "QB",
-      "team": "ARI",
-      "adp": 220.24,
-      "min": 165,
-      "max": 240,
-      "stddev": 15.38,
-      "count": 126,
-      "platforms": {
-        "Sleeper": 119,
-        "MFL": 7
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Xavier Legette",
       "position": "WR",
       "team": "CAR",
@@ -4267,13 +4252,28 @@
       "name": "Jaylen Wright",
       "position": "RB",
       "team": "MIA",
-      "adp": 220.31,
+      "adp": 220.33,
       "min": 164,
       "max": 240,
-      "stddev": 14.31,
-      "count": 204,
+      "stddev": 14.27,
+      "count": 205,
       "platforms": {
-        "Sleeper": 197,
+        "Sleeper": 198,
+        "MFL": 7
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Carson Beck",
+      "position": "QB",
+      "team": "ARI",
+      "adp": 220.39,
+      "min": 165,
+      "max": 240,
+      "stddev": 15.42,
+      "count": 127,
+      "platforms": {
+        "Sleeper": 120,
         "MFL": 7
       },
       "platformLabel": "Both"
@@ -4579,21 +4579,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Anthony Richardson",
-      "position": "QB",
-      "team": "IND",
-      "adp": 222.9,
-      "min": 174,
-      "max": 240,
-      "stddev": 14.42,
-      "count": 88,
-      "platforms": {
-        "Sleeper": 87,
-        "MFL": 1
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Devin Duvernay",
       "position": "WR",
       "team": "ARI",
@@ -4622,6 +4607,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Anthony Richardson",
+      "position": "QB",
+      "team": "IND",
+      "adp": 223.03,
+      "min": 174,
+      "max": 240,
+      "stddev": 14.4,
+      "count": 89,
+      "platforms": {
+        "Sleeper": 88,
+        "MFL": 1
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Justice Hill",
