@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09T23:46:16.277Z",
+  "generated_at": "2026-08-10T01:39:53.301Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -3067,13 +3067,13 @@
       "name": "Tyreek Hill",
       "position": "WR",
       "team": "",
-      "adp": 199.75,
+      "adp": 199.83,
       "min": 111,
       "max": 240,
-      "stddev": 24.32,
-      "count": 317,
+      "stddev": 24.33,
+      "count": 318,
       "platforms": {
-        "Sleeper": 311,
+        "Sleeper": 312,
         "MFL": 6
       },
       "platformLabel": "Both"
@@ -3217,13 +3217,13 @@
       "name": "Troy Franklin",
       "position": "WR",
       "team": "DEN",
-      "adp": 206.34,
+      "adp": 206.43,
       "min": 124,
       "max": 240,
-      "stddev": 20.05,
-      "count": 358,
+      "stddev": 20.1,
+      "count": 359,
       "platforms": {
-        "Sleeper": 342,
+        "Sleeper": 343,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3724,21 +3724,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "J.J. McCarthy",
-      "position": "QB",
-      "team": "MIN",
-      "adp": 214.98,
-      "min": 136,
-      "max": 240,
-      "stddev": 20.08,
-      "count": 240,
-      "platforms": {
-        "Sleeper": 229,
-        "MFL": 11
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Cedric Tillman",
       "position": "WR",
       "team": "CLE",
@@ -3752,6 +3737,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "J.J. McCarthy",
+      "position": "QB",
+      "team": "MIN",
+      "adp": 215.08,
+      "min": 136,
+      "max": 240,
+      "stddev": 20.1,
+      "count": 241,
+      "platforms": {
+        "Sleeper": 230,
+        "MFL": 11
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Cade Klubnik",
@@ -3967,13 +3967,13 @@
       "name": "Elijah Sarratt",
       "position": "WR",
       "team": "BAL",
-      "adp": 217.68,
+      "adp": 217.76,
       "min": 153,
       "max": 240,
-      "stddev": 17.26,
-      "count": 282,
+      "stddev": 17.27,
+      "count": 283,
       "platforms": {
-        "Sleeper": 280,
+        "Sleeper": 281,
         "MFL": 2
       },
       "platformLabel": "Both"
@@ -4207,13 +4207,13 @@
       "name": "Darius Slayton",
       "position": "WR",
       "team": "NYG",
-      "adp": 219.9,
+      "adp": 219.95,
       "min": 159,
       "max": 240,
-      "stddev": 17.25,
-      "count": 79,
+      "stddev": 17.14,
+      "count": 80,
       "platforms": {
-        "Sleeper": 66,
+        "Sleeper": 67,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -4624,21 +4624,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Zavion Thomas",
-      "position": "WR",
-      "team": "CHI",
-      "adp": 223.06,
-      "min": 178,
-      "max": 240,
-      "stddev": 15.41,
-      "count": 31,
-      "platforms": {
-        "Sleeper": 29,
-        "MFL": 2
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Justice Hill",
       "position": "RB",
       "team": "BAL",
@@ -4650,6 +4635,21 @@
       "platforms": {
         "Sleeper": 51,
         "MFL": 5
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Zavion Thomas",
+      "position": "WR",
+      "team": "CHI",
+      "adp": 223.5,
+      "min": 178,
+      "max": 240,
+      "stddev": 15.36,
+      "count": 32,
+      "platforms": {
+        "Sleeper": 30,
+        "MFL": 2
       },
       "platformLabel": "Both"
     },
@@ -5479,21 +5479,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Brashard Smith",
-      "position": "RB",
-      "team": "KC",
-      "adp": 230.29,
-      "min": 210,
-      "max": 240,
-      "stddev": 9.71,
-      "count": 7,
-      "platforms": {
-        "Sleeper": 7,
-        "MFL": 0
-      },
-      "platformLabel": "Sleeper"
-    },
-    {
       "name": "Tanner Koziol",
       "position": "TE",
       "team": "JAX",
@@ -5624,6 +5609,21 @@
       "count": 1,
       "platforms": {
         "Sleeper": 1,
+        "MFL": 0
+      },
+      "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Brashard Smith",
+      "position": "RB",
+      "team": "KC",
+      "adp": 231.13,
+      "min": 210,
+      "max": 240,
+      "stddev": 9.35,
+      "count": 8,
+      "platforms": {
+        "Sleeper": 8,
         "MFL": 0
       },
       "platformLabel": "Sleeper"
