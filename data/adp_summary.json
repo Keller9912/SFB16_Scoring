@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T14:36:54.061Z",
+  "generated_at": "2026-08-10T15:37:44.445Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -2869,21 +2869,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Isiah Pacheco",
-      "position": "RB",
-      "team": "DET",
-      "adp": 190.37,
-      "min": 136,
-      "max": 235,
-      "stddev": 16.97,
-      "count": 415,
-      "platforms": {
-        "Sleeper": 398,
-        "MFL": 17
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Tre' Harris",
       "position": "WR",
       "team": "LAC",
@@ -2894,6 +2879,21 @@
       "count": 415,
       "platforms": {
         "Sleeper": 398,
+        "MFL": 17
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Isiah Pacheco",
+      "position": "RB",
+      "team": "DET",
+      "adp": 190.47,
+      "min": 136,
+      "max": 235,
+      "stddev": 17.09,
+      "count": 416,
+      "platforms": {
+        "Sleeper": 399,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3217,13 +3217,13 @@
       "name": "Troy Franklin",
       "position": "WR",
       "team": "DEN",
-      "adp": 206.43,
+      "adp": 206.51,
       "min": 124,
       "max": 240,
-      "stddev": 20.1,
-      "count": 359,
+      "stddev": 20.13,
+      "count": 360,
       "platforms": {
-        "Sleeper": 343,
+        "Sleeper": 344,
         "MFL": 16
       },
       "platformLabel": "Both"
@@ -3322,13 +3322,13 @@
       "name": "Jaylin Noel",
       "position": "WR",
       "team": "HOU",
-      "adp": 209.03,
+      "adp": 209.1,
       "min": 142,
       "max": 240,
-      "stddev": 18.69,
-      "count": 344,
+      "stddev": 18.71,
+      "count": 345,
       "platforms": {
-        "Sleeper": 331,
+        "Sleeper": 332,
         "MFL": 13
       },
       "platformLabel": "Both"
