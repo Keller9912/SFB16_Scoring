@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T16:32:20.225Z",
+  "generated_at": "2026-08-10T17:37:30.368Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -3247,13 +3247,13 @@
       "name": "Kirk Cousins",
       "position": "QB",
       "team": "LV",
-      "adp": 207.12,
+      "adp": 207.15,
       "min": 103,
       "max": 240,
-      "stddev": 23.77,
-      "count": 331,
+      "stddev": 23.75,
+      "count": 332,
       "platforms": {
-        "Sleeper": 314,
+        "Sleeper": 315,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3454,21 +3454,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Cooper Kupp",
-      "position": "WR",
-      "team": "SEA",
-      "adp": 211.34,
-      "min": 153,
-      "max": 240,
-      "stddev": 19.23,
-      "count": 302,
-      "platforms": {
-        "Sleeper": 287,
-        "MFL": 15
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Kimani Vidal",
       "position": "RB",
       "team": "LAC",
@@ -3480,6 +3465,21 @@
       "platforms": {
         "Sleeper": 278,
         "MFL": 12
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Cooper Kupp",
+      "position": "WR",
+      "team": "SEA",
+      "adp": 211.36,
+      "min": 153,
+      "max": 240,
+      "stddev": 19.21,
+      "count": 303,
+      "platforms": {
+        "Sleeper": 288,
+        "MFL": 15
       },
       "platformLabel": "Both"
     },
@@ -3802,13 +3802,13 @@
       "name": "Dontayvion Wicks",
       "position": "WR",
       "team": "PHI",
-      "adp": 216.38,
+      "adp": 216.44,
       "min": 157,
       "max": 240,
-      "stddev": 18.46,
-      "count": 279,
+      "stddev": 18.45,
+      "count": 280,
       "platforms": {
-        "Sleeper": 266,
+        "Sleeper": 267,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -3844,21 +3844,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "MarShawn Lloyd",
-      "position": "RB",
-      "team": "GB",
-      "adp": 216.8,
-      "min": 159,
-      "max": 240,
-      "stddev": 17.14,
-      "count": 222,
-      "platforms": {
-        "Sleeper": 210,
-        "MFL": 12
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Cyrus Allen",
       "position": "WR",
       "team": "KC",
@@ -3870,6 +3855,21 @@
       "platforms": {
         "Sleeper": 43,
         "MFL": 1
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "MarShawn Lloyd",
+      "position": "RB",
+      "team": "GB",
+      "adp": 216.89,
+      "min": 159,
+      "max": 240,
+      "stddev": 17.15,
+      "count": 223,
+      "platforms": {
+        "Sleeper": 211,
+        "MFL": 12
       },
       "platformLabel": "Both"
     },
@@ -3907,13 +3907,13 @@
       "name": "Darnell Washington",
       "position": "TE",
       "team": "PIT",
-      "adp": 217.01,
+      "adp": 217.1,
       "min": 155,
       "max": 240,
-      "stddev": 17.43,
-      "count": 215,
+      "stddev": 17.44,
+      "count": 216,
       "platforms": {
-        "Sleeper": 207,
+        "Sleeper": 208,
         "MFL": 8
       },
       "platformLabel": "Both"
@@ -4087,13 +4087,13 @@
       "name": "Mac Jones",
       "position": "QB",
       "team": "SF",
-      "adp": 219.22,
+      "adp": 219.32,
       "min": 165,
       "max": 240,
-      "stddev": 17.92,
-      "count": 163,
+      "stddev": 17.91,
+      "count": 164,
       "platforms": {
-        "Sleeper": 158,
+        "Sleeper": 159,
         "MFL": 5
       },
       "platformLabel": "Both"
@@ -6079,6 +6079,21 @@
       "platformLabel": "Sleeper"
     },
     {
+      "name": "Seth McGowan",
+      "position": "RB",
+      "team": "IND",
+      "adp": 235.4,
+      "min": 233,
+      "max": 240,
+      "stddev": 2.73,
+      "count": 5,
+      "platforms": {
+        "Sleeper": 5,
+        "MFL": 0
+      },
+      "platformLabel": "Sleeper"
+    },
+    {
       "name": "John Metchie",
       "position": "WR",
       "team": "CAR",
@@ -6119,21 +6134,6 @@
       "count": 1,
       "platforms": {
         "Sleeper": 1,
-        "MFL": 0
-      },
-      "platformLabel": "Sleeper"
-    },
-    {
-      "name": "Seth McGowan",
-      "position": "RB",
-      "team": "IND",
-      "adp": 236,
-      "min": 233,
-      "max": 240,
-      "stddev": 2.74,
-      "count": 4,
-      "platforms": {
-        "Sleeper": 4,
         "MFL": 0
       },
       "platformLabel": "Sleeper"
