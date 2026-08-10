@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T08:17:17.865Z",
+  "generated_at": "2026-08-10T09:57:24.606Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -4012,13 +4012,13 @@
       "name": "Elijah Arroyo",
       "position": "TE",
       "team": "SEA",
-      "adp": 218.33,
+      "adp": 218.37,
       "min": 169,
       "max": 240,
-      "stddev": 17.09,
-      "count": 131,
+      "stddev": 17.04,
+      "count": 132,
       "platforms": {
-        "Sleeper": 127,
+        "Sleeper": 128,
         "MFL": 4
       },
       "platformLabel": "Both"
@@ -4249,21 +4249,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Carson Beck",
-      "position": "QB",
-      "team": "ARI",
-      "adp": 220.12,
-      "min": 165,
-      "max": 240,
-      "stddev": 15.47,
-      "count": 124,
-      "platforms": {
-        "Sleeper": 117,
-        "MFL": 7
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Marvin Mims",
       "position": "WR",
       "team": "DEN",
@@ -4275,6 +4260,21 @@
       "platforms": {
         "Sleeper": 84,
         "MFL": 11
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Carson Beck",
+      "position": "QB",
+      "team": "ARI",
+      "adp": 220.17,
+      "min": 165,
+      "max": 240,
+      "stddev": 15.42,
+      "count": 125,
+      "platforms": {
+        "Sleeper": 118,
+        "MFL": 7
       },
       "platformLabel": "Both"
     },
