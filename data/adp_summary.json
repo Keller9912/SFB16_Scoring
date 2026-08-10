@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T21:11:44.775Z",
+  "generated_at": "2026-08-10T21:59:46.450Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -3607,13 +3607,13 @@
       "name": "Tory Horton",
       "position": "WR",
       "team": "SEA",
-      "adp": 213.69,
+      "adp": 213.76,
       "min": 159,
       "max": 240,
-      "stddev": 18.03,
-      "count": 298,
+      "stddev": 18.04,
+      "count": 299,
       "platforms": {
-        "Sleeper": 291,
+        "Sleeper": 292,
         "MFL": 7
       },
       "platformLabel": "Both"
@@ -3709,21 +3709,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Jack Bech",
-      "position": "WR",
-      "team": "LV",
-      "adp": 214.96,
-      "min": 135,
-      "max": 240,
-      "stddev": 16.81,
-      "count": 318,
-      "platforms": {
-        "Sleeper": 309,
-        "MFL": 9
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Cedric Tillman",
       "position": "WR",
       "team": "CLE",
@@ -3737,6 +3722,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Jack Bech",
+      "position": "WR",
+      "team": "LV",
+      "adp": 215.02,
+      "min": 135,
+      "max": 240,
+      "stddev": 16.82,
+      "count": 319,
+      "platforms": {
+        "Sleeper": 310,
+        "MFL": 9
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "J.J. McCarthy",
@@ -4012,13 +4012,13 @@
       "name": "Justin Fields",
       "position": "QB",
       "team": "KC",
-      "adp": 218.69,
+      "adp": 218.83,
       "min": 162,
       "max": 240,
-      "stddev": 18.81,
-      "count": 155,
+      "stddev": 18.83,
+      "count": 156,
       "platforms": {
-        "Sleeper": 152,
+        "Sleeper": 153,
         "MFL": 3
       },
       "platformLabel": "Both"
@@ -4282,13 +4282,13 @@
       "name": "Caleb Douglas",
       "position": "WR",
       "team": "MIA",
-      "adp": 220.32,
+      "adp": 220.51,
       "min": 116,
       "max": 240,
-      "stddev": 22.63,
-      "count": 87,
+      "stddev": 22.57,
+      "count": 88,
       "platforms": {
-        "Sleeper": 84,
+        "Sleeper": 85,
         "MFL": 3
       },
       "platformLabel": "Both"
