@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T20:24:32.654Z",
+  "generated_at": "2026-08-10T21:11:44.775Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -3904,21 +3904,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Darnell Washington",
-      "position": "TE",
-      "team": "PIT",
-      "adp": 217.1,
-      "min": 155,
-      "max": 240,
-      "stddev": 17.44,
-      "count": 216,
-      "platforms": {
-        "Sleeper": 208,
-        "MFL": 8
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Tyquan Thornton",
       "position": "WR",
       "team": "KC",
@@ -3930,6 +3915,21 @@
       "platforms": {
         "Sleeper": 177,
         "MFL": 15
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Darnell Washington",
+      "position": "TE",
+      "team": "PIT",
+      "adp": 217.19,
+      "min": 155,
+      "max": 240,
+      "stddev": 17.46,
+      "count": 217,
+      "platforms": {
+        "Sleeper": 209,
+        "MFL": 8
       },
       "platformLabel": "Both"
     },
@@ -4714,21 +4714,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Devaughn Vele",
-      "position": "WR",
-      "team": "NO",
-      "adp": 223.6,
-      "min": 166,
-      "max": 240,
-      "stddev": 15.16,
-      "count": 105,
-      "platforms": {
-        "Sleeper": 102,
-        "MFL": 3
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Jeff Caldwell",
       "position": "WR",
       "team": "KC",
@@ -4742,6 +4727,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Devaughn Vele",
+      "position": "WR",
+      "team": "NO",
+      "adp": 223.75,
+      "min": 166,
+      "max": 240,
+      "stddev": 15.16,
+      "count": 106,
+      "platforms": {
+        "Sleeper": 103,
+        "MFL": 3
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Jahan Dotson",
