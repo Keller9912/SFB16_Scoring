@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T03:31:09.986Z",
+  "generated_at": "2026-08-10T05:07:34.201Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -3067,13 +3067,13 @@
       "name": "Tyreek Hill",
       "position": "WR",
       "team": "",
-      "adp": 199.83,
+      "adp": 199.91,
       "min": 111,
       "max": 240,
       "stddev": 24.33,
-      "count": 318,
+      "count": 319,
       "platforms": {
-        "Sleeper": 312,
+        "Sleeper": 313,
         "MFL": 6
       },
       "platformLabel": "Both"
@@ -3307,13 +3307,13 @@
       "name": "Braelon Allen",
       "position": "RB",
       "team": "NYJ",
-      "adp": 208.69,
+      "adp": 208.74,
       "min": 150,
       "max": 240,
-      "stddev": 17.9,
-      "count": 344,
+      "stddev": 17.89,
+      "count": 345,
       "platforms": {
-        "Sleeper": 332,
+        "Sleeper": 333,
         "MFL": 12
       },
       "platformLabel": "Both"
@@ -3937,13 +3937,13 @@
       "name": "Michael Mayer",
       "position": "TE",
       "team": "LV",
-      "adp": 217.49,
+      "adp": 217.5,
       "min": 159,
       "max": 240,
-      "stddev": 15.95,
-      "count": 272,
+      "stddev": 15.92,
+      "count": 273,
       "platforms": {
-        "Sleeper": 261,
+        "Sleeper": 262,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -4042,21 +4042,6 @@
       "name": "Nick Chubb",
       "position": "RB",
       "team": "",
-      "adp": 219,
-      "min": 219,
-      "max": 219,
-      "stddev": 0,
-      "count": 1,
-      "platforms": {
-        "Sleeper": 1,
-        "MFL": 0
-      },
-      "platformLabel": "Sleeper"
-    },
-    {
-      "name": "Mitchell Evans",
-      "position": "TE",
-      "team": "CAR",
       "adp": 219,
       "min": 219,
       "max": 219,
@@ -4417,13 +4402,13 @@
       "name": "Kyle Williams",
       "position": "WR",
       "team": "NE",
-      "adp": 221.09,
+      "adp": 221.14,
       "min": 172,
       "max": 239,
-      "stddev": 14.23,
-      "count": 68,
+      "stddev": 14.13,
+      "count": 69,
       "platforms": {
-        "Sleeper": 68,
+        "Sleeper": 69,
         "MFL": 0
       },
       "platformLabel": "Sleeper"
@@ -4484,6 +4469,21 @@
       "count": 4,
       "platforms": {
         "Sleeper": 4,
+        "MFL": 0
+      },
+      "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Mitchell Evans",
+      "position": "TE",
+      "team": "CAR",
+      "adp": 221.5,
+      "min": 219,
+      "max": 224,
+      "stddev": 2.5,
+      "count": 2,
+      "platforms": {
+        "Sleeper": 2,
         "MFL": 0
       },
       "platformLabel": "Sleeper"
