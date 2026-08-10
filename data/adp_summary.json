@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T18:34:07.372Z",
+  "generated_at": "2026-08-10T19:42:37.048Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -3172,13 +3172,13 @@
       "name": "Deshaun Watson",
       "position": "QB",
       "team": "CLE",
-      "adp": 205.44,
+      "adp": 205.52,
       "min": 136,
       "max": 240,
-      "stddev": 21.52,
-      "count": 344,
+      "stddev": 21.53,
+      "count": 345,
       "platforms": {
-        "Sleeper": 327,
+        "Sleeper": 328,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3544,21 +3544,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Kaytron Allen",
-      "position": "RB",
-      "team": "WAS",
-      "adp": 212.7,
-      "min": 151,
-      "max": 240,
-      "stddev": 18.11,
-      "count": 324,
-      "platforms": {
-        "Sleeper": 311,
-        "MFL": 13
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "KaVontae Turpin",
       "position": "WR",
       "team": "DAL",
@@ -3572,6 +3557,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Kaytron Allen",
+      "position": "RB",
+      "team": "WAS",
+      "adp": 212.73,
+      "min": 151,
+      "max": 240,
+      "stddev": 18.09,
+      "count": 325,
+      "platforms": {
+        "Sleeper": 312,
+        "MFL": 13
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Rashod Bateman",
@@ -3874,21 +3874,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Sean Tucker",
-      "position": "RB",
-      "team": "TB",
-      "adp": 217,
-      "min": 163,
-      "max": 240,
-      "stddev": 16.81,
-      "count": 241,
-      "platforms": {
-        "Sleeper": 234,
-        "MFL": 7
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Garrett Nussmeier",
       "position": "QB",
       "team": "KC",
@@ -3902,6 +3887,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Sean Tucker",
+      "position": "RB",
+      "team": "TB",
+      "adp": 217.06,
+      "min": 163,
+      "max": 240,
+      "stddev": 16.8,
+      "count": 242,
+      "platforms": {
+        "Sleeper": 235,
+        "MFL": 7
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Darnell Washington",
@@ -4159,21 +4159,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Darius Slayton",
-      "position": "WR",
-      "team": "NYG",
-      "adp": 219.95,
-      "min": 159,
-      "max": 240,
-      "stddev": 17.14,
-      "count": 80,
-      "platforms": {
-        "Sleeper": 67,
-        "MFL": 13
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Andy Dalton",
       "position": "QB",
       "team": "PHI",
@@ -4230,6 +4215,21 @@
       "platforms": {
         "Sleeper": 84,
         "MFL": 11
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Darius Slayton",
+      "position": "WR",
+      "team": "NYG",
+      "adp": 220.12,
+      "min": 159,
+      "max": 240,
+      "stddev": 17.11,
+      "count": 81,
+      "platforms": {
+        "Sleeper": 68,
+        "MFL": 13
       },
       "platformLabel": "Both"
     },
