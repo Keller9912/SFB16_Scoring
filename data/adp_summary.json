@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T17:37:30.368Z",
+  "generated_at": "2026-08-10T18:34:07.372Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -2827,13 +2827,13 @@
       "name": "Malik Washington",
       "position": "WR",
       "team": "MIA",
-      "adp": 186.59,
+      "adp": 186.67,
       "min": 126,
       "max": 238,
-      "stddev": 20.81,
-      "count": 411,
+      "stddev": 20.85,
+      "count": 412,
       "platforms": {
-        "Sleeper": 394,
+        "Sleeper": 395,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3037,13 +3037,13 @@
       "name": "Michael Penix",
       "position": "QB",
       "team": "ATL",
-      "adp": 197.92,
+      "adp": 197.98,
       "min": 109,
       "max": 239,
       "stddev": 22.98,
-      "count": 354,
+      "count": 355,
       "platforms": {
-        "Sleeper": 337,
+        "Sleeper": 338,
         "MFL": 17
       },
       "platformLabel": "Both"
@@ -3382,13 +3382,13 @@
       "name": "Mike Washington",
       "position": "RB",
       "team": "LV",
-      "adp": 210.41,
+      "adp": 210.49,
       "min": 148,
       "max": 240,
-      "stddev": 18.32,
-      "count": 326,
+      "stddev": 18.35,
+      "count": 327,
       "platforms": {
-        "Sleeper": 315,
+        "Sleeper": 316,
         "MFL": 11
       },
       "platformLabel": "Both"
@@ -3442,29 +3442,14 @@
       "name": "Chris Bell",
       "position": "WR",
       "team": "MIA",
-      "adp": 211.17,
+      "adp": 211.26,
       "min": 142,
       "max": 240,
-      "stddev": 18.83,
-      "count": 335,
+      "stddev": 18.86,
+      "count": 336,
       "platforms": {
-        "Sleeper": 324,
+        "Sleeper": 325,
         "MFL": 11
-      },
-      "platformLabel": "Both"
-    },
-    {
-      "name": "Kimani Vidal",
-      "position": "RB",
-      "team": "LAC",
-      "adp": 211.35,
-      "min": 126,
-      "max": 240,
-      "stddev": 18.46,
-      "count": 290,
-      "platforms": {
-        "Sleeper": 278,
-        "MFL": 12
       },
       "platformLabel": "Both"
     },
@@ -3480,6 +3465,21 @@
       "platforms": {
         "Sleeper": 288,
         "MFL": 15
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Kimani Vidal",
+      "position": "RB",
+      "team": "LAC",
+      "adp": 211.44,
+      "min": 126,
+      "max": 240,
+      "stddev": 18.49,
+      "count": 291,
+      "platforms": {
+        "Sleeper": 279,
+        "MFL": 12
       },
       "platformLabel": "Both"
     },
@@ -4057,13 +4057,13 @@
       "name": "Keenan Allen",
       "position": "WR",
       "team": "",
-      "adp": 219.01,
+      "adp": 219.09,
       "min": 137,
       "max": 240,
-      "stddev": 16.78,
-      "count": 248,
+      "stddev": 16.79,
+      "count": 249,
       "platforms": {
-        "Sleeper": 241,
+        "Sleeper": 242,
         "MFL": 7
       },
       "platformLabel": "Both"
