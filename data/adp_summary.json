@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T19:42:37.048Z",
+  "generated_at": "2026-08-10T20:24:32.654Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -3607,13 +3607,13 @@
       "name": "Tory Horton",
       "position": "WR",
       "team": "SEA",
-      "adp": 213.62,
+      "adp": 213.69,
       "min": 159,
       "max": 240,
-      "stddev": 18.02,
-      "count": 297,
+      "stddev": 18.03,
+      "count": 298,
       "platforms": {
-        "Sleeper": 290,
+        "Sleeper": 291,
         "MFL": 7
       },
       "platformLabel": "Both"
@@ -4669,21 +4669,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Jahan Dotson",
-      "position": "WR",
-      "team": "ATL",
-      "adp": 223.54,
-      "min": 200,
-      "max": 239,
-      "stddev": 11.07,
-      "count": 35,
-      "platforms": {
-        "Sleeper": 33,
-        "MFL": 2
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Darren Waller",
       "position": "TE",
       "team": "",
@@ -4757,6 +4742,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Jahan Dotson",
+      "position": "WR",
+      "team": "ATL",
+      "adp": 223.81,
+      "min": 200,
+      "max": 239,
+      "stddev": 11.02,
+      "count": 36,
+      "platforms": {
+        "Sleeper": 34,
+        "MFL": 2
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Joe Flacco",
