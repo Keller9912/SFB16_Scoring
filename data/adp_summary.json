@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T02:27:56.396Z",
+  "generated_at": "2026-08-11T04:03:01.510Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -3604,21 +3604,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Tory Horton",
-      "position": "WR",
-      "team": "SEA",
-      "adp": 213.76,
-      "min": 159,
-      "max": 240,
-      "stddev": 18.04,
-      "count": 299,
-      "platforms": {
-        "Sleeper": 292,
-        "MFL": 7
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Luke McCaffrey",
       "position": "WR",
       "team": "WAS",
@@ -3630,6 +3615,21 @@
       "platforms": {
         "Sleeper": 1,
         "MFL": 13
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Tory Horton",
+      "position": "WR",
+      "team": "SEA",
+      "adp": 213.8,
+      "min": 159,
+      "max": 240,
+      "stddev": 18.02,
+      "count": 300,
+      "platforms": {
+        "Sleeper": 293,
+        "MFL": 7
       },
       "platformLabel": "Both"
     },
