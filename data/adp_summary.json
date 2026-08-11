@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-11T17:12:34.426Z",
+  "generated_at": "2026-08-11T18:07:34.615Z",
   "source_drafts": 402,
-  "player_count": 427,
+  "player_count": 428,
   "players": [
     {
       "name": "Puka Nacua",
@@ -6051,6 +6051,21 @@
     {
       "name": "Tyler Lockett",
       "position": "WR",
+      "team": "",
+      "adp": 235,
+      "min": 235,
+      "max": 235,
+      "stddev": 0,
+      "count": 1,
+      "platforms": {
+        "Sleeper": 1,
+        "MFL": 0
+      },
+      "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Anthony Sherman",
+      "position": "RB",
       "team": "",
       "adp": 235,
       "min": 235,
