@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T00:06:22.070Z",
+  "generated_at": "2026-08-11T02:27:56.396Z",
   "source_drafts": 402,
   "player_count": 427,
   "players": [
@@ -3532,13 +3532,13 @@
       "name": "Keon Coleman",
       "position": "WR",
       "team": "BUF",
-      "adp": 212.34,
+      "adp": 212.43,
       "min": 115,
       "max": 240,
-      "stddev": 18.94,
-      "count": 301,
+      "stddev": 18.98,
+      "count": 302,
       "platforms": {
-        "Sleeper": 288,
+        "Sleeper": 289,
         "MFL": 13
       },
       "platformLabel": "Both"
@@ -4054,21 +4054,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Keenan Allen",
-      "position": "WR",
-      "team": "",
-      "adp": 219.09,
-      "min": 137,
-      "max": 240,
-      "stddev": 16.79,
-      "count": 249,
-      "platforms": {
-        "Sleeper": 242,
-        "MFL": 7
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Christian Kirk",
       "position": "WR",
       "team": "SF",
@@ -4080,6 +4065,21 @@
       "platforms": {
         "Sleeper": 219,
         "MFL": 4
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Keenan Allen",
+      "position": "WR",
+      "team": "",
+      "adp": 219.18,
+      "min": 137,
+      "max": 240,
+      "stddev": 16.81,
+      "count": 250,
+      "platforms": {
+        "Sleeper": 243,
+        "MFL": 7
       },
       "platformLabel": "Both"
     },
@@ -4939,21 +4939,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Ja'Tavion Sanders",
-      "position": "TE",
-      "team": "CAR",
-      "adp": 225.25,
-      "min": 192,
-      "max": 240,
-      "stddev": 12.09,
-      "count": 59,
-      "platforms": {
-        "Sleeper": 57,
-        "MFL": 2
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Jalen Royals",
       "position": "WR",
       "team": "KC",
@@ -4967,6 +4952,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Ja'Tavion Sanders",
+      "position": "TE",
+      "team": "CAR",
+      "adp": 225.48,
+      "min": 192,
+      "max": 240,
+      "stddev": 12.11,
+      "count": 60,
+      "platforms": {
+        "Sleeper": 58,
+        "MFL": 2
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Deion Burks",
@@ -5464,21 +5464,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Malik Benson",
-      "position": "WR",
-      "team": "LV",
-      "adp": 230.27,
-      "min": 219,
-      "max": 240,
-      "stddev": 6.3,
-      "count": 11,
-      "platforms": {
-        "Sleeper": 11,
-        "MFL": 0
-      },
-      "platformLabel": "Sleeper"
-    },
-    {
       "name": "Tanner Koziol",
       "position": "TE",
       "team": "JAX",
@@ -5522,6 +5507,21 @@
         "MFL": 1
       },
       "platformLabel": "Both"
+    },
+    {
+      "name": "Malik Benson",
+      "position": "WR",
+      "team": "LV",
+      "adp": 230.92,
+      "min": 219,
+      "max": 240,
+      "stddev": 6.4,
+      "count": 12,
+      "platforms": {
+        "Sleeper": 12,
+        "MFL": 0
+      },
+      "platformLabel": "Sleeper"
     },
     {
       "name": "Kendre Miller",
