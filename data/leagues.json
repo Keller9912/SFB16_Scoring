@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T00:52:10.444Z",
+  "generated_at": "2026-08-11T02:58:18.364Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -33365,8 +33365,8 @@
         "league_id": "1366406812517040128",
         "league_name": "#SFB16 New York - Batman: Arkham Asylum",
         "draft_id": "1366406813834055680",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "78310193410490368",
@@ -33563,8 +33563,8 @@
         "league_id": "1366406482962182144",
         "league_name": "#SFB16 New York - Double Dragon",
         "draft_id": "1366406484149149696",
-        "draft_status": "drafting",
-        "draft_complete": false,
+        "draft_status": "complete",
+        "draft_complete": true,
         "teams": [
           {
             "user_id": "198307560271388672",
@@ -33653,7 +33653,7 @@
           {
             "user_id": "1267298197529710592",
             "username": "bucksdrummer",
-            "team_name": null,
+            "team_name": "Son of a Bech",
             "draft_position": 5
           }
         ]
