@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T18:07:34.615Z",
+  "generated_at": "2026-08-11T19:20:18.320Z",
   "source_drafts": 402,
   "player_count": 428,
   "players": [
@@ -3679,21 +3679,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Demond Claiborne",
-      "position": "RB",
-      "team": "MIN",
-      "adp": 214.67,
-      "min": 166,
-      "max": 240,
-      "stddev": 16.53,
-      "count": 276,
-      "platforms": {
-        "Sleeper": 264,
-        "MFL": 12
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Tez Johnson",
       "position": "WR",
       "team": "TB",
@@ -3707,6 +3692,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Demond Claiborne",
+      "position": "RB",
+      "team": "MIN",
+      "adp": 214.75,
+      "min": 166,
+      "max": 240,
+      "stddev": 16.55,
+      "count": 277,
+      "platforms": {
+        "Sleeper": 265,
+        "MFL": 12
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Cedric Tillman",
@@ -4729,21 +4729,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Devaughn Vele",
-      "position": "WR",
-      "team": "NO",
-      "adp": 223.75,
-      "min": 166,
-      "max": 240,
-      "stddev": 15.16,
-      "count": 106,
-      "platforms": {
-        "Sleeper": 103,
-        "MFL": 3
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Jahan Dotson",
       "position": "WR",
       "team": "ATL",
@@ -4755,6 +4740,21 @@
       "platforms": {
         "Sleeper": 34,
         "MFL": 2
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Devaughn Vele",
+      "position": "WR",
+      "team": "NO",
+      "adp": 223.86,
+      "min": 166,
+      "max": 240,
+      "stddev": 15.14,
+      "count": 107,
+      "platforms": {
+        "Sleeper": 104,
+        "MFL": 3
       },
       "platformLabel": "Both"
     },
@@ -4804,21 +4804,6 @@
       "platformLabel": "Sleeper"
     },
     {
-      "name": "Cole Kmet",
-      "position": "TE",
-      "team": "CHI",
-      "adp": 224.04,
-      "min": 172,
-      "max": 240,
-      "stddev": 13.48,
-      "count": 68,
-      "platforms": {
-        "Sleeper": 62,
-        "MFL": 6
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Eli Raridon",
       "position": "TE",
       "team": "NE",
@@ -4829,6 +4814,21 @@
       "count": 74,
       "platforms": {
         "Sleeper": 68,
+        "MFL": 6
+      },
+      "platformLabel": "Both"
+    },
+    {
+      "name": "Cole Kmet",
+      "position": "TE",
+      "team": "CHI",
+      "adp": 224.26,
+      "min": 172,
+      "max": 240,
+      "stddev": 13.51,
+      "count": 69,
+      "platforms": {
+        "Sleeper": 63,
         "MFL": 6
       },
       "platformLabel": "Both"
@@ -5209,21 +5209,6 @@
       "platformLabel": "Both"
     },
     {
-      "name": "Jameis Winston",
-      "position": "QB",
-      "team": "NYG",
-      "adp": 228.28,
-      "min": 206,
-      "max": 240,
-      "stddev": 9.79,
-      "count": 36,
-      "platforms": {
-        "Sleeper": 33,
-        "MFL": 3
-      },
-      "platformLabel": "Both"
-    },
-    {
       "name": "Jalen Milroe",
       "position": "QB",
       "team": "SEA",
@@ -5237,6 +5222,21 @@
         "MFL": 0
       },
       "platformLabel": "Sleeper"
+    },
+    {
+      "name": "Jameis Winston",
+      "position": "QB",
+      "team": "NYG",
+      "adp": 228.54,
+      "min": 206,
+      "max": 240,
+      "stddev": 9.78,
+      "count": 37,
+      "platforms": {
+        "Sleeper": 34,
+        "MFL": 3
+      },
+      "platformLabel": "Both"
     },
     {
       "name": "Michael Trigg",
