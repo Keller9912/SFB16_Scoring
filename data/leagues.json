@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T21:15:11.101Z",
+  "generated_at": "2026-08-22T21:36:12.852Z",
   "season": "2026",
   "mfl": {
     "league_count": 17,
@@ -1367,7 +1367,7 @@
     ]
   },
   "sleeper": {
-    "league_count": 401,
+    "league_count": 402,
     "leagues": [
       {
         "league_id": "1383225951596314624",
@@ -14344,6 +14344,99 @@
             "username": "bthayer19",
             "team_name": null,
             "draft_position": 5
+          }
+        ]
+      },
+      {
+        "league_id": "1367661999051255808",
+        "league_name": "#SFB16 - NHL94",
+        "draft_id": "1367662000192094208",
+        "draft_status": "complete",
+        "draft_complete": true,
+        "teams": [
+          {
+            "user_id": "333300742045589504",
+            "username": "KTee15",
+            "team_name": null,
+            "draft_position": 4
+          },
+          {
+            "user_id": "334882758356664320",
+            "username": "matthewbetz",
+            "team_name": null,
+            "draft_position": 3
+          },
+          {
+            "user_id": "387437788234223616",
+            "username": "DrakeFantasy",
+            "team_name": null,
+            "draft_position": 1
+          },
+          {
+            "user_id": "432688897135222784",
+            "username": "PatFitz",
+            "team_name": null,
+            "draft_position": 9
+          },
+          {
+            "user_id": "452692167064809472",
+            "username": "JPeekFF",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
+            "user_id": "464989721701904384",
+            "username": "AppleGarthAlgar",
+            "team_name": null,
+            "draft_position": 8
+          },
+          {
+            "user_id": "534182210613678080",
+            "username": "NoisyHuevos",
+            "team_name": null,
+            "draft_position": 11
+          },
+          {
+            "user_id": "584625158648532992",
+            "username": "teamheaney",
+            "team_name": "Heaney",
+            "draft_position": 2
+          },
+          {
+            "user_id": "819245060922130432",
+            "username": "ScottFishBowl",
+            "team_name": null,
+            "draft_position": null
+          },
+          {
+            "user_id": "865641341529530368",
+            "username": "TheBishop83",
+            "team_name": null,
+            "draft_position": 10
+          },
+          {
+            "user_id": "983462004427976704",
+            "username": "InSeasonCup",
+            "team_name": null,
+            "draft_position": 7
+          },
+          {
+            "user_id": "987840089403289600",
+            "username": "kcjoynertfs",
+            "team_name": null,
+            "draft_position": 5
+          },
+          {
+            "user_id": "1124587406809792512",
+            "username": "tejohns",
+            "team_name": null,
+            "draft_position": 12
+          },
+          {
+            "user_id": "1247967038966607872",
+            "username": "BrandonMileski",
+            "team_name": null,
+            "draft_position": 6
           }
         ]
       },
