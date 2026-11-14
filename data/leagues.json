@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-13T22:13:19.883Z",
+  "generated_at": "2026-11-14T02:24:03.557Z",
   "season": "2026",
   "mfl": {
-    "league_count": 17,
+    "league_count": 16,
     "leagues": [
       {
         "league_id": "14494",
@@ -79,86 +79,6 @@
           {
             "franchise_id": "0012",
             "team_name": "Jennifer Eakins",
-            "owner_name": null,
-            "draft_position": 12
-          }
-        ]
-      },
-      {
-        "league_id": "15797",
-        "league_name": "#SFB16 - NHL 2021",
-        "roster_size": 20,
-        "draft_complete": true,
-        "teams": [
-          {
-            "franchise_id": "0001",
-            "team_name": "Christopher Harris",
-            "owner_name": null,
-            "draft_position": 1
-          },
-          {
-            "franchise_id": "0002",
-            "team_name": "Threat Level Midnight",
-            "owner_name": null,
-            "draft_position": 2
-          },
-          {
-            "franchise_id": "0003",
-            "team_name": "Bob Wojton",
-            "owner_name": null,
-            "draft_position": 3
-          },
-          {
-            "franchise_id": "0004",
-            "team_name": "Tyler Albers",
-            "owner_name": null,
-            "draft_position": 4
-          },
-          {
-            "franchise_id": "0005",
-            "team_name": "Jared Lewis",
-            "owner_name": null,
-            "draft_position": 5
-          },
-          {
-            "franchise_id": "0006",
-            "team_name": "MechaToddzilla",
-            "owner_name": null,
-            "draft_position": 6
-          },
-          {
-            "franchise_id": "0007",
-            "team_name": "Michael Hughes",
-            "owner_name": null,
-            "draft_position": 7
-          },
-          {
-            "franchise_id": "0008",
-            "team_name": "Justin Zacek",
-            "owner_name": null,
-            "draft_position": 8
-          },
-          {
-            "franchise_id": "0009",
-            "team_name": "Jonathan Massey",
-            "owner_name": null,
-            "draft_position": 9
-          },
-          {
-            "franchise_id": "0010",
-            "team_name": "Greg Newman",
-            "owner_name": null,
-            "draft_position": 10
-          },
-          {
-            "franchise_id": "0011",
-            "team_name": "Dan Machon",
-            "owner_name": null,
-            "draft_position": 11
-          },
-          {
-            "franchise_id": "0012",
-            "team_name": "Christopher Conti",
             "owner_name": null,
             "draft_position": 12
           }
